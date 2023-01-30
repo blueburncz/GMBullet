@@ -11,6 +11,7 @@ function bt_init() {
 	/* World */
 	global.__bt_world_init           = external_define(dll, "bt_world_init", dll_cdecl, ty_real, 0);
 	global.__bt_world_free           = external_define(dll, "bt_world_free", dll_cdecl, ty_real, 0);
+	global.__bt_world_set_gravity    = external_define(dll, "bt_world_set_gravity", dll_cdecl, ty_real, 3, ty_real, ty_real, ty_real);
 	global.__bt_world_simulate       = external_define(dll, "bt_world_simulate", dll_cdecl, ty_real, 2, ty_real, ty_real);
 	global.__bt_world_simulate_ext   = external_define(dll, "bt_world_simulate_ext", dll_cdecl, ty_real, 3, ty_real, ty_real, ty_real);
 	global.__bt_world_add_body       = external_define(dll, "bt_world_add_body", dll_cdecl, ty_real, 3, ty_real, ty_real, ty_real);

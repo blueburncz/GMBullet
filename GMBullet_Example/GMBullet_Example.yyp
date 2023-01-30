@@ -24,6 +24,7 @@
     {"id":{"name":"bt_body_apply_central_impulse","path":"scripts/bt_body_apply_central_impulse/bt_body_apply_central_impulse.yy",},"order":4,},
     {"id":{"name":"bt_body_apply_force","path":"scripts/bt_body_apply_force/bt_body_apply_force.yy",},"order":5,},
     {"id":{"name":"bt_body_apply_central_force","path":"scripts/bt_body_apply_central_force/bt_body_apply_central_force.yy",},"order":6,},
+    {"id":{"name":"bt_world_set_gravity","path":"scripts/bt_world_set_gravity/bt_world_set_gravity.yy",},"order":7,},
     {"id":{"name":"bt_body_apply_transform","path":"scripts/bt_body_apply_transform/bt_body_apply_transform.yy",},"order":0,},
     {"id":{"name":"bt_body_transform_to_buffer","path":"scripts/bt_body_transform_to_buffer/bt_body_transform_to_buffer.yy",},"order":1,},
     {"id":{"name":"bt_body_get_matrix","path":"scripts/bt_body_get_matrix/bt_body_get_matrix.yy",},"order":2,},
