@@ -1,0 +1,3 @@
+[submodule "Bullet4GM - Source/Dependencies/bullet3"]
+	path = Bullet4GM - Source/Dependencies/bullet3
+	url = https://github.com/bulletphysics/bullet3

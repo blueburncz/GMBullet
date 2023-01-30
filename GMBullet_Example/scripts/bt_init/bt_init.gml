@@ -1,6 +1,8 @@
 /// @description  bt_init();
 function bt_init() {
-	var dll = "GMBullet.dll";
+	var dll = (os_type == os_windows)
+		? "GMBullet.dll"
+		: "libGMBullet.dylib";
 
 	/* Core */
 	global.__bt_init = external_define(dll, "bt_init", dll_cdecl, ty_real, 1, ty_string);

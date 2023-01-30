@@ -4,7 +4,27 @@
 [![License](https://img.shields.io/github/license/blueburncz/GMBullet)](LICENSE)
 [![Discord](https://img.shields.io/discord/298884075585011713?label=Discord)](https://discord.gg/ep2BGPm)
 
-Uses Bullet 3.2.5
+# Building
+Requires [CMake](https://cmake.org) version 3.23 or newer!
+
+```sh
+# Clone the repo, including submodules
+git clone https://github.com/blueburncz/GMBullet.git --recurse-submodules
+
+# Build Bullet
+cd Bullet4GM\ -\ Source/Dependencies/bullet3/
+mkdir build
+cd build
+cmake ..
+cmake --build . --config=Release
+
+# Build GMBullet
+cd ../../../Bullet4GM/
+mkdir build
+cd build
+cmake ..
+cmake --build . --config=Release
+```
 
 # License
 Based on Bullet Physics extension for GameMaker: Studio 1.4 by Okapi, available
