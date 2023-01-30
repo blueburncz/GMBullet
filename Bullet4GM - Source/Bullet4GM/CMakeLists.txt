@@ -42,8 +42,6 @@ target_link_libraries(GMBullet
 
 set(PATH_DATAFILES "${CMAKE_CURRENT_SOURCE_DIR}/../../GMBullet_Example/datafiles")
 
-message(${PATH_DATAFILES})
-
 add_custom_command(
     TARGET GMBullet POST_BUILD
     COMMAND ${CMAKE_COMMAND} -E copy
