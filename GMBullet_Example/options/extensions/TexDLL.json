@@ -1,0 +1,9 @@
+{
+  "extensionId": {
+    "name": "TexDLL",
+    "path": "extensions/TexDLL/TexDLL.yy"
+  },
+  "resourceVersion": "1.0",
+  "resourceType": "GMExtensionConfigSet",
+  "configurables": null
+}

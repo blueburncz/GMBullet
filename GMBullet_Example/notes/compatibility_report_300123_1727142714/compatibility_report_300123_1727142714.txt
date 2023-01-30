@@ -1,0 +1,212 @@
+Converting GML script: ${project_dir}\scripts\bt_init\bt_init.gml
+Converted description /// @description  bt_init();
+
+Converting GML script: ${project_dir}\scripts\bt_free\bt_free.gml
+Converted description /// @description  bt_free();
+
+Converting GML script: ${project_dir}\scripts\bt_world_init\bt_world_init.gml
+Converted description /// @description  bt_world_init();
+
+Converting GML script: ${project_dir}\scripts\bt_world_free\bt_world_free.gml
+Converted description /// @description  bt_world_free();
+
+Converting GML script: ${project_dir}\scripts\bt_world_simulate\bt_world_simulate.gml
+Converted description /// @description  bt_world_simulate(timestep, max_substeps);/// @param timestep
+/// @param  max_substeps
+
+Converting GML script: ${project_dir}\scripts\bt_world_simulate_ext\bt_world_simulate_ext.gml
+Converted description /// @description  bt_world_simulate_ext(timestep, max_substeps, fixed_timestep);/// @param timestep
+/// @param  max_substeps
+/// @param  fixed_timestep
+
+Converting GML script: ${project_dir}\scripts\bt_world_add_body\bt_world_add_body.gml
+Converted description /// @description  bt_world_add_body(id, group, mask);/// @param id
+/// @param  group
+/// @param  mask
+
+Converting GML script: ${project_dir}\scripts\bt_world_remove_body\bt_world_remove_body.gml
+Converted description /// @description  bt_world_remove_body(id);/// @param id
+
+Converting GML script: ${project_dir}\scripts\bt_world_get_body_count\bt_world_get_body_count.gml
+Converted description /// @description  bt_world_get_body_count();
+
+Converting GML script: ${project_dir}\scripts\bt_shape_create_box\bt_shape_create_box.gml
+Converted description /// @description  bt_shape_create_box(size_x, size_y, size_z);/// @param size_x
+/// @param  size_y
+/// @param  size_z
+
+Converting GML script: ${project_dir}\scripts\bt_shape_create_sphere\bt_shape_create_sphere.gml
+Converted description /// @description  bt_shape_create_sphere(radius);/// @param radius
+
+Converting GML script: ${project_dir}\scripts\bt_body_create\bt_body_create.gml
+Converted description /// @description  bt_body_create(shape_id, mass);/// @param shape_id
+/// @param  mass
+
+Converting GML script: ${project_dir}\scripts\bt_body_destroy\bt_body_destroy.gml
+Converted description /// @description  bt_body_destroy(id);/// @param id
+
+Converting GML script: ${project_dir}\scripts\bt_body_is_active\bt_body_is_active.gml
+Converted description /// @description  bt_body_is_active(id);/// @param id
+
+Converting GML script: ${project_dir}\scripts\bt_body_apply_impulse\bt_body_apply_impulse.gml
+Converted description /// @description  bt_body_apply_impulse(id, x, y, z, rel_x, rel_y, rel_z);/// @param id
+/// @param  x
+/// @param  y
+/// @param  z
+/// @param  rel_x
+/// @param  rel_y
+/// @param  rel_z
+
+Converting GML script: ${project_dir}\scripts\bt_body_apply_central_impulse\bt_body_apply_central_impulse.gml
+Converted description /// @description  bt_body_apply_central_impulse(id, x, y, z);/// @param id
+/// @param  x
+/// @param  y
+/// @param  z
+
+Converting GML script: ${project_dir}\scripts\bt_body_apply_force\bt_body_apply_force.gml
+Converted description /// @description  bt_body_apply_force(id, x, y, z, rel_x, rel_y, rel_z);/// @param id
+/// @param  x
+/// @param  y
+/// @param  z
+/// @param  rel_x
+/// @param  rel_y
+/// @param  rel_z
+
+Converting GML script: ${project_dir}\scripts\bt_body_apply_central_force\bt_body_apply_central_force.gml
+Converted description /// @description  bt_body_apply_central_force(id, x, y, z);/// @param id
+/// @param  x
+/// @param  y
+/// @param  z
+
+Converting GML script: ${project_dir}\scripts\bt_body_apply_transform\bt_body_apply_transform.gml
+Converted description /// @description  bt_body_apply_transform(id);/// @param id
+
+Converting GML script: ${project_dir}\scripts\bt_body_transform_to_buffer\bt_body_transform_to_buffer.gml
+Converted description /// @description  bt_body_transform_to_buffer(id);/// @param id
+
+Converting GML script: ${project_dir}\scripts\bt_body_get_matrix\bt_body_get_matrix.gml
+Converted description /// @description  bt_body_get_matrix(id);/// @param id
+
+Converting GML script: ${project_dir}\scripts\bt_body_copy_matrix\bt_body_copy_matrix.gml
+Converted description /// @description  bt_body_copy_matrix(id, matrix);/// @param id
+/// @param  matrix
+
+Converting GML script: ${project_dir}\scripts\bt_transform_identity\bt_transform_identity.gml
+Converted description /// @description  bt_transform_identity();
+
+Converting GML script: ${project_dir}\scripts\bt_transform_translation\bt_transform_translation.gml
+Converted description /// @description  bt_transform_translation(x, y, z);/// @param x
+/// @param  y
+/// @param  z
+
+Converting GML script: ${project_dir}\scripts\bt_transform_rotation\bt_transform_rotation.gml
+Converted description /// @description  bt_transform_rotation(x, y, z);/// @param x
+/// @param  y
+/// @param  z
+
+Converting GML script: ${project_dir}\scripts\vertex_formats_init\vertex_formats_init.gml
+Converted description /// @description  vertex_formats_init();
+
+Converting GML script: ${project_dir}\scripts\vertex_default\vertex_default.gml
+Converted description /// @description  vertex_default(vbuff, x, y, z, nx, ny, nz, u, v, color, alpha);/// @param vbuff
+/// @param  x
+/// @param  y
+/// @param  z
+/// @param  nx
+/// @param  ny
+/// @param  nz
+/// @param  u
+/// @param  v
+/// @param  color
+/// @param  alpha
+
+Converting GML script: ${project_dir}\scripts\model_build_cube\model_build_cube.gml
+Converted description /// @description  model_build_cube(x1, y1, z1, x2, y2, z2, hrepeat, vrepeat);/// @param x1
+/// @param  y1
+/// @param  z1
+/// @param  x2
+/// @param  y2
+/// @param  z2
+/// @param  hrepeat
+/// @param  vrepeat
+
+Converting GML script: ${project_dir}\scripts\model_build_plane\model_build_plane.gml
+Converted description /// @description  model_build_plane(x1, y1, z1, x2, y2, z2, hrepeat, vrepeat);/// @param x1
+/// @param  y1
+/// @param  z1
+/// @param  x2
+/// @param  y2
+/// @param  z2
+/// @param  hrepeat
+/// @param  vrepeat
+
+Converting GML script: ${project_dir}\scripts\instance_create_3d\instance_create_3d.gml
+Converted description /// @description  instance_create_3d(x, y, z, obj);/// @param x
+/// @param  y
+/// @param  z
+/// @param  obj
+
+Converting GML script: ${project_dir}\scripts\get_z\get_z.gml
+Converted description /// @description  get_z();
+
+Unknown Shader Type 'HLSL9' for shader 'sh_default'
+Font fnt_debug has been converted to font family Arial (Bold)
+GameMaker Studio 1 font texture has been backed up at ${project_dir}\fonts\fnt_debug\fnt_debug.gms1.png
+Converting GML script: ${project_dir}\objects\obj_engine\Create_0.gml
+Converted description /// @description  Initialize Engine
+
+Converting GML script: ${project_dir}\objects\obj_engine\Alarm_0.gml
+Converted description /// @description  Display Reset
+
+Converting GML script: ${project_dir}\objects\obj_engine\Step_0.gml
+Converted description /// @description  Update Engine
+
+Converting GML script: ${project_dir}\objects\obj_engine\Draw_64.gml
+Converted description /// @description  Debug GUI
+
+Converting GML script: ${project_dir}\objects\obj_engine\Draw_0.gml
+Converted description /// @description  Render Scene
+
+Converting GML script: ${project_dir}\objects\obj_camera\Create_0.gml
+Converted description /// @description  Setup Camera
+
+Converting GML script: ${project_dir}\objects\obj_camera\Step_0.gml
+Converted description /// @description  Movement
+Converted string - line 2: 'D' -> "D"
+Converted string - line 2: 'A' -> "A"
+Converted string - line 3: 'W' -> "W"
+Converted string - line 3: 'S' -> "S"
+
+Converting GML script: ${project_dir}\objects\obj_camera\Draw_0.gml
+Converted builtin - line 4: view_wview -> __view_get( e__VW.WView, 0 )
+Converted builtin - line 4: view_hview -> __view_get( e__VW.HView, 0 )
+Converted description /// @description  Update Projection
+
+Converting GML script: ${project_dir}\objects\obj_box\Step_0.gml
+Converted description /// @description  Update Box
+
+Converting GML script: ${project_dir}\objects\obj_sphere\Step_0.gml
+Converted description /// @description  Update Sphere
+
+Game speed set to 144
+Added compatibility script 'background/background_get_texture.gml'
+Added compatibility script 'd3d/d3d_model_create.gml'
+Added compatibility script 'd3d/d3d_model_draw.gml'
+Added compatibility script 'd3d/d3d_model_ellipsoid.gml'
+Added compatibility script 'd3d/d3d_model_primitive_begin.gml'
+Added compatibility script 'd3d/d3d_model_primitive_end.gml'
+Added compatibility script 'd3d/d3d_model_vertex_normal_texture.gml'
+Added compatibility script 'd3d/d3d_set_culling.gml'
+Added compatibility script 'd3d/d3d_set_projection_ext.gml'
+Added compatibility script 'd3d/d3d_start.gml'
+Added compatibility script 'd3d/d3d_transform_set_identity.gml'
+Added compatibility script 'd3d/__d3d_model_add_vertex.gml'
+Added compatibility script 'instance/instance_create.gml'
+Added compatibility script 'object/object_get_depth.gml'
+Added compatibility script 'texture/texture_set_repeat.gml'
+Added compatibility script 'view/__view_get.gml'
+Added compatibility script 'background/__init_background.gml'
+Added compatibility script 'd3d/__init_d3d.gml'
+Added compatibility script 'view/__init_view.gml'
+Added compatibility script '__init_global.gml'
+Added compatibility script '__global_object_depths.gml'
