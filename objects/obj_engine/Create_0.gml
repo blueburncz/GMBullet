@@ -1,5 +1,4 @@
 /// @description  Initialize Engine
-bt_init();
 bt_world_init();
 bt_world_set_gravity(0, 0, -160);
 vertex_formats_init();

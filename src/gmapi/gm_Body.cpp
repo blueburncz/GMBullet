@@ -2,9 +2,14 @@
 #include <gmb/Main.h>
 #include <gmb/core/ObjectFactory.h>
 #include <btBulletDynamicsCommon.h>
+#include <gmexport.h>
 
 // Body Create
-GMEXPORT double bt_body_create(double shapeID, double mass) {
+YYEXPORT void bt_body_create(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
+{
+	double shapeID = YYGetReal(arg, 0);
+	double mass    = YYGetReal(arg, 1);
+
 	btCollisionShape* pShape = g_shapeFactory.Get((uint)shapeID);
 	btDefaultMotionState* pMotionState = new btDefaultMotionState();
 
@@ -14,11 +19,15 @@ GMEXPORT double bt_body_create(double shapeID, double mass) {
 
 	btRigidBody* pBody = new btRigidBody(btRigidBody::btRigidBodyConstructionInfo(mass, pMotionState, pShape, localInertia));
 
-	return g_bodyFactory.Add(pBody);
+	Result.kind = VALUE_REAL;
+	Result.val = (double)g_bodyFactory.Add(pBody);
 }
 
 // Body Destroy
-GMEXPORT double bt_body_destroy(double id) {
+YYEXPORT void bt_body_destroy(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
+{
+	double id = YYGetReal(arg, 0);
+
 	uint _id = (uint)id;
 	btRigidBody* pBody = g_bodyFactory.Get(_id);
 
@@ -27,53 +36,87 @@ GMEXPORT double bt_body_destroy(double id) {
 
 	delete pBody->getMotionState();
 	delete pBody;
-
-	return 1.0;
 }
 
 // Body Apply Impulse
-GMEXPORT double bt_body_apply_impulse(double id, double x, double y, double z, double rel_x, double rel_y, double rel_z) {
-	g_bodyFactory.Get((uint)id)->applyImpulse(btVector3(x, y, z), btVector3(rel_x, rel_y, rel_z));
+YYEXPORT void bt_body_apply_impulse(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
+{
+	double id    = YYGetReal(arg, 0);
+	double x     = YYGetReal(arg, 1);
+	double y     = YYGetReal(arg, 2);
+	double z     = YYGetReal(arg, 3);
+	double rel_x = YYGetReal(arg, 4);
+	double rel_y = YYGetReal(arg, 5);
+	double rel_z = YYGetReal(arg, 6);
 
-	return 1.0;
+	g_bodyFactory.Get((uint)id)->applyImpulse(btVector3(x, y, z), btVector3(rel_x, rel_y, rel_z));
 }
 
 // Body Apply Central Impulse
-GMEXPORT double bt_body_apply_central_impulse(double id, double x, double y, double z) {
-	g_bodyFactory.Get((uint)id)->applyCentralImpulse(btVector3(x, y, z));
+YYEXPORT void bt_body_apply_central_impulse(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
+{
+	double id = YYGetReal(arg, 0);
+	double x  = YYGetReal(arg, 1);
+	double y  = YYGetReal(arg, 2);
+	double z  = YYGetReal(arg, 3);
 
-	return 1.0;
+	g_bodyFactory.Get((uint)id)->applyCentralImpulse(btVector3(x, y, z));
 }
 
 // Body Apply Force
-GMEXPORT double bt_body_apply_force(double id, double x, double y, double z, double rel_x, double rel_y, double rel_z) {
-	g_bodyFactory.Get((uint)id)->applyForce(btVector3(x, y, z), btVector3(rel_x, rel_y, rel_z));
+YYEXPORT void bt_body_apply_force(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
+{
+	double id    = YYGetReal(arg, 0);
+	double x     = YYGetReal(arg, 1);
+	double y     = YYGetReal(arg, 2);
+	double z     = YYGetReal(arg, 3);
+	double rel_x = YYGetReal(arg, 4);
+	double rel_y = YYGetReal(arg, 5);
+	double rel_z = YYGetReal(arg, 6);
 
-	return 1.0;
+	g_bodyFactory.Get((uint)id)->applyForce(btVector3(x, y, z), btVector3(rel_x, rel_y, rel_z));
 }
 
 // Body Apply Central Force
-GMEXPORT double bt_body_apply_central_force(double id, double x, double y, double z) {
-	g_bodyFactory.Get((uint)id)->applyCentralForce(btVector3(x, y, z));
+YYEXPORT void bt_body_apply_central_force(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
+{
+	double id = YYGetReal(arg, 0);
+	double x  = YYGetReal(arg, 1);
+	double y  = YYGetReal(arg, 2);
+	double z  = YYGetReal(arg, 3);
 
-	return 1.0;
+	g_bodyFactory.Get((uint)id)->applyCentralForce(btVector3(x, y, z));
 }
 
 // Body Apply Transform
-GMEXPORT double bt_body_apply_transform(double id) {
-	g_bodyFactory.Get((uint)id)->setWorldTransform(g_globalTransform);
+YYEXPORT void bt_body_apply_transform(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
+{
+	double id = YYGetReal(arg, 0);
 
-	return 1.0;
+	g_bodyFactory.Get((uint)id)->setWorldTransform(g_globalTransform);
 }
 
 // Body Transform to Buffer
-GMEXPORT double bt_body_transform_to_buffer(double id) {
-	g_bodyFactory.Get((uint)id)->getWorldTransform().getOpenGLMatrix(g_matrixBuffer);
+YYEXPORT void bt_body_get_matrix(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
+{
+	double id = YYGetReal(arg, 0);
 
-	return 1.0;
+	static btScalar dest[16];
+	static double matrix[16];
+
+	g_bodyFactory.Get((uint)id)->getWorldTransform().getOpenGLMatrix(dest);
+
+	for (int i = 0; i < 16; ++i)
+		matrix[i] = dest[i];
+
+	YYCreateArray(&Result, 16, matrix);
 }
 
 // Body Is Active
-GMEXPORT double bt_body_is_active(double id) {
-	return g_bodyFactory.Get((uint)id)->isActive();
+YYEXPORT void bt_body_is_active(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
+{
+	double id = YYGetReal(arg, 0);
+
+	Result.kind = VALUE_REAL;
+	Result.val = (double)g_bodyFactory.Get((uint)id)->isActive();
 }

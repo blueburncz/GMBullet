@@ -1,3 +1,3 @@
 /// @description  Update Sphere
-bt_body_copy_matrix(body, matrix);
+matrix = bt_body_get_matrix(body);
 

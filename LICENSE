@@ -25,3 +25,9 @@ SOFTWARE.
 Based on Bullet physics extension for GameMaker: Studio 1.4 by Okapi, available
 from https://drive.google.com/file/d/1AAn1PfZ8EDkCkJXNkaKyOkp5eJdx2bcM/view
 under "Finish it, learn from it, do whatever the hell you want" license.
+
+--------------------------------------------------------------------------------
+
+Uses code that originates from https://github.com/YoYoGames/GMEXT-Steamworks
+(commit `dff5f6dbc48bd8103ae9cb832428daccac89f78b`), which is available under
+the Apache 2.0 License.

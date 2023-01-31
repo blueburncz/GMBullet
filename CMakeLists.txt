@@ -12,6 +12,7 @@ set(SOURCES
     src/gmapi/gm_World.cpp
     src/gmb/core/World.cpp
     src/gmb/gmb.cpp
+    src/dllmain.cpp
     )
 
 set(PATH_BULLET "${CMAKE_CURRENT_SOURCE_DIR}/bullet3")
@@ -32,7 +33,9 @@ find_library(LIBLINEARMATH
 
 add_library(${PROJECT_NAME} SHARED ${SOURCES})
 
-target_include_directories(${PROJECT_NAME} PRIVATE src/ ${PATH_BULLET_INCLUDE})
+target_include_directories(${PROJECT_NAME} PRIVATE include/ src/
+    ${PATH_BULLET_INCLUDE}
+    )
 
 target_link_libraries(${PROJECT_NAME}
     ${LIBBULLETCOLLISION}
@@ -44,5 +47,5 @@ add_custom_command(
     TARGET ${PROJECT_NAME} POST_BUILD
     COMMAND ${CMAKE_COMMAND} -E copy
         $<TARGET_FILE:${PROJECT_NAME}>
-        ${CMAKE_CURRENT_SOURCE_DIR}/datafiles/
+        ${CMAKE_CURRENT_SOURCE_DIR}/extensions/${PROJECT_NAME}/
         )

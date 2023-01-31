@@ -1,25 +1,23 @@
 #include <gmb/gmb.h>
 #include <gmb/Main.h>
+#include <gmexport.h>
 
 World* g_pWorld = nullptr;
-float* g_matrixBuffer = nullptr;
 btTransform g_globalTransform;
 ObjectFactory<btCollisionShape> g_shapeFactory;
 ObjectFactory<btRigidBody> g_bodyFactory;
 
 // Initialize
-GMEXPORT double bt_init(float* bufferAddress) {
-	g_matrixBuffer = bufferAddress;
-
-	return 1.0;
+YYEXPORT void bt_init(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
+{
 }
 
 // Free
-GMEXPORT double bt_free() {
-	if (g_pWorld) {
+YYEXPORT void bt_free(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
+{
+	if (g_pWorld)
+	{
 		delete g_pWorld;
 		g_pWorld = nullptr;
 	}
-
-	return 1.0;
 }
