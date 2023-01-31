@@ -33,7 +33,7 @@ public:
 	/// @return True if there is an object with given ID.
 	bool Has(uint32_t id) const
 	{
-		if (id < 0 || id > Objects.size())
+		if (id < 0 || id >= Objects.size())
 		{
 			return false;
 		}
