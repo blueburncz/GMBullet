@@ -16,7 +16,7 @@
   "date": "2023-01-31T19:31:44.687619+01:00",
   "description": "",
   "exportToGame": true,
-  "extensionVersion": "0.0.1",
+  "extensionVersion": "1.0.0",
   "files": [
     {"resourceType":"GMExtensionFile","resourceVersion":"1.0","name":"","constants":[],"copyToTargets":66,"filename":"libGMBullet.dylib","final":"bt_free","functions":[
         {"resourceType":"GMExtensionFunction","resourceVersion":"1.0","name":"bt_init","argCount":0,"args":[],"documentation":"/// @func bt_init()","externalName":"","help":"","hidden":false,"kind":1,"returnType":1,},

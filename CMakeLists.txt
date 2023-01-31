@@ -5,14 +5,13 @@ project(GMBullet)
 set(CMAKE_CXX_STANDARD 17)
 
 set(SOURCES
-    src/gmapi/gm_Body.cpp
-    src/gmapi/gm_Main.cpp
-    src/gmapi/gm_Shape.cpp
-    src/gmapi/gm_Transform.cpp
-    src/gmapi/gm_World.cpp
-    src/gmb/core/World.cpp
-    src/gmb/gmb.cpp
+    src/GMBullet/World.cpp
+    src/body.cpp
     src/dllmain.cpp
+    src/main.cpp
+    src/shape.cpp
+    src/transform.cpp
+    src/world.cpp
     )
 
 set(PATH_BULLET "${CMAKE_CURRENT_SOURCE_DIR}/bullet3")
@@ -33,7 +32,7 @@ find_library(LIBLINEARMATH
 
 add_library(${PROJECT_NAME} SHARED ${SOURCES})
 
-target_include_directories(${PROJECT_NAME} PRIVATE include/ src/
+target_include_directories(${PROJECT_NAME} PRIVATE include/
     ${PATH_BULLET_INCLUDE}
     )
 

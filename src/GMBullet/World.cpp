@@ -1,8 +1,7 @@
-#include <gmb/gmb.h>
-#include "World.h"
+#include <GMBullet/World.h>
 
-// World
-World::World() {
+CWorld::CWorld()
+{
 	/* Setup Components */
 	m_pCollisionConfig = new btDefaultCollisionConfiguration();
 	m_pDispatcher = new btCollisionDispatcher(m_pCollisionConfig);
@@ -14,8 +13,8 @@ World::World() {
 	m_pWorld->setGravity(btVector3(0, 0, -10));
 }
 
-// ~World
-World::~World() {
+CWorld::~CWorld()
+{
 	delete m_pWorld;
 	delete m_pSolver;
 	delete m_pDispatcher;
@@ -23,26 +22,25 @@ World::~World() {
 	delete m_pOverlappingPairCache;
 }
 
-// Update
-void World::Update() {
-
+void CWorld::Update()
+{
 }
 
-// Add Body
-void World::AddBody(btRigidBody* pBody, uint index, int group, int mask) {
+void CWorld::AddBody(btRigidBody* pBody, uint32_t index, int group, int mask)
+{
 	m_bodies[index] = pBody;
 	m_pWorld->addRigidBody(pBody, group, mask);
 }
 
-// Remove Body
-void World::RemoveBody(uint index) {
+void CWorld::RemoveBody(uint32_t index)
+{
 	btRigidBody* pBody = m_bodies[index];
 
 	m_bodies.erase(index);
 	m_pWorld->removeRigidBody(pBody);
 }
 
-// Has Body
-bool World::HasBody(uint index) const {
+bool CWorld::HasBody(uint32_t index) const
+{
 	return m_bodies.find(index) != m_bodies.end();
 }
