@@ -1,5 +1,5 @@
 /// @description  Update Engine
-bt_world_simulate(delta_time / 1_000_000, 1);
+btDiscreteDynamicsWorld_stepSimulation(delta_time / 1_000_000);
 
 /* End Game */
 if (keyboard_check_pressed(vk_escape))

@@ -43,7 +43,7 @@ public:
 	/// @brief Retreives an object with given ID.
 	/// @param id The ID of the object.
 	/// @return The object with given ID or nullptr.
-	T* Get(uint32_t id)
+	T* Get(uint32_t id) const
 	{
 		return Objects[id];
 	}

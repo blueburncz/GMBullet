@@ -1,6 +1,6 @@
 /// @description  Initialize Engine
-bt_world_init();
-bt_world_set_gravity(0, 0, -160);
+btDiscreteDynamicsWorld_init();
+btDiscreteDynamicsWorld_setGravity(0, 0, -160);
 vertex_formats_init();
 
 gpu_set_tex_mip_enable(true);
@@ -15,9 +15,9 @@ mdl_sphere = d3d_model_create();
 d3d_model_ellipsoid(mdl_sphere, -8, -8, -8, 8, 8, 8, 1, 1, 24);
 
 /* Create Floor */
-shape_floor = bt_shape_create_box(768, 768, 1);
-body_floor = bt_body_create(shape_floor, 0.0);
-bt_world_add_body(body_floor, -1, 1);
+shape_floor = btBoxShape_create(768, 768, 1);
+body_floor = btRigidBody_create(shape_floor, 0.0);
+btDiscreteDynamicsWorld_addRigidBody(body_floor, -1, 1);
 
 /* Create Cubes */
 for (var i = 0; i < 25; ++i)

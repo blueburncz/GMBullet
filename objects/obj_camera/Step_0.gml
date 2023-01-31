@@ -3,6 +3,8 @@ var input_x = keyboard_check(ord("D")) - keyboard_check(ord("A")),
     input_y = keyboard_check(ord("W")) - keyboard_check(ord("S")),
     input_z = keyboard_check(vk_space) - keyboard_check(vk_lshift);
 
+
+
 /* Acceleration */
 speed_x += (lengthdir_x(input_y * move_accel, yaw) + lengthdir_x(input_x * move_accel, yaw - 90));
 speed_y += (lengthdir_y(input_y * move_accel, yaw) + lengthdir_y(input_x * move_accel, yaw - 90));
@@ -52,7 +54,7 @@ look_z = dtan(pitch);
 if (mouse_check_button_pressed(mb_left)) {
     with (instance_create_3d(x, y, z, obj_sphere)) {
         var force = 250;
-        bt_body_apply_central_impulse(body, other.look_x * force, other.look_y * force, other.look_z * force);
+        btRigidBody_applyCentralImpulse(body, other.look_x * force, other.look_y * force, other.look_z * force);
     }
 }
 

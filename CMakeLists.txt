@@ -5,13 +5,9 @@ project(GMBullet)
 set(CMAKE_CXX_STANDARD 17)
 
 set(SOURCES
+    src/GMBullet/dllmain.cpp
+    src/GMBullet/exports.cpp
     src/GMBullet/World.cpp
-    src/body.cpp
-    src/dllmain.cpp
-    src/main.cpp
-    src/shape.cpp
-    src/transform.cpp
-    src/world.cpp
     )
 
 set(PATH_BULLET "${CMAKE_CURRENT_SOURCE_DIR}/bullet3")
