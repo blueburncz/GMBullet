@@ -12,14 +12,14 @@ Requires [CMake](https://cmake.org) version 3.23 or newer!
 git clone https://github.com/blueburncz/GMBullet.git --recurse-submodules
 
 # Build Bullet
-cd Bullet4GM\ -\ Source/Dependencies/bullet3/
+cd bullet3/
 mkdir build
 cd build
 cmake ..
 cmake --build . --config=Release
 
 # Build GMBullet
-cd ../../../Bullet4GM/
+cd ../../
 mkdir build
 cd build
 cmake ..

@@ -1,0 +1,3 @@
+/Users/kraifpatrik/Git/GMBullet/build/CMakeFiles/GMBullet.dir
+/Users/kraifpatrik/Git/GMBullet/build/CMakeFiles/edit_cache.dir
+/Users/kraifpatrik/Git/GMBullet/build/CMakeFiles/rebuild_cache.dir
