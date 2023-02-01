@@ -3,6 +3,7 @@
 #include <cstdint>
 #include <vector>
 #include <queue>
+#include <algorithm>
 
 /// Minimum number of free IDs required to start reusing them.
 #define __ID_REUSE_THRESHOLD 1000
@@ -37,10 +38,25 @@ public:
 		{
 			return false;
 		}
-		return true;
+		return (Objects[id] != nullptr);
 	}
 
-	/// @brief Retreives an object with given ID.
+	/// @brief Finds an ID of an object added to the manager.
+	/// @param object The object to find an ID of.
+	/// @param outId Output destination for the ID.
+	/// @return True if the ID was found.
+	bool FindID(T* object, uint32_t& outId) const
+	{
+		auto it = std::find(Objects.begin(), Objects.end(), object);
+		if (it != Objects.end())
+		{
+			outId = std::distance(Objects.begin(), it);
+			return true;
+		}
+		return false;
+	}
+
+	/// @brief Retrieves an object with given ID.
 	/// @param id The ID of the object.
 	/// @return The object with given ID or nullptr.
 	T* Get(uint32_t id) const
