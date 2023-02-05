@@ -12,8 +12,7 @@ Requires [CMake](https://cmake.org) version 3.23 or newer!
 git clone https://github.com/blueburncz/GMBullet.git --recurse-submodules
 
 # Build Bullet
-cd GMBullet
-cd bullet3
+cd GMBullet/bullet3
 mkdir build
 cd build
 cmake ..
