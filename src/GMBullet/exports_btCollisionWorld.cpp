@@ -1,10 +1,5 @@
 #include <GMBullet.hpp>
 
-////////////////////////////////////////////////////////////////////////////////
-//
-// btCollisionWorld
-//
-
 /// @func btCollisionWorld_create(dispatcher, pairCache, collisionConfiguration)
 ///
 /// @desc
@@ -33,6 +28,19 @@ YYEXPORT void btCollisionWorld_destroy(RValue& Result, CInstance* selfinst, CIns
 	delete (btCollisionWorld*)YYGetPtr(arg, 0);
 }
 
+/// @func btCollisionWorld_setBroadphase(collisionWorld, pairCache)
+///
+/// @desc
+///
+/// @param {Pointer} collisionWorld
+/// @param {Pointer} pairCache
+YYEXPORT void btCollisionWorld_setBroadphase(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
+{
+	btCollisionWorld* collisionWorld = (btCollisionWorld*)YYGetPtr(arg, 0);
+	btBroadphaseInterface* pairCache = (btBroadphaseInterface*)YYGetPtr(arg, 1);
+	collisionWorld->setBroadphase(pairCache);
+}
+
 /// @func btCollisionWorld_getBroadphase(collisionWorld)
 ///
 /// @desc
@@ -45,19 +53,6 @@ YYEXPORT void btCollisionWorld_getBroadphase(RValue& Result, CInstance* selfinst
 	btCollisionWorld* collisionWorld = (btCollisionWorld*)YYGetPtr(arg, 0);
 	Result.kind = VALUE_PTR;
 	Result.ptr = collisionWorld->getBroadphase();
-}
-
-/// @func btCollisionWorld_setBroadphase(collisionWorld, pairCache)
-///
-/// @desc
-///
-/// @param {Pointer} collisionWorld
-/// @param {Pointer} pairCache
-YYEXPORT void btCollisionWorld_setBroadphase(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
-{
-	btCollisionWorld* collisionWorld = (btCollisionWorld*)YYGetPtr(arg, 0);
-	btBroadphaseInterface* pairCache = (btBroadphaseInterface*)YYGetPtr(arg, 1);
-	collisionWorld->setBroadphase(pairCache);
 }
 
 /// @func btCollisionWorld_getPairCache(collisionWorld)
@@ -123,249 +118,15 @@ YYEXPORT void btCollisionWorld_computeOverlappingPairs(RValue& Result, CInstance
 	collisionWorld->computeOverlappingPairs();
 }
 
-/// @func btCollisionWorld_rayTest(collisionWorld, rayFromWorld, rayToWorld, resultCallback)
-///
-/// @desc
-///
-/// @param {Pointer} collisionWorld
-/// @param {Pointer} rayFromWorld
-/// @param {Pointer} rayToWorld
-/// @param {Pointer} resultCallback
-YYEXPORT void btCollisionWorld_rayTest(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
-{
-	btCollisionWorld* collisionWorld = (btCollisionWorld*)YYGetPtr(arg, 0);
-	btVector3* rayFromWorld = (btVector3*)YYGetPtr(arg, 1);
-	btVector3* rayToWorld = (btVector3*)YYGetPtr(arg, 2);
-	btCollisionWorld::RayResultCallback* resultCallback = (btCollisionWorld::RayResultCallback*)YYGetPtr(arg, 3);
-	collisionWorld->rayTest(*rayFromWorld, *rayToWorld, *resultCallback);
-}
+////////////////////////////////////////////////////////////////////////////////
+//
+// TODO: btCollisionWorld::LocalShapeInfo
+//
 
-/// @func btCollisionWorld_convexSweepTest(collisionWorld, castShape, from, to, resultCallback[, allowedCcdPenetration])
-///
-/// @desc
-///
-/// @param {Pointer} collisionWorld
-/// @param {Pointer} castShape
-/// @param {Pointer} from
-/// @param {Pointer} to
-/// @param {Pointer} resultCallback
-/// @param {Real} [allowedCcdPenetration]
-YYEXPORT void btCollisionWorld_convexSweepTest(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
-{
-	btCollisionWorld* collisionWorld = (btCollisionWorld*)YYGetPtr(arg, 0);
-	btConvexShape* castShape = (btConvexShape*)YYGetPtr(arg, 1);
-	btTransform* from = (btTransform*)YYGetPtr(arg, 2);
-	btTransform* to = (btTransform*)YYGetPtr(arg, 3);
-	btCollisionWorld::ConvexResultCallback* resultCallback = (btCollisionWorld::ConvexResultCallback*)YYGetPtr(arg, 4);
-	double allowedCcdPenetration = (argc > 5) ? YYGetReal(arg, 5) : 0.0;
-	collisionWorld->convexSweepTest(castShape, *from, *to, *resultCallback, allowedCcdPenetration);
-}
-
-/// @func btCollisionWorld_contactTest(collisionWorld, colObj, resultCallback)
-///
-/// @desc
-///
-/// @param {Pointer} collisionWorld
-/// @param {Pointer} colObj
-/// @param {Pointer} resultCallback
-YYEXPORT void btCollisionWorld_contactTest(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
-{
-	btCollisionWorld* collisionWorld = (btCollisionWorld*)YYGetPtr(arg, 0);
-	btCollisionObject* colObj = (btCollisionObject*)YYGetPtr(arg, 1);
-	btCollisionWorld::ContactResultCallback* resultCallback = (btCollisionWorld::ContactResultCallback*)YYGetPtr(arg, 2);
-	collisionWorld->contactTest(colObj, *resultCallback);
-}
-
-/// @func btCollisionWorld_contactPairTest(collisionWorld, colObjA, colObjB, resultCallback)
-///
-/// @desc
-///
-/// @param {Pointer} collisionWorld
-/// @param {Pointer} colObjA
-/// @param {Pointer} colObjB
-/// @param {Pointer} resultCallback
-YYEXPORT void btCollisionWorld_contactPairTest(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
-{
-	btCollisionWorld* collisionWorld = (btCollisionWorld*)YYGetPtr(arg, 0);
-	btCollisionObject* colObjA = (btCollisionObject*)YYGetPtr(arg, 1);
-	btCollisionObject* colObjB = (btCollisionObject*)YYGetPtr(arg, 2);
-	btCollisionWorld::ContactResultCallback* resultCallback = (btCollisionWorld::ContactResultCallback*)YYGetPtr(arg, 3);
-	collisionWorld->contactPairTest(colObjA, colObjB, *resultCallback);
-}
-
-/// @func btCollisionWorld_rayTestXYZ(collisionWorld, rayFromWorldX, rayFromWorldY, rayFromWorldZ, rayToWorldX, rayToWorldY, rayToWorldZ, resultCallback)
-///
-/// @desc
-///
-/// @param {Pointer} collisionWorld
-/// @param {Real} rayFromWorldX
-/// @param {Real} rayFromWorldY
-/// @param {Real} rayFromWorldZ
-/// @param {Real} rayToWorldX
-/// @param {Real} rayToWorldY
-/// @param {Real} rayToWorldZ
-/// @param {Pointer} resultCallback
-YYEXPORT void btCollisionWorld_rayTestXYZ(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
-{
-	btCollisionWorld* collisionWorld = (btCollisionWorld*)YYGetPtr(arg, 0);
-	double rayFromWorldX = YYGetReal(arg, 1);
-	double rayFromWorldY = YYGetReal(arg, 2);
-	double rayFromWorldZ = YYGetReal(arg, 3);
-	double rayToWorldX = YYGetReal(arg, 4);
-	double rayToWorldY = YYGetReal(arg, 5);
-	double rayToWorldZ = YYGetReal(arg, 6);
-	btCollisionWorld::RayResultCallback* resultCallback = (btCollisionWorld::RayResultCallback*)YYGetPtr(arg, 7);
-	collisionWorld->rayTest(
-		btVector3(rayFromWorldX, rayFromWorldY, rayToWorldZ),
-		btVector3(rayToWorldX, rayToWorldY, rayToWorldZ),
-		*resultCallback);
-}
-
-/// @func btCollisionWorld_addCollisionObject(collisionWorld, collisionObject[, collisionFilterGroup[, collisionFilterMask]])
-///
-/// @desc
-///
-/// @param {Pointer} collisionWorld
-/// @param {Pointer} collisionObject
-/// @param {Real} [collisionFilterGroup]
-/// @param {Real} [collisionFilterMask]
-YYEXPORT void btCollisionWorld_addCollisionObject(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
-{
-	btCollisionWorld* collisionWorld = (btCollisionWorld*)YYGetPtr(arg, 0);
-	btCollisionObject* collisionObject = (btCollisionObject*)YYGetPtr(arg, 1);
-	int collisionFilterGroup = (argc > 2) ? YYGetInt32(arg, 2) : btBroadphaseProxy::DefaultFilter;
-	int collisionFilterMask = (argc > 3) ? YYGetInt32(arg, 3) : btBroadphaseProxy::AllFilter;
-	collisionWorld->addCollisionObject(collisionObject, collisionFilterGroup, collisionFilterMask);
-}
-
-/// @func btCollisionWorld_refreshBroadphaseProxy(collisionWorld, collisionObject)
-///
-/// @desc
-///
-/// @param {Pointer} collisionWorld
-/// @param {Pointer} collisionObject
-YYEXPORT void btCollisionWorld_refreshBroadphaseProxy(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
-{
-	btCollisionWorld* collisionWorld = (btCollisionWorld*)YYGetPtr(arg, 0);
-	btCollisionObject* collisionObject = (btCollisionObject*)YYGetPtr(arg, 1);
-	collisionWorld->refreshBroadphaseProxy(collisionObject);
-}
-
-/// @func btCollisionWorld_getNumCollisionObjects(collisionWorld)
-///
-/// @desc
-///
-/// @param {Pointer} collisionWorld
-///
-/// @return {Real}
-YYEXPORT void btCollisionWorld_getNumCollisionObjects(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
-{
-	btCollisionWorld* collisionWorld = (btCollisionWorld*)YYGetPtr(arg, 0);
-	Result.kind = VALUE_REAL;
-	Result.val = collisionWorld->getNumCollisionObjects();
-}
-
-/// @func btCollisionWorld_getCollisionObjectArray(collisionWorld, outArray)
-///
-/// @desc
-///
-/// @param {Pointer} collisionWorld
-/// @param {Array<Pointer>} outArray
-YYEXPORT void btCollisionWorld_getCollisionObjectArray(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
-{
-	btCollisionWorld* collisionWorld = (btCollisionWorld*)YYGetPtr(arg, 0);
-	RValue* outArray = &arg[1];
-	btCollisionObjectArray& collisionObjectArray = collisionWorld->getCollisionObjectArray();
-	RValue value;
-	value.kind = VALUE_PTR;
-	for (int i = collisionObjectArray.size() - 1; i >= 0; --i)
-	{
-		value.ptr = collisionObjectArray[i];
-		SET_RValue(outArray, &value, NULL, i);
-	}
-	FREE_RValue(&value);
-}
-
-/// @func btCollisionWorld_getCollisionObject(collisionWorld, index)
-///
-/// @desc
-///
-/// @param {Pointer} collisionWorld
-/// @param {Real} index
-///
-/// @return {Pointer}
-YYEXPORT void btCollisionWorld_getCollisionObject(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
-{
-	btCollisionWorld* collisionWorld = (btCollisionWorld*)YYGetPtr(arg, 0);
-	int index = YYGetInt32(arg, 1);
-	Result.kind = VALUE_PTR;
-	Result.ptr = collisionWorld->getCollisionObjectArray()[index];
-}
-
-/// @func btCollisionWorld_removeCollisionObject(collisionWorld, collisionObject)
-///
-/// @desc
-///
-/// @param {Pointer} collisionWorld
-/// @param {Pointer} collisionObject
-YYEXPORT void btCollisionWorld_removeCollisionObject(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
-{
-	btCollisionWorld* collisionWorld = (btCollisionWorld*)YYGetPtr(arg, 0);
-	btCollisionObject* collisionObject = (btCollisionObject*)YYGetPtr(arg, 1);
-	collisionWorld->removeCollisionObject(collisionObject);
-}
-
-/// @func btCollisionWorld_performDiscreteCollisionDetection(collisionWorld)
-///
-/// @desc
-///
-/// @param {Pointer} collisionWorld
-YYEXPORT void btCollisionWorld_performDiscreteCollisionDetection(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
-{
-	btCollisionWorld* collisionWorld = (btCollisionWorld*)YYGetPtr(arg, 0);
-	collisionWorld->performDiscreteCollisionDetection();
-}
-
-/// @func btCollisionWorld_getDispatchInfo(collisionWorld)
-///
-/// @desc
-///
-/// @param {Pointer} collisionWorld
-///
-/// @return {Pointer}
-YYEXPORT void btCollisionWorld_getDispatchInfo(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
-{
-	btCollisionWorld* collisionWorld = (btCollisionWorld*)YYGetPtr(arg, 0);
-	Result.kind = VALUE_PTR;
-	Result.ptr = &collisionWorld->getDispatchInfo();
-}
-
-/// @func btCollisionWorld_getForceUpdateAllAabbs(collisionWorld)
-///
-/// @desc
-///
-/// @param {Pointer} collisionWorld
-///
-/// @return {Bool}
-YYEXPORT void btCollisionWorld_getForceUpdateAllAabbs(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
-{
-	btCollisionWorld* collisionWorld = (btCollisionWorld*)YYGetPtr(arg, 0);
-	Result.kind = VALUE_BOOL;
-	Result.val = collisionWorld->getForceUpdateAllAabbs();
-}
-
-/// @func btCollisionWorld_setForceUpdateAllAabbs(collisionWorld, forceUpdateAllAabbs)
-///
-/// @desc
-///
-/// @param {Pointer} collisionWorld
-/// @param {Bool} forceUpdateAllAabbs
-YYEXPORT void btCollisionWorld_setForceUpdateAllAabbs(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
-{
-	btCollisionWorld* collisionWorld = (btCollisionWorld*)YYGetPtr(arg, 0);
-	bool forceUpdateAllAabbs = YYGetBool(arg, 1);
-	collisionWorld->setForceUpdateAllAabbs(forceUpdateAllAabbs);
-}
+////////////////////////////////////////////////////////////////////////////////
+//
+// TODO: btCollisionWorld::LocalRayResult
+//
 
 ////////////////////////////////////////////////////////////////////////////////
 //
@@ -479,6 +240,9 @@ YYEXPORT void btRayResultCallback_hasHit(RValue& Result, CInstance* selfinst, CI
 	Result.kind = VALUE_BOOL;
 	Result.val = rayResultCallback->hasHit();
 }
+
+// TODO: btRayResultCallback::needsCollision
+// TODO: btRayResultCallback::addSingleResult
 
 ////////////////////////////////////////////////////////////////////////////////
 //
@@ -667,6 +431,8 @@ YYEXPORT void btClosestRayResultCallback_getHitPointWorldArray(RValue& Result, C
 	FREE_RValue(&value);
 }
 
+// TODO: btClosestRayResultCallback::addSingleResult
+
 ////////////////////////////////////////////////////////////////////////////////
 //
 // btCollisionWorld::AllHitsRayResultCallback
@@ -850,6 +616,13 @@ YYEXPORT void btAllHitsRayResultCallback_getHitFractions(RValue& Result, CInstan
 	FREE_RValue(&value);
 }
 
+// TODO: btClosestRayResultCallback::addSingleResult
+
+////////////////////////////////////////////////////////////////////////////////
+//
+// TODO: btCollisionWorld::LocalConvexResult
+//
+
 ////////////////////////////////////////////////////////////////////////////////
 //
 // btCollisionWorld::ConvexResultCallback
@@ -948,6 +721,9 @@ YYEXPORT void btConvexResultCallback_hasHit(RValue& Result, CInstance* selfinst,
 	Result.kind = VALUE_BOOL;
 	Result.val = convexResultCallback->hasHit();
 }
+
+// TODO: btConvexResultCallback::needsCollision
+// TODO: btConvexResultCallback::addSingleResult
 
 ////////////////////////////////////////////////////////////////////////////////
 //
@@ -1150,6 +926,8 @@ YYEXPORT void btClosestConvexResultCallback_getHitCollisionObject(RValue& Result
 	Result.ptr = (void*)const_cast<btCollisionObject*>(closestConvexResultCallback->m_hitCollisionObject);
 }
 
+// TODO: btClosestConvexResultCallback::addSingleResult
+
 ////////////////////////////////////////////////////////////////////////////////
 //
 // btCollisionWorld::ContactResultCallback
@@ -1247,3 +1025,259 @@ YYEXPORT void btContactResultCallback_setClosestDistanceThreshold(RValue& Result
 	double closestDistanceThreshold = YYGetReal(arg, 1);
 	contactResultCallback->m_closestDistanceThreshold = closestDistanceThreshold;
 }
+
+// TODO: btContactResultCallback::needsCollision
+// TODO: btContactResultCallback::addSingleResult
+
+////////////////////////////////////////////////////////////////////////////////
+
+/// @func btCollisionWorld_getNumCollisionObjects(collisionWorld)
+///
+/// @desc
+///
+/// @param {Pointer} collisionWorld
+///
+/// @return {Real}
+YYEXPORT void btCollisionWorld_getNumCollisionObjects(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
+{
+	btCollisionWorld* collisionWorld = (btCollisionWorld*)YYGetPtr(arg, 0);
+	Result.kind = VALUE_REAL;
+	Result.val = collisionWorld->getNumCollisionObjects();
+}
+
+/// @func btCollisionWorld_rayTest(collisionWorld, rayFromWorld, rayToWorld, resultCallback)
+///
+/// @desc
+///
+/// @param {Pointer} collisionWorld
+/// @param {Pointer} rayFromWorld
+/// @param {Pointer} rayToWorld
+/// @param {Pointer} resultCallback
+YYEXPORT void btCollisionWorld_rayTest(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
+{
+	btCollisionWorld* collisionWorld = (btCollisionWorld*)YYGetPtr(arg, 0);
+	btVector3* rayFromWorld = (btVector3*)YYGetPtr(arg, 1);
+	btVector3* rayToWorld = (btVector3*)YYGetPtr(arg, 2);
+	btCollisionWorld::RayResultCallback* resultCallback = (btCollisionWorld::RayResultCallback*)YYGetPtr(arg, 3);
+	collisionWorld->rayTest(*rayFromWorld, *rayToWorld, *resultCallback);
+}
+
+/// @func btCollisionWorld_rayTestXYZ(collisionWorld, rayFromWorldX, rayFromWorldY, rayFromWorldZ, rayToWorldX, rayToWorldY, rayToWorldZ, resultCallback)
+///
+/// @desc
+///
+/// @param {Pointer} collisionWorld
+/// @param {Real} rayFromWorldX
+/// @param {Real} rayFromWorldY
+/// @param {Real} rayFromWorldZ
+/// @param {Real} rayToWorldX
+/// @param {Real} rayToWorldY
+/// @param {Real} rayToWorldZ
+/// @param {Pointer} resultCallback
+YYEXPORT void btCollisionWorld_rayTestXYZ(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
+{
+	btCollisionWorld* collisionWorld = (btCollisionWorld*)YYGetPtr(arg, 0);
+	double rayFromWorldX = YYGetReal(arg, 1);
+	double rayFromWorldY = YYGetReal(arg, 2);
+	double rayFromWorldZ = YYGetReal(arg, 3);
+	double rayToWorldX = YYGetReal(arg, 4);
+	double rayToWorldY = YYGetReal(arg, 5);
+	double rayToWorldZ = YYGetReal(arg, 6);
+	btCollisionWorld::RayResultCallback* resultCallback = (btCollisionWorld::RayResultCallback*)YYGetPtr(arg, 7);
+	collisionWorld->rayTest(
+		btVector3(rayFromWorldX, rayFromWorldY, rayToWorldZ),
+		btVector3(rayToWorldX, rayToWorldY, rayToWorldZ),
+		*resultCallback);
+}
+
+/// @func btCollisionWorld_convexSweepTest(collisionWorld, castShape, from, to, resultCallback[, allowedCcdPenetration])
+///
+/// @desc
+///
+/// @param {Pointer} collisionWorld
+/// @param {Pointer} castShape
+/// @param {Pointer} from
+/// @param {Pointer} to
+/// @param {Pointer} resultCallback
+/// @param {Real} [allowedCcdPenetration]
+YYEXPORT void btCollisionWorld_convexSweepTest(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
+{
+	btCollisionWorld* collisionWorld = (btCollisionWorld*)YYGetPtr(arg, 0);
+	btConvexShape* castShape = (btConvexShape*)YYGetPtr(arg, 1);
+	btTransform* from = (btTransform*)YYGetPtr(arg, 2);
+	btTransform* to = (btTransform*)YYGetPtr(arg, 3);
+	btCollisionWorld::ConvexResultCallback* resultCallback = (btCollisionWorld::ConvexResultCallback*)YYGetPtr(arg, 4);
+	double allowedCcdPenetration = (argc > 5) ? YYGetReal(arg, 5) : 0.0;
+	collisionWorld->convexSweepTest(castShape, *from, *to, *resultCallback, allowedCcdPenetration);
+}
+
+/// @func btCollisionWorld_contactTest(collisionWorld, colObj, resultCallback)
+///
+/// @desc
+///
+/// @param {Pointer} collisionWorld
+/// @param {Pointer} colObj
+/// @param {Pointer} resultCallback
+YYEXPORT void btCollisionWorld_contactTest(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
+{
+	btCollisionWorld* collisionWorld = (btCollisionWorld*)YYGetPtr(arg, 0);
+	btCollisionObject* colObj = (btCollisionObject*)YYGetPtr(arg, 1);
+	btCollisionWorld::ContactResultCallback* resultCallback = (btCollisionWorld::ContactResultCallback*)YYGetPtr(arg, 2);
+	collisionWorld->contactTest(colObj, *resultCallback);
+}
+
+/// @func btCollisionWorld_contactPairTest(collisionWorld, colObjA, colObjB, resultCallback)
+///
+/// @desc
+///
+/// @param {Pointer} collisionWorld
+/// @param {Pointer} colObjA
+/// @param {Pointer} colObjB
+/// @param {Pointer} resultCallback
+YYEXPORT void btCollisionWorld_contactPairTest(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
+{
+	btCollisionWorld* collisionWorld = (btCollisionWorld*)YYGetPtr(arg, 0);
+	btCollisionObject* colObjA = (btCollisionObject*)YYGetPtr(arg, 1);
+	btCollisionObject* colObjB = (btCollisionObject*)YYGetPtr(arg, 2);
+	btCollisionWorld::ContactResultCallback* resultCallback = (btCollisionWorld::ContactResultCallback*)YYGetPtr(arg, 3);
+	collisionWorld->contactPairTest(colObjA, colObjB, *resultCallback);
+}
+
+// TODO: btCollisionWorld::rayTestSingle
+// TODO: btCollisionWorld::rayTestSingleInternal
+// TODO: btCollisionWorld::objectQuerySingle
+// TODO: btCollisionWorld::objectQuerySingleInternal
+
+/// @func btCollisionWorld_addCollisionObject(collisionWorld, collisionObject[, collisionFilterGroup[, collisionFilterMask]])
+///
+/// @desc
+///
+/// @param {Pointer} collisionWorld
+/// @param {Pointer} collisionObject
+/// @param {Real} [collisionFilterGroup]
+/// @param {Real} [collisionFilterMask]
+YYEXPORT void btCollisionWorld_addCollisionObject(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
+{
+	btCollisionWorld* collisionWorld = (btCollisionWorld*)YYGetPtr(arg, 0);
+	btCollisionObject* collisionObject = (btCollisionObject*)YYGetPtr(arg, 1);
+	int collisionFilterGroup = (argc > 2) ? YYGetInt32(arg, 2) : btBroadphaseProxy::DefaultFilter;
+	int collisionFilterMask = (argc > 3) ? YYGetInt32(arg, 3) : btBroadphaseProxy::AllFilter;
+	collisionWorld->addCollisionObject(collisionObject, collisionFilterGroup, collisionFilterMask);
+}
+
+/// @func btCollisionWorld_refreshBroadphaseProxy(collisionWorld, collisionObject)
+///
+/// @desc
+///
+/// @param {Pointer} collisionWorld
+/// @param {Pointer} collisionObject
+YYEXPORT void btCollisionWorld_refreshBroadphaseProxy(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
+{
+	btCollisionWorld* collisionWorld = (btCollisionWorld*)YYGetPtr(arg, 0);
+	btCollisionObject* collisionObject = (btCollisionObject*)YYGetPtr(arg, 1);
+	collisionWorld->refreshBroadphaseProxy(collisionObject);
+}
+
+/// @func btCollisionWorld_getCollisionObjectArray(collisionWorld, outArray)
+///
+/// @desc
+///
+/// @param {Pointer} collisionWorld
+/// @param {Array<Pointer>} outArray
+YYEXPORT void btCollisionWorld_getCollisionObjectArray(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
+{
+	btCollisionWorld* collisionWorld = (btCollisionWorld*)YYGetPtr(arg, 0);
+	RValue* outArray = &arg[1];
+	btCollisionObjectArray& collisionObjectArray = collisionWorld->getCollisionObjectArray();
+	RValue value;
+	value.kind = VALUE_PTR;
+	for (int i = collisionObjectArray.size() - 1; i >= 0; --i)
+	{
+		value.ptr = collisionObjectArray[i];
+		SET_RValue(outArray, &value, NULL, i);
+	}
+	FREE_RValue(&value);
+}
+
+/// @func btCollisionWorld_getCollisionObject(collisionWorld, index)
+///
+/// @desc
+///
+/// @param {Pointer} collisionWorld
+/// @param {Real} index
+///
+/// @return {Pointer}
+YYEXPORT void btCollisionWorld_getCollisionObject(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
+{
+	btCollisionWorld* collisionWorld = (btCollisionWorld*)YYGetPtr(arg, 0);
+	int index = YYGetInt32(arg, 1);
+	Result.kind = VALUE_PTR;
+	Result.ptr = collisionWorld->getCollisionObjectArray()[index];
+}
+
+/// @func btCollisionWorld_removeCollisionObject(collisionWorld, collisionObject)
+///
+/// @desc
+///
+/// @param {Pointer} collisionWorld
+/// @param {Pointer} collisionObject
+YYEXPORT void btCollisionWorld_removeCollisionObject(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
+{
+	btCollisionWorld* collisionWorld = (btCollisionWorld*)YYGetPtr(arg, 0);
+	btCollisionObject* collisionObject = (btCollisionObject*)YYGetPtr(arg, 1);
+	collisionWorld->removeCollisionObject(collisionObject);
+}
+
+/// @func btCollisionWorld_performDiscreteCollisionDetection(collisionWorld)
+///
+/// @desc
+///
+/// @param {Pointer} collisionWorld
+YYEXPORT void btCollisionWorld_performDiscreteCollisionDetection(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
+{
+	btCollisionWorld* collisionWorld = (btCollisionWorld*)YYGetPtr(arg, 0);
+	collisionWorld->performDiscreteCollisionDetection();
+}
+
+/// @func btCollisionWorld_getDispatchInfo(collisionWorld)
+///
+/// @desc
+///
+/// @param {Pointer} collisionWorld
+///
+/// @return {Pointer}
+YYEXPORT void btCollisionWorld_getDispatchInfo(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
+{
+	btCollisionWorld* collisionWorld = (btCollisionWorld*)YYGetPtr(arg, 0);
+	Result.kind = VALUE_PTR;
+	Result.ptr = &collisionWorld->getDispatchInfo();
+}
+
+/// @func btCollisionWorld_getForceUpdateAllAabbs(collisionWorld)
+///
+/// @desc
+///
+/// @param {Pointer} collisionWorld
+///
+/// @return {Bool}
+YYEXPORT void btCollisionWorld_getForceUpdateAllAabbs(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
+{
+	btCollisionWorld* collisionWorld = (btCollisionWorld*)YYGetPtr(arg, 0);
+	Result.kind = VALUE_BOOL;
+	Result.val = collisionWorld->getForceUpdateAllAabbs();
+}
+
+/// @func btCollisionWorld_setForceUpdateAllAabbs(collisionWorld, forceUpdateAllAabbs)
+///
+/// @desc
+///
+/// @param {Pointer} collisionWorld
+/// @param {Bool} forceUpdateAllAabbs
+YYEXPORT void btCollisionWorld_setForceUpdateAllAabbs(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
+{
+	btCollisionWorld* collisionWorld = (btCollisionWorld*)YYGetPtr(arg, 0);
+	bool forceUpdateAllAabbs = YYGetBool(arg, 1);
+	collisionWorld->setForceUpdateAllAabbs(forceUpdateAllAabbs);
+}
+
+// TODO: btCollisionWorld::serialize
