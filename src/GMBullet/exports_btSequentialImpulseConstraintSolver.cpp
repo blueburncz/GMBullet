@@ -1,0 +1,21 @@
+#include <GMBullet.hpp>
+
+/// @func btSequentialImpulseConstraintSolver_create()
+///
+/// @desc
+///
+/// @return {Pointer}
+YYEXPORT void btSequentialImpulseConstraintSolver_create(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
+{
+	Result.kind = VALUE_PTR;
+	Result.ptr = new btSequentialImpulseConstraintSolver();
+}
+/// @func btSequentialImpulseConstraintSolver_destroy(sequentialImpulseConstraintSolver)
+///
+/// @desc
+///
+/// @param {Pointer} sequentialImpulseConstraintSolver
+YYEXPORT void btSequentialImpulseConstraintSolver_destroy(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
+{
+	delete (btSequentialImpulseConstraintSolver*)YYGetPtr(arg, 0);
+}

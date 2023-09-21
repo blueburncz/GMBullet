@@ -1,3 +1,1 @@
-/// @description  Update Sphere
-matrix = btRigidBody_getWorldTransform(body);
-
+btRigidBody_getWorldTransformMatrix(body, matrix);

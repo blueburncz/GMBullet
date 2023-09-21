@@ -1,4 +1,3 @@
-/// @description  Setup Camera
 z = 24;
 
 yaw = 0; yaw_to = 0;

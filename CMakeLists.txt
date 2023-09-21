@@ -6,8 +6,21 @@ set(CMAKE_CXX_STANDARD 17)
 
 set(SOURCES
     src/GMBullet/dllmain.cpp
-    src/GMBullet/exports.cpp
-    src/GMBullet/World.cpp
+    src/GMBullet/exports_btBoxShape.cpp
+    src/GMBullet/exports_btCollisionDispatcher.cpp
+    src/GMBullet/exports_btCollisionObject.cpp
+    src/GMBullet/exports_btCollisionShape.cpp
+    src/GMBullet/exports_btCollisionWorld.cpp
+    src/GMBullet/exports_btDbvtBroadphase.cpp
+    src/GMBullet/exports_btDefaultCollisionConfiguration.cpp
+    src/GMBullet/exports_btDefaultMotionState.cpp
+    src/GMBullet/exports_btDiscreteDynamicsWorld.cpp
+    src/GMBullet/exports_btQuaternion.cpp
+    src/GMBullet/exports_btRigidBody.cpp
+    src/GMBullet/exports_btSequentialImpulseConstraintSolver.cpp
+    src/GMBullet/exports_btSphereShape.cpp
+    src/GMBullet/exports_btTransform.cpp
+    src/GMBullet/exports_btVector3.cpp
     )
 
 set(PATH_BULLET "${CMAKE_CURRENT_SOURCE_DIR}/bullet3")

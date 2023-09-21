@@ -1,7 +1,6 @@
-/// @description  Movement
 var input_x = keyboard_check(ord("D")) - keyboard_check(ord("A")),
     input_y = keyboard_check(ord("W")) - keyboard_check(ord("S")),
-    input_z = keyboard_check(vk_space) - keyboard_check(vk_lshift);
+    input_z = keyboard_check(ord("E")) - keyboard_check(ord("Q"));
 
 
 
@@ -54,7 +53,7 @@ look_z = dtan(pitch);
 if (mouse_check_button_pressed(mb_left)) {
     with (instance_create_3d(x, y, z, obj_sphere)) {
         var force = 250;
-        btRigidBody_applyCentralImpulse(body, other.look_x * force, other.look_y * force, other.look_z * force);
+        btRigidBody_applyCentralImpulseXYZ(body, other.look_x * force, other.look_y * force, other.look_z * force);
     }
 }
 
