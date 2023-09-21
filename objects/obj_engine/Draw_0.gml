@@ -25,7 +25,7 @@ with (obj_camera)
 	var _closestHit = btClosestRayResultCallback_create(_rayFromWorld, _rayToWorld);
 	var _collisionWorld = btDiscreteDynamicsWorld_getCollisionWorld(other.dynamicsWorld);
 	btCollisionWorld_rayTest(_collisionWorld, _rayFromWorld, _rayToWorld, _closestHit);
-	if (btClosestRayResultCallback_hasHit(_closestHit))
+	if (btRayResultCallback_hasHit(_closestHit))
 	{
 		var _point = [];
 		btClosestRayResultCallback_getHitPointWorldArray(_closestHit, _point);

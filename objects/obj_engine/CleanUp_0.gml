@@ -1,6 +1,5 @@
-var _collisionWorld = btDiscreteDynamicsWorld_getCollisionWorld(dynamicsWorld);
 var _collisionObjects = [];
-btCollisionWorld_getCollisionObjectArray(_collisionWorld, _collisionObjects);
+btCollisionWorld_getCollisionObjectArray(dynamicsWorld, _collisionObjects);
 
 for (var i = array_length(_collisionObjects) - 1; i >= 0; --i)
 {
@@ -10,7 +9,7 @@ for (var i = array_length(_collisionObjects) - 1; i >= 0; --i)
 	{
 		btDefaultMotionState_destroy(btRigidBody_getMotionState(_rigidBody));
 	}
-	btCollisionWorld_removeCollisionObject(_collisionWorld, _collisionObject);
+	btCollisionWorld_removeCollisionObject(dynamicsWorld, _collisionObject);
 	btCollisionObject_destroy(_collisionObject);
 }
 
