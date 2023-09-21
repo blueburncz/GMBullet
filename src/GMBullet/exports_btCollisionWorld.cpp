@@ -33,6 +33,96 @@ YYEXPORT void btCollisionWorld_destroy(RValue& Result, CInstance* selfinst, CIns
 	delete (btCollisionWorld*)YYGetPtr(arg, 0);
 }
 
+/// @func btCollisionWorld_getBroadphase(collisionWorld)
+///
+/// @desc
+///
+/// @param {Pointer} collisionWorld
+///
+/// @return {Pointer}
+YYEXPORT void btCollisionWorld_getBroadphase(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
+{
+	btCollisionWorld* collisionWorld = (btCollisionWorld*)YYGetPtr(arg, 0);
+	Result.kind = VALUE_PTR;
+	Result.ptr = collisionWorld->getBroadphase();
+}
+
+/// @func btCollisionWorld_setBroadphase(collisionWorld, pairCache)
+///
+/// @desc
+///
+/// @param {Pointer} collisionWorld
+/// @param {Pointer} pairCache
+YYEXPORT void btCollisionWorld_setBroadphase(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
+{
+	btCollisionWorld* collisionWorld = (btCollisionWorld*)YYGetPtr(arg, 0);
+	btBroadphaseInterface* pairCache = (btBroadphaseInterface*)YYGetPtr(arg, 1);
+	collisionWorld->setBroadphase(pairCache);
+}
+
+/// @func btCollisionWorld_getPairCache(collisionWorld)
+///
+/// @desc
+///
+/// @param {Pointer} collisionWorld
+///
+/// @return {Pointer}
+YYEXPORT void btCollisionWorld_getPairCache(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
+{
+	btCollisionWorld* collisionWorld = (btCollisionWorld*)YYGetPtr(arg, 0);
+	Result.kind = VALUE_PTR;
+	Result.ptr = collisionWorld->getPairCache();
+}
+
+/// @func btCollisionWorld_getDispatcher(collisionWorld)
+///
+/// @desc
+///
+/// @param {Pointer} collisionWorld
+///
+/// @return {Pointer}
+YYEXPORT void btCollisionWorld_getDispatcher(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
+{
+	btCollisionWorld* collisionWorld = (btCollisionWorld*)YYGetPtr(arg, 0);
+	Result.kind = VALUE_PTR;
+	Result.ptr = collisionWorld->getDispatcher();
+}
+
+/// @func btCollisionWorld_updateSingleAabb(collisionWorld, collisionObject)
+///
+/// @desc
+///
+/// @param {Pointer} collisionWorld
+/// @param {Pointer} collisionObject
+YYEXPORT void btCollisionWorld_updateSingleAabb(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
+{
+	btCollisionWorld* collisionWorld = (btCollisionWorld*)YYGetPtr(arg, 0);
+	btCollisionObject* collisionObject = (btCollisionObject*)YYGetPtr(arg, 1);
+	collisionWorld->updateSingleAabb(collisionObject);
+}
+
+/// @func btCollisionWorld_updateAabbs(collisionWorld)
+///
+/// @desc
+///
+/// @param {Pointer} collisionWorld
+YYEXPORT void btCollisionWorld_updateAabbs(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
+{
+	btCollisionWorld* collisionWorld = (btCollisionWorld*)YYGetPtr(arg, 0);
+	collisionWorld->updateAabbs();
+}
+
+/// @func btCollisionWorld_computeOverlappingPairs(collisionWorld)
+///
+/// @desc
+///
+/// @param {Pointer} collisionWorld
+YYEXPORT void btCollisionWorld_computeOverlappingPairs(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
+{
+	btCollisionWorld* collisionWorld = (btCollisionWorld*)YYGetPtr(arg, 0);
+	collisionWorld->computeOverlappingPairs();
+}
+
 /// @func btCollisionWorld_rayTest(collisionWorld, rayFromWorld, rayToWorld, resultCallback)
 ///
 /// @desc
@@ -48,6 +138,59 @@ YYEXPORT void btCollisionWorld_rayTest(RValue& Result, CInstance* selfinst, CIns
 	btVector3* rayToWorld = (btVector3*)YYGetPtr(arg, 2);
 	btCollisionWorld::RayResultCallback* resultCallback = (btCollisionWorld::RayResultCallback*)YYGetPtr(arg, 3);
 	collisionWorld->rayTest(*rayFromWorld, *rayToWorld, *resultCallback);
+}
+
+/// @func btCollisionWorld_convexSweepTest(collisionWorld, castShape, from, to, resultCallback[, allowedCcdPenetration])
+///
+/// @desc
+///
+/// @param {Pointer} collisionWorld
+/// @param {Pointer} castShape
+/// @param {Pointer} from
+/// @param {Pointer} to
+/// @param {Pointer} resultCallback
+/// @param {Real} [allowedCcdPenetration]
+YYEXPORT void btCollisionWorld_convexSweepTest(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
+{
+	btCollisionWorld* collisionWorld = (btCollisionWorld*)YYGetPtr(arg, 0);
+	btConvexShape* castShape = (btConvexShape*)YYGetPtr(arg, 1);
+	btTransform* from = (btTransform*)YYGetPtr(arg, 2);
+	btTransform* to = (btTransform*)YYGetPtr(arg, 3);
+	btCollisionWorld::ConvexResultCallback* resultCallback = (btCollisionWorld::ConvexResultCallback*)YYGetPtr(arg, 4);
+	double allowedCcdPenetration = (argc > 5) ? YYGetReal(arg, 5) : 0.0;
+	collisionWorld->convexSweepTest(castShape, *from, *to, *resultCallback, allowedCcdPenetration);
+}
+
+/// @func btCollisionWorld_contactTest(collisionWorld, colObj, resultCallback)
+///
+/// @desc
+///
+/// @param {Pointer} collisionWorld
+/// @param {Pointer} colObj
+/// @param {Pointer} resultCallback
+YYEXPORT void btCollisionWorld_contactTest(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
+{
+	btCollisionWorld* collisionWorld = (btCollisionWorld*)YYGetPtr(arg, 0);
+	btCollisionObject* colObj = (btCollisionObject*)YYGetPtr(arg, 1);
+	btCollisionWorld::ContactResultCallback* resultCallback = (btCollisionWorld::ContactResultCallback*)YYGetPtr(arg, 2);
+	collisionWorld->contactTest(colObj, *resultCallback);
+}
+
+/// @func btCollisionWorld_contactPairTest(collisionWorld, colObjA, colObjB, resultCallback)
+///
+/// @desc
+///
+/// @param {Pointer} collisionWorld
+/// @param {Pointer} colObjA
+/// @param {Pointer} colObjB
+/// @param {Pointer} resultCallback
+YYEXPORT void btCollisionWorld_contactPairTest(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
+{
+	btCollisionWorld* collisionWorld = (btCollisionWorld*)YYGetPtr(arg, 0);
+	btCollisionObject* colObjA = (btCollisionObject*)YYGetPtr(arg, 1);
+	btCollisionObject* colObjB = (btCollisionObject*)YYGetPtr(arg, 2);
+	btCollisionWorld::ContactResultCallback* resultCallback = (btCollisionWorld::ContactResultCallback*)YYGetPtr(arg, 3);
+	collisionWorld->contactPairTest(colObjA, colObjB, *resultCallback);
 }
 
 /// @func btCollisionWorld_rayTestXYZ(collisionWorld, rayFromWorldX, rayFromWorldY, rayFromWorldZ, rayToWorldX, rayToWorldY, rayToWorldZ, resultCallback)
@@ -76,6 +219,36 @@ YYEXPORT void btCollisionWorld_rayTestXYZ(RValue& Result, CInstance* selfinst, C
 		btVector3(rayFromWorldX, rayFromWorldY, rayToWorldZ),
 		btVector3(rayToWorldX, rayToWorldY, rayToWorldZ),
 		*resultCallback);
+}
+
+/// @func btCollisionWorld_addCollisionObject(collisionWorld, collisionObject[, collisionFilterGroup[, collisionFilterMask]])
+///
+/// @desc
+///
+/// @param {Pointer} collisionWorld
+/// @param {Pointer} collisionObject
+/// @param {Real} [collisionFilterGroup]
+/// @param {Real} [collisionFilterMask]
+YYEXPORT void btCollisionWorld_addCollisionObject(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
+{
+	btCollisionWorld* collisionWorld = (btCollisionWorld*)YYGetPtr(arg, 0);
+	btCollisionObject* collisionObject = (btCollisionObject*)YYGetPtr(arg, 1);
+	int collisionFilterGroup = (argc > 2) ? YYGetInt32(arg, 2) : btBroadphaseProxy::DefaultFilter;
+	int collisionFilterMask = (argc > 3) ? YYGetInt32(arg, 3) : btBroadphaseProxy::AllFilter;
+	collisionWorld->addCollisionObject(collisionObject, collisionFilterGroup, collisionFilterMask);
+}
+
+/// @func btCollisionWorld_refreshBroadphaseProxy(collisionWorld, collisionObject)
+///
+/// @desc
+///
+/// @param {Pointer} collisionWorld
+/// @param {Pointer} collisionObject
+YYEXPORT void btCollisionWorld_refreshBroadphaseProxy(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
+{
+	btCollisionWorld* collisionWorld = (btCollisionWorld*)YYGetPtr(arg, 0);
+	btCollisionObject* collisionObject = (btCollisionObject*)YYGetPtr(arg, 1);
+	collisionWorld->refreshBroadphaseProxy(collisionObject);
 }
 
 /// @func btCollisionWorld_getNumCollisionObjects(collisionWorld)
@@ -140,6 +313,58 @@ YYEXPORT void btCollisionWorld_removeCollisionObject(RValue& Result, CInstance* 
 	btCollisionWorld* collisionWorld = (btCollisionWorld*)YYGetPtr(arg, 0);
 	btCollisionObject* collisionObject = (btCollisionObject*)YYGetPtr(arg, 1);
 	collisionWorld->removeCollisionObject(collisionObject);
+}
+
+/// @func btCollisionWorld_performDiscreteCollisionDetection(collisionWorld)
+///
+/// @desc
+///
+/// @param {Pointer} collisionWorld
+YYEXPORT void btCollisionWorld_performDiscreteCollisionDetection(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
+{
+	btCollisionWorld* collisionWorld = (btCollisionWorld*)YYGetPtr(arg, 0);
+	collisionWorld->performDiscreteCollisionDetection();
+}
+
+/// @func btCollisionWorld_getDispatchInfo(collisionWorld)
+///
+/// @desc
+///
+/// @param {Pointer} collisionWorld
+///
+/// @return {Pointer}
+YYEXPORT void btCollisionWorld_getDispatchInfo(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
+{
+	btCollisionWorld* collisionWorld = (btCollisionWorld*)YYGetPtr(arg, 0);
+	Result.kind = VALUE_PTR;
+	Result.ptr = &collisionWorld->getDispatchInfo();
+}
+
+/// @func btCollisionWorld_getForceUpdateAllAabbs(collisionWorld)
+///
+/// @desc
+///
+/// @param {Pointer} collisionWorld
+///
+/// @return {Bool}
+YYEXPORT void btCollisionWorld_getForceUpdateAllAabbs(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
+{
+	btCollisionWorld* collisionWorld = (btCollisionWorld*)YYGetPtr(arg, 0);
+	Result.kind = VALUE_BOOL;
+	Result.val = collisionWorld->getForceUpdateAllAabbs();
+}
+
+/// @func btCollisionWorld_setForceUpdateAllAabbs(collisionWorld, forceUpdateAllAabbs)
+///
+/// @desc
+///
+/// @param {Pointer} collisionWorld
+/// @param {Bool} forceUpdateAllAabbs
+YYEXPORT void btCollisionWorld_setForceUpdateAllAabbs(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
+{
+	btCollisionWorld* collisionWorld = (btCollisionWorld*)YYGetPtr(arg, 0);
+	bool forceUpdateAllAabbs = YYGetBool(arg, 1);
+	collisionWorld->setForceUpdateAllAabbs(forceUpdateAllAabbs);
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -623,4 +848,402 @@ YYEXPORT void btAllHitsRayResultCallback_getHitFractions(RValue& Result, CInstan
 		SET_RValue(outArray, &value, NULL, i);
 	}
 	FREE_RValue(&value);
+}
+
+////////////////////////////////////////////////////////////////////////////////
+//
+// btCollisionWorld::ConvexResultCallback
+//
+
+using btConvexResultCallback = btCollisionWorld::ConvexResultCallback;
+
+/// @func btConvexResultCallback_destroy(convexResultCallback)
+///
+/// @desc
+///
+/// @param {Pointer} convexResultCallback
+YYEXPORT void btConvexResultCallback_destroy(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
+{
+	delete (btConvexResultCallback*)YYGetPtr(arg, 0);
+}
+
+/// @func btConvexResultCallback_getClosestHitFraction(convexResultCallback)
+///
+/// @desc
+///
+/// @param {Pointer} convexResultCallback
+///
+/// @return {Real}
+YYEXPORT void btConvexResultCallback_getClosestHitFraction(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
+{
+	btConvexResultCallback* convexResultCallback = (btConvexResultCallback*)YYGetPtr(arg, 0);
+	Result.kind = VALUE_REAL;
+	Result.val = convexResultCallback->m_closestHitFraction;
+}
+
+/// @func btConvexResultCallback_getCollisionFilterGroup(convexResultCallback)
+///
+/// @desc
+///
+/// @param {Pointer} convexResultCallback
+///
+/// @return {Real}
+YYEXPORT void btConvexResultCallback_getCollisionFilterGroup(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
+{
+	btConvexResultCallback* convexResultCallback = (btConvexResultCallback*)YYGetPtr(arg, 0);
+	Result.kind = VALUE_INT32;
+	Result.val = convexResultCallback->m_collisionFilterGroup;
+}
+
+/// @func btConvexResultCallback_setCollisionFilterGroup(convexResultCallback, collisionFilterGroup)
+///
+/// @desc
+///
+/// @param {Pointer} convexResultCallback
+/// @param {Real} collisionFilterGroup
+YYEXPORT void btConvexResultCallback_setCollisionFilterGroup(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
+{
+	btConvexResultCallback* convexResultCallback = (btConvexResultCallback*)YYGetPtr(arg, 0);
+	int collisionFilterGroup = YYGetInt32(arg, 1);
+	convexResultCallback->m_collisionFilterGroup = collisionFilterGroup;
+}
+
+/// @func btConvexResultCallback_getCollisionFilterMask(convexResultCallback)
+///
+/// @desc
+///
+/// @param {Pointer} convexResultCallback
+///
+/// @return {Real}
+YYEXPORT void btConvexResultCallback_getCollisionFilterMask(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
+{
+	btConvexResultCallback* convexResultCallback = (btConvexResultCallback*)YYGetPtr(arg, 0);
+	Result.kind = VALUE_INT32;
+	Result.val = convexResultCallback->m_collisionFilterMask;
+}
+
+/// @func btConvexResultCallback_setCollisionFilterMask(convexResultCallback, collisionFilterMask)
+///
+/// @desc
+///
+/// @param {Pointer} convexResultCallback
+/// @param {Real} collisionFilterMask
+YYEXPORT void btConvexResultCallback_setCollisionFilterMask(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
+{
+	btConvexResultCallback* convexResultCallback = (btConvexResultCallback*)YYGetPtr(arg, 0);
+	int collisionFilterMask = YYGetInt32(arg, 1);
+	convexResultCallback->m_collisionFilterMask = collisionFilterMask;
+}
+
+/// @func btConvexResultCallback_hasHit(convexResultCallback)
+///
+/// @desc
+///
+/// @param {Pointer} convexResultCallback
+///
+/// @return {Bool}
+YYEXPORT void btConvexResultCallback_hasHit(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
+{
+	btConvexResultCallback* convexResultCallback = (btConvexResultCallback*)YYGetPtr(arg, 0);
+	Result.kind = VALUE_BOOL;
+	Result.val = convexResultCallback->hasHit();
+}
+
+////////////////////////////////////////////////////////////////////////////////
+//
+// btCollisionWorld::ClosestConvexResultCallback
+//
+
+using btClosestConvexResultCallback = btCollisionWorld::ClosestConvexResultCallback;
+
+/// @func btClosestConvexResultCallback_create(convexFromWorld, convexToWorld)
+///
+/// @desc
+///
+/// @param {Pointer} convexFromWorld
+/// @param {Pointer} convexToWorld
+///
+/// @return {Pointer}
+YYEXPORT void btClosestConvexResultCallback_create(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
+{
+	btVector3* convexFromWorld = (btVector3*)YYGetPtr(arg, 0);
+	btVector3* convexToWorld = (btVector3*)YYGetPtr(arg, 1);
+	Result.kind = VALUE_PTR;
+	Result.ptr = new btClosestConvexResultCallback(*convexFromWorld, *convexToWorld);
+}
+
+/// @func btClosestConvexResultCallback_createXYZ(convexFromWorldX, convexFromWorldY, convexFromWorldZ, convexToWorldX, convexToWorldY, convexToWorldZ)
+///
+/// @desc
+///
+/// @param {Real} convexFromWorldX
+/// @param {Real} convexFromWorldY
+/// @param {Real} convexFromWorldZ
+/// @param {Real} convexToWorldX
+/// @param {Real} convexToWorldY
+/// @param {Real} convexToWorldZ
+///
+/// @return {Pointer}
+YYEXPORT void btClosestConvexResultCallback_createXYZ(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
+{
+	double convexFromWorldX = YYGetReal(arg, 0);
+	double convexFromWorldY = YYGetReal(arg, 1);
+	double convexFromWorldZ = YYGetReal(arg, 2);
+	double convexToWorldX = YYGetReal(arg, 3);
+	double convexToWorldY = YYGetReal(arg, 4);
+	double convexToWorldZ = YYGetReal(arg, 5);
+	Result.kind = VALUE_PTR;
+	Result.ptr = new btClosestConvexResultCallback(
+		btVector3(convexFromWorldX, convexFromWorldY, convexFromWorldZ),
+		btVector3(convexToWorldX, convexToWorldY, convexToWorldZ));
+}
+
+/// @func btClosestConvexResultCallback_destroy(closestConvexResultCallback)
+///
+/// @desc
+///
+/// @param {Pointer} closestConvexResultCallback
+YYEXPORT void btClosestConvexResultCallback_destroy(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
+{
+	delete (btClosestConvexResultCallback*)YYGetPtr(arg, 0);
+}
+
+/// @func btClosestConvexResultCallback_getConvexFromWorld(closestConvexResultCallback, outVector3)
+///
+/// @desc
+///
+/// @param {Pointer} closestConvexResultCallback
+/// @param {Pointer} outVector3
+YYEXPORT void btClosestConvexResultCallback_getConvexFromWorld(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
+{
+	btClosestConvexResultCallback* closestConvexResultCallback = (btClosestConvexResultCallback*)YYGetPtr(arg, 0);
+	btVector3* outVector3 = (btVector3*)YYGetPtr(arg, 1);
+	CopyVector3(closestConvexResultCallback->m_convexFromWorld, outVector3);
+}
+
+/// @func btClosestConvexResultCallback_getConvexFromWorldArray(closestConvexResultCallback, outArray)
+///
+/// @desc
+///
+/// @param {Pointer} closestConvexResultCallback
+/// @param {Array<Real>} outArray
+YYEXPORT void btClosestConvexResultCallback_getConvexFromWorldArray(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
+{
+	btClosestConvexResultCallback* closestConvexResultCallback = (btClosestConvexResultCallback*)YYGetPtr(arg, 0);
+	RValue* outArray = &arg[1];
+	btVector3& rayFromWorld = closestConvexResultCallback->m_convexFromWorld;
+	RValue value;
+	value.kind = VALUE_REAL;
+	value.val = rayFromWorld.getZ(); SET_RValue(outArray, &value, NULL, 2);
+	value.val = rayFromWorld.getY(); SET_RValue(outArray, &value, NULL, 1);
+	value.val = rayFromWorld.getX(); SET_RValue(outArray, &value, NULL, 0);
+	FREE_RValue(&value);
+}
+
+/// @func btClosestConvexResultCallback_getConvexToWorld(closestConvexResultCallback, outVector3)
+///
+/// @desc
+///
+/// @param {Pointer} closestConvexResultCallback
+/// @param {Pointer} outVector3
+YYEXPORT void btClosestConvexResultCallback_getConvexToWorld(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
+{
+	btClosestConvexResultCallback* closestConvexResultCallback = (btClosestConvexResultCallback*)YYGetPtr(arg, 0);
+	btVector3* outVector3 = (btVector3*)YYGetPtr(arg, 1);
+	CopyVector3(closestConvexResultCallback->m_convexToWorld, outVector3);
+}
+
+/// @func btClosestConvexResultCallback_getConvexToWorldArray(closestConvexResultCallback, outArray)
+///
+/// @desc
+///
+/// @param {Pointer} closestConvexResultCallback
+/// @param {Array<Real>} outArray
+YYEXPORT void btClosestConvexResultCallback_getConvexToWorldArray(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
+{
+	btClosestConvexResultCallback* closestConvexResultCallback = (btClosestConvexResultCallback*)YYGetPtr(arg, 0);
+	RValue* outArray = &arg[1];
+	btVector3& rayToWorld = closestConvexResultCallback->m_convexToWorld;
+	RValue value;
+	value.kind = VALUE_REAL;
+	value.val = rayToWorld.getZ(); SET_RValue(outArray, &value, NULL, 2);
+	value.val = rayToWorld.getY(); SET_RValue(outArray, &value, NULL, 1);
+	value.val = rayToWorld.getX(); SET_RValue(outArray, &value, NULL, 0);
+	FREE_RValue(&value);
+}
+
+/// @func btClosestConvexResultCallback_getHitNormalWorld(closestConvexResultCallback, outVector3)
+///
+/// @desc
+///
+/// @param {Pointer} closestConvexResultCallback
+/// @param {Pointer} outVector3
+YYEXPORT void btClosestConvexResultCallback_getHitNormalWorld(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
+{
+	btClosestConvexResultCallback* closestConvexResultCallback = (btClosestConvexResultCallback*)YYGetPtr(arg, 0);
+	btVector3* outVector3 = (btVector3*)YYGetPtr(arg, 1);
+	CopyVector3(closestConvexResultCallback->m_hitNormalWorld, outVector3);
+}
+
+/// @func btClosestConvexResultCallback_getHitNormalWorldArray(closestConvexResultCallback, outArray)
+///
+/// @desc
+///
+/// @param {Pointer} closestConvexResultCallback
+/// @param {Array<Real>} outArray
+YYEXPORT void btClosestConvexResultCallback_getHitNormalWorldArray(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
+{
+	btClosestConvexResultCallback* closestConvexResultCallback = (btClosestConvexResultCallback*)YYGetPtr(arg, 0);
+	RValue* outArray = &arg[1];
+	btVector3& hitNormalWorld = closestConvexResultCallback->m_hitNormalWorld;
+	RValue value;
+	value.kind = VALUE_REAL;
+	value.val = hitNormalWorld.getZ(); SET_RValue(outArray, &value, NULL, 2);
+	value.val = hitNormalWorld.getY(); SET_RValue(outArray, &value, NULL, 1);
+	value.val = hitNormalWorld.getX(); SET_RValue(outArray, &value, NULL, 0);
+	FREE_RValue(&value);
+}
+
+/// @func btClosestConvexResultCallback_getHitPointWorld(closestConvexResultCallback, outVector3)
+///
+/// @desc
+///
+/// @param {Pointer} closestConvexResultCallback
+/// @param {Pointer} outVector3
+YYEXPORT void btClosestConvexResultCallback_getHitPointWorld(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
+{
+	btClosestConvexResultCallback* closestConvexResultCallback = (btClosestConvexResultCallback*)YYGetPtr(arg, 0);
+	btVector3* outVector3 = (btVector3*)YYGetPtr(arg, 1);
+	CopyVector3(closestConvexResultCallback->m_hitPointWorld, outVector3);
+}
+
+/// @func btClosestConvexResultCallback_getHitPointWorldArray(closestConvexResultCallback, outArray)
+///
+/// @desc
+///
+/// @param {Pointer} closestConvexResultCallback
+/// @param {Array<Real>} outArray
+YYEXPORT void btClosestConvexResultCallback_getHitPointWorldArray(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
+{
+	btClosestConvexResultCallback* closestConvexResultCallback = (btClosestConvexResultCallback*)YYGetPtr(arg, 0);
+	RValue* outArray = &arg[1];
+	btVector3& hitPointWorld = closestConvexResultCallback->m_hitPointWorld;
+	RValue value;
+	value.kind = VALUE_REAL;
+	value.val = hitPointWorld.getZ(); SET_RValue(outArray, &value, NULL, 2);
+	value.val = hitPointWorld.getY(); SET_RValue(outArray, &value, NULL, 1);
+	value.val = hitPointWorld.getX(); SET_RValue(outArray, &value, NULL, 0);
+	FREE_RValue(&value);
+}
+
+/// @func btClosestConvexResultCallback_getHitCollisionObject(closestConvexResultCallback)
+///
+/// @desc
+///
+/// @param {Pointer} closestConvexResultCallback
+///
+/// @return {Pointer}
+YYEXPORT void btClosestConvexResultCallback_getHitCollisionObject(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
+{
+	btClosestConvexResultCallback* closestConvexResultCallback = (btClosestConvexResultCallback*)YYGetPtr(arg, 0);
+	Result.kind = VALUE_PTR;
+	Result.ptr = (void*)const_cast<btCollisionObject*>(closestConvexResultCallback->m_hitCollisionObject);
+}
+
+////////////////////////////////////////////////////////////////////////////////
+//
+// btCollisionWorld::ContactResultCallback
+//
+
+using btContactResultCallback = btCollisionWorld::ContactResultCallback;
+
+/// @func btContactResultCallback_destroy(contactResultCallback)
+///
+/// @desc
+///
+/// @param {Pointer} contactResultCallback
+YYEXPORT void btContactResultCallback_destroy(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
+{
+	delete (btContactResultCallback*)YYGetPtr(arg, 0);
+}
+
+/// @func btContactResultCallback_getCollisionFilterGroup(contactResultCallback)
+///
+/// @desc
+///
+/// @param {Pointer} contactResultCallback
+///
+/// @return {Real}
+YYEXPORT void btContactResultCallback_getCollisionFilterGroup(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
+{
+	btContactResultCallback* contactResultCallback = (btContactResultCallback*)YYGetPtr(arg, 0);
+	Result.kind = VALUE_INT32;
+	Result.val = contactResultCallback->m_collisionFilterGroup;
+}
+
+/// @func btContactResultCallback_setCollisionFilterGroup(contactResultCallback, collisionFilterGroup)
+///
+/// @desc
+///
+/// @param {Pointer} contactResultCallback
+/// @param {Real} collisionFilterGroup
+YYEXPORT void btContactResultCallback_setCollisionFilterGroup(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
+{
+	btContactResultCallback* contactResultCallback = (btContactResultCallback*)YYGetPtr(arg, 0);
+	int collisionFilterGroup = YYGetInt32(arg, 1);
+	contactResultCallback->m_collisionFilterGroup = collisionFilterGroup;
+}
+
+/// @func btContactResultCallback_getCollisionFilterMask(contactResultCallback)
+///
+/// @desc
+///
+/// @param {Pointer} contactResultCallback
+///
+/// @return {Real}
+YYEXPORT void btContactResultCallback_getCollisionFilterMask(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
+{
+	btContactResultCallback* contactResultCallback = (btContactResultCallback*)YYGetPtr(arg, 0);
+	Result.kind = VALUE_INT32;
+	Result.val = contactResultCallback->m_collisionFilterMask;
+}
+
+/// @func btContactResultCallback_setCollisionFilterMask(contactResultCallback, collisionFilterMask)
+///
+/// @desc
+///
+/// @param {Pointer} contactResultCallback
+/// @param {Real} collisionFilterMask
+YYEXPORT void btContactResultCallback_setCollisionFilterMask(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
+{
+	btContactResultCallback* contactResultCallback = (btContactResultCallback*)YYGetPtr(arg, 0);
+	int collisionFilterMask = YYGetInt32(arg, 1);
+	contactResultCallback->m_collisionFilterMask = collisionFilterMask;
+}
+
+/// @func btContactResultCallback_getClosestDistanceThreshold(contactResultCallback)
+///
+/// @desc
+///
+/// @param {Pointer} contactResultCallback
+///
+/// @return {Real}
+YYEXPORT void btContactResultCallback_getClosestDistanceThreshold(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
+{
+	btContactResultCallback* contactResultCallback = (btContactResultCallback*)YYGetPtr(arg, 0);
+	Result.kind = VALUE_REAL;
+	Result.val = contactResultCallback->m_closestDistanceThreshold;
+}
+
+/// @func btContactResultCallback_setClosestDistanceThreshold(contactResultCallback, closestDistanceThreshold)
+///
+/// @desc
+///
+/// @param {Pointer} contactResultCallback
+/// @param {Real} closestDistanceThreshold
+YYEXPORT void btContactResultCallback_setClosestDistanceThreshold(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
+{
+	btContactResultCallback* contactResultCallback = (btContactResultCallback*)YYGetPtr(arg, 0);
+	double closestDistanceThreshold = YYGetReal(arg, 1);
+	contactResultCallback->m_closestDistanceThreshold = closestDistanceThreshold;
 }
