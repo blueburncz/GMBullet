@@ -5,10 +5,11 @@
 /// @desc
 ///
 /// @return {Pointer}
-YYEXPORT void btDefaultCollisionConfiguration_create(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
+YYEXPORT void btDefaultCollisionConfiguration_create(
+	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
-	Result.kind = VALUE_PTR;
-	Result.ptr = new btDefaultCollisionConfiguration();
+	result.kind = VALUE_PTR;
+	result.ptr = new btDefaultCollisionConfiguration();
 }
 
 /// @func btDefaultCollisionConfiguration_destroy(defaultCollisionConfiguration)
@@ -16,7 +17,8 @@ YYEXPORT void btDefaultCollisionConfiguration_create(RValue& Result, CInstance* 
 /// @desc
 ///
 /// @param {Pointer} defaultCollisionConfiguration
-YYEXPORT void btDefaultCollisionConfiguration_destroy(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
+YYEXPORT void btDefaultCollisionConfiguration_destroy(
+	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
 	delete (btDefaultCollisionConfiguration*)YYGetPtr(arg, 0);
 }

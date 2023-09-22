@@ -5,17 +5,19 @@
 /// @desc
 ///
 /// @return {Pointer}
-YYEXPORT void btSequentialImpulseConstraintSolver_create(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
+YYEXPORT void btSequentialImpulseConstraintSolver_create(
+	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
-	Result.kind = VALUE_PTR;
-	Result.ptr = new btSequentialImpulseConstraintSolver();
+	result.kind = VALUE_PTR;
+	result.ptr = new btSequentialImpulseConstraintSolver();
 }
 /// @func btSequentialImpulseConstraintSolver_destroy(sequentialImpulseConstraintSolver)
 ///
 /// @desc
 ///
 /// @param {Pointer} sequentialImpulseConstraintSolver
-YYEXPORT void btSequentialImpulseConstraintSolver_destroy(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
+YYEXPORT void btSequentialImpulseConstraintSolver_destroy(
+	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
 	delete (btSequentialImpulseConstraintSolver*)YYGetPtr(arg, 0);
 }

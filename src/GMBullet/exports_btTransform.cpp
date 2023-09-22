@@ -5,10 +5,11 @@
 /// @desc
 ///
 /// @return {Pointer}
-YYEXPORT void btTransform_create(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
+YYEXPORT void btTransform_create(
+	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
-	Result.kind = VALUE_PTR;
-	Result.ptr = new btTransform();
+	result.kind = VALUE_PTR;
+	result.ptr = new btTransform();
 }
 
 /// @func btTransform_destroy(transform)
@@ -16,7 +17,8 @@ YYEXPORT void btTransform_create(RValue& Result, CInstance* selfinst, CInstance*
 /// @desc
 ///
 /// @param {Pointer} transform
-YYEXPORT void btTransform_destroy(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
+YYEXPORT void btTransform_destroy(
+	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
 	delete (btTransform*)YYGetPtr(arg, 0);
 }
@@ -26,7 +28,8 @@ YYEXPORT void btTransform_destroy(RValue& Result, CInstance* selfinst, CInstance
 /// @desc
 ///
 /// @param {Pointer} transform
-YYEXPORT void btTransform_setIdentity(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
+YYEXPORT void btTransform_setIdentity(
+	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
 	auto transform = (btTransform*)YYGetPtr(arg, 0);
 	transform->setIdentity();
@@ -38,7 +41,8 @@ YYEXPORT void btTransform_setIdentity(RValue& Result, CInstance* selfinst, CInst
 ///
 /// @param {Pointer} transform
 /// @param {Pointer} outVector3
-YYEXPORT void btTransform_getOrigin(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
+YYEXPORT void btTransform_getOrigin(
+	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
 	auto transform = (btTransform*)YYGetPtr(arg, 0);
 	auto outVector3 = (btVector3*)YYGetPtr(arg, 1);
@@ -51,11 +55,12 @@ YYEXPORT void btTransform_getOrigin(RValue& Result, CInstance* selfinst, CInstan
 ///
 /// @param {Pointer} transform
 /// @param {Pointer} origin
-YYEXPORT void btTransform_setOrigin(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
+YYEXPORT void btTransform_setOrigin(
+	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
 	auto transform = (btTransform*)YYGetPtr(arg, 0);
-	auto origin = (btVector3*)YYGetPtr(arg, 0);
-	transform->setOrigin(*origin);
+	btVector3& origin = *(btVector3*)YYGetPtr(arg, 0);
+	transform->setOrigin(origin);
 }
 
 /// @func btTransform_setOriginXYZ(transform, x, y, z)
@@ -66,7 +71,8 @@ YYEXPORT void btTransform_setOrigin(RValue& Result, CInstance* selfinst, CInstan
 /// @param {Real} x
 /// @param {Real} y
 /// @param {Real} z
-YYEXPORT void btTransform_setOriginXYZ(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
+YYEXPORT void btTransform_setOriginXYZ(
+	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
 	auto transform = (btTransform*)YYGetPtr(arg, 0);
 	double x = YYGetReal(arg, 1);
@@ -81,7 +87,8 @@ YYEXPORT void btTransform_setOriginXYZ(RValue& Result, CInstance* selfinst, CIns
 ///
 /// @param {Pointer} transform
 /// @param {Pointer} outQuaternion
-YYEXPORT void btTransform_getRotation(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
+YYEXPORT void btTransform_getRotation(
+	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
 	auto transform = (btTransform*)YYGetPtr(arg, 0);
 	auto outQuaternion = (btQuaternion*)YYGetPtr(arg, 1);
@@ -94,11 +101,12 @@ YYEXPORT void btTransform_getRotation(RValue& Result, CInstance* selfinst, CInst
 ///
 /// @param {Pointer} transform
 /// @param {Pointer} quaternion
-YYEXPORT void btTransform_setRotation(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
+YYEXPORT void btTransform_setRotation(
+	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
 	auto transform = (btTransform*)YYGetPtr(arg, 0);
-	auto quaternion = (btQuaternion*)YYGetPtr(arg, 1);
-	transform->setRotation(*quaternion);
+	btQuaternion& quaternion = *(btQuaternion*)YYGetPtr(arg, 1);
+	transform->setRotation(quaternion);
 }
 
 /// @func btTransform_setRotationXYZ(transform, yaw, pitch, roll)
@@ -109,7 +117,8 @@ YYEXPORT void btTransform_setRotation(RValue& Result, CInstance* selfinst, CInst
 /// @param {Real} yaw
 /// @param {Real} pitch
 /// @param {Real} roll
-YYEXPORT void btTransform_setRotationXYZ(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
+YYEXPORT void btTransform_setRotationXYZ(
+	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
 	auto transform = (btTransform*)YYGetPtr(arg, 0);
 	double yaw = YYGetReal(arg, 1);
@@ -124,7 +133,8 @@ YYEXPORT void btTransform_setRotationXYZ(RValue& Result, CInstance* selfinst, CI
 ///
 /// @param {Pointer} transform
 /// @param {Array<real>} outMatrix
-YYEXPORT void btTransform_getMatrix(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
+YYEXPORT void btTransform_getMatrix(
+	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
 	auto transform = (btTransform*)YYGetPtr(arg, 0);
 	RValue* outMatrix = &arg[1];
@@ -146,7 +156,8 @@ YYEXPORT void btTransform_getMatrix(RValue& Result, CInstance* selfinst, CInstan
 ///
 /// @param {Pointer} transform
 /// @param {Array<real>} matrix
-YYEXPORT void btTransform_setFromMatrix(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
+YYEXPORT void btTransform_setFromMatrix(
+	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
 	auto transform = (btTransform*)YYGetPtr(arg, 0);
 	RValue* matrix = &arg[1];

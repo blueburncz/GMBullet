@@ -9,13 +9,14 @@
 /// @param {Real} [z]
 ///
 /// @return {Pointer}
-YYEXPORT void btVector3_create(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
+YYEXPORT void btVector3_create(
+	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
 	double x = (argc > 0) ? YYGetReal(arg, 0) : 0;
 	double y = (argc > 1) ? YYGetReal(arg, 1) : 0;
 	double z = (argc > 2) ? YYGetReal(arg, 2) : 0;
-	Result.kind = VALUE_PTR;
-	Result.ptr = new btVector3(x, y, z);
+	result.kind = VALUE_PTR;
+	result.ptr = new btVector3(x, y, z);
 }
 
 /// @func btVector3_destroy(vector)
@@ -23,7 +24,8 @@ YYEXPORT void btVector3_create(RValue& Result, CInstance* selfinst, CInstance* o
 /// @desc
 ///
 /// @param {Pointer} vector
-YYEXPORT void btVector3_destroy(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
+YYEXPORT void btVector3_destroy(
+	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
 	delete (btVector3*)YYGetPtr(arg, 0);
 }
@@ -35,11 +37,12 @@ YYEXPORT void btVector3_destroy(RValue& Result, CInstance* selfinst, CInstance* 
 /// @param {Pointer} vector
 ///
 /// @return {Real}
-YYEXPORT void btVector3_getX(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
+YYEXPORT void btVector3_getX(
+	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
 	auto vector = (btVector3*)YYGetPtr(arg, 0);
-	Result.kind = VALUE_REAL;
-	Result.val = vector->getX();
+	result.kind = VALUE_REAL;
+	result.val = vector->getX();
 }
 
 /// @func btVector3_setX(vector, x)
@@ -48,7 +51,8 @@ YYEXPORT void btVector3_getX(RValue& Result, CInstance* selfinst, CInstance* oth
 ///
 /// @param {Pointer} vector
 /// @param {Real} x
-YYEXPORT void btVector3_setX(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
+YYEXPORT void btVector3_setX(
+	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
 	auto vector = (btVector3*)YYGetPtr(arg, 0);
 	double x = YYGetReal(arg, 1);
@@ -62,11 +66,12 @@ YYEXPORT void btVector3_setX(RValue& Result, CInstance* selfinst, CInstance* oth
 /// @param {Pointer} vector
 ///
 /// @return {Real}
-YYEXPORT void btVector3_getY(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
+YYEXPORT void btVector3_getY(
+	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
 	auto vector = (btVector3*)YYGetPtr(arg, 0);
-	Result.kind = VALUE_REAL;
-	Result.val = vector->getY();
+	result.kind = VALUE_REAL;
+	result.val = vector->getY();
 }
 
 /// @func btVector3_setY(vector, y)
@@ -75,7 +80,8 @@ YYEXPORT void btVector3_getY(RValue& Result, CInstance* selfinst, CInstance* oth
 ///
 /// @param {Pointer} vector
 /// @param {Real} y
-YYEXPORT void btVector3_setY(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
+YYEXPORT void btVector3_setY(
+	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
 	auto vector = (btVector3*)YYGetPtr(arg, 0);
 	double y = YYGetReal(arg, 1);
@@ -89,11 +95,12 @@ YYEXPORT void btVector3_setY(RValue& Result, CInstance* selfinst, CInstance* oth
 /// @param {Pointer} vector
 ///
 /// @return {Real}
-YYEXPORT void btVector3_getZ(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
+YYEXPORT void btVector3_getZ(
+	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
 	auto vector = (btVector3*)YYGetPtr(arg, 0);
-	Result.kind = VALUE_REAL;
-	Result.val = vector->getZ();
+	result.kind = VALUE_REAL;
+	result.val = vector->getZ();
 }
 
 /// @func btVector3_setZ(vector, z)
@@ -102,7 +109,8 @@ YYEXPORT void btVector3_getZ(RValue& Result, CInstance* selfinst, CInstance* oth
 ///
 /// @param {Pointer} vector
 /// @param {Real} z
-YYEXPORT void btVector3_setZ(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
+YYEXPORT void btVector3_setZ(
+	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
 	auto vector = (btVector3*)YYGetPtr(arg, 0);
 	double z = YYGetReal(arg, 1);
@@ -117,7 +125,8 @@ YYEXPORT void btVector3_setZ(RValue& Result, CInstance* selfinst, CInstance* oth
 /// @param {Real} x
 /// @param {Real} y
 /// @param {Real} z
-YYEXPORT void btVector3_setValue(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
+YYEXPORT void btVector3_setValue(
+	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
 	auto vector = (btVector3*)YYGetPtr(arg, 0);
 	double x = YYGetReal(arg, 1);

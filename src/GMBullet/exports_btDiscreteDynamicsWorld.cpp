@@ -10,14 +10,15 @@
 /// @param {Pointer} collisionConfiguration
 ///
 /// @return {Pointer}
-YYEXPORT void btDiscreteDynamicsWorld_create(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
+YYEXPORT void btDiscreteDynamicsWorld_create(
+	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
 	auto dispatcher = (btDispatcher*)YYGetPtr(arg, 0);
 	auto pairCache = (btBroadphaseInterface*)YYGetPtr(arg, 1);
 	auto constraintSolver = (btConstraintSolver*)YYGetPtr(arg, 2);
 	auto collisionConfiguration = (btCollisionConfiguration*)YYGetPtr(arg, 3);
-	Result.kind = VALUE_PTR;
-	Result.ptr = new btDiscreteDynamicsWorld(dispatcher, pairCache, constraintSolver, collisionConfiguration);
+	result.kind = VALUE_PTR;
+	result.ptr = new btDiscreteDynamicsWorld(dispatcher, pairCache, constraintSolver, collisionConfiguration);
 }
 
 /// @func btDiscreteDynamicsWorld_destroy(discreteDynamicsWorld)
@@ -25,7 +26,8 @@ YYEXPORT void btDiscreteDynamicsWorld_create(RValue& Result, CInstance* selfinst
 /// @desc
 ///
 /// @param {Pointer} discreteDynamicsWorld
-YYEXPORT void btDiscreteDynamicsWorld_destroy(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
+YYEXPORT void btDiscreteDynamicsWorld_destroy(
+	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
 	delete (btDiscreteDynamicsWorld*)YYGetPtr(arg, 0);
 }
@@ -37,14 +39,15 @@ YYEXPORT void btDiscreteDynamicsWorld_destroy(RValue& Result, CInstance* selfins
 /// @param {Pointer} discreteDynamicsWorld
 ///
 /// @return {Pointer}
-YYEXPORT void btDiscreteDynamicsWorld_getCollisionWorld(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
+YYEXPORT void btDiscreteDynamicsWorld_getCollisionWorld(
+	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
 	auto dynamicsWorld = (btDiscreteDynamicsWorld*)YYGetPtr(arg, 0);
-	Result.kind = VALUE_PTR;
-	Result.ptr = dynamicsWorld->getCollisionWorld();
+	result.kind = VALUE_PTR;
+	result.ptr = dynamicsWorld->getCollisionWorld();
 }
 
-/// @func btDiscreteDynamicsWorld_setGravity(discreteDynamicsWorld, gravityX, gravityY, gravityZ)
+/// @func btDiscreteDynamicsWorld_setGravityXYZ(discreteDynamicsWorld, gravityX, gravityY, gravityZ)
 ///
 /// @desc
 ///
@@ -52,7 +55,8 @@ YYEXPORT void btDiscreteDynamicsWorld_getCollisionWorld(RValue& Result, CInstanc
 /// @param {Real} gravityX
 /// @param {Real} gravityY
 /// @param {Real} gravityZ
-YYEXPORT void btDiscreteDynamicsWorld_setGravity(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
+YYEXPORT void btDiscreteDynamicsWorld_setGravityXYZ(
+	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
 	auto dynamicsWorld = (btDiscreteDynamicsWorld*)YYGetPtr(arg, 0);
 	double gravityX = YYGetReal(arg, 1);
@@ -69,7 +73,8 @@ YYEXPORT void btDiscreteDynamicsWorld_setGravity(RValue& Result, CInstance* self
 /// @param {Pointer} rigidBody
 /// @param {Real} group
 /// @param {Real} mask
-YYEXPORT void btDiscreteDynamicsWorld_addRigidBody(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
+YYEXPORT void btDiscreteDynamicsWorld_addRigidBody(
+	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
 	auto dynamicsWorld = (btDiscreteDynamicsWorld*)YYGetPtr(arg, 0);
 	auto rigidBody = (btRigidBody*)YYGetPtr(arg, 1);
@@ -84,7 +89,8 @@ YYEXPORT void btDiscreteDynamicsWorld_addRigidBody(RValue& Result, CInstance* se
 ///
 /// @param {Pointer} discreteDynamicsWorld
 /// @param {Pointer} rigidBody
-YYEXPORT void btDiscreteDynamicsWorld_removeRigidBody(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
+YYEXPORT void btDiscreteDynamicsWorld_removeRigidBody(
+	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
 	auto dynamicsWorld = (btDiscreteDynamicsWorld*)YYGetPtr(arg, 0);
 	auto rigidBody = (btRigidBody*)YYGetPtr(arg, 1);
@@ -99,7 +105,8 @@ YYEXPORT void btDiscreteDynamicsWorld_removeRigidBody(RValue& Result, CInstance*
 /// @param {Real} timeStep
 /// @param {Real} [maxSubSteps]
 /// @param {Real} [fixedTimeStep]
-YYEXPORT void btDiscreteDynamicsWorld_stepSimulation(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
+YYEXPORT void btDiscreteDynamicsWorld_stepSimulation(
+	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
 	auto dynamicsWorld = (btDiscreteDynamicsWorld*)YYGetPtr(arg, 0);
 	double timeStep = YYGetReal(arg, 1);

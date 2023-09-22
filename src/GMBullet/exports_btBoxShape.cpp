@@ -7,11 +7,12 @@
 /// @param {Pointer} halfExtents
 ///
 /// @return {Pointer}
-YYEXPORT void btBoxShape_create(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
+YYEXPORT void btBoxShape_create(
+	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
-	auto halfExtents = (btVector3*)YYGetPtr(arg, 0);
-	Result.kind = VALUE_PTR;
-	Result.ptr = new btBoxShape(*halfExtents);
+	btVector3& halfExtents = *(btVector3*)YYGetPtr(arg, 0);
+	result.kind = VALUE_PTR;
+	result.ptr = new btBoxShape(halfExtents);
 }
 
 /// @func btBoxShape_createXYZ(halfExtentX, halfExtentY, halfExtentZ)
@@ -23,11 +24,23 @@ YYEXPORT void btBoxShape_create(RValue& Result, CInstance* selfinst, CInstance* 
 /// @param {Real} halfExtentZ
 ///
 /// @return {Pointer}
-YYEXPORT void btBoxShape_createXYZ(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
+YYEXPORT void btBoxShape_createXYZ(
+	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
 	double halfExtentX = YYGetReal(arg, 0);
 	double halfExtentY = YYGetReal(arg, 1);
 	double halfExtentZ = YYGetReal(arg, 2);
-	Result.kind = VALUE_PTR;
-	Result.ptr = new btBoxShape(btVector3(halfExtentX, halfExtentY, halfExtentZ));
+	result.kind = VALUE_PTR;
+	result.ptr = new btBoxShape(btVector3(halfExtentX, halfExtentY, halfExtentZ));
+}
+
+/// @func btBoxShape_destroy(boxShape)
+///
+/// @desc Destroys a box collision shape.
+///
+/// @param {Pointer} boxShape The box collision shape to destroy.
+YYEXPORT void btBoxShape_destroy(
+	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
+{
+	delete (btBoxShape*)YYGetPtr(arg, 0);
 }

@@ -10,7 +10,7 @@ btDiscreteDynamicsWorld_addRigidBody(obj_engine.dynamicsWorld, body, -1, 1);
 
 var _transform = btTransform_create();
 btTransform_setOriginXYZ(_transform, x, y, z);
-btRigidBody_setWorldTransform(body, _transform);
+btCollisionObject_setWorldTransform(body, _transform);
 btTransform_destroy(_transform);
 
 matrix = matrix_build(0, 0, 0, 0, 0, 0, 1, 1, 1);

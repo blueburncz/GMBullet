@@ -5,10 +5,11 @@
 /// @desc
 ///
 /// @return {Pointer}
-YYEXPORT void btDefaultMotionState_create(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
+YYEXPORT void btDefaultMotionState_create(
+	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
-	Result.kind = VALUE_PTR;
-	Result.ptr = new btDefaultMotionState();
+	result.kind = VALUE_PTR;
+	result.ptr = new btDefaultMotionState();
 }
 
 /// @func btDefaultMotionState_destroy(defaultMotionState)
@@ -16,7 +17,8 @@ YYEXPORT void btDefaultMotionState_create(RValue& Result, CInstance* selfinst, C
 /// @desc
 ///
 /// @param {Pointer} defaultMotionState
-YYEXPORT void btDefaultMotionState_destroy(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
+YYEXPORT void btDefaultMotionState_destroy(
+	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
 	delete (btDefaultMotionState*)YYGetPtr(arg, 0);
 }

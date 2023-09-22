@@ -10,14 +10,15 @@
 /// @param {Real} [w]
 ///
 /// @return {Pointer}
-YYEXPORT void btQuaternion_create(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
+YYEXPORT void btQuaternion_create(
+	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
 	double x = (argc > 0) ? YYGetReal(arg, 0) : 0;
 	double y = (argc > 1) ? YYGetReal(arg, 1) : 0;
 	double z = (argc > 2) ? YYGetReal(arg, 2) : 0;
 	double w = (argc > 3) ? YYGetReal(arg, 3) : 1;
-	Result.kind = VALUE_PTR;
-	Result.ptr = new btQuaternion(x, y, z, w);
+	result.kind = VALUE_PTR;
+	result.ptr = new btQuaternion(x, y, z, w);
 }
 
 /// @func btQuaternion_createFromAxisAngle(axis, angle)
@@ -28,12 +29,13 @@ YYEXPORT void btQuaternion_create(RValue& Result, CInstance* selfinst, CInstance
 /// @param {Real} angle
 ///
 /// @return {Pointer}
-YYEXPORT void btQuaternion_createFromAxisAngle(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
+YYEXPORT void btQuaternion_createFromAxisAngle(
+	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
-	auto axis = (btVector3*)YYGetPtr(arg, 0);
+	btVector3& axis = *(btVector3*)YYGetPtr(arg, 0);
 	double angle = YYGetReal(arg, 1);
-	Result.kind = VALUE_PTR;
-	Result.ptr = new btQuaternion(*axis, angle);
+	result.kind = VALUE_PTR;
+	result.ptr = new btQuaternion(axis, angle);
 }
 
 /// @func btQuaternion_createFromAxisAngleXYZ(axisX, axisY, axisZ, angle)
@@ -46,14 +48,15 @@ YYEXPORT void btQuaternion_createFromAxisAngle(RValue& Result, CInstance* selfin
 /// @param {Real} angle
 ///
 /// @return {Pointer}
-YYEXPORT void btQuaternion_createFromAxisAngleXYZ(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
+YYEXPORT void btQuaternion_createFromAxisAngleXYZ(
+	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
 	double axisX = YYGetReal(arg, 0);
 	double axisY = YYGetReal(arg, 1);
 	double axisZ = YYGetReal(arg, 2);
 	double angle = YYGetReal(arg, 3);
-	Result.kind = VALUE_PTR;
-	Result.ptr = new btQuaternion(btVector3(axisX, axisY, axisZ), angle);
+	result.kind = VALUE_PTR;
+	result.ptr = new btQuaternion(btVector3(axisX, axisY, axisZ), angle);
 }
 
 /// @func btQuaternion_createFromEuler(yaw, pitch, roll)
@@ -65,13 +68,14 @@ YYEXPORT void btQuaternion_createFromAxisAngleXYZ(RValue& Result, CInstance* sel
 /// @param {Real} roll
 ///
 /// @return {Pointer}
-YYEXPORT void btQuaternion_createFromEuler(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
+YYEXPORT void btQuaternion_createFromEuler(
+	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
 	double yaw = YYGetReal(arg, 0);
 	double pitch = YYGetReal(arg, 1);
 	double roll = YYGetReal(arg, 2);
-	Result.kind = VALUE_PTR;
-	Result.ptr = new btQuaternion(yaw, pitch, roll);
+	result.kind = VALUE_PTR;
+	result.ptr = new btQuaternion(yaw, pitch, roll);
 }
 
 /// @func btQuaternion_destroy(quaternion)
@@ -79,7 +83,8 @@ YYEXPORT void btQuaternion_createFromEuler(RValue& Result, CInstance* selfinst, 
 /// @desc
 ///
 /// @param {Pointer} quaternion
-YYEXPORT void btQuaternion_destroy(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
+YYEXPORT void btQuaternion_destroy(
+	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
 	delete (btQuaternion*)YYGetPtr(arg, 0);
 }
@@ -91,11 +96,12 @@ YYEXPORT void btQuaternion_destroy(RValue& Result, CInstance* selfinst, CInstanc
 /// @param {Pointer} quaternion
 ///
 /// @return {Real}
-YYEXPORT void btQuaternion_getX(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
+YYEXPORT void btQuaternion_getX(
+	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
 	auto quaternion = (btQuaternion*)YYGetPtr(arg, 0);
-	Result.kind = VALUE_REAL;
-	Result.val = quaternion->getX();
+	result.kind = VALUE_REAL;
+	result.val = quaternion->getX();
 }
 
 /// @func btQuaternion_setX(quaternion, x)
@@ -104,7 +110,8 @@ YYEXPORT void btQuaternion_getX(RValue& Result, CInstance* selfinst, CInstance* 
 ///
 /// @param {Pointer} quaternion
 /// @param {Real} x
-YYEXPORT void btQuaternion_setX(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
+YYEXPORT void btQuaternion_setX(
+	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
 	auto quaternion = (btQuaternion*)YYGetPtr(arg, 0);
 	double x = YYGetReal(arg, 1);
@@ -118,11 +125,12 @@ YYEXPORT void btQuaternion_setX(RValue& Result, CInstance* selfinst, CInstance* 
 /// @param {Pointer} quaternion
 ///
 /// @return {Real}
-YYEXPORT void btQuaternion_getY(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
+YYEXPORT void btQuaternion_getY(
+	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
 	auto quaternion = (btQuaternion*)YYGetPtr(arg, 0);
-	Result.kind = VALUE_REAL;
-	Result.val = quaternion->getY();
+	result.kind = VALUE_REAL;
+	result.val = quaternion->getY();
 }
 
 /// @func btQuaternion_setY(quaternion, y)
@@ -131,7 +139,8 @@ YYEXPORT void btQuaternion_getY(RValue& Result, CInstance* selfinst, CInstance* 
 ///
 /// @param {Pointer} quaternion
 /// @param {Real} y
-YYEXPORT void btQuaternion_setY(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
+YYEXPORT void btQuaternion_setY(
+	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
 	auto quaternion = (btQuaternion*)YYGetPtr(arg, 0);
 	double y = YYGetReal(arg, 1);
@@ -145,11 +154,12 @@ YYEXPORT void btQuaternion_setY(RValue& Result, CInstance* selfinst, CInstance* 
 /// @param {Pointer} quaternion
 ///
 /// @return {Real}
-YYEXPORT void btQuaternion_getZ(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
+YYEXPORT void btQuaternion_getZ(
+	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
 	auto quaternion = (btQuaternion*)YYGetPtr(arg, 0);
-	Result.kind = VALUE_REAL;
-	Result.val = quaternion->getZ();
+	result.kind = VALUE_REAL;
+	result.val = quaternion->getZ();
 }
 
 /// @func btQuaternion_setZ(quaternion, z)
@@ -158,7 +168,8 @@ YYEXPORT void btQuaternion_getZ(RValue& Result, CInstance* selfinst, CInstance* 
 ///
 /// @param {Pointer} quaternion
 /// @param {Real} z
-YYEXPORT void btQuaternion_setZ(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
+YYEXPORT void btQuaternion_setZ(
+	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
 	auto quaternion = (btQuaternion*)YYGetPtr(arg, 0);
 	double z = YYGetReal(arg, 1);
@@ -172,11 +183,26 @@ YYEXPORT void btQuaternion_setZ(RValue& Result, CInstance* selfinst, CInstance* 
 /// @param {Pointer} quaternion
 ///
 /// @return {Real}
-YYEXPORT void btQuaternion_getW(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
+YYEXPORT void btQuaternion_getW(
+	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
 	auto quaternion = (btQuaternion*)YYGetPtr(arg, 0);
-	Result.kind = VALUE_REAL;
-	Result.val = quaternion->getW();
+	result.kind = VALUE_REAL;
+	result.val = quaternion->getW();
+}
+
+/// @func btQuaternion_setW(quaternion, w)
+///
+/// @desc
+///
+/// @param {Pointer} quaternion
+/// @param {Real} w
+YYEXPORT void btQuaternion_setW(
+	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
+{
+	auto quaternion = (btQuaternion*)YYGetPtr(arg, 0);
+	double w = YYGetReal(arg, 1);
+	quaternion->setZ(w);
 }
 
 /// @func btQuaternion_setValue(quaternion, x, y, z, w)
@@ -188,7 +214,8 @@ YYEXPORT void btQuaternion_getW(RValue& Result, CInstance* selfinst, CInstance* 
 /// @param {Real} y
 /// @param {Real} z
 /// @param {Real} w
-YYEXPORT void btQuaternion_setValue(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
+YYEXPORT void btQuaternion_setValue(
+	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
 	auto quaternion = (btQuaternion*)YYGetPtr(arg, 0);
 	double x = YYGetReal(arg, 1);

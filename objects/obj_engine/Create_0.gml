@@ -3,7 +3,7 @@ dispatcher = btCollisionDispatcher_create(collisionConfiguration);
 overlappingPairCache = btDbvtBroadphase_create();
 solver = btSequentialImpulseConstraintSolver_create();
 dynamicsWorld = btDiscreteDynamicsWorld_create(dispatcher, overlappingPairCache, solver, collisionConfiguration);
-btDiscreteDynamicsWorld_setGravity(dynamicsWorld, 0, 0, -160);
+btDiscreteDynamicsWorld_setGravityXYZ(dynamicsWorld, 0, 0, -160);
 
 pause = false;
 

@@ -1,1 +1,1 @@
-btRigidBody_getWorldTransformMatrix(body, matrix);
+btCollisionObject_getWorldTransformMatrix(body, matrix);

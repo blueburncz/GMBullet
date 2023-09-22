@@ -5,10 +5,11 @@
 /// @desc
 ///
 /// @return {Pointer}
-YYEXPORT void btDbvtBroadphase_create(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
+YYEXPORT void btDbvtBroadphase_create(
+	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
-	Result.kind = VALUE_PTR;
-	Result.ptr = new btDbvtBroadphase();
+	result.kind = VALUE_PTR;
+	result.ptr = new btDbvtBroadphase();
 }
 
 /// @func btDbvtBroadphase_destroy(dbvtBroadphase)
@@ -16,7 +17,8 @@ YYEXPORT void btDbvtBroadphase_create(RValue& Result, CInstance* selfinst, CInst
 /// @desc
 ///
 /// @param {Pointer} dbvtBroadphase
-YYEXPORT void btDbvtBroadphase_destroy(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
+YYEXPORT void btDbvtBroadphase_destroy(
+	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
 	delete (btDbvtBroadphase*)YYGetPtr(arg, 0);
 }
