@@ -12,10 +12,10 @@
 /// @return {Pointer}
 YYEXPORT void btDiscreteDynamicsWorld_create(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
 {
-	btDispatcher* dispatcher = (btDispatcher*)YYGetPtr(arg, 0);
-	btBroadphaseInterface* pairCache = (btBroadphaseInterface*)YYGetPtr(arg, 1);
-	btConstraintSolver* constraintSolver = (btConstraintSolver*)YYGetPtr(arg, 2);
-	btCollisionConfiguration* collisionConfiguration = (btCollisionConfiguration*)YYGetPtr(arg, 3);
+	auto dispatcher = (btDispatcher*)YYGetPtr(arg, 0);
+	auto pairCache = (btBroadphaseInterface*)YYGetPtr(arg, 1);
+	auto constraintSolver = (btConstraintSolver*)YYGetPtr(arg, 2);
+	auto collisionConfiguration = (btCollisionConfiguration*)YYGetPtr(arg, 3);
 	Result.kind = VALUE_PTR;
 	Result.ptr = new btDiscreteDynamicsWorld(dispatcher, pairCache, constraintSolver, collisionConfiguration);
 }
@@ -39,7 +39,7 @@ YYEXPORT void btDiscreteDynamicsWorld_destroy(RValue& Result, CInstance* selfins
 /// @return {Pointer}
 YYEXPORT void btDiscreteDynamicsWorld_getCollisionWorld(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
 {
-	btDiscreteDynamicsWorld* dynamicsWorld = (btDiscreteDynamicsWorld*)YYGetPtr(arg, 0);
+	auto dynamicsWorld = (btDiscreteDynamicsWorld*)YYGetPtr(arg, 0);
 	Result.kind = VALUE_PTR;
 	Result.ptr = dynamicsWorld->getCollisionWorld();
 }
@@ -54,7 +54,7 @@ YYEXPORT void btDiscreteDynamicsWorld_getCollisionWorld(RValue& Result, CInstanc
 /// @param {Real} gravityZ
 YYEXPORT void btDiscreteDynamicsWorld_setGravity(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
 {
-	btDiscreteDynamicsWorld* dynamicsWorld = (btDiscreteDynamicsWorld*)YYGetPtr(arg, 0);
+	auto dynamicsWorld = (btDiscreteDynamicsWorld*)YYGetPtr(arg, 0);
 	double gravityX = YYGetReal(arg, 1);
 	double gravityY = YYGetReal(arg, 2);
 	double gravityZ = YYGetReal(arg, 3);
@@ -71,8 +71,8 @@ YYEXPORT void btDiscreteDynamicsWorld_setGravity(RValue& Result, CInstance* self
 /// @param {Real} mask
 YYEXPORT void btDiscreteDynamicsWorld_addRigidBody(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
 {
-	btDiscreteDynamicsWorld* dynamicsWorld = (btDiscreteDynamicsWorld*)YYGetPtr(arg, 0);
-	btRigidBody* rigidBody = (btRigidBody*)YYGetPtr(arg, 1);
+	auto dynamicsWorld = (btDiscreteDynamicsWorld*)YYGetPtr(arg, 0);
+	auto rigidBody = (btRigidBody*)YYGetPtr(arg, 1);
 	int group = YYGetInt32(arg, 2);
 	int mask = YYGetInt32(arg, 3);
 	dynamicsWorld->addRigidBody(rigidBody, group, mask);
@@ -86,8 +86,8 @@ YYEXPORT void btDiscreteDynamicsWorld_addRigidBody(RValue& Result, CInstance* se
 /// @param {Pointer} rigidBody
 YYEXPORT void btDiscreteDynamicsWorld_removeRigidBody(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
 {
-	btDiscreteDynamicsWorld* dynamicsWorld = (btDiscreteDynamicsWorld*)YYGetPtr(arg, 0);
-	btRigidBody* rigidBody = (btRigidBody*)YYGetPtr(arg, 1);
+	auto dynamicsWorld = (btDiscreteDynamicsWorld*)YYGetPtr(arg, 0);
+	auto rigidBody = (btRigidBody*)YYGetPtr(arg, 1);
 	dynamicsWorld->removeRigidBody(rigidBody);
 }
 
@@ -101,7 +101,7 @@ YYEXPORT void btDiscreteDynamicsWorld_removeRigidBody(RValue& Result, CInstance*
 /// @param {Real} [fixedTimeStep]
 YYEXPORT void btDiscreteDynamicsWorld_stepSimulation(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
 {
-	btDiscreteDynamicsWorld* dynamicsWorld = (btDiscreteDynamicsWorld*)YYGetPtr(arg, 0);
+	auto dynamicsWorld = (btDiscreteDynamicsWorld*)YYGetPtr(arg, 0);
 	double timeStep = YYGetReal(arg, 1);
 	int maxSubSteps = (argc > 1) ? YYGetInt32(arg, 2) : 1;
 	double fixedTimeStep = (argc > 2) ? YYGetReal(arg, 3) : (1.0 / 60.0);

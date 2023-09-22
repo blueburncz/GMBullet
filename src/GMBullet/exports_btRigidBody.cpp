@@ -13,8 +13,8 @@
 YYEXPORT void btRigidBody_create(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
 {
 	double mass = YYGetReal(arg, 0);
-	btMotionState* motionState = (btMotionState*)YYGetPtr(arg, 1);
-	btCollisionShape* collisionShape = (btCollisionShape*)YYGetPtr(arg, 2);
+	auto motionState = (btMotionState*)YYGetPtr(arg, 1);
+	auto collisionShape = (btCollisionShape*)YYGetPtr(arg, 2);
 	btVector3* localInertia = (argc > 3) ? (btVector3*)YYGetPtr(arg, 3) : nullptr;
 	Result.kind = VALUE_PTR;
 	if (localInertia)
@@ -48,9 +48,9 @@ YYEXPORT void btRigidBody_destroy(RValue& Result, CInstance* selfinst, CInstance
 /// @param {Pointer} relPos
 YYEXPORT void btRigidBody_applyImpulse(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
 {
-	btRigidBody* rigidBody = (btRigidBody*)YYGetPtr(arg, 0);
-	btVector3* impulse = (btVector3*)YYGetPtr(arg, 1);
-	btVector3* relPos = (btVector3*)YYGetPtr(arg, 1);
+	auto rigidBody = (btRigidBody*)YYGetPtr(arg, 0);
+	auto impulse = (btVector3*)YYGetPtr(arg, 1);
+	auto relPos = (btVector3*)YYGetPtr(arg, 2);
 	rigidBody->applyImpulse(*impulse, *relPos);
 }
 
@@ -67,7 +67,7 @@ YYEXPORT void btRigidBody_applyImpulse(RValue& Result, CInstance* selfinst, CIns
 /// @param {Real} relPosZ
 YYEXPORT void btRigidBody_applyImpulseXYZ(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
 {
-	btRigidBody* rigidBody = (btRigidBody*)YYGetPtr(arg, 0);
+	auto rigidBody = (btRigidBody*)YYGetPtr(arg, 0);
 	double impulseX = YYGetReal(arg, 1);
 	double impulseY = YYGetReal(arg, 2);
 	double impulseZ = YYGetReal(arg, 3);
@@ -85,8 +85,8 @@ YYEXPORT void btRigidBody_applyImpulseXYZ(RValue& Result, CInstance* selfinst, C
 /// @param {Pointer} impulse
 YYEXPORT void btRigidBody_applyCentralImpulse(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
 {
-	btRigidBody* rigidBody = (btRigidBody*)YYGetPtr(arg, 0);
-	btVector3* impulse = (btVector3*)YYGetPtr(arg, 1);
+	auto rigidBody = (btRigidBody*)YYGetPtr(arg, 0);
+	auto impulse = (btVector3*)YYGetPtr(arg, 1);
 	rigidBody->applyCentralImpulse(*impulse);
 }
 
@@ -100,7 +100,7 @@ YYEXPORT void btRigidBody_applyCentralImpulse(RValue& Result, CInstance* selfins
 /// @param {Real} impulseZ
 YYEXPORT void btRigidBody_applyCentralImpulseXYZ(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
 {
-	btRigidBody* rigidBody = (btRigidBody*)YYGetPtr(arg, 0);
+	auto rigidBody = (btRigidBody*)YYGetPtr(arg, 0);
 	double impulseX = YYGetReal(arg, 1);
 	double impulseY = YYGetReal(arg, 2);
 	double impulseZ = YYGetReal(arg, 3);
@@ -116,9 +116,9 @@ YYEXPORT void btRigidBody_applyCentralImpulseXYZ(RValue& Result, CInstance* self
 /// @param {Pointer} relPos
 YYEXPORT void btRigidBody_applyForce(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
 {
-	btRigidBody* rigidBody = (btRigidBody*)YYGetPtr(arg, 0);
-	btVector3* force = (btVector3*)YYGetPtr(arg, 1);
-	btVector3* relPos = (btVector3*)YYGetPtr(arg, 2);
+	auto rigidBody = (btRigidBody*)YYGetPtr(arg, 0);
+	auto force = (btVector3*)YYGetPtr(arg, 1);
+	auto relPos = (btVector3*)YYGetPtr(arg, 2);
 	rigidBody->applyForce(*force, *relPos);
 }
 
@@ -136,7 +136,7 @@ YYEXPORT void btRigidBody_applyForce(RValue& Result, CInstance* selfinst, CInsta
 /// @param {Real} relPosZ
 YYEXPORT void btRigidBody_applyForceXYZ(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
 {
-	btRigidBody* rigidBody = (btRigidBody*)YYGetPtr(arg, 0);
+	auto rigidBody = (btRigidBody*)YYGetPtr(arg, 0);
 	double forceX = YYGetReal(arg, 1);
 	double forceY = YYGetReal(arg, 2);
 	double forceZ = YYGetReal(arg, 3);
@@ -154,8 +154,8 @@ YYEXPORT void btRigidBody_applyForceXYZ(RValue& Result, CInstance* selfinst, CIn
 /// @param {Pointer} force
 YYEXPORT void btRigidBody_applyCentralForce(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
 {
-	btRigidBody* rigidBody = (btRigidBody*)YYGetPtr(arg, 0);
-	btVector3* force = (btVector3*)YYGetPtr(arg, 1);
+	auto rigidBody = (btRigidBody*)YYGetPtr(arg, 0);
+	auto force = (btVector3*)YYGetPtr(arg, 1);
 	rigidBody->applyCentralForce(*force);
 }
 
@@ -169,7 +169,7 @@ YYEXPORT void btRigidBody_applyCentralForce(RValue& Result, CInstance* selfinst,
 /// @param {Real} forceZ
 YYEXPORT void btRigidBody_applyCentralForceXYZ(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
 {
-	btRigidBody* rigidBody = (btRigidBody*)YYGetPtr(arg, 0);
+	auto rigidBody = (btRigidBody*)YYGetPtr(arg, 0);
 	double forceX = YYGetReal(arg, 1);
 	double forceY = YYGetReal(arg, 2);
 	double forceZ = YYGetReal(arg, 3);
@@ -184,8 +184,8 @@ YYEXPORT void btRigidBody_applyCentralForceXYZ(RValue& Result, CInstance* selfin
 /// @param {Pointer} forceX
 YYEXPORT void btRigidBody_setWorldTransform(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
 {
-	btRigidBody* rigidBody = (btRigidBody*)YYGetPtr(arg, 0);
-	btTransform* transform = (btTransform*)YYGetPtr(arg, 1);
+	auto rigidBody = (btRigidBody*)YYGetPtr(arg, 0);
+	auto transform = (btTransform*)YYGetPtr(arg, 1);
 	rigidBody->setWorldTransform(*transform);
 }
 
@@ -198,7 +198,7 @@ YYEXPORT void btRigidBody_setWorldTransform(RValue& Result, CInstance* selfinst,
 /// @return {Pointer}
 YYEXPORT void btRigidBody_getWorldTransform(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
 {
-	btRigidBody* rigidBody = (btRigidBody*)YYGetPtr(arg, 0);
+	auto rigidBody = (btRigidBody*)YYGetPtr(arg, 0);
 	Result.kind = VALUE_PTR;
 	Result.ptr = &rigidBody->getWorldTransform();
 }
@@ -211,7 +211,7 @@ YYEXPORT void btRigidBody_getWorldTransform(RValue& Result, CInstance* selfinst,
 /// @param {Array<Real>} outMatrix
 YYEXPORT void btRigidBody_getWorldTransformMatrix(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
 {
-	btRigidBody* rigidBody = (btRigidBody*)YYGetPtr(arg, 0);
+	auto rigidBody = (btRigidBody*)YYGetPtr(arg, 0);
 	RValue* outMatrix = &arg[1];
 	static btScalar dest[16];
 	rigidBody->getWorldTransform().getOpenGLMatrix(dest);
@@ -234,7 +234,7 @@ YYEXPORT void btRigidBody_getWorldTransformMatrix(RValue& Result, CInstance* sel
 /// @return {Pointer}
 YYEXPORT void btRigidBody_getMotionState(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
 {
-	btRigidBody* rigidBody = (btRigidBody*)YYGetPtr(arg, 0);
+	auto rigidBody = (btRigidBody*)YYGetPtr(arg, 0);
 	Result.kind = VALUE_PTR;
 	Result.ptr = rigidBody->getMotionState();
 }
@@ -248,7 +248,7 @@ YYEXPORT void btRigidBody_getMotionState(RValue& Result, CInstance* selfinst, CI
 /// @return {Bool}
 YYEXPORT void btRigidBody_isActive(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
 {
-	btRigidBody* rigidBody = (btRigidBody*)YYGetPtr(arg, 0);
+	auto rigidBody = (btRigidBody*)YYGetPtr(arg, 0);
 	Result.kind = VALUE_BOOL;
 	Result.val = rigidBody->isActive();
 }
@@ -262,7 +262,7 @@ YYEXPORT void btRigidBody_isActive(RValue& Result, CInstance* selfinst, CInstanc
 /// @return {Pointer}
 YYEXPORT void btRigidBody_upcast(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
 {
-	btCollisionObject* collisionObject = (btCollisionObject*)YYGetPtr(arg, 0);
+	auto collisionObject = (btCollisionObject*)YYGetPtr(arg, 0);
 	Result.kind = VALUE_PTR;
 	Result.ptr = btRigidBody::upcast(collisionObject);
 }
