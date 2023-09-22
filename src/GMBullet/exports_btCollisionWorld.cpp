@@ -10,12 +10,19 @@ using btClosestConvexResultCallback = btCollisionWorld::ClosestConvexResultCallb
 /// @func btCollisionWorld_create(dispatcher, pairCache, collisionConfiguration)
 ///
 /// @desc
+/// Creates a new instance of a Bullet Physics collision world.
 ///
 /// @param {Pointer} dispatcher
+///     A pointer to a btDispatcher object, responsible for managing collision
+///     dispatch.
 /// @param {Pointer} pairCache
+///     A pointer to a btBroadphaseInterface object, representing the
+///     broad-phase collision detection.
 /// @param {Pointer} collisionConfiguration
+///     A pointer to a btCollisionConfiguration object, defining collision
+///     behavior and algorithms.
 ///
-/// @return {Pointer}
+/// @return {Pointer} A pointer to the newly created btCollisionWorld instance.
 YYEXPORT void btCollisionWorld_create(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -29,8 +36,11 @@ YYEXPORT void btCollisionWorld_create(
 /// @func btCollisionWorld_destroy(collisionWorld)
 ///
 /// @desc
+/// This function destroys a btCollisionWorld instance, releasing the associated
+/// memory.
 ///
 /// @param {Pointer} collisionWorld
+///     A pointer to the btCollisionWorld instance to be destroyed.
 YYEXPORT void btCollisionWorld_destroy(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -40,9 +50,18 @@ YYEXPORT void btCollisionWorld_destroy(
 /// @func btCollisionWorld_setBroadphase(collisionWorld, pairCache)
 ///
 /// @desc
+/// Sets the broadphase interface for a given btCollisionWorld instance. The
+/// broadphase is used for the initial overlapping pairs determination in the
+/// collision detection system.
 ///
 /// @param {Pointer} collisionWorld
+///     A pointer to the btCollisionWorld instance for which the broadphase
+///     interface will be set. It should be a valid pointer to an existing
+///     btCollisionWorld instance.
 /// @param {Pointer} pairCache
+///     A pointer to the btBroadphaseInterface instance that will serve as the
+///     broadphase for the collision world. It should be a valid pointer to an
+///     existing btBroadphaseInterface instance.
 YYEXPORT void btCollisionWorld_setBroadphase(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -54,10 +73,16 @@ YYEXPORT void btCollisionWorld_setBroadphase(
 /// @func btCollisionWorld_getBroadphase(collisionWorld)
 ///
 /// @desc
+/// Retrieves the broadphase interface associated with a given btCollisionWorld
+/// instance.
 ///
 /// @param {Pointer} collisionWorld
+///     A pointer to the btCollisionWorld instance for which the broadphase
+///     interface will be retrieved. It should be a valid pointer to an existing
+///     btCollisionWorld instance.
 ///
-/// @return {Pointer}
+/// @return {Pointer} A pointer to the btBroadphaseInterface instance associated
+/// with the specified collisionWorld.
 YYEXPORT void btCollisionWorld_getBroadphase(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -69,10 +94,16 @@ YYEXPORT void btCollisionWorld_getBroadphase(
 /// @func btCollisionWorld_getPairCache(collisionWorld)
 ///
 /// @desc
+/// Retrieves the pair cache associated with a given btCollisionWorld instance.
 ///
 /// @param {Pointer} collisionWorld
+///     A pointer to the btCollisionWorld instance for which the pair cache will
+///     be retrieved. It should be a valid pointer to an existing
+///     btCollisionWorld instance.
 ///
-/// @return {Pointer}
+/// @return {Pointer} A pointer to the pair cache
+/// (e.g., btHashedOverlappingPairCache) associated with the specified
+/// collisionWorld.
 YYEXPORT void btCollisionWorld_getPairCache(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -84,10 +115,17 @@ YYEXPORT void btCollisionWorld_getPairCache(
 /// @func btCollisionWorld_getDispatcher(collisionWorld)
 ///
 /// @desc
+/// Retrieves the dispatcher associated with a given btCollisionWorld instance.
+/// The dispatcher is responsible for processing collision events and sending
+/// them to appropriate collision algorithms.
 ///
 /// @param {Pointer} collisionWorld
+///     A pointer to the btCollisionWorld instance for which the dispatcher will
+///     be retrieved. It should be a valid pointer to an existing
+///     btCollisionWorld instance.
 ///
-/// @return {Pointer}
+/// @return {Pointer} A pointer to the dispatcher (e.g., btDispatcher)
+/// associated with the specified collisionWorld.
 YYEXPORT void btCollisionWorld_getDispatcher(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -99,9 +137,18 @@ YYEXPORT void btCollisionWorld_getDispatcher(
 /// @func btCollisionWorld_updateSingleAabb(collisionWorld, collisionObject)
 ///
 /// @desc
+/// Updates the axis-aligned bounding box (AABB) of a single collision object in
+/// the btCollisionWorld. This is typically done to reflect changes in the
+/// object's position or shape before performing collision detection.
 ///
 /// @param {Pointer} collisionWorld
+///     A pointer to the btCollisionWorld instance in which the collision object
+///     is present. It should be a valid pointer to an existing btCollisionWorld
+///     instance.
 /// @param {Pointer} collisionObject
+///     A pointer to the btCollisionObject instance for which the AABB will be
+///     updated. It should be a valid pointer to an existing btCollisionObject
+///     instance.
 YYEXPORT void btCollisionWorld_updateSingleAabb(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -113,8 +160,14 @@ YYEXPORT void btCollisionWorld_updateSingleAabb(
 /// @func btCollisionWorld_updateAabbs(collisionWorld)
 ///
 /// @desc
+/// Updates the axis-aligned bounding boxes (AABBs) of all collision objects in
+/// the btCollisionWorld. This is typically done to reflect changes in the
+/// objects' positions or shapes before performing collision detection.
 ///
 /// @param {Pointer} collisionWorld
+///     A pointer to the btCollisionWorld instance in which the collision
+///     objects are present. It should be a valid pointer to an existing
+///     btCollisionWorld instance.
 YYEXPORT void btCollisionWorld_updateAabbs(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -125,8 +178,14 @@ YYEXPORT void btCollisionWorld_updateAabbs(
 /// @func btCollisionWorld_computeOverlappingPairs(collisionWorld)
 ///
 /// @desc
+/// Computes and updates the list of overlapping pairs of collision objects in
+/// the btCollisionWorld. This function is typically called to determine which
+/// pairs of objects are colliding or intersecting.
 ///
 /// @param {Pointer} collisionWorld
+///     A pointer to the btCollisionWorld instance for which overlapping pairs
+///     will be computed. It should be a valid pointer to an existing
+///     btCollisionWorld instance.
 YYEXPORT void btCollisionWorld_computeOverlappingPairs(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -152,8 +211,10 @@ YYEXPORT void btCollisionWorld_computeOverlappingPairs(
 /// @func btRayResultCallback_destroy(rayResultCallback)
 ///
 /// @desc
+/// Destroys a btRayResultCallback instance, releasing the associated memory.
 ///
 /// @param {Pointer} rayResultCallback
+///     A pointer to the btRayResultCallback instance to be destroyed.
 YYEXPORT void btRayResultCallback_destroy(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -163,10 +224,19 @@ YYEXPORT void btRayResultCallback_destroy(
 /// @func btRayResultCallback_getClosestHitFraction(rayResultCallback)
 ///
 /// @desc
+/// Gets the closest hit fraction from a btRayResultCallback instance. The
+/// closest hit fraction is a value between 0 and 1 representing the fractional
+/// distance along the ray where the hit occurred. A value of 1 means no hit,
+/// and a value of 0 means the hit occurred at the origin of the ray.
 ///
 /// @param {Pointer} rayResultCallback
+///      A pointer to the btRayResultCallback instance from which to get the
+///      closest hit fraction. It should be a valid pointer to an existing
+///      btRayResultCallback instance.
 ///
-/// @return {Real}
+///
+/// @return {Real} The closest hit fraction (a value between 0 and 1) from the
+/// rayResultCallback instance.
 YYEXPORT void btRayResultCallback_getClosestHitFraction(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -178,10 +248,15 @@ YYEXPORT void btRayResultCallback_getClosestHitFraction(
 /// @func btRayResultCallback_getCollisionObject(rayResultCallback)
 ///
 /// @desc
+/// Gets the collision object associated with a btRayResultCallback instance.
 ///
 /// @param {Pointer} rayResultCallback
+///      A pointer to the btRayResultCallback instance from which to get the
+///      collision object. It should be a valid pointer to an existing
+///      btRayResultCallback instance.
 ///
-/// @return {Pointer}
+/// @return {Pointer} A pointer to the btCollisionObject associated with the
+/// rayResultCallback instance.
 YYEXPORT void btRayResultCallback_getCollisionObject(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -193,10 +268,17 @@ YYEXPORT void btRayResultCallback_getCollisionObject(
 /// @func btRayResultCallback_getCollisionFilterGroup(rayResultCallback)
 ///
 /// @desc
+/// Gets the collision filter group associated with a btRayResultCallback
+/// instance. The collision filter group is a user-defined grouping used to
+/// filter collisions.
 ///
 /// @param {Pointer} rayResultCallback
+///     A pointer to the btRayResultCallback instance from which to get the
+///     collision filter group. It should be a valid pointer to an existing
+///     btRayResultCallback instance.
 ///
-/// @return {Real}
+/// @return {Real} The collision filter group associated with the
+/// rayResultCallback instance.
 YYEXPORT void btRayResultCallback_getCollisionFilterGroup(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -208,9 +290,16 @@ YYEXPORT void btRayResultCallback_getCollisionFilterGroup(
 /// @func btRayResultCallback_setCollisionFilterGroup(rayResultCallback, collisionFilterGroup)
 ///
 /// @desc
+/// Sets the collision filter group for a btRayResultCallback instance. The
+/// collision filter group is a user-defined grouping used to filter collisions.
 ///
 /// @param {Pointer} rayResultCallback
+///     A pointer to the btRayResultCallback instance for which the collision
+///     filter group will be set. It should be a valid pointer to an existing
+///     btRayResultCallback instance.
 /// @param {Real} collisionFilterGroup
+///     The collision filter group to set for the rayResultCallback instance.
+///     This value determines how objects will filter collisions.
 YYEXPORT void btRayResultCallback_setCollisionFilterGroup(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -222,10 +311,15 @@ YYEXPORT void btRayResultCallback_setCollisionFilterGroup(
 /// @func btRayResultCallback_getCollisionFilterMask(rayResultCallback)
 ///
 /// @desc
+/// Gets the collision filter mask associated with a btRayResultCallback
+/// instance.
 ///
 /// @param {Pointer} rayResultCallback
+///     A pointer to the btRayResultCallback instance from which to get the
+///     collision filter mask.
 ///
-/// @return {Real}
+/// @return {Real} The collision filter mask associated with the
+/// rayResultCallback instance.
 YYEXPORT void btRayResultCallback_getCollisionFilterMask(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -237,9 +331,13 @@ YYEXPORT void btRayResultCallback_getCollisionFilterMask(
 /// @func btRayResultCallback_setCollisionFilterMask(rayResultCallback, collisionFilterMask)
 ///
 /// @desc
+/// Sets the collision filter mask for a btRayResultCallback instance.
 ///
 /// @param {Pointer} rayResultCallback
+///     A pointer to the btRayResultCallback instance for which the collision
+///     filter mask will be set.
 /// @param {Real} collisionFilterMask
+///     The collision filter mask to set for the rayResultCallback instance.
 YYEXPORT void btRayResultCallback_setCollisionFilterMask(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -247,14 +345,16 @@ YYEXPORT void btRayResultCallback_setCollisionFilterMask(
 	int collisionFilterMask = YYGetInt32(arg, 1);
 	rayResultCallback->m_collisionFilterMask = collisionFilterMask;
 }
-
 /// @func btRayResultCallback_hasHit(rayResultCallback)
 ///
 /// @desc
+/// Checks whether the ray result callback has hit any object.
 ///
 /// @param {Pointer} rayResultCallback
+///     A pointer to the btRayResultCallback instance to check for hits.
 ///
-/// @return {Bool}
+/// @return {Bool} True if the ray result callback has hit an object, false
+/// otherwise.
 YYEXPORT void btRayResultCallback_hasHit(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -274,11 +374,18 @@ YYEXPORT void btRayResultCallback_hasHit(
 /// @func btClosestRayResultCallback_create(rayFromWorld, rayToWorld)
 ///
 /// @desc
+/// Creates a btClosestRayResultCallback instance with the specified ray
+/// parameters.
 ///
 /// @param {Pointer} rayFromWorld
+///     A pointer to a btVector3 representing the starting point of the ray in
+///     world coordinates.
 /// @param {Pointer} rayToWorld
+///     A pointer to a btVector3 representing the end point of the ray in world
+///     coordinates.
 ///
-/// @return {Pointer}
+/// @return {Pointer} A pointer to the newly created btClosestRayResultCallback
+/// instance.
 YYEXPORT void btClosestRayResultCallback_create(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -291,15 +398,24 @@ YYEXPORT void btClosestRayResultCallback_create(
 /// @func btClosestRayResultCallback_createXYZ(rayFromWorldX, rayFromWorldY, rayFromWorldZ, rayToWorldX, rayToWorldY, rayToWorldZ)
 ///
 /// @desc
+/// Creates a btClosestRayResultCallback instance with the specified ray
+/// parameters.
 ///
 /// @param {Real} rayFromWorldX
+///     The x-coordinate of the starting point of the ray in world coordinates.
 /// @param {Real} rayFromWorldY
+///     The y-coordinate of the starting point of the ray in world coordinates.
 /// @param {Real} rayFromWorldZ
+///     The z-coordinate of the starting point of the ray in world coordinates.
 /// @param {Real} rayToWorldX
+///     The x-coordinate of the end point of the ray in world coordinates.
 /// @param {Real} rayToWorldY
+///     The y-coordinate of the end point of the ray in world coordinates.
 /// @param {Real} rayToWorldZ
+///     The z-coordinate of the end point of the ray in world coordinates.
 ///
-/// @return {Pointer}
+/// @return {Pointer} A pointer to the newly created btClosestRayResultCallback
+/// instance.
 YYEXPORT void btClosestRayResultCallback_createXYZ(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -318,8 +434,11 @@ YYEXPORT void btClosestRayResultCallback_createXYZ(
 /// @func btClosestRayResultCallback_destroy(closestRayResultCallback)
 ///
 /// @desc
+/// Destroys a btClosestRayResultCallback instance, releasing the associated
+/// memory.
 ///
 /// @param {Pointer} closestRayResultCallback
+///     A pointer to the btClosestRayResultCallback instance to be destroyed.
 YYEXPORT void btClosestRayResultCallback_destroy(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -329,9 +448,15 @@ YYEXPORT void btClosestRayResultCallback_destroy(
 /// @func btClosestRayResultCallback_getRayFromWorld(closestRayResultCallback, outVector3)
 ///
 /// @desc
+/// Gets the starting point of the ray in world coordinates from a
+/// btClosestRayResultCallback instance.
 ///
 /// @param {Pointer} closestRayResultCallback
+///     A pointer to the btClosestRayResultCallback instance from which to get
+///     the starting point of the ray.
 /// @param {Pointer} outVector3
+///     A pointer to a btVector3 where the starting point of the ray will be
+///     copied.
 YYEXPORT void btClosestRayResultCallback_getRayFromWorld(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -343,9 +468,15 @@ YYEXPORT void btClosestRayResultCallback_getRayFromWorld(
 /// @func btClosestRayResultCallback_getRayFromWorldArray(closestRayResultCallback, outArray)
 ///
 /// @desc
+/// Gets the starting point of the ray in world coordinates from a
+/// btClosestRayResultCallback instance and populates an array.
 ///
 /// @param {Pointer} closestRayResultCallback
+///     A pointer to the btClosestRayResultCallback instance from which to get
+///     the starting point of the ray.
 /// @param {Array<Real>} outArray
+///     An array to be populated with the x, y, and z components of the starting
+///     point of the ray.
 YYEXPORT void btClosestRayResultCallback_getRayFromWorldArray(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -363,9 +494,14 @@ YYEXPORT void btClosestRayResultCallback_getRayFromWorldArray(
 /// @func btClosestRayResultCallback_getRayToWorld(closestRayResultCallback, outVector3)
 ///
 /// @desc
+/// Gets the end point of the ray in world coordinates from a
+/// btClosestRayResultCallback instance.
 ///
 /// @param {Pointer} closestRayResultCallback
+///     A pointer to the btClosestRayResultCallback instance from which to get
+///     the end point of the ray.
 /// @param {Pointer} outVector3
+///     A pointer to a btVector3 where the end point of the ray will be copied.
 YYEXPORT void btClosestRayResultCallback_getRayToWorld(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -377,9 +513,15 @@ YYEXPORT void btClosestRayResultCallback_getRayToWorld(
 /// @func btClosestRayResultCallback_getRayToWorldArray(closestRayResultCallback, outArray)
 ///
 /// @desc
+/// Gets the end point of the ray in world coordinates from a
+/// btClosestRayResultCallback instance and populates an array.
 ///
 /// @param {Pointer} closestRayResultCallback
+///     A pointer to the btClosestRayResultCallback instance from which to get
+///     the end point of the ray.
 /// @param {Array<Real>} outArray
+///     An array to be populated with the x, y, and z components of the end
+///     point of the ray.
 YYEXPORT void btClosestRayResultCallback_getRayToWorldArray(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -397,9 +539,14 @@ YYEXPORT void btClosestRayResultCallback_getRayToWorldArray(
 /// @func btClosestRayResultCallback_getHitNormalWorld(closestRayResultCallback, outVector3)
 ///
 /// @desc
+/// Gets the normal of the hit point in world coordinates from a
+/// btClosestRayResultCallback instance.
 ///
 /// @param {Pointer} closestRayResultCallback
+///     A pointer to the btClosestRayResultCallback instance from which to get
+///     the hit normal.
 /// @param {Pointer} outVector3
+///     A pointer to a btVector3 where the hit normal will be copied.
 YYEXPORT void btClosestRayResultCallback_getHitNormalWorld(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -411,9 +558,15 @@ YYEXPORT void btClosestRayResultCallback_getHitNormalWorld(
 /// @func btClosestRayResultCallback_getHitNormalWorldArray(closestRayResultCallback, outArray)
 ///
 /// @desc
+/// Gets the normal of the hit point in world coordinates from a
+/// btClosestRayResultCallback instance and populates an array.
 ///
 /// @param {Pointer} closestRayResultCallback
+///     A pointer to the btClosestRayResultCallback instance from which to get
+///     the hit normal.
 /// @param {Array<Real>} outArray
+///     An array to be populated with the x, y, and z components of the hit
+///     normal.
 YYEXPORT void btClosestRayResultCallback_getHitNormalWorldArray(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -431,9 +584,14 @@ YYEXPORT void btClosestRayResultCallback_getHitNormalWorldArray(
 /// @func btClosestRayResultCallback_getHitPointWorld(closestRayResultCallback, outVector3)
 ///
 /// @desc
+/// Gets the hit point in world coordinates from a btClosestRayResultCallback
+/// instance.
 ///
 /// @param {Pointer} closestRayResultCallback
+///     A pointer to the btClosestRayResultCallback instance from which to get
+///     the hit point.
 /// @param {Pointer} outVector3
+///     A pointer to a btVector3 where the hit point will be copied.
 YYEXPORT void btClosestRayResultCallback_getHitPointWorld(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -445,9 +603,15 @@ YYEXPORT void btClosestRayResultCallback_getHitPointWorld(
 /// @func btClosestRayResultCallback_getHitPointWorldArray(closestRayResultCallback, outArray)
 ///
 /// @desc
+/// Gets the hit point in world coordinates from a btClosestRayResultCallback
+/// instance and populates an array.
 ///
 /// @param {Pointer} closestRayResultCallback
+///     A pointer to the btClosestRayResultCallback instance from which to get
+///     the hit point.
 /// @param {Array<Real>} outArray
+///     An array to be populated with the x, y, and z components of the hit
+///     point.
 YYEXPORT void btClosestRayResultCallback_getHitPointWorldArray(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -472,11 +636,16 @@ YYEXPORT void btClosestRayResultCallback_getHitPointWorldArray(
 /// @func btAllHitsRayResultCallback_create(rayFromWorld, rayToWorld)
 ///
 /// @desc
+/// Creates a new instance of btAllHitsRayResultCallback with specified ray
+/// start and end points.
 ///
 /// @param {Pointer} rayFromWorld
+///     A pointer to the starting point of the ray in world coordinates.
 /// @param {Pointer} rayToWorld
+///     A pointer to the end point of the ray in world coordinates.
 ///
-/// @return {Pointer}
+/// @return {Pointer} A pointer to the newly created btAllHitsRayResultCallback
+/// instance.
 YYEXPORT void btAllHitsRayResultCallback_create(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -489,15 +658,24 @@ YYEXPORT void btAllHitsRayResultCallback_create(
 /// @func btAllHitsRayResultCallback_createXYZ(rayFromWorldX, rayFromWorldY, rayFromWorldZ, rayToWorldX, rayToWorldY, rayToWorldZ)
 ///
 /// @desc
+/// Creates a new instance of btAllHitsRayResultCallback with specified ray
+/// start and end points.
 ///
 /// @param {Real} rayFromWorldX
+///     The x-coordinate of the starting point of the ray in world coordinates.
 /// @param {Real} rayFromWorldY
+///     The y-coordinate of the starting point of the ray in world coordinates.
 /// @param {Real} rayFromWorldZ
+///     The z-coordinate of the starting point of the ray in world coordinates.
 /// @param {Real} rayToWorldX
+///     The x-coordinate of the end point of the ray in world coordinates.
 /// @param {Real} rayToWorldY
+///     The y-coordinate of the end point of the ray in world coordinates.
 /// @param {Real} rayToWorldZ
+///     The z-coordinate of the end point of the ray in world coordinates.
 ///
-/// @return {Pointer}
+/// @return {Pointer} A pointer to the newly created btAllHitsRayResultCallback
+/// instance.
 YYEXPORT void btAllHitsRayResultCallback_createXYZ(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -516,8 +694,11 @@ YYEXPORT void btAllHitsRayResultCallback_createXYZ(
 /// @func btAllHitsRayResultCallback_destroy(allHitsRayResultCallback)
 ///
 /// @desc
+/// Destroys a btAllHitsRayResultCallback instance and frees its associated
+/// memory.
 ///
 /// @param {Pointer} allHitsRayResultCallback
+///     A pointer to the btAllHitsRayResultCallback instance to be destroyed.
 YYEXPORT void btAllHitsRayResultCallback_destroy(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -527,9 +708,14 @@ YYEXPORT void btAllHitsRayResultCallback_destroy(
 /// @func btAllHitsRayResultCallback_getCollisionObjects(allHitsRayResultCallback, outArray)
 ///
 /// @desc
+/// Retrieves an array of collision objects from a btAllHitsRayResultCallback
+/// instance.
 ///
 /// @param {Pointer} allHitsRayResultCallback
+///     A pointer to the btAllHitsRayResultCallback instance from which to
+///     retrieve collision objects.
 /// @param {Array<Pointer>} outArray
+///     An array to be populated with pointers to collision objects.
 YYEXPORT void btAllHitsRayResultCallback_getCollisionObjects(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -548,9 +734,14 @@ YYEXPORT void btAllHitsRayResultCallback_getCollisionObjects(
 /// @func btAllHitsRayResultCallback_getHitNormalWorld(allHitsRayResultCallback, outArray)
 ///
 /// @desc
+/// Retrieves an array of hit normal vectors from a btAllHitsRayResultCallback
+/// instance.
 ///
 /// @param {Pointer} allHitsRayResultCallback
+///     A pointer to the btAllHitsRayResultCallback instance from which to
+///     retrieve hit normal vectors.
 /// @param {Array<Pointer>} outArray
+///     An array to be populated with pointers to hit normal vectors.
 YYEXPORT void btAllHitsRayResultCallback_getHitNormalWorld(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -569,9 +760,14 @@ YYEXPORT void btAllHitsRayResultCallback_getHitNormalWorld(
 /// @func btAllHitsRayResultCallback_getHitNormalWorldArray(allHitsRayResultCallback, outArray)
 ///
 /// @desc
+/// Retrieves an array of hit normal vectors (in XYZ order) from a
+/// btAllHitsRayResultCallback instance.
 ///
 /// @param {Pointer} allHitsRayResultCallback
+///     A pointer to the btAllHitsRayResultCallback instance from which to
+///     retrieve hit normal vectors.
 /// @param {Array<Real>} outArray
+///     An array to be populated with hit normal vectors in XYZ order.
 YYEXPORT void btAllHitsRayResultCallback_getHitNormalWorldArray(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -592,9 +788,13 @@ YYEXPORT void btAllHitsRayResultCallback_getHitNormalWorldArray(
 /// @func btAllHitsRayResultCallback_getHitPointWorld(allHitsRayResultCallback, outArray)
 ///
 /// @desc
+/// Retrieves an array of hit points from a btAllHitsRayResultCallback instance.
 ///
 /// @param {Pointer} allHitsRayResultCallback
+///     A pointer to the btAllHitsRayResultCallback instance from which to
+///     retrieve hit points.
 /// @param {Array<Pointer>} outArray
+///     An array to be populated with pointers to hit points.
 YYEXPORT void btAllHitsRayResultCallback_getHitPointWorld(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -613,9 +813,14 @@ YYEXPORT void btAllHitsRayResultCallback_getHitPointWorld(
 /// @func btAllHitsRayResultCallback_getHitPointWorldArray(allHitsRayResultCallback, outArray)
 ///
 /// @desc
+/// Retrieves an array of hit points (in XYZ order) from a
+/// btAllHitsRayResultCallback instance.
 ///
 /// @param {Pointer} allHitsRayResultCallback
+///     A pointer to the btAllHitsRayResultCallback instance from which to
+///     retrieve hit points.
 /// @param {Array<Real>} outArray
+///     An array to be populated with hit points in XYZ order.
 YYEXPORT void btAllHitsRayResultCallback_getHitPointWorldArray(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -636,9 +841,14 @@ YYEXPORT void btAllHitsRayResultCallback_getHitPointWorldArray(
 /// @func btAllHitsRayResultCallback_getHitFractions(allHitsRayResultCallback, outArray)
 ///
 /// @desc
+/// Retrieves an array of hit fractions from a btAllHitsRayResultCallback
+/// instance.
 ///
 /// @param {Pointer} allHitsRayResultCallback
+///     A pointer to the btAllHitsRayResultCallback instance from which to
+///     retrieve hit fractions.
 /// @param {Array<Real>} outArray
+///     An array to be populated with hit fractions.
 YYEXPORT void btAllHitsRayResultCallback_getHitFractions(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -669,8 +879,10 @@ YYEXPORT void btAllHitsRayResultCallback_getHitFractions(
 /// @func btConvexResultCallback_destroy(convexResultCallback)
 ///
 /// @desc
+/// Destroys a btConvexResultCallback instance.
 ///
 /// @param {Pointer} convexResultCallback
+///     A pointer to the btConvexResultCallback instance to be destroyed.
 YYEXPORT void btConvexResultCallback_destroy(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -680,10 +892,14 @@ YYEXPORT void btConvexResultCallback_destroy(
 /// @func btConvexResultCallback_getClosestHitFraction(convexResultCallback)
 ///
 /// @desc
+/// Retrieves the closest hit fraction from a btConvexResultCallback instance.
 ///
 /// @param {Pointer} convexResultCallback
+///     A pointer to the btConvexResultCallback instance from which to retrieve
+///     the closest hit fraction.
 ///
-/// @return {Real}
+/// @return {Real} A real value representing the fraction along the ray where
+/// the closest collision occurred.
 YYEXPORT void btConvexResultCallback_getClosestHitFraction(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -695,10 +911,14 @@ YYEXPORT void btConvexResultCallback_getClosestHitFraction(
 /// @func btConvexResultCallback_getCollisionFilterGroup(convexResultCallback)
 ///
 /// @desc
+/// Retrieves the collision filter group from a btConvexResultCallback instance.
 ///
 /// @param {Pointer} convexResultCallback
+///     A pointer to the btConvexResultCallback instance from which to retrieve
+///     the collision filter group.
 ///
-/// @return {Real}
+/// @return {Real} An integer representing the group used for collision
+/// filtering.
 YYEXPORT void btConvexResultCallback_getCollisionFilterGroup(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -710,9 +930,13 @@ YYEXPORT void btConvexResultCallback_getCollisionFilterGroup(
 /// @func btConvexResultCallback_setCollisionFilterGroup(convexResultCallback, collisionFilterGroup)
 ///
 /// @desc
+/// Sets the collision filter group for a btConvexResultCallback instance.
 ///
 /// @param {Pointer} convexResultCallback
+///     A pointer to the btConvexResultCallback instance for which to set the
+///     collision filter group.
 /// @param {Real} collisionFilterGroup
+///     An integer used for collision filtering.
 YYEXPORT void btConvexResultCallback_setCollisionFilterGroup(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -724,10 +948,13 @@ YYEXPORT void btConvexResultCallback_setCollisionFilterGroup(
 /// @func btConvexResultCallback_getCollisionFilterMask(convexResultCallback)
 ///
 /// @desc
+/// Retrieves the collision filter mask of a btConvexResultCallback instance.
 ///
 /// @param {Pointer} convexResultCallback
+///     A pointer to the btConvexResultCallback instance from which to retrieve
+///     the collision filter mask.
 ///
-/// @return {Real}
+/// @return {Real} An integer representing collision filtering.
 YYEXPORT void btConvexResultCallback_getCollisionFilterMask(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -739,9 +966,13 @@ YYEXPORT void btConvexResultCallback_getCollisionFilterMask(
 /// @func btConvexResultCallback_setCollisionFilterMask(convexResultCallback, collisionFilterMask)
 ///
 /// @desc
+/// Sets the collision filter mask for a btConvexResultCallback instance.
 ///
 /// @param {Pointer} convexResultCallback
+///     A pointer to the btConvexResultCallback instance for which to set the
+///     collision filter mask.
 /// @param {Real} collisionFilterMask
+///     An integer representing collision filtering.
 YYEXPORT void btConvexResultCallback_setCollisionFilterMask(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -753,10 +984,13 @@ YYEXPORT void btConvexResultCallback_setCollisionFilterMask(
 /// @func btConvexResultCallback_hasHit(convexResultCallback)
 ///
 /// @desc
+/// Checks if the convex result callback has hit an object during a collision
+/// test.
 ///
 /// @param {Pointer} convexResultCallback
+///     A pointer to the btConvexResultCallback instance to check for a hit.
 ///
-/// @return {Bool}
+/// @return {Bool} True if a hit occurred, false otherwise.
 YYEXPORT void btConvexResultCallback_hasHit(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -776,11 +1010,17 @@ YYEXPORT void btConvexResultCallback_hasHit(
 /// @func btClosestConvexResultCallback_create(convexFromWorld, convexToWorld)
 ///
 /// @desc
+/// Creates a new btClosestConvexResultCallback instance with specified
+/// from-world and to-world vectors.
 ///
 /// @param {Pointer} convexFromWorld
+///     A pointer to a btVector3 representing the starting point in world
+///    coordinates.
 /// @param {Pointer} convexToWorld
+///     A pointer to a btVector3 representing the end point in world coordinates.
 ///
-/// @return {Pointer}
+/// @return {Pointer} A pointer to the newly created btClosestConvexResultCallback
+/// instance.
 YYEXPORT void btClosestConvexResultCallback_create(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -793,15 +1033,24 @@ YYEXPORT void btClosestConvexResultCallback_create(
 /// @func btClosestConvexResultCallback_createXYZ(convexFromWorldX, convexFromWorldY, convexFromWorldZ, convexToWorldX, convexToWorldY, convexToWorldZ)
 ///
 /// @desc
+/// Creates a new btClosestConvexResultCallback instance with specified
+/// from-world and to-world vectors.
 ///
 /// @param {Real} convexFromWorldX
+///     The x-coordinate of the starting point in world coordinates.
 /// @param {Real} convexFromWorldY
+///     The y-coordinate of the starting point in world coordinates.
 /// @param {Real} convexFromWorldZ
+///     The z-coordinate of the starting point in world coordinates.
 /// @param {Real} convexToWorldX
+///     The x-coordinate of the end point in world coordinates.
 /// @param {Real} convexToWorldY
+///     The y-coordinate of the end point in world coordinates.
 /// @param {Real} convexToWorldZ
+///     The z-coordinate of the end point in world coordinates.
 ///
-/// @return {Pointer}
+/// @return {Pointer} A pointer to the newly created btClosestConvexResultCallback
+/// instance.
 YYEXPORT void btClosestConvexResultCallback_createXYZ(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -820,8 +1069,11 @@ YYEXPORT void btClosestConvexResultCallback_createXYZ(
 /// @func btClosestConvexResultCallback_destroy(closestConvexResultCallback)
 ///
 /// @desc
+/// Destroys a btClosestConvexResultCallback instance, releasing its allocated
+/// resources.
 ///
 /// @param {Pointer} closestConvexResultCallback
+///     A pointer to the btClosestConvexResultCallback instance to be destroyed.
 YYEXPORT void btClosestConvexResultCallback_destroy(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -831,9 +1083,13 @@ YYEXPORT void btClosestConvexResultCallback_destroy(
 /// @func btClosestConvexResultCallback_getConvexFromWorld(closestConvexResultCallback, outVector3)
 ///
 /// @desc
+/// Retrieves the `convexFromWorld` vector from a btClosestConvexResultCallback
+/// instance.
 ///
 /// @param {Pointer} closestConvexResultCallback
+///     A pointer to the btClosestConvexResultCallback instance.
 /// @param {Pointer} outVector3
+///     A pointer to a btVector3 that will receive the `convexFromWorld` vector.
 YYEXPORT void btClosestConvexResultCallback_getConvexFromWorld(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -845,9 +1101,14 @@ YYEXPORT void btClosestConvexResultCallback_getConvexFromWorld(
 /// @func btClosestConvexResultCallback_getConvexFromWorldArray(closestConvexResultCallback, outArray)
 ///
 /// @desc
+/// Retrieves the `convexFromWorld` vector from a btClosestConvexResultCallback
+/// instance and populates an array with its components.
 ///
 /// @param {Pointer} closestConvexResultCallback
+///     A pointer to the btClosestConvexResultCallback instance.
 /// @param {Array<Real>} outArray
+///     An array to be populated with the components of the `convexFromWorld`
+///     vector in the order [x, y, z].
 YYEXPORT void btClosestConvexResultCallback_getConvexFromWorldArray(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -865,9 +1126,14 @@ YYEXPORT void btClosestConvexResultCallback_getConvexFromWorldArray(
 /// @func btClosestConvexResultCallback_getConvexToWorld(closestConvexResultCallback, outVector3)
 ///
 /// @desc
+/// Retrieves the `convexToWorld` vector from a btClosestConvexResultCallback
+/// instance.
 ///
 /// @param {Pointer} closestConvexResultCallback
+///     A pointer to the btClosestConvexResultCallback instance.
 /// @param {Pointer} outVector3
+///     A pointer to a btVector3 instance where the `convexToWorld` vector will
+///     be stored.
 YYEXPORT void btClosestConvexResultCallback_getConvexToWorld(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -879,9 +1145,14 @@ YYEXPORT void btClosestConvexResultCallback_getConvexToWorld(
 /// @func btClosestConvexResultCallback_getConvexToWorldArray(closestConvexResultCallback, outArray)
 ///
 /// @desc
+/// Retrieves the `convexToWorld` vector from a btClosestConvexResultCallback
+/// instance and stores it in an array.
 ///
 /// @param {Pointer} closestConvexResultCallback
+///     A pointer to the btClosestConvexResultCallback instance.
 /// @param {Array<Real>} outArray
+///     An array to store the `convexToWorld` vector components in the order
+///     [x, y, z].
 YYEXPORT void btClosestConvexResultCallback_getConvexToWorldArray(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -899,9 +1170,13 @@ YYEXPORT void btClosestConvexResultCallback_getConvexToWorldArray(
 /// @func btClosestConvexResultCallback_getHitNormalWorld(closestConvexResultCallback, outVector3)
 ///
 /// @desc
+/// Retrieves the hit normal in world coordinates from a
+/// btClosestConvexResultCallback instance and stores it in a vector.
 ///
 /// @param {Pointer} closestConvexResultCallback
+///     A pointer to the btClosestConvexResultCallback instance.
 /// @param {Pointer} outVector3
+///     A pointer to a btVector3 instance where the hit normal will be stored.
 YYEXPORT void btClosestConvexResultCallback_getHitNormalWorld(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -913,9 +1188,14 @@ YYEXPORT void btClosestConvexResultCallback_getHitNormalWorld(
 /// @func btClosestConvexResultCallback_getHitNormalWorldArray(closestConvexResultCallback, outArray)
 ///
 /// @desc
+/// Retrieves the hit normal in world coordinates from a
+/// btClosestConvexResultCallback instance and stores it in an array.
 ///
 /// @param {Pointer} closestConvexResultCallback
+///     A pointer to the btClosestConvexResultCallback instance.
 /// @param {Array<Real>} outArray
+///     An array where the hit normal will be stored as [x, y, z] in world
+///     coordinates.
 YYEXPORT void btClosestConvexResultCallback_getHitNormalWorldArray(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -933,9 +1213,14 @@ YYEXPORT void btClosestConvexResultCallback_getHitNormalWorldArray(
 /// @func btClosestConvexResultCallback_getHitPointWorld(closestConvexResultCallback, outVector3)
 ///
 /// @desc
+/// Retrieves the hit point in world coordinates from a
+/// btClosestConvexResultCallback instance.
 ///
 /// @param {Pointer} closestConvexResultCallback
+///     A pointer to the btClosestConvexResultCallback instance.
 /// @param {Pointer} outVector3
+///     A pointer to a btVector3 instance where the hit point will be stored in
+///     world coordinates.
 YYEXPORT void btClosestConvexResultCallback_getHitPointWorld(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -967,10 +1252,14 @@ YYEXPORT void btClosestConvexResultCallback_getHitPointWorldArray(
 /// @func btClosestConvexResultCallback_getHitCollisionObject(closestConvexResultCallback)
 ///
 /// @desc
+/// Retrieves the hit point in world coordinates from a
+/// btClosestConvexResultCallback instance and populates an array with the x, y,
+/// and z components of the hit point.
 ///
 /// @param {Pointer} closestConvexResultCallback
-///
-/// @return {Pointer}
+///     A pointer to the btClosestConvexResultCallback instance.
+/// @param {Array<Real>} outArray
+///     An array where the hit point components (x, y, z) will be stored.
 YYEXPORT void btClosestConvexResultCallback_getHitCollisionObject(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -989,8 +1278,10 @@ YYEXPORT void btClosestConvexResultCallback_getHitCollisionObject(
 /// @func btContactResultCallback_destroy(contactResultCallback)
 ///
 /// @desc
+/// Destroys a contact result callback instance, releasing associated resources.
 ///
 /// @param {Pointer} contactResultCallback
+///     A pointer to the contact result callback instance to be destroyed.
 YYEXPORT void btContactResultCallback_destroy(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -1000,10 +1291,13 @@ YYEXPORT void btContactResultCallback_destroy(
 /// @func btContactResultCallback_getCollisionFilterGroup(contactResultCallback)
 ///
 /// @desc
+/// Retrieves the collision filter group from the contact result callback.
 ///
 /// @param {Pointer} contactResultCallback
+///     A pointer to the contact result callback instance.
 ///
-/// @return {Real}
+/// @return {Real} The collision filter group associated with the contact result
+/// callback.
 YYEXPORT void btContactResultCallback_getCollisionFilterGroup(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -1015,9 +1309,12 @@ YYEXPORT void btContactResultCallback_getCollisionFilterGroup(
 /// @func btContactResultCallback_setCollisionFilterGroup(contactResultCallback, collisionFilterGroup)
 ///
 /// @desc
+/// Sets the collision filter group for the contact result callback.
 ///
 /// @param {Pointer} contactResultCallback
+///     A pointer to the contact result callback instance.
 /// @param {Real} collisionFilterGroup
+///     The collision filter group to set for the contact result callback.
 YYEXPORT void btContactResultCallback_setCollisionFilterGroup(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -1029,10 +1326,12 @@ YYEXPORT void btContactResultCallback_setCollisionFilterGroup(
 /// @func btContactResultCallback_getCollisionFilterMask(contactResultCallback)
 ///
 /// @desc
+/// Gets the collision filter mask from the contact result callback.
 ///
 /// @param {Pointer} contactResultCallback
+///     A pointer to the contact result callback instance.
 ///
-/// @return {Real}
+/// @return {Real} The collision filter mask of the contact result callback.
 YYEXPORT void btContactResultCallback_getCollisionFilterMask(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -1044,9 +1343,12 @@ YYEXPORT void btContactResultCallback_getCollisionFilterMask(
 /// @func btContactResultCallback_setCollisionFilterMask(contactResultCallback, collisionFilterMask)
 ///
 /// @desc
+/// Sets the collision filter mask for the contact result callback.
 ///
 /// @param {Pointer} contactResultCallback
+///     A pointer to the contact result callback instance.
 /// @param {Real} collisionFilterMask
+///     The collision filter mask to set.
 YYEXPORT void btContactResultCallback_setCollisionFilterMask(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -1058,10 +1360,12 @@ YYEXPORT void btContactResultCallback_setCollisionFilterMask(
 /// @func btContactResultCallback_getClosestDistanceThreshold(contactResultCallback)
 ///
 /// @desc
+/// Gets the closest distance threshold for the contact result callback.
 ///
 /// @param {Pointer} contactResultCallback
+///     A pointer to the contact result callback instance.
 ///
-/// @return {Real}
+/// @return {Real} The closest distance threshold.
 YYEXPORT void btContactResultCallback_getClosestDistanceThreshold(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -1073,9 +1377,12 @@ YYEXPORT void btContactResultCallback_getClosestDistanceThreshold(
 /// @func btContactResultCallback_setClosestDistanceThreshold(contactResultCallback, closestDistanceThreshold)
 ///
 /// @desc
+/// Sets the closest distance threshold for the contact result callback.
 ///
 /// @param {Pointer} contactResultCallback
+///     A pointer to the contact result callback instance.
 /// @param {Real} closestDistanceThreshold
+///     The closest distance threshold to set.
 YYEXPORT void btContactResultCallback_setClosestDistanceThreshold(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -1092,10 +1399,12 @@ YYEXPORT void btContactResultCallback_setClosestDistanceThreshold(
 /// @func btCollisionWorld_getNumCollisionObjects(collisionWorld)
 ///
 /// @desc
+/// Gets the number of collision objects in the collision world.
 ///
 /// @param {Pointer} collisionWorld
+///     A pointer to the collision world instance.
 ///
-/// @return {Real}
+/// @return {Real} The number of collision objects in the collision world.
 YYEXPORT void btCollisionWorld_getNumCollisionObjects(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -1107,11 +1416,19 @@ YYEXPORT void btCollisionWorld_getNumCollisionObjects(
 /// @func btCollisionWorld_rayTest(collisionWorld, rayFromWorld, rayToWorld, resultCallback)
 ///
 /// @desc
+/// Performs a ray test in the collision world and collects the results using
+/// the provided result callback.
 ///
 /// @param {Pointer} collisionWorld
+///     A pointer to the collision world instance.
 /// @param {Pointer} rayFromWorld
+///     A pointer to the starting point of the ray in world coordinates
+///     (btVector3).
 /// @param {Pointer} rayToWorld
+///     A pointer to the end point of the ray in world coordinates (btVector3).
 /// @param {Pointer} resultCallback
+///     A pointer to the ray result callback (btRayResultCallback) used to
+///     collect the results.
 YYEXPORT void btCollisionWorld_rayTest(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -1125,15 +1442,26 @@ YYEXPORT void btCollisionWorld_rayTest(
 /// @func btCollisionWorld_rayTestXYZ(collisionWorld, rayFromWorldX, rayFromWorldY, rayFromWorldZ, rayToWorldX, rayToWorldY, rayToWorldZ, resultCallback)
 ///
 /// @desc
+/// Performs a ray test in the collision world and collects the results using
+/// the provided result callback.
 ///
 /// @param {Pointer} collisionWorld
+///     A pointer to the collision world instance.
 /// @param {Real} rayFromWorldX
+///     The x-coordinate of the starting point of the ray in world coordinates.
 /// @param {Real} rayFromWorldY
+///     The y-coordinate of the starting point of the ray in world coordinates.
 /// @param {Real} rayFromWorldZ
+///     The z-coordinate of the starting point of the ray in world coordinates.
 /// @param {Real} rayToWorldX
+///     The x-coordinate of the end point of the ray in world coordinates.
 /// @param {Real} rayToWorldY
+///     The y-coordinate of the end point of the ray in world coordinates.
 /// @param {Real} rayToWorldZ
+///     The z-coordinate of the end point of the ray in world coordinates.
 /// @param {Pointer} resultCallback
+///     A pointer to the ray result callback (btRayResultCallback) used to
+///     collect the results.
 YYEXPORT void btCollisionWorld_rayTestXYZ(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -1155,12 +1483,25 @@ YYEXPORT void btCollisionWorld_rayTestXYZ(
 ///
 /// @desc
 ///
+/// @desc
+/// Performs a convex sweep test in the collision world using the specified cast
+/// shape and transforms, collecting the results using the provided result
+/// callback.
+///
 /// @param {Pointer} collisionWorld
+///     A pointer to the collision world instance.
 /// @param {Pointer} castShape
+///     A pointer to the convex shape used for the sweep test.
 /// @param {Pointer} from
+///     A pointer to the starting transform for the sweep.
 /// @param {Pointer} to
+///     A pointer to the ending transform for the sweep.
 /// @param {Pointer} resultCallback
+///     A pointer to the convex result callback (btConvexResultCallback) used to
+///    collect the results.
 /// @param {Real} [allowedCcdPenetration]
+///     The allowed continuous collision detection (CCD) penetration. Defaults
+///     to 0.
 YYEXPORT void btCollisionWorld_convexSweepTest(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -1176,10 +1517,16 @@ YYEXPORT void btCollisionWorld_convexSweepTest(
 /// @func btCollisionWorld_contactTest(collisionWorld, colObj, resultCallback)
 ///
 /// @desc
+/// Performs contact tests between a specific collision object and other objects
+/// in the collision world.
 ///
 /// @param {Pointer} collisionWorld
+///     A pointer to the collision world instance.
 /// @param {Pointer} colObj
+///     A pointer to the collision object for which contacts are to be tested.
 /// @param {Pointer} resultCallback
+///     A pointer to the contact result callback object that will receive the
+///     contact information.
 YYEXPORT void btCollisionWorld_contactTest(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -1192,11 +1539,17 @@ YYEXPORT void btCollisionWorld_contactTest(
 /// @func btCollisionWorld_contactPairTest(collisionWorld, colObjA, colObjB, resultCallback)
 ///
 /// @desc
+/// Performs a contact test in the collision world between the specified
+/// collision object and the objects in the world, collecting the results using
+/// the provided result callback.
 ///
 /// @param {Pointer} collisionWorld
-/// @param {Pointer} colObjA
-/// @param {Pointer} colObjB
+///     A pointer to the collision world instance.
+/// @param {Pointer} colObj
+///     A pointer to the collision object for which contacts are being tested.
 /// @param {Pointer} resultCallback
+///     A pointer to the contact result callback (btContactResultCallback) used
+///     to collect the results.
 YYEXPORT void btCollisionWorld_contactPairTest(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -1215,11 +1568,16 @@ YYEXPORT void btCollisionWorld_contactPairTest(
 /// @func btCollisionWorld_addCollisionObject(collisionWorld, collisionObject[, collisionFilterGroup[, collisionFilterMask]])
 ///
 /// @desc
+/// Adds a collision object to the collision world.
 ///
 /// @param {Pointer} collisionWorld
+///     A pointer to the collision world instance.
 /// @param {Pointer} collisionObject
+///     A pointer to the collision object to be added.
 /// @param {Real} [collisionFilterGroup]
+///     The collision filter group for the collision object. Defaults to 1.
 /// @param {Real} [collisionFilterMask]
+///     The collision filter mask for the collision object. Defaults to -1.
 YYEXPORT void btCollisionWorld_addCollisionObject(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -1233,9 +1591,14 @@ YYEXPORT void btCollisionWorld_addCollisionObject(
 /// @func btCollisionWorld_refreshBroadphaseProxy(collisionWorld, collisionObject)
 ///
 /// @desc
+/// Refreshes the broadphase proxy for a specific collision object in the
+/// collision world.
 ///
 /// @param {Pointer} collisionWorld
+///     A pointer to the collision world instance.
 /// @param {Pointer} collisionObject
+///     A pointer to the collision object for which the broadphase proxy is to
+///     be refreshed.
 YYEXPORT void btCollisionWorld_refreshBroadphaseProxy(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -1247,9 +1610,12 @@ YYEXPORT void btCollisionWorld_refreshBroadphaseProxy(
 /// @func btCollisionWorld_getCollisionObjectArray(collisionWorld, outArray)
 ///
 /// @desc
+/// Retrieves an array of collision objects from the collision world.
 ///
 /// @param {Pointer} collisionWorld
+///     A pointer to the collision world instance.
 /// @param {Array<Pointer>} outArray
+///     An array where the collision objects will be stored.
 YYEXPORT void btCollisionWorld_getCollisionObjectArray(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -1269,11 +1635,15 @@ YYEXPORT void btCollisionWorld_getCollisionObjectArray(
 /// @func btCollisionWorld_getCollisionObject(collisionWorld, index)
 ///
 /// @desc
+/// Retrieves a collision object from the collision world based on the provided
+/// index.
 ///
 /// @param {Pointer} collisionWorld
+///     A pointer to the collision world instance.
 /// @param {Real} index
+///     The index of the collision object to retrieve.
 ///
-/// @return {Pointer}
+/// @return {Pointer} A pointer to the retrieved collision object.
 YYEXPORT void btCollisionWorld_getCollisionObject(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -1286,9 +1656,12 @@ YYEXPORT void btCollisionWorld_getCollisionObject(
 /// @func btCollisionWorld_removeCollisionObject(collisionWorld, collisionObject)
 ///
 /// @desc
+/// Removes a collision object from the collision world.
 ///
 /// @param {Pointer} collisionWorld
+///     A pointer to the collision world instance.
 /// @param {Pointer} collisionObject
+///     A pointer to the collision object to be removed from the collision world.
 YYEXPORT void btCollisionWorld_removeCollisionObject(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -1300,8 +1673,11 @@ YYEXPORT void btCollisionWorld_removeCollisionObject(
 /// @func btCollisionWorld_performDiscreteCollisionDetection(collisionWorld)
 ///
 /// @desc
+/// Triggers the discrete collision detection in the collision world, checking
+/// for collisions between objects.
 ///
 /// @param {Pointer} collisionWorld
+///     A pointer to the collision world instance.
 YYEXPORT void btCollisionWorld_performDiscreteCollisionDetection(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -1312,10 +1688,13 @@ YYEXPORT void btCollisionWorld_performDiscreteCollisionDetection(
 /// @func btCollisionWorld_getDispatchInfo(collisionWorld)
 ///
 /// @desc
+/// Gets the dispatch info associated with the collision world.
 ///
 /// @param {Pointer} collisionWorld
+///     A pointer to the collision world instance.
 ///
-/// @return {Pointer}
+/// @return {Pointer} A pointer to the dispatch info associated with the
+/// collision world.
 YYEXPORT void btCollisionWorld_getDispatchInfo(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -1327,10 +1706,13 @@ YYEXPORT void btCollisionWorld_getDispatchInfo(
 /// @func btCollisionWorld_getForceUpdateAllAabbs(collisionWorld)
 ///
 /// @desc
+/// Gets whether force update of all AABBs is enabled in the collision world.
 ///
 /// @param {Pointer} collisionWorld
+///     A pointer to the collision world instance.
 ///
-/// @return {Bool}
+/// @return {Bool} Returns true if force update of all AABBs is enabled, false
+/// otherwise.
 YYEXPORT void btCollisionWorld_getForceUpdateAllAabbs(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -1342,9 +1724,12 @@ YYEXPORT void btCollisionWorld_getForceUpdateAllAabbs(
 /// @func btCollisionWorld_setForceUpdateAllAabbs(collisionWorld, forceUpdateAllAabbs)
 ///
 /// @desc
+/// Sets whether to force update all AABBs in the collision world.
 ///
 /// @param {Pointer} collisionWorld
+///     A pointer to the collision world instance.
 /// @param {Bool} forceUpdateAllAabbs
+///     A boolean indicating whether to force update all AABBs.
 YYEXPORT void btCollisionWorld_setForceUpdateAllAabbs(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
