@@ -1482,8 +1482,6 @@ YYEXPORT void btCollisionWorld_rayTestXYZ(
 /// @func btCollisionWorld_convexSweepTest(collisionWorld, castShape, from, to, resultCallback[, allowedCcdPenetration])
 ///
 /// @desc
-///
-/// @desc
 /// Performs a convex sweep test in the collision world using the specified cast
 /// shape and transforms, collecting the results using the provided result
 /// callback.
