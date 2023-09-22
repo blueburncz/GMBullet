@@ -4,9 +4,11 @@
 
 /// @func btCollisionShape_destroy(collisionShape)
 ///
-/// @desc Destroys a collision shape.
+/// @desc
+/// Destroys a Bullet physics collision shape.
 ///
-/// @param {Pointer} collisionShape The collision shape to destroy.
+/// @param {Pointer} collisionShape
+///     A pointer to the btCollisionShape instance to destroy.
 YYEXPORT void btCollisionShape_destroy(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -15,11 +17,16 @@ YYEXPORT void btCollisionShape_destroy(
 
 /// @func btCollisionShape_calculateLocalInertia(collisionShape, mass, outVector3)
 ///
-/// @desc Calculates local inertia for a dynamic rigid body.
+/// @desc
+/// Calculates the local inertia of the collision shape given a mass.
 ///
-/// @param {Pointer} collisionShape The collision shape.
-/// @param {Real} mass The mass of the rigid body. Must be greater than 0.
-/// @param {Pointer} outVector3 The vector to hold the result.
+/// @param {Pointer} collisionShape
+///     The collision shape for which to calculate local inertia.
+/// @param {Real} mass
+///     The mass of the object.
+/// @param {Pointer} outVector3
+///     A pointer to a btVector3 where the calculated local inertia will be
+///     stored.
 YYEXPORT void btCollisionShape_calculateLocalInertia(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {

@@ -3,10 +3,12 @@
 /// @func btBoxShape_create(halfExtents)
 ///
 /// @desc
+/// Creates a box shape with the specified half extents.
 ///
 /// @param {Pointer} halfExtents
+///     A pointer to a btVector3 representing the half extents of the box.
 ///
-/// @return {Pointer}
+/// @return {Pointer} A pointer to the newly created btBoxShape instance.
 YYEXPORT void btBoxShape_create(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -18,12 +20,17 @@ YYEXPORT void btBoxShape_create(
 /// @func btBoxShape_createXYZ(halfExtentX, halfExtentY, halfExtentZ)
 ///
 /// @desc
+/// Creates a box shape with the specified half extents in the X, Y, and Z
+/// dimensions.
 ///
 /// @param {Real} halfExtentX
+///     The half extent along the X-axis.
 /// @param {Real} halfExtentY
+///     The half extent along the Y-axis.
 /// @param {Real} halfExtentZ
+///     The half extent along the Z-axis.
 ///
-/// @return {Pointer}
+/// @return {Pointer} A pointer to the newly created btBoxShape instance.
 YYEXPORT void btBoxShape_createXYZ(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -36,9 +43,11 @@ YYEXPORT void btBoxShape_createXYZ(
 
 /// @func btBoxShape_destroy(boxShape)
 ///
-/// @desc Destroys a box collision shape.
+/// @desc
+/// Destroys a box collision shape.
 ///
-/// @param {Pointer} boxShape The box collision shape to destroy.
+/// @param {Pointer} boxShape
+///     A pointer to the btBoxShape to destroy.
 YYEXPORT void btBoxShape_destroy(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {

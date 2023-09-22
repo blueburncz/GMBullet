@@ -3,10 +3,12 @@
 /// @func btSphereShape_create(radius)
 ///
 /// @desc
+/// Creates a sphere collision shape.
 ///
 /// @param {Real} radius
+///     The radius of the sphere.
 ///
-/// @return {Pointer}
+/// @return {Pointer} A pointer to the newly created btSphereShape instance.
 YYEXPORT void btSphereShape_create(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -17,9 +19,11 @@ YYEXPORT void btSphereShape_create(
 
 /// @func btSphereShape_destroy(sphereShape)
 ///
-/// @desc Destroys a sphere collision shape.
+/// @desc
+/// Destroys a sphere collision shape.
 ///
-/// @param {Pointer} sphereShape The sphere collision shape to destroy.
+/// @param {Pointer} sphereShape
+///     A pointer to the btSphereShape to destroy.
 YYEXPORT void btSphereShape_destroy(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
