@@ -47,6 +47,20 @@ YYEXPORT void btDiscreteDynamicsWorld_getCollisionWorld(
 	result.ptr = dynamicsWorld->getCollisionWorld();
 }
 
+/// @func btDiscreteDynamicsWorld_setGravity(discreteDynamicsWorld, gravity)
+///
+/// @desc
+///
+/// @param {Pointer} discreteDynamicsWorld
+/// @param {Pointer} gravity
+YYEXPORT void btDiscreteDynamicsWorld_setGravity(
+	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
+{
+	auto dynamicsWorld = (btDiscreteDynamicsWorld*)YYGetPtr(arg, 0);
+	btVector3& gravity = *(btVector3*)YYGetPtr(arg, 0);
+	dynamicsWorld->setGravity(gravity);
+}
+
 /// @func btDiscreteDynamicsWorld_setGravityXYZ(discreteDynamicsWorld, gravityX, gravityY, gravityZ)
 ///
 /// @desc

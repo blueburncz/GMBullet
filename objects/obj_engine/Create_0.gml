@@ -28,7 +28,7 @@ btDiscreteDynamicsWorld_addRigidBody(dynamicsWorld, body_floor, -1, 1);
 /* Create Cubes */
 for (var i = 0; i < 25; ++i)
     for (var j = 0; j < 25; ++j)
-        instance_create_3d(j * 16, 0, i * 16, obj_box);
+        instance_create_3d(j * 16, 0, (i + 1) * 16, obj_box);
 
 /* Initialize D3D */
 d3d_start();
