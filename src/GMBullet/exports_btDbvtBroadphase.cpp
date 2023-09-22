@@ -3,8 +3,11 @@
 /// @func btDbvtBroadphase_create()
 ///
 /// @desc
+/// Creates a broadphase collision detection algorithm based on dynamic AABB
+/// trees (Dbvt). This broadphase algorithm is suitable for dynamic worlds where
+/// objects move frequently.
 ///
-/// @return {Pointer}
+/// @return {Pointer} A pointer to the newly created btDbvtBroadphase instance.
 YYEXPORT void btDbvtBroadphase_create(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -15,8 +18,11 @@ YYEXPORT void btDbvtBroadphase_create(
 /// @func btDbvtBroadphase_destroy(dbvtBroadphase)
 ///
 /// @desc
+/// Destroys a btDbvtBroadphase instance, releasing associated memory and
+/// resources.
 ///
 /// @param {Pointer} dbvtBroadphase
+///     A pointer to the btDbvtBroadphase instance to be destroyed.
 YYEXPORT void btDbvtBroadphase_destroy(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
