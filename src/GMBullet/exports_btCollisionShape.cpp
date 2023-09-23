@@ -15,6 +15,32 @@ YYEXPORT void btCollisionShape_destroy(
 	delete (btCollisionShape*)YYGetPtr(arg, 0);
 }
 
+/// @func btCollisionShape_getAabb(collisionShape, transform, aabbMin, aabbMax)
+///
+/// @desc
+/// Gets the axis-aligned bounding box (AABB) of the collision shape when
+/// transformed by the specified transform.
+///
+/// @param {Pointer} collisionShape
+///     A pointer to the btCollisionShape object.
+/// @param {Pointer} transform
+///     A pointer to a btTransform representing the transformation of the shape.
+/// @param {Pointer} aabbMin
+///     Pointer to a btVector3 where the minimum corner of the AABB will be
+///     stored.
+/// @param {Pointer} aabbMax
+///     Pointer to a btVector3 where the maximum corner of the AABB will be
+///     stored.
+YYEXPORT void btCollisionShape_getAabb(
+	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
+{
+	auto collisionShape = (btCollisionShape*)YYGetPtr(arg, 0);
+	btTransform& transform = *(btTransform*)YYGetPtr(arg, 1);
+	btVector3& aabbMin = *(btVector3*)YYGetPtr(arg, 2);
+	btVector3& aabbMax = *(btVector3*)YYGetPtr(arg, 3);
+	collisionShape->getAabb(transform, aabbMin, aabbMax);
+}
+
 /// @func btCollisionShape_calculateLocalInertia(collisionShape, mass, outVector3)
 ///
 /// @desc

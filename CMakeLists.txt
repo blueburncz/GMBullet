@@ -15,6 +15,7 @@ set(SOURCES
     src/GMBullet/exports_btDefaultCollisionConfiguration.cpp
     src/GMBullet/exports_btDefaultMotionState.cpp
     src/GMBullet/exports_btDiscreteDynamicsWorld.cpp
+    src/GMBullet/exports_btHeightfieldTerrainShape.cpp
     src/GMBullet/exports_btQuaternion.cpp
     src/GMBullet/exports_btRigidBody.cpp
     src/GMBullet/exports_btSequentialImpulseConstraintSolver.cpp
