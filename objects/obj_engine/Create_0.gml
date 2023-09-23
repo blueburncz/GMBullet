@@ -21,9 +21,22 @@ mdl_sphere = d3d_model_create();
 d3d_model_ellipsoid(mdl_sphere, -8, -8, -8, 8, 8, 8, 1, 1, 24);
 
 /* Create Floor */
-shape_floor = btBoxShape_createXYZ(768, 768, 1);
-body_floor = btRigidBody_create(0.0, btDefaultMotionState_create(), shape_floor);
-btDiscreteDynamicsWorld_addRigidBody(dynamicsWorld, body_floor, -1, 1);
+//shape_floor = btBoxShape_createXYZ(768, 768, 1);
+//body_floor = btRigidBody_create(0.0, btDefaultMotionState_create(), shape_floor);
+//btDiscreteDynamicsWorld_addRigidBody(dynamicsWorld, body_floor, -1, 1);
+
+/* Create Terrain */
+terrain_width = 768 * 2;
+terrain_height = 768 * 2;
+var _sizeofF32 = buffer_sizeof(buffer_f32);
+terrain_bytesize = terrain_width * terrain_height * _sizeofF32;
+heightfield = buffer_create(terrain_bytesize, buffer_fixed, _sizeofF32);
+buffer_fill(heightfield, 0, buffer_f32, 0, terrain_bytesize);
+terrain_shape = btHeightfieldTerrainShape_createF32(terrain_height, terrain_width, buffer_get_address(heightfield), -1, +1, 2, false);
+btHeightfieldTerrainShape_setFlipTriangleWinding(terrain_shape, true);
+btHeightfieldTerrainShape_buildAccelerator(terrain_shape);
+terrain_body = btRigidBody_create(0.0, btDefaultMotionState_create(), terrain_shape);
+btDiscreteDynamicsWorld_addRigidBody(dynamicsWorld, terrain_body, -1, 1);
 
 /* Create Cubes */
 for (var i = 0; i < 25; ++i)
