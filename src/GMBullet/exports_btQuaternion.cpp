@@ -3,13 +3,18 @@
 /// @func btQuaternion_create([x[, y[, z[, w]]])
 ///
 /// @desc
+/// Creates a new quaternion with the specified x, y, z, and w components.
 ///
 /// @param {Real} [x]
+///     The x component of the quaternion. Default is 0.
 /// @param {Real} [y]
+///     The y component of the quaternion. Default is 0.
 /// @param {Real} [z]
+///     The z component of the quaternion. Default is 0.
 /// @param {Real} [w]
+///     The w component of the quaternion. Default is 1.
 ///
-/// @return {Pointer}
+/// @return {Pointer} A pointer to the created btQuaternion.
 YYEXPORT void btQuaternion_create(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -24,11 +29,16 @@ YYEXPORT void btQuaternion_create(
 /// @func btQuaternion_createFromAxisAngle(axis, angle)
 ///
 /// @desc
+/// Creates a new quaternion representing a rotation around the specified axis
+/// by the given angle.
 ///
 /// @param {Pointer} axis
+///     A pointer to a btVector3 representing the axis of rotation.
 /// @param {Real} angle
+///     The angle of rotation in radians.
 ///
-/// @return {Pointer}
+/// @return {Pointer} A pointer to the newly created btQuaternion representing
+/// the rotation.
 YYEXPORT void btQuaternion_createFromAxisAngle(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -41,13 +51,20 @@ YYEXPORT void btQuaternion_createFromAxisAngle(
 /// @func btQuaternion_createFromAxisAngleXYZ(axisX, axisY, axisZ, angle)
 ///
 /// @desc
+/// Creates a new quaternion representing a rotation around the specified axis
+/// by the given angle.
 ///
 /// @param {Real} axisX
+///     The x-component of the axis of rotation.
 /// @param {Real} axisY
+///     The y-component of the axis of rotation.
 /// @param {Real} axisZ
+///     The z-component of the axis of rotation.
 /// @param {Real} angle
+///     The angle of rotation in radians.
 ///
-/// @return {Pointer}
+/// @return {Pointer} A pointer to the newly created btQuaternion representing
+/// the rotation.
 YYEXPORT void btQuaternion_createFromAxisAngleXYZ(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -62,12 +79,18 @@ YYEXPORT void btQuaternion_createFromAxisAngleXYZ(
 /// @func btQuaternion_createFromEuler(yaw, pitch, roll)
 ///
 /// @desc
+/// Creates a new quaternion representing a rotation using Euler angles (yaw,
+/// pitch, roll).
 ///
 /// @param {Real} yaw
+///     The yaw angle (rotation around the vertical axis) in radians.
 /// @param {Real} pitch
+///     The pitch angle (rotation around the lateral axis) in radians.
 /// @param {Real} roll
+///     The roll angle (rotation around the longitudinal axis) in radians.
 ///
-/// @return {Pointer}
+/// @return {Pointer} A pointer to the newly created btQuaternion representing
+/// the rotation.
 YYEXPORT void btQuaternion_createFromEuler(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -81,8 +104,10 @@ YYEXPORT void btQuaternion_createFromEuler(
 /// @func btQuaternion_destroy(quaternion)
 ///
 /// @desc
+/// Destroys a btQuaternion object.
 ///
 /// @param {Pointer} quaternion
+///     A pointer to the btQuaternion object to be deallocated.
 YYEXPORT void btQuaternion_destroy(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -92,10 +117,12 @@ YYEXPORT void btQuaternion_destroy(
 /// @func btQuaternion_getX(quaternion)
 ///
 /// @desc
+/// Gets the x-component of a btQuaternion.
 ///
 /// @param {Pointer} quaternion
+///     A pointer to the btQuaternion object.
 ///
-/// @return {Real}
+/// @return {Real} The x-component of the quaternion.
 YYEXPORT void btQuaternion_getX(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -107,9 +134,12 @@ YYEXPORT void btQuaternion_getX(
 /// @func btQuaternion_setX(quaternion, x)
 ///
 /// @desc
+/// Sets the x-component of a btQuaternion.
 ///
 /// @param {Pointer} quaternion
+///     A pointer to the btQuaternion object.
 /// @param {Real} x
+///     The value to set as the x-component of the quaternion.
 YYEXPORT void btQuaternion_setX(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -121,10 +151,12 @@ YYEXPORT void btQuaternion_setX(
 /// @func btQuaternion_getY(quaternion)
 ///
 /// @desc
+/// Gets the y-component of a btQuaternion.
 ///
 /// @param {Pointer} quaternion
+///     A pointer to the btQuaternion object.
 ///
-/// @return {Real}
+/// @return {Real} The y-component of the quaternion.
 YYEXPORT void btQuaternion_getY(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -136,9 +168,12 @@ YYEXPORT void btQuaternion_getY(
 /// @func btQuaternion_setY(quaternion, y)
 ///
 /// @desc
+/// Sets the y-component of a btQuaternion.
 ///
 /// @param {Pointer} quaternion
+///     A pointer to the btQuaternion object.
 /// @param {Real} y
+///     The value to set as the y-component of the quaternion.
 YYEXPORT void btQuaternion_setY(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -150,10 +185,12 @@ YYEXPORT void btQuaternion_setY(
 /// @func btQuaternion_getZ(quaternion)
 ///
 /// @desc
+/// Gets the z-component of a btQuaternion.
 ///
 /// @param {Pointer} quaternion
+///     A pointer to the btQuaternion object.
 ///
-/// @return {Real}
+/// @return {Real} The z-component of the quaternion.
 YYEXPORT void btQuaternion_getZ(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -165,9 +202,12 @@ YYEXPORT void btQuaternion_getZ(
 /// @func btQuaternion_setZ(quaternion, z)
 ///
 /// @desc
+/// Sets the z-component of a btQuaternion.
 ///
 /// @param {Pointer} quaternion
+///     A pointer to the btQuaternion object.
 /// @param {Real} z
+///     The value to set as the z-component of the quaternion.
 YYEXPORT void btQuaternion_setZ(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -179,10 +219,12 @@ YYEXPORT void btQuaternion_setZ(
 /// @func btQuaternion_getW(quaternion)
 ///
 /// @desc
+/// Gets the w-component of a btQuaternion.
 ///
 /// @param {Pointer} quaternion
+///     A pointer to the btQuaternion object.
 ///
-/// @return {Real}
+/// @return {Real} The w-component of the quaternion.
 YYEXPORT void btQuaternion_getW(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -194,9 +236,12 @@ YYEXPORT void btQuaternion_getW(
 /// @func btQuaternion_setW(quaternion, w)
 ///
 /// @desc
+/// Sets the w-component of a btQuaternion.
 ///
 /// @param {Pointer} quaternion
+///     A pointer to the btQuaternion object.
 /// @param {Real} w
+///     The value to set as the w-component of the quaternion.
 YYEXPORT void btQuaternion_setW(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -208,12 +253,18 @@ YYEXPORT void btQuaternion_setW(
 /// @func btQuaternion_setValue(quaternion, x, y, z, w)
 ///
 /// @desc
+/// Sets the components of a btQuaternion.
 ///
 /// @param {Pointer} quaternion
+///     A pointer to the btQuaternion object.
 /// @param {Real} x
+///     The x-component value to set.
 /// @param {Real} y
+///     The y-component value to set.
 /// @param {Real} z
+///     The z-component value to set.
 /// @param {Real} w
+///     The w-component value to set.
 YYEXPORT void btQuaternion_setValue(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
