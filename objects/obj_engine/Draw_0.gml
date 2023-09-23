@@ -4,7 +4,7 @@ vertex_submit(vb_floor, pr_trianglelist, background_get_texture(bg_floor));
 /* Draw Boxes */
 with (obj_box)
 {
-	var tex = sprite_get_texture(spr_body, !btRigidBody_isActive(body));
+	var tex = sprite_get_texture(spr_body, !btCollisionObject_isActive(body));
 	matrix_set(matrix_world, matrix);
 	vertex_submit(other.vb_cube, pr_trianglelist, tex);
 }
@@ -12,7 +12,7 @@ with (obj_box)
 /* Draw Spheres */
 with (obj_sphere)
 {
-	var tex = sprite_get_texture(spr_body, !btRigidBody_isActive(body));
+	var tex = sprite_get_texture(spr_body, !btCollisionObject_isActive(body));
 	matrix_set(matrix_world, matrix);
 	d3d_model_draw(other.mdl_sphere, 0, 0, 0, tex);
 }

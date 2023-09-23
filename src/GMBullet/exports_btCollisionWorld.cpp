@@ -195,12 +195,12 @@ YYEXPORT void btCollisionWorld_computeOverlappingPairs(
 
 ////////////////////////////////////////////////////////////////////////////////
 //
-// Note: Skip btCollisionWorld::LocalShapeInfo
+// Note: Skipped btCollisionWorld::LocalShapeInfo
 //
 
 ////////////////////////////////////////////////////////////////////////////////
 //
-// Note: Skip btCollisionWorld::LocalRayResult
+// Note: Skipped btCollisionWorld::LocalRayResult
 //
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -363,8 +363,8 @@ YYEXPORT void btRayResultCallback_hasHit(
 	result.val = rayResultCallback->hasHit();
 }
 
-// Note: Skip btRayResultCallback::needsCollision
-// Note: Skip btRayResultCallback::addSingleResult
+// Note: Skipped btRayResultCallback::needsCollision
+// Note: Skipped btRayResultCallback::addSingleResult
 
 ////////////////////////////////////////////////////////////////////////////////
 //
@@ -626,7 +626,7 @@ YYEXPORT void btClosestRayResultCallback_getHitPointWorldArray(
 	FREE_RValue(&value);
 }
 
-// Note: Skip btClosestRayResultCallback::addSingleResult
+// Note: Skipped btClosestRayResultCallback::addSingleResult
 
 ////////////////////////////////////////////////////////////////////////////////
 //
@@ -864,11 +864,11 @@ YYEXPORT void btAllHitsRayResultCallback_getHitFractions(
 	FREE_RValue(&value);
 }
 
-// Note: Skip btClosestRayResultCallback::addSingleResult
+// Note: Skipped btClosestRayResultCallback::addSingleResult
 
 ////////////////////////////////////////////////////////////////////////////////
 //
-// Note: Skip btCollisionWorld::LocalConvexResult
+// Note: Skipped btCollisionWorld::LocalConvexResult
 //
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -999,8 +999,8 @@ YYEXPORT void btConvexResultCallback_hasHit(
 	result.val = convexResultCallback->hasHit();
 }
 
-// Note: Skip btConvexResultCallback::needsCollision
-// Note: Skip btConvexResultCallback::addSingleResult
+// Note: Skipped btConvexResultCallback::needsCollision
+// Note: Skipped btConvexResultCallback::addSingleResult
 
 ////////////////////////////////////////////////////////////////////////////////
 //
@@ -1268,7 +1268,7 @@ YYEXPORT void btClosestConvexResultCallback_getHitCollisionObject(
 	result.ptr = const_cast<btCollisionObject*>(closestConvexResultCallback->m_hitCollisionObject);
 }
 
-// Note: Skip btClosestConvexResultCallback::addSingleResult
+// Note: Skipped btClosestConvexResultCallback::addSingleResult
 
 ////////////////////////////////////////////////////////////////////////////////
 //
@@ -1391,8 +1391,8 @@ YYEXPORT void btContactResultCallback_setClosestDistanceThreshold(
 	contactResultCallback->m_closestDistanceThreshold = closestDistanceThreshold;
 }
 
-// Note: Skip btContactResultCallback::needsCollision
-// Note: Skip btContactResultCallback::addSingleResult
+// Note: Skipped btContactResultCallback::needsCollision
+// Note: Skipped btContactResultCallback::addSingleResult
 
 ////////////////////////////////////////////////////////////////////////////////
 
@@ -1558,10 +1558,10 @@ YYEXPORT void btCollisionWorld_contactPairTest(
 	collisionWorld->contactPairTest(colObjA, colObjB, resultCallback);
 }
 
-// Note: Skip btCollisionWorld::rayTestSingle
-// Note: Skip btCollisionWorld::rayTestSingleInternal
-// Note: Skip btCollisionWorld::objectQuerySingle
-// Note: Skip btCollisionWorld::objectQuerySingleInternal
+// Note: Skipped btCollisionWorld::rayTestSingle
+// Note: Skipped btCollisionWorld::rayTestSingleInternal
+// Note: Skipped btCollisionWorld::objectQuerySingle
+// Note: Skipped btCollisionWorld::objectQuerySingleInternal
 
 /// @func btCollisionWorld_addCollisionObject(collisionWorld, collisionObject[, collisionFilterGroup[, collisionFilterMask]])
 ///
@@ -1736,4 +1736,4 @@ YYEXPORT void btCollisionWorld_setForceUpdateAllAabbs(
 	collisionWorld->setForceUpdateAllAabbs(forceUpdateAllAabbs);
 }
 
-// Note: Skip btCollisionWorld::serialize
+// Note: Skipped btCollisionWorld::serialize

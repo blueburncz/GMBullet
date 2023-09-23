@@ -315,8 +315,8 @@ YYEXPORT void btCollisionObject_checkCollideWithOverride(
 	result.val = collisionObject->checkCollideWithOverride(otherObject);
 }
 
-// Note: Skip btCollisionObject::internalGetExtensionPointer
-// Note: Skip btCollisionObject::internalSetExtensionPointer
+// Note: Skipped btCollisionObject::internalGetExtensionPointer
+// Note: Skipped btCollisionObject::internalSetExtensionPointer
 
 /// @func btCollisionObject_getActivationState(collisionObject)
 ///
@@ -803,12 +803,12 @@ YYEXPORT void btCollisionObject_getInterpolationAngularVelocity(
 	CopyVector3(collisionObject->getInterpolationAngularVelocity(), outVector3);
 }
 
-// Note: Skip btCollisionObject::getIslandTag
-// Note: Skip btCollisionObject::setIslandTag
-// Note: Skip btCollisionObject::getCompanionId
-// Note: Skip btCollisionObject::setCompanionId
-// Note: Skip btCollisionObject::getWorldArrayIndex
-// Note: Skip btCollisionObject::setWorldArrayIndex
+// Note: Skipped btCollisionObject::getIslandTag
+// Note: Skipped btCollisionObject::setIslandTag
+// Note: Skipped btCollisionObject::getCompanionId
+// Note: Skipped btCollisionObject::setCompanionId
+// Note: Skipped btCollisionObject::getWorldArrayIndex
+// Note: Skipped btCollisionObject::setWorldArrayIndex
 
 /// @func btCollisionObject_getHitFraction(collisionObject)
 ///
@@ -962,18 +962,18 @@ YYEXPORT void btCollisionObject_setCcdMotionThreshold(
 	collisionObject->setCcdMotionThreshold(ccdMotionThreshold);
 }
 
-// Note: Skip btCollisionObject::getUserPointer
-// Note: Skip btCollisionObject::getUserIndex
-// Note: Skip btCollisionObject::getUserIndex2
-// Note: Skip btCollisionObject::getUserIndex3
-// Note: Skip btCollisionObject::setUserPointer
-// Note: Skip btCollisionObject::setUserIndex
-// Note: Skip btCollisionObject::setUserIndex2
-// Note: Skip btCollisionObject::setUserIndex3
-// Note: Skip btCollisionObject::getUpdateRevisionInternal
-// Note: Skip btCollisionObject::setCustomDebugColor
-// Note: Skip btCollisionObject::removeCustomDebugColor
-// Note: Skip btCollisionObject::getCustomDebugColor
+// Note: Skipped btCollisionObject::getUserPointer
+// Note: Skipped btCollisionObject::getUserIndex
+// Note: Skipped btCollisionObject::getUserIndex2
+// Note: Skipped btCollisionObject::getUserIndex3
+// Note: Skipped btCollisionObject::setUserPointer
+// Note: Skipped btCollisionObject::setUserIndex
+// Note: Skipped btCollisionObject::setUserIndex2
+// Note: Skipped btCollisionObject::setUserIndex3
+// Note: Skipped btCollisionObject::getUpdateRevisionInternal
+// Note: Skipped btCollisionObject::setCustomDebugColor
+// Note: Skipped btCollisionObject::removeCustomDebugColor
+// Note: Skipped btCollisionObject::getCustomDebugColor
 
 /// @func btCollisionObject_checkCollideWith(collisionObject, otherObject)
 ///
@@ -997,6 +997,16 @@ YYEXPORT void btCollisionObject_checkCollideWith(
 	result.val = collisionObject->checkCollideWith(otherObject);
 }
 
-// Note: Skip btCollisionObject::calculateSerializeBufferSize
-// Note: Skip btCollisionObject::serialize
-// Note: Skip btCollisionObject::serializeSingleObject
+// Note: Skipped btCollisionObject::calculateSerializeBufferSize
+// Note: Skipped btCollisionObject::serialize
+// Note: Skipped btCollisionObject::serializeSingleObject
+
+////////////////////////////////////////////////////////////////////////////////
+//
+// Note: Skipped btCollisionObjectDoubleData
+//
+
+////////////////////////////////////////////////////////////////////////////////
+//
+// Note: Skipped btCollisionObjectFloatData
+//

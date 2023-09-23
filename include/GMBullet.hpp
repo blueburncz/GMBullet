@@ -12,15 +12,15 @@ static inline float ToDegrees(float angle) { return RAD2DEG * angle; }
 
 static inline void CopyVector3(const btVector3& src, btVector3* const dest)
 {
-	dest->setX(src.getX());
-	dest->setY(src.getY());
-	dest->setZ(src.getZ());
+	*dest = src;
 }
 
 static inline void CopyQuaternion(const btQuaternion& src, btQuaternion* const dest)
 {
-	dest->setX(src.getX());
-	dest->setY(src.getY());
-	dest->setZ(src.getZ());
-	dest->setW(src.getW());
+	*dest = src;
+}
+
+static inline void CopyTransform(const btTransform& src, btTransform* const dest)
+{
+	*dest = src;
 }
