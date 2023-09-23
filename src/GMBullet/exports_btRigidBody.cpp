@@ -182,10 +182,12 @@ YYEXPORT void btRigidBody_setDamping(
 /// @func btRigidBody_getLinearDamping(rigidBody)
 ///
 /// @desc
+/// Gets the linear damping factor of the rigid body.
 ///
 /// @param {Pointer} rigidBody
+///     A pointer to the btRigidBody object.
 ///
-/// @return {Real}
+/// @return {Real} The linear damping factor of the rigid body.
 YYEXPORT void btRigidBody_getLinearDamping(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -197,10 +199,12 @@ YYEXPORT void btRigidBody_getLinearDamping(
 /// @func btRigidBody_getAngularDamping(rigidBody)
 ///
 /// @desc
+/// Gets the angular damping factor of the rigid body.
 ///
 /// @param {Pointer} rigidBody
+///     A pointer to the btRigidBody object.
 ///
-/// @return {Real}
+/// @return {Real} The angular damping factor of the rigid body.
 YYEXPORT void btRigidBody_getAngularDamping(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -212,10 +216,12 @@ YYEXPORT void btRigidBody_getAngularDamping(
 /// @func btRigidBody_getLinearSleepingThreshold(rigidBody)
 ///
 /// @desc
+/// Gets the linear sleeping threshold of the rigid body.
 ///
 /// @param {Pointer} rigidBody
+///     A pointer to the btRigidBody object.
 ///
-/// @return {Real}
+/// @return {Real} The linear sleeping threshold of the rigid body.
 YYEXPORT void btRigidBody_getLinearSleepingThreshold(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -227,10 +233,12 @@ YYEXPORT void btRigidBody_getLinearSleepingThreshold(
 /// @func btRigidBody_getAngularSleepingThreshold(rigidBody)
 ///
 /// @desc
+/// Gets the angular sleeping threshold of the rigid body.
 ///
 /// @param {Pointer} rigidBody
+///     A pointer to the btRigidBody object.
 ///
-/// @return {Real}
+/// @return {Real} The angular sleeping threshold of the rigid body.
 YYEXPORT void btRigidBody_getAngularSleepingThreshold(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -242,9 +250,12 @@ YYEXPORT void btRigidBody_getAngularSleepingThreshold(
 /// @func btRigidBody_applyDamping(rigidBody, timeStep)
 ///
 /// @desc
+/// Applies damping to the rigid body for the given time step.
 ///
 /// @param {Pointer} rigidBody
+///     A pointer to the btRigidBody object.
 /// @param {Real} timeStep
+///     The time step for the damping calculation.
 YYEXPORT void btRigidBody_applyDamping(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -256,10 +267,13 @@ YYEXPORT void btRigidBody_applyDamping(
 /// @func btRigidBody_getCollisionShape(rigidBody)
 ///
 /// @desc
+/// Gets the collision shape of the rigid body.
 ///
 /// @param {Pointer} rigidBody
+///     A pointer to the btRigidBody object.
 ///
-/// @return {Pointer}
+/// @return {Pointer} A pointer to the btCollisionShape associated with the
+/// rigid body.
 YYEXPORT void btRigidBody_getCollisionShape(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -271,12 +285,14 @@ YYEXPORT void btRigidBody_getCollisionShape(
 /// @func btRigidBody_setMassProps(rigidBody, mass, inertia)
 ///
 /// @desc
+/// Sets the mass and inertia tensor properties for the rigid body.
 ///
 /// @param {Pointer} rigidBody
+///     A pointer to the btRigidBody object.
 /// @param {Real} mass
+///     The mass of the rigid body.
 /// @param {Pointer} inertia
-///
-/// @return {Pointer}
+///     A pointer to a btVector3 representing the inertia of the rigid body.
 YYEXPORT void btRigidBody_setMassProps(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -286,17 +302,22 @@ YYEXPORT void btRigidBody_setMassProps(
 	rigidBody->setMassProps(mass, inertia);
 }
 
-/// @func btRigidBody_setMassProps(rigidBody, mass, inertiaX, inertiaY, inertiaZ)
+/// @func btRigidBody_setMassPropsXYZ(rigidBody, mass, inertiaX, inertiaY, inertiaZ)
 ///
 /// @desc
+/// Sets the mass and inertia tensor properties for the rigid body using
+/// individual components for inertia.
 ///
 /// @param {Pointer} rigidBody
+///     A pointer to the btRigidBody object.
 /// @param {Real} mass
+///     The mass of the rigid body.
 /// @param {Real} inertiaX
+///     The x-component of the inertia tensor.
 /// @param {Real} inertiaY
+///     The y-component of the inertia tensor.
 /// @param {Real} inertiaZ
-///
-/// @return {Pointer}
+///     The z-component of the inertia tensor.
 YYEXPORT void btRigidBody_setMassPropsXYZ(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -311,9 +332,13 @@ YYEXPORT void btRigidBody_setMassPropsXYZ(
 /// @func btRigidBody_getLinearFactor(rigidBody, outVector3)
 ///
 /// @desc
+/// Gets the linear factor of the btRigidBody, which controls the linear
+/// motion's freedom along each axis.
 ///
 /// @param {Pointer} rigidBody
+///     A pointer to the btRigidBody object.
 /// @param {Pointer} outVector3
+///     A pointer to a btVector3 where the linear factor will be copied.
 YYEXPORT void btRigidBody_getLinearFactor(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -325,9 +350,13 @@ YYEXPORT void btRigidBody_getLinearFactor(
 /// @func btRigidBody_setLinearFactor(rigidBody, linearFactor)
 ///
 /// @desc
+/// Sets the linear factor of the btRigidBody, which controls the linear
+/// motion's freedom along each axis.
 ///
 /// @param {Pointer} rigidBody
+///     A pointer to the btRigidBody object.
 /// @param {Pointer} linearFactor
+///     A pointer to a btVector3 representing the linear factor.
 YYEXPORT void btRigidBody_setLinearFactor(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -339,10 +368,13 @@ YYEXPORT void btRigidBody_setLinearFactor(
 /// @func btRigidBody_getInvMass(rigidBody)
 ///
 /// @desc
+/// Gets the inverse mass of the btRigidBody.
 ///
 /// @param {Pointer} rigidBody
+///     A pointer to the btRigidBody object.
 ///
-/// @return {Real}
+/// @return {Real} The inverse mass of the rigid body. Returns 0 for bodies with
+/// zero mass.
 YYEXPORT void btRigidBody_getInvMass(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -354,10 +386,12 @@ YYEXPORT void btRigidBody_getInvMass(
 /// @func btRigidBody_getMass(rigidBody)
 ///
 /// @desc
+/// Gets the mass of the btRigidBody.
 ///
 /// @param {Pointer} rigidBody
+///     A pointer to the btRigidBody object.
 ///
-/// @return {Real}
+/// @return {Real} The mass of the rigid body.
 YYEXPORT void btRigidBody_getMass(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -369,9 +403,12 @@ YYEXPORT void btRigidBody_getMass(
 /// @func btRigidBody_integrateVelocities(rigidBody, step)
 ///
 /// @desc
+/// Integrates rigid body velocities over a specified time step.
 ///
 /// @param {Pointer} rigidBody
+///     A pointer to the btRigidBody object.
 /// @param {Real} step
+///     The time step for integration.
 YYEXPORT void btRigidBody_integrateVelocities(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -383,9 +420,13 @@ YYEXPORT void btRigidBody_integrateVelocities(
 /// @func btRigidBody_setCenterOfMassTransform(rigidBody, transform)
 ///
 /// @desc
+/// Sets the center of mass transform for the rigid body.
 ///
 /// @param {Pointer} rigidBody
+///     A pointer to the btRigidBody object.
 /// @param {Pointer} transform
+///     A pointer to the btTransform representing the new center of mass
+///     transform.
 YYEXPORT void btRigidBody_setCenterOfMassTransform(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -410,7 +451,6 @@ YYEXPORT void btRigidBody_applyCentralForce(
 	btVector3& force = *(btVector3*)YYGetPtr(arg, 1);
 	rigidBody->applyCentralForce(force);
 }
-
 
 /// @func btRigidBody_applyCentralForceXYZ(rigidBody, forceX, forceY, forceZ)
 ///
@@ -438,9 +478,12 @@ YYEXPORT void btRigidBody_applyCentralForceXYZ(
 /// @func btRigidBody_getTotalForce(rigidBody, outVector3)
 ///
 /// @desc
+/// Gets the total force applied to the rigid body.
 ///
 /// @param {Pointer} rigidBody
+///     A pointer to the btRigidBody object.
 /// @param {Pointer} outVector3
+///     A pointer to a btVector3 to store the total force.
 YYEXPORT void btRigidBody_getTotalForce(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -452,9 +495,12 @@ YYEXPORT void btRigidBody_getTotalForce(
 /// @func btRigidBody_getTotalTorque(rigidBody, outVector3)
 ///
 /// @desc
+/// Gets the total torque applied to the rigid body.
 ///
 /// @param {Pointer} rigidBody
+///     A pointer to the btRigidBody object.
 /// @param {Pointer} outVector3
+///     A pointer to a btVector3 to store the total torque.
 YYEXPORT void btRigidBody_getTotalTorque(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -466,9 +512,12 @@ YYEXPORT void btRigidBody_getTotalTorque(
 /// @func btRigidBody_getInvInertiaDiagLocal(rigidBody, outVector3)
 ///
 /// @desc
+/// Gets the inverse of the local inertia diagonal of the rigid body.
 ///
 /// @param {Pointer} rigidBody
+///     A pointer to the btRigidBody object.
 /// @param {Pointer} outVector3
+///     A pointer to a btVector3 to store the inverse inertia diagonal.
 YYEXPORT void btRigidBody_getInvInertiaDiagLocal(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -480,9 +529,12 @@ YYEXPORT void btRigidBody_getInvInertiaDiagLocal(
 /// @func btRigidBody_setInvInertiaDiagLocal(rigidBody, diagInvInertia)
 ///
 /// @desc
+/// Sets the inverse of the local inertia diagonal of the rigid body.
 ///
 /// @param {Pointer} rigidBody
+///     A pointer to the btRigidBody object.
 /// @param {Pointer} diagInvInertia
+///     A pointer to a btVector3 representing the inverse inertia diagonal.
 YYEXPORT void btRigidBody_setInvInertiaDiagLocal(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -494,10 +546,16 @@ YYEXPORT void btRigidBody_setInvInertiaDiagLocal(
 /// @func btRigidBody_setSleepingThresholds(rigidBody, linear, angular)
 ///
 /// @desc
+/// Sets the thresholds for when the rigid body is considered sleeping.
 ///
 /// @param {Pointer} rigidBody
+///     A pointer to the btRigidBody object.
 /// @param {Real} linear
+///     The linear sleeping threshold. If the linear velocity is below this
+///     threshold, the body may go to sleep.
 /// @param {Real} angular
+///     The angular sleeping threshold. If the angular velocity is below this
+///     threshold, the body may go to sleep.
 YYEXPORT void btRigidBody_setSleepingThresholds(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -510,9 +568,12 @@ YYEXPORT void btRigidBody_setSleepingThresholds(
 /// @func btRigidBody_applyTorque(rigidBody, torque)
 ///
 /// @desc
+/// Applies a torque to the rigid body.
 ///
 /// @param {Pointer} rigidBody
+///     A pointer to the btRigidBody object.
 /// @param {Pointer} torque
+///     A pointer to a btVector3 representing the torque to apply.
 YYEXPORT void btRigidBody_applyTorque(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -621,9 +682,12 @@ YYEXPORT void btRigidBody_applyCentralImpulseXYZ(
 /// @func btRigidBody_applyTorqueImpulse(rigidBody, torque)
 ///
 /// @desc
+/// Applies an impulse torque to the rigid body.
 ///
 /// @param {Pointer} rigidBody
+///     A pointer to the btRigidBody object.
 /// @param {Pointer} torque
+///     A pointer to a btVector3 representing the impulse torque to apply.
 YYEXPORT void btRigidBody_applyTorqueImpulse(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -635,11 +699,17 @@ YYEXPORT void btRigidBody_applyTorqueImpulse(
 /// @func btRigidBody_applyTorqueImpulseXYZ(rigidBody, torqueX, torqueY, torqueZ)
 ///
 /// @desc
+/// Applies an impulse torque to the rigid body using individual torque
+/// components along the axes.
 ///
 /// @param {Pointer} rigidBody
+///     A pointer to the btRigidBody object.
 /// @param {Real} torqueX
+///     The torque along the X-axis.
 /// @param {Real} torqueY
+///     The torque along the Y-axis.
 /// @param {Real} torqueZ
+///     The torque along the Z-axis.
 YYEXPORT void btRigidBody_applyTorqueImpulseXYZ(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -710,10 +780,15 @@ YYEXPORT void btRigidBody_applyImpulseXYZ(
 /// @func btRigidBody_applyPushImpulse(rigidBody, impulse, relPos)
 ///
 /// @desc
+/// Applies a push impulse to the rigid body at a relative position.
 ///
 /// @param {Pointer} rigidBody
+///     A pointer to the btRigidBody object.
 /// @param {Pointer} impulse
+///     A pointer to a btVector3 representing the impulse to apply.
 /// @param {Pointer} relPos
+///     A pointer to a btVector3 representing the relative position where the
+///    impulse is applied.
 YYEXPORT void btRigidBody_applyPushImpulse(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -726,14 +801,22 @@ YYEXPORT void btRigidBody_applyPushImpulse(
 /// @func btRigidBody_applyPushImpulseXYZ(rigidBody, impulseX, impulseY, impulseZ, relPosX, relPosY, relPosZ)
 ///
 /// @desc
+/// Applies a push impulse to the rigid body at a specified relative position.
 ///
 /// @param {Pointer} rigidBody
+///     A pointer to the btRigidBody object.
 /// @param {Real} impulseX
+///     The X component of the impulse to apply.
 /// @param {Real} impulseY
+///     The Y component of the impulse to apply.
 /// @param {Real} impulseZ
+///     The Z component of the impulse to apply.
 /// @param {Real} relPosX
+///     The X component of the relative position where the impulse is applied.
 /// @param {Real} relPosY
+///     The Y component of the relative position where the impulse is applied.
 /// @param {Real} relPosZ
+///     The Z component of the relative position where the impulse is applied.
 YYEXPORT void btRigidBody_applyPushImpulseXYZ(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -750,9 +833,12 @@ YYEXPORT void btRigidBody_applyPushImpulseXYZ(
 /// @func btRigidBody_getPushVelocity(rigidBody, outVector3)
 ///
 /// @desc
+/// Gets the push velocity of the rigid body.
 ///
 /// @param {Pointer} rigidBody
+///     A pointer to the btRigidBody object.
 /// @param {Pointer} outVector3
+///     A pointer to a btVector3 to store the push velocity.
 YYEXPORT void btRigidBody_getPushVelocity(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -764,9 +850,12 @@ YYEXPORT void btRigidBody_getPushVelocity(
 /// @func btRigidBody_getTurnVelocity(rigidBody, outVector3)
 ///
 /// @desc
+/// Gets the turn velocity of the rigid body.
 ///
 /// @param {Pointer} rigidBody
+///     A pointer to the btRigidBody object.
 /// @param {Pointer} outVector3
+///     A pointer to a btVector3 to store the turn velocity.
 YYEXPORT void btRigidBody_getTurnVelocity(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -778,9 +867,12 @@ YYEXPORT void btRigidBody_getTurnVelocity(
 /// @func btRigidBody_setPushVelocity(rigidBody, velocity)
 ///
 /// @desc
+/// Sets the push velocity of the rigid body.
 ///
 /// @param {Pointer} rigidBody
+///     A pointer to the btRigidBody object.
 /// @param {Pointer} velocity
+///     A pointer to a btVector3 representing the push velocity to set.
 YYEXPORT void btRigidBody_setPushVelocity(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -792,11 +884,17 @@ YYEXPORT void btRigidBody_setPushVelocity(
 /// @func btRigidBody_setPushVelocityXYZ(rigidBody, velocityX, velocityY, velocityZ)
 ///
 /// @desc
+/// Sets the push velocity of the rigid body using individual components in the
+/// XYZ axes.
 ///
 /// @param {Pointer} rigidBody
+///     A pointer to the btRigidBody object.
 /// @param {Real} velocityX
+///     The push velocity along the X-axis.
 /// @param {Real} velocityY
+///     The push velocity along the Y-axis.
 /// @param {Real} velocityZ
+///     The push velocity along the Z-axis.
 YYEXPORT void btRigidBody_setPushVelocityXYZ(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -812,9 +910,12 @@ YYEXPORT void btRigidBody_setPushVelocityXYZ(
 /// @func btRigidBody_setTurnVelocity(rigidBody, velocity)
 ///
 /// @desc
+/// Sets the turn velocity of the rigid body using a btVector3.
 ///
 /// @param {Pointer} rigidBody
+///     A pointer to the btRigidBody object.
 /// @param {Pointer} velocity
+///     A pointer to a btVector3 representing the turn velocity to set.
 YYEXPORT void btRigidBody_setTurnVelocity(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -826,11 +927,17 @@ YYEXPORT void btRigidBody_setTurnVelocity(
 /// @func btRigidBody_setTurnVelocityXYZ(rigidBody, velocityX, velocityY, velocityZ)
 ///
 /// @desc
+/// Sets the turn velocity of the rigid body using individual components in the
+/// XYZ axes.
 ///
 /// @param {Pointer} rigidBody
+///     A pointer to the btRigidBody object.
 /// @param {Real} velocityX
+///     The turn velocity along the X-axis.
 /// @param {Real} velocityY
+///     The turn velocity along the Y-axis.
 /// @param {Real} velocityZ
+///     The turn velocity along the Z-axis.
 YYEXPORT void btRigidBody_setTurnVelocityXYZ(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -844,9 +951,12 @@ YYEXPORT void btRigidBody_setTurnVelocityXYZ(
 /// @func btRigidBody_applyCentralPushImpulse(rigidBody, impulse)
 ///
 /// @desc
+/// Applies a central push impulse to the rigid body using a btVector3.
 ///
 /// @param {Pointer} rigidBody
+///     A pointer to the btRigidBody object.
 /// @param {Pointer} impulse
+///     A pointer to a btVector3 representing the central push impulse to apply.
 YYEXPORT void btRigidBody_applyCentralPushImpulse(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -858,11 +968,17 @@ YYEXPORT void btRigidBody_applyCentralPushImpulse(
 /// @func btRigidBody_applyCentralPushImpulseXYZ(rigidBody, impulseX, impulseY, impulseZ)
 ///
 /// @desc
+/// Applies a central push impulse to the rigid body using individual components
+/// in the XYZ axes.
 ///
 /// @param {Pointer} rigidBody
+///     A pointer to the btRigidBody object.
 /// @param {Real} impulseX
+///     The impulse along the X-axis.
 /// @param {Real} impulseY
+///     The impulse along the Y-axis.
 /// @param {Real} impulseZ
+///     The impulse along the Z-axis.
 YYEXPORT void btRigidBody_applyCentralPushImpulseXYZ(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -876,9 +992,12 @@ YYEXPORT void btRigidBody_applyCentralPushImpulseXYZ(
 /// @func btRigidBody_applyTorqueTurnImpulse(rigidBody, torque)
 ///
 /// @desc
+/// Applies a torque turn impulse to the rigid body using a btVector3.
 ///
 /// @param {Pointer} rigidBody
+///     A pointer to the btRigidBody object.
 /// @param {Pointer} torque
+///     A pointer to a btVector3 representing the torque turn impulse to apply.
 YYEXPORT void btRigidBody_applyTorqueTurnImpulse(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -890,11 +1009,17 @@ YYEXPORT void btRigidBody_applyTorqueTurnImpulse(
 /// @func btRigidBody_applyTorqueTurnImpulseXYZ(rigidBody, torqueX, torqueY, torqueZ)
 ///
 /// @desc
+/// Applies a torque turn impulse to the rigid body using individual components
+/// in the XYZ axes.
 ///
 /// @param {Pointer} rigidBody
+///     A pointer to the btRigidBody object.
 /// @param {Real} torqueX
+///     The torque impulse along the X-axis.
 /// @param {Real} torqueY
+///     The torque impulse along the Y-axis.
 /// @param {Real} torqueZ
+///     The torque impulse along the Z-axis.
 YYEXPORT void btRigidBody_applyTorqueTurnImpulseXYZ(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -908,8 +1033,10 @@ YYEXPORT void btRigidBody_applyTorqueTurnImpulseXYZ(
 /// @func btRigidBody_clearForces(rigidBody)
 ///
 /// @desc
+/// Clears all forces and torques applied to the rigid body.
 ///
 /// @param {Pointer} rigidBody
+///     A pointer to the btRigidBody object.
 YYEXPORT void btRigidBody_clearForces(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -920,8 +1047,11 @@ YYEXPORT void btRigidBody_clearForces(
 /// @func btRigidBody_updateInertiaTensor(rigidBody)
 ///
 /// @desc
+/// Recalculates the inertia tensor of the rigid body based on its current mass
+/// and shape.
 ///
 /// @param {Pointer} rigidBody
+///     A pointer to the btRigidBody object.
 YYEXPORT void btRigidBody_updateInertiaTensor(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -932,9 +1062,12 @@ YYEXPORT void btRigidBody_updateInertiaTensor(
 /// @func btRigidBody_getCenterOfMassPosition(rigidBody, outVector3)
 ///
 /// @desc
+/// Retrieves the center of mass position of the rigid body.
 ///
 /// @param {Pointer} rigidBody
+///     A pointer to the btRigidBody object.
 /// @param {Pointer} outVector3
+///     A pointer to a btVector3 to store the center of mass position.
 YYEXPORT void btRigidBody_getCenterOfMassPosition(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -946,9 +1079,12 @@ YYEXPORT void btRigidBody_getCenterOfMassPosition(
 /// @func btRigidBody_getOrientation(rigidBody, outQuaternion)
 ///
 /// @desc
+/// Retrieves the orientation (rotation) of the rigid body as a quaternion.
 ///
 /// @param {Pointer} rigidBody
+///     A pointer to the btRigidBody object.
 /// @param {Pointer} outQuaternion
+///     A pointer to a btQuaternion to store the orientation.
 YYEXPORT void btRigidBody_getOrientation(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -960,9 +1096,12 @@ YYEXPORT void btRigidBody_getOrientation(
 /// @func btRigidBody_getCenterOfMassTransform(rigidBody, outTransform)
 ///
 /// @desc
+/// Retrieves the transform representing the center of mass of the rigid body.
 ///
 /// @param {Pointer} rigidBody
+///     A pointer to the btRigidBody object.
 /// @param {Pointer} outTransform
+///     A pointer to a btTransform to store the center of mass transform.
 YYEXPORT void btRigidBody_getCenterOfMassTransform(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -974,9 +1113,12 @@ YYEXPORT void btRigidBody_getCenterOfMassTransform(
 /// @func btRigidBody_getLinearVelocity(rigidBody, outVector3)
 ///
 /// @desc
+/// Retrieves the linear velocity of the rigid body.
 ///
 /// @param {Pointer} rigidBody
+///     A pointer to the btRigidBody object.
 /// @param {Pointer} outVector3
+///     A pointer to a btVector3 to store the linear velocity.
 YYEXPORT void btRigidBody_getLinearVelocity(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -988,9 +1130,12 @@ YYEXPORT void btRigidBody_getLinearVelocity(
 /// @func btRigidBody_getAngularVelocity(rigidBody, outVector3)
 ///
 /// @desc
+/// Retrieves the angular velocity of the rigid body.
 ///
 /// @param {Pointer} rigidBody
+///     A pointer to the btRigidBody object.
 /// @param {Pointer} outVector3
+///     A pointer to a btVector3 to store the angular velocity.
 YYEXPORT void btRigidBody_getAngularVelocity(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -1002,9 +1147,13 @@ YYEXPORT void btRigidBody_getAngularVelocity(
 /// @func btRigidBody_setLinearVelocity(rigidBody, linearVelocity)
 ///
 /// @desc
+/// Sets the linear velocity of the rigid body.
 ///
 /// @param {Pointer} rigidBody
+///     A pointer to the btRigidBody object.
 /// @param {Pointer} linearVelocity
+///     A pointer to a btVector3 representing the linear velocity.
+
 YYEXPORT void btRigidBody_setLinearVelocity(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -1016,11 +1165,16 @@ YYEXPORT void btRigidBody_setLinearVelocity(
 /// @func btRigidBody_setLinearVelocityXYZ(rigidBody, linearVelocityX, linearVelocityY, linearVelocityZ)
 ///
 /// @desc
+/// Sets the linear velocity of the rigid body using individual components.
 ///
 /// @param {Pointer} rigidBody
+///     A pointer to the btRigidBody object.
 /// @param {Real} linearVelocityX
+///     The linear velocity along the X-axis.
 /// @param {Real} linearVelocityY
+///     The linear velocity along the Y-axis.
 /// @param {Real} linearVelocityZ
+///     The linear velocity along the Z-axis.
 YYEXPORT void btRigidBody_setLinearVelocityXYZ(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -1034,9 +1188,12 @@ YYEXPORT void btRigidBody_setLinearVelocityXYZ(
 /// @func btRigidBody_setAngularVelocity(rigidBody, angularVelocity)
 ///
 /// @desc
+/// Sets the angular velocity of the rigid body.
 ///
 /// @param {Pointer} rigidBody
-/// @param {Pointer} linearVelocity
+///     A pointer to the btRigidBody object.
+/// @param {Pointer} angularVelocity
+///     A pointer to a btVector3 representing the angular velocity.
 YYEXPORT void btRigidBody_setAngularVelocity(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -1048,11 +1205,16 @@ YYEXPORT void btRigidBody_setAngularVelocity(
 /// @func btRigidBody_setAngularVelocityXYZ(rigidBody, angularVelocityX, angularVelocityY, angularVelocityZ)
 ///
 /// @desc
+/// Sets the angular velocity of the rigid body using individual components.
 ///
 /// @param {Pointer} rigidBody
+///     A pointer to the btRigidBody object.
 /// @param {Real} angularVelocityX
+///     The angular velocity around the X-axis.
 /// @param {Real} angularVelocityY
+///     The angular velocity around the Y-axis.
 /// @param {Real} angularVelocityZ
+///     The angular velocity around the Z-axis.
 YYEXPORT void btRigidBody_setAngularVelocityXYZ(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -1066,10 +1228,14 @@ YYEXPORT void btRigidBody_setAngularVelocityXYZ(
 /// @func btRigidBody_getVelocityInLocalPoint(rigidBody, relPos, outVector3)
 ///
 /// @desc
+/// Gets the velocity of a point in the local frame of the rigid body.
 ///
 /// @param {Pointer} rigidBody
+///     A pointer to the btRigidBody object.
 /// @param {Pointer} relPos
+///     A pointer to a btVector3 representing the relative position of the point.
 /// @param {Pointer} outVector3
+///     A pointer to store the resulting velocity vector.
 YYEXPORT void btRigidBody_getVelocityInLocalPoint(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -1082,12 +1248,19 @@ YYEXPORT void btRigidBody_getVelocityInLocalPoint(
 /// @func btRigidBody_getVelocityInLocalPointXYZ(rigidBody, relPosX, relPosY, relPosZ, outVector3)
 ///
 /// @desc
+/// Gets the velocity of a point in the local frame of the rigid body using
+/// individual components for the relative position.
 ///
 /// @param {Pointer} rigidBody
+///     A pointer to the btRigidBody object.
 /// @param {Real} relPosX
+///     The X-component of the relative position.
 /// @param {Real} relPosY
+///     The Y-component of the relative position.
 /// @param {Real} relPosZ
+///     The Z-component of the relative position.
 /// @param {Pointer} outVector3
+///     A pointer to store the resulting velocity vector.
 YYEXPORT void btRigidBody_getVelocityInLocalPointXYZ(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -1102,10 +1275,14 @@ YYEXPORT void btRigidBody_getVelocityInLocalPointXYZ(
 /// @func btRigidBody_getPushVelocityInLocalPoint(rigidBody, relPos, outVector3)
 ///
 /// @desc
+/// Gets the push velocity of a point in the local frame of the rigid body.
 ///
 /// @param {Pointer} rigidBody
+///     A pointer to the btRigidBody object.
 /// @param {Pointer} relPos
+///     A pointer to a btVector3 representing the relative position of the point.
 /// @param {Pointer} outVector3
+///     A pointer to store the resulting push velocity vector.
 YYEXPORT void btRigidBody_getPushVelocityInLocalPoint(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -1118,12 +1295,19 @@ YYEXPORT void btRigidBody_getPushVelocityInLocalPoint(
 /// @func btRigidBody_getPushVelocityInLocalPointXYZ(rigidBody, relPosX, relPosY, relPosZ, outVector3)
 ///
 /// @desc
+/// Gets the push velocity of a point in the local frame of the rigid body using
+/// individual components for the relative position.
 ///
 /// @param {Pointer} rigidBody
+///     A pointer to the btRigidBody object.
 /// @param {Real} relPosX
+///     The X-component of the relative position.
 /// @param {Real} relPosY
+///     The Y-component of the relative position.
 /// @param {Real} relPosZ
+///     The Z-component of the relative position.
 /// @param {Pointer} outVector3
+///     A pointer to store the resulting push velocity vector.
 YYEXPORT void btRigidBody_getPushVelocityInLocalPointXYZ(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -1138,9 +1322,12 @@ YYEXPORT void btRigidBody_getPushVelocityInLocalPointXYZ(
 /// @func btRigidBody_translate(rigidBody, vector)
 ///
 /// @desc
+/// Translates the rigid body by a specified vector.
 ///
 /// @param {Pointer} rigidBody
+///     A pointer to the btRigidBody object.
 /// @param {Pointer} vector
+///     A pointer to a btVector3 representing the translation vector.
 YYEXPORT void btRigidBody_translate(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -1152,11 +1339,17 @@ YYEXPORT void btRigidBody_translate(
 /// @func btRigidBody_translateXYZ(rigidBody, vectorX, vectorY, vectorZ)
 ///
 /// @desc
+/// Translates the rigid body by specified X, Y, and Z components of the
+/// translation vector.
 ///
 /// @param {Pointer} rigidBody
+///     A pointer to the btRigidBody object.
 /// @param {Real} vectorX
+///     The X-component of the translation vector.
 /// @param {Real} vectorY
+///     The Y-component of the translation vector.
 /// @param {Real} vectorZ
+///     The Z-component of the translation vector.
 YYEXPORT void btRigidBody_translateXYZ(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -1170,10 +1363,14 @@ YYEXPORT void btRigidBody_translateXYZ(
 /// @func btRigidBody_getAabb(rigidBody, aabbMin, aabbMax)
 ///
 /// @desc
+/// Gets the axis-aligned bounding box (AABB) of the rigid body.
 ///
 /// @param {Pointer} rigidBody
+///     A pointer to the btRigidBody object.
 /// @param {Pointer} aabbMin
+///     A pointer to a btVector3 to store the minimum coordinates of the AABB.
 /// @param {Pointer} aabbMax
+///     A pointer to a btVector3 to store the maximum coordinates of the AABB.
 YYEXPORT void btRigidBody_getAabb(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -1211,9 +1408,12 @@ YYEXPORT void btRigidBody_getMotionState(
 /// @func btRigidBody_setMotionState(rigidBody, motionState)
 ///
 /// @desc
+/// Sets the motion state for a btRigidBody.
 ///
 /// @param {Pointer} rigidBody
+///     A pointer to the btRigidBody object.
 /// @param {Pointer} motionState
+///     A pointer to the btMotionState object to set.
 YYEXPORT void btRigidBody_setMotionState(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -1228,9 +1428,12 @@ YYEXPORT void btRigidBody_setMotionState(
 /// @func btRigidBody_setAngularFactor(rigidBody, angularFactor)
 ///
 /// @desc
+/// Sets the angular factor for a btRigidBody.
 ///
 /// @param {Pointer} rigidBody
+///     A pointer to the btRigidBody object.
 /// @param {Real} angularFactor
+///     The angular factor to set.
 YYEXPORT void btRigidBody_setAngularFactor(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -1242,9 +1445,12 @@ YYEXPORT void btRigidBody_setAngularFactor(
 /// @func btRigidBody_getAngularFactor(rigidBody, outVector3)
 ///
 /// @desc
+/// Gets the angular factor for a btRigidBody.
 ///
 /// @param {Pointer} rigidBody
+///     A pointer to the btRigidBody object.
 /// @param {Pointer} outVector3
+///     A pointer to a btVector3 to store the angular factor.
 YYEXPORT void btRigidBody_getAngularFactor(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -1256,10 +1462,13 @@ YYEXPORT void btRigidBody_getAngularFactor(
 /// @func btRigidBody_isInWorld(rigidBody)
 ///
 /// @desc
+/// Checks if the btRigidBody is added to a physics world.
 ///
 /// @param {Pointer} rigidBody
+///     A pointer to the btRigidBody object.
 ///
-/// @return {Bool}
+/// @return {Bool} True if the rigid body is added to a physics world, false
+/// otherwise.
 YYEXPORT void btRigidBody_isInWorld(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -1276,9 +1485,12 @@ YYEXPORT void btRigidBody_isInWorld(
 /// @func btRigidBody_setFlags(rigidBody, flags)
 ///
 /// @desc
+/// Sets the flags for the btRigidBody.
 ///
 /// @param {Pointer} rigidBody
+///     A pointer to the btRigidBody object.
 /// @param {Real} flags
+///     The flags to be set for the rigid body.
 YYEXPORT void btRigidBody_setFlags(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -1290,10 +1502,12 @@ YYEXPORT void btRigidBody_setFlags(
 /// @func btRigidBody_getFlags(rigidBody)
 ///
 /// @desc
+/// Gets the flags associated with the btRigidBody.
 ///
 /// @param {Pointer} rigidBody
+///     A pointer to the btRigidBody object.
 ///
-/// @return {Real}
+/// @return {Real} The flags associated with the rigid body.
 YYEXPORT void btRigidBody_getFlags(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -1309,9 +1523,12 @@ YYEXPORT void btRigidBody_getFlags(
 /// @func btRigidBody_getLocalInertia(rigidBody, outVector3)
 ///
 /// @desc
+/// Gets the local inertia of the rigid body.
 ///
 /// @param {Pointer} rigidBody
+///     A pointer to the btRigidBody object.
 /// @param {Pointer} outVector3
+///     Pointer to a btVector3 where the local inertia will be stored.
 YYEXPORT void btRigidBody_getLocalInertia(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
