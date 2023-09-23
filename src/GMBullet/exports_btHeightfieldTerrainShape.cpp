@@ -73,7 +73,7 @@ YYEXPORT void btHeightfieldTerrainShape_createF64(
 		heightfieldData, minHeight, maxHeight, upAxis, flipQuadEdges);
 }
 
-/// @func btHeightfieldTerrainShape_createS16(heightStickWidth, heightStickLength, heightfieldData, minHeight, maxHeight, upAxis, flipQuadEdges)
+/// @func btHeightfieldTerrainShape_createS16(heightStickWidth, heightStickLength, heightfieldData, heightScale, minHeight, maxHeight, upAxis, flipQuadEdges)
 ///
 /// @desc
 /// Creates a heightfield terrain shape using 16-bit integer height data.
@@ -84,6 +84,8 @@ YYEXPORT void btHeightfieldTerrainShape_createF64(
 ///     The length of each height stick in the heightfield.
 /// @param {Pointer} heightfieldData
 ///     A pointer to a buffer of 16-bit integer height data.
+/// @param {Real} heightScale
+///     The scale factor to apply to the height values.
 /// @param {Real} minHeight
 ///     The minimum height value in the heightfield.
 /// @param {Real} maxHeight
@@ -100,16 +102,17 @@ YYEXPORT void btHeightfieldTerrainShape_createS16(
 	int heightStickWidth = YYGetInt32(arg, 0);
 	int heightStickLength = YYGetInt32(arg, 1);
 	short* heightfieldData = (short*)YYGetPtr(arg, 2);
-	double minHeight = YYGetReal(arg, 3);
-	double maxHeight = YYGetReal(arg, 4);
-	int upAxis = YYGetInt32(arg, 5);
-	bool flipQuadEdges = YYGetBool(arg, 6);
+	double heightScale = YYGetReal(arg, 3);
+	double minHeight = YYGetReal(arg, 4);
+	double maxHeight = YYGetReal(arg, 5);
+	int upAxis = YYGetInt32(arg, 6);
+	bool flipQuadEdges = YYGetBool(arg, 7);
 	result.kind = VALUE_PTR;
 	result.ptr = new btHeightfieldTerrainShape(heightStickWidth, heightStickLength,
-		heightfieldData, minHeight, maxHeight, upAxis, flipQuadEdges);
+		heightfieldData, heightScale, minHeight, maxHeight, upAxis, flipQuadEdges);
 }
 
-/// @func btHeightfieldTerrainShape_createU8(heightStickWidth, heightStickLength, heightfieldData, minHeight, maxHeight, upAxis, flipQuadEdges)
+/// @func btHeightfieldTerrainShape_createU8(heightStickWidth, heightStickLength, heightfieldData, heightScale, minHeight, maxHeight, upAxis, flipQuadEdges)
 ///
 /// @desc
 /// Creates a heightfield terrain shape using 8-bit unsigned integer height data.
@@ -120,6 +123,8 @@ YYEXPORT void btHeightfieldTerrainShape_createS16(
 ///     The length of each height stick in the heightfield.
 /// @param {Pointer} heightfieldData
 ///     A pointer to a buffer of 8-bit unsigned integer height data.
+/// @param {Real} heightScale
+///     The scale factor to apply to the height values.
 /// @param {Real} minHeight
 ///     The minimum height value in the heightfield.
 /// @param {Real} maxHeight
@@ -127,7 +132,7 @@ YYEXPORT void btHeightfieldTerrainShape_createS16(
 /// @param {Real} upAxis
 ///     The axis indicating the "up" direction (0 for X, 1 for Y, 2 for Z).
 /// @param {Bool} flipQuadEdges
-///     Set to true to flip quad edges for seamless rendering.
+///     Set to true to flip quad edges.
 ///
 /// @return {Pointer} A pointer to the created btHeightfieldTerrainShape.
 YYEXPORT void btHeightfieldTerrainShape_createU8(
@@ -136,13 +141,14 @@ YYEXPORT void btHeightfieldTerrainShape_createU8(
 	int heightStickWidth = YYGetInt32(arg, 0);
 	int heightStickLength = YYGetInt32(arg, 1);
 	unsigned char* heightfieldData = (unsigned char*)YYGetPtr(arg, 2);
-	double minHeight = YYGetReal(arg, 3);
-	double maxHeight = YYGetReal(arg, 4);
-	int upAxis = YYGetInt32(arg, 5);
-	bool flipQuadEdges = YYGetBool(arg, 6);
+	double heightScale = YYGetReal(arg, 3);
+	double minHeight = YYGetReal(arg, 4);
+	double maxHeight = YYGetReal(arg, 5);
+	int upAxis = YYGetInt32(arg, 6);
+	bool flipQuadEdges = YYGetBool(arg, 7);
 	result.kind = VALUE_PTR;
 	result.ptr = new btHeightfieldTerrainShape(heightStickWidth, heightStickLength,
-		heightfieldData, minHeight, maxHeight, upAxis, flipQuadEdges);
+		heightfieldData, heightScale, minHeight, maxHeight, upAxis, flipQuadEdges);
 }
 
 /// @func btHeightfieldTerrainShape_destroy(heightfieldTerrainShape)
