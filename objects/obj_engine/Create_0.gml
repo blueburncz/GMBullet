@@ -28,11 +28,6 @@ d3d_model_ellipsoid(mdl_sphere, -8, -8, -8, 8, 8, 8, 1, 1, 24);
 /* Create Terrain */
 terrain = new CTerrain(spr_heightmap);
 terrain.Scale = [64, 64, 2];
-terrain.Position = [
-	-(terrain.Size[0] - 1) * terrain.Scale[0] * 0.5,
-	-(terrain.Size[1] - 1) * terrain.Scale[1] * 0.5,
-	-255 * terrain.Scale[2] * 0.5,
-];
 
 terrain_width = terrain.Size[0];
 terrain_height = terrain.Size[1];
@@ -40,11 +35,26 @@ var _sizeofU8 = buffer_sizeof(buffer_u8);
 terrain_bytesize = terrain_width * terrain_height * _sizeofU8;
 heightfield = buffer_create(terrain_bytesize, buffer_fast, _sizeofU8);
 
+var _terrainHeightMin = 0;
+var _terrainHeightMax = 0;
 for (var j = 0; j < terrain_height; ++j)
+{
 	for (var i = 0; i < terrain_width; ++i)
-		buffer_write(heightfield, buffer_u8, terrain.get_height_index(i, j));
+	{
+		var _height = terrain.get_height_index(i, j);
+		_terrainHeightMin = min(_terrainHeightMin, _height);
+		_terrainHeightMax = max(_terrainHeightMax, _height);
+		buffer_write(heightfield, buffer_u8, _height);
+	}
+}
 
-terrain_shape = btHeightfieldTerrainShape_createU8(terrain_height, terrain_width, buffer_get_address(heightfield), 1.0, 0, 255, 2, true);
+terrain.Position = [
+	-(terrain.Size[0] - 1) * terrain.Scale[0] * 0.5,
+	-(terrain.Size[1] - 1) * terrain.Scale[1] * 0.5,
+	-_terrainHeightMax * terrain.Scale[2] * 0.5,
+];
+
+terrain_shape = btHeightfieldTerrainShape_createU8(terrain_height, terrain_width, buffer_get_address(heightfield), 1.0, _terrainHeightMin, _terrainHeightMax, 2, true);
 btHeightfieldTerrainShape_setFlipTriangleWinding(terrain_shape, true);
 btCollisionShape_setLocalScalingXYZ(terrain_shape, terrain.Scale[0], terrain.Scale[1], terrain.Scale[2]);
 btHeightfieldTerrainShape_buildAccelerator(terrain_shape);
@@ -52,9 +62,9 @@ terrain_body = btRigidBody_create(0.0, btDefaultMotionState_create(), terrain_sh
 btDiscreteDynamicsWorld_addRigidBody(dynamicsWorld, terrain_body, -1, 1);
 
 /* Create Cubes */
-for (var i = 0; i < 25; ++i)
-    for (var j = 0; j < 25; ++j)
-        instance_create_3d(j * 16, 0, (i + 1) * 16, obj_box);
+for (var i = 0; i < 20; ++i)
+    for (var j = 0; j < 20; ++j)
+        instance_create_3d(j * 18, 0, (i + 1) * 18, obj_box);
 
 /* Initialize D3D */
 d3d_start();
