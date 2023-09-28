@@ -41,6 +41,43 @@ YYEXPORT void btCollisionShape_getAabb(
 	collisionShape->getAabb(transform, aabbMin, aabbMax);
 }
 
+/// @func btCollisionShape_getBoundingSphere(collisionShape, outCenter)
+///
+/// @desc
+///
+/// @param {Pointer} collisionShape
+/// @param {Pointer} outCenter
+///
+/// @return {Real}
+YYEXPORT void btCollisionShape_getBoundingSphere(
+	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
+{
+	auto collisionShape = (btCollisionShape*)YYGetPtr(arg, 0);
+	btVector3& center = *(btVector3*)YYGetPtr(arg, 1);
+	float radius;
+	collisionShape->getBoundingSphere(center, radius);
+	result.kind = VALUE_REAL;
+	result.val = radius;
+}
+
+/// @func btCollisionShape_setLocalScalingXYZ(collisionShape, scalingX, scalingY, scalingY)
+///
+/// @desc
+///
+/// @param {Pointer} collisionShape
+/// @param {Real} scalingX
+/// @param {Real} scalingY
+/// @param {Real} scalingZ
+YYEXPORT void btCollisionShape_setLocalScalingXYZ(
+	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
+{
+	auto collisionShape = (btCollisionShape*)YYGetPtr(arg, 0);
+	double scalingX = YYGetReal(arg, 1);
+	double scalingY = YYGetReal(arg, 2);
+	double scalingZ = YYGetReal(arg, 3);
+	collisionShape->setLocalScaling(btVector3(scalingX, scalingY, scalingZ));
+}
+
 /// @func btCollisionShape_calculateLocalInertia(collisionShape, mass, outVector3)
 ///
 /// @desc

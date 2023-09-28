@@ -14,7 +14,7 @@ gpu_set_tex_mip_filter(tf_anisotropic);
 //window_set_fullscreen(true);
 
 /* Setup Models */
-vb_floor = model_build_plane(-768, -768, 0, 768, 768, 0, 32, 32);
+//vb_floor = model_build_plane(-768, -768, 0, 768, 768, 0, 32, 32);
 vb_cube = model_build_cube(-8, -8, -8, 8, 8, 8, 1, 1);
 
 mdl_sphere = d3d_model_create();
@@ -26,14 +26,27 @@ d3d_model_ellipsoid(mdl_sphere, -8, -8, -8, 8, 8, 8, 1, 1, 24);
 //btDiscreteDynamicsWorld_addRigidBody(dynamicsWorld, body_floor, -1, 1);
 
 /* Create Terrain */
-terrain_width = 768 * 2;
-terrain_height = 768 * 2;
-var _sizeofF32 = buffer_sizeof(buffer_f32);
-terrain_bytesize = terrain_width * terrain_height * _sizeofF32;
-heightfield = buffer_create(terrain_bytesize, buffer_fixed, _sizeofF32);
-buffer_fill(heightfield, 0, buffer_f32, 0, terrain_bytesize);
-terrain_shape = btHeightfieldTerrainShape_createF32(terrain_height, terrain_width, buffer_get_address(heightfield), -1, +1, 2, false);
+terrain = new CTerrain(spr_heightmap);
+terrain.Scale = [64, 64, 2];
+terrain.Position = [
+	-(terrain.Size[0] - 1) * terrain.Scale[0] * 0.5,
+	-(terrain.Size[1] - 1) * terrain.Scale[1] * 0.5,
+	-255 * terrain.Scale[2] * 0.5,
+];
+
+terrain_width = terrain.Size[0];
+terrain_height = terrain.Size[1];
+var _sizeofU8 = buffer_sizeof(buffer_u8);
+terrain_bytesize = terrain_width * terrain_height * _sizeofU8;
+heightfield = buffer_create(terrain_bytesize, buffer_fast, _sizeofU8);
+
+for (var j = 0; j < terrain_height; ++j)
+	for (var i = 0; i < terrain_width; ++i)
+		buffer_write(heightfield, buffer_u8, terrain.get_height_index(i, j));
+
+terrain_shape = btHeightfieldTerrainShape_createU8(terrain_height, terrain_width, buffer_get_address(heightfield), 1.0, 0, 255, 2, true);
 btHeightfieldTerrainShape_setFlipTriangleWinding(terrain_shape, true);
+btCollisionShape_setLocalScalingXYZ(terrain_shape, terrain.Scale[0], terrain.Scale[1], terrain.Scale[2]);
 btHeightfieldTerrainShape_buildAccelerator(terrain_shape);
 terrain_body = btRigidBody_create(0.0, btDefaultMotionState_create(), terrain_shape);
 btDiscreteDynamicsWorld_addRigidBody(dynamicsWorld, terrain_body, -1, 1);

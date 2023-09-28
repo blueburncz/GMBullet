@@ -1,5 +1,8 @@
+shader_set(sh_terrain);
+terrain.submit();
+shader_reset();
+
 shader_set(sh_default);
-vertex_submit(vb_floor, pr_trianglelist, background_get_texture(bg_floor));
 
 /* Draw Boxes */
 with (obj_box)
