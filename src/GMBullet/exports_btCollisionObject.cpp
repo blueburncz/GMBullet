@@ -765,7 +765,7 @@ YYEXPORT void btCollisionObject_setInterpolationAngularVelocity(
 	collisionObject->setInterpolationAngularVelocity(angularVelocity);
 }
 
-/// @func btCollisionObject_getInterpolationLinearVelocity(collisionObject, outVec3)
+/// @func btCollisionObject_getInterpolationLinearVelocity(collisionObject, outVector3)
 ///
 /// @desc
 /// Retrieves the interpolation linear velocity of a Bullet Physics collision
@@ -773,7 +773,7 @@ YYEXPORT void btCollisionObject_setInterpolationAngularVelocity(
 ///
 /// @param {Pointer} collisionObject
 ///     A pointer to a btCollisionObject instance.
-/// @param {Pointer} outVec3
+/// @param {Pointer} outVector3
 ///     A pointer to a btVector3 where the interpolation linear velocity will be
 ///     copied.
 YYEXPORT void btCollisionObject_getInterpolationLinearVelocity(
@@ -784,7 +784,7 @@ YYEXPORT void btCollisionObject_getInterpolationLinearVelocity(
 	CopyVector3(collisionObject->getInterpolationLinearVelocity(), outVector3);
 }
 
-/// @func btCollisionObject_getInterpolationAngularVelocity(collisionObject, outVec3)
+/// @func btCollisionObject_getInterpolationAngularVelocity(collisionObject, outVector3)
 ///
 /// @desc
 /// Retrieves the interpolation angular velocity of a Bullet Physics collision
@@ -792,7 +792,7 @@ YYEXPORT void btCollisionObject_getInterpolationLinearVelocity(
 ///
 /// @param {Pointer} collisionObject
 ///     A pointer to a btCollisionObject instance.
-/// @param {Pointer} outVec3
+/// @param {Pointer} outVector3
 ///     A pointer to a btVector3 where the interpolation angular velocity will
 ///     be copied.
 YYEXPORT void btCollisionObject_getInterpolationAngularVelocity(
