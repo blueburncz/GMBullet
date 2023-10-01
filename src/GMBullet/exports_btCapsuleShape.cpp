@@ -10,7 +10,7 @@
 /// @param {Real} height
 ///     The height of the capsule along the y-axis.
 ///
-/// @return {Pointer}  A pointer to the newly created btCapsuleShape object.
+/// @return {Pointer} A pointer to the newly created btCapsuleShape object.
 YYEXPORT void btCapsuleShape_create(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -136,6 +136,8 @@ YYEXPORT void btCapsuleShapeX_destroy(
 	delete (btCapsuleShapeX*)YYGetPtr(arg, 0);
 }
 
+// Note: Skipped btCapsuleShapeX::getName
+
 ////////////////////////////////////////////////////////////////////////////////
 //
 // btCapsuleShapeZ
@@ -174,6 +176,8 @@ YYEXPORT void btCapsuleShapeZ_destroy(
 {
 	delete (btCapsuleShapeZ*)YYGetPtr(arg, 0);
 }
+
+// Note: Skipped btCapsuleShapeZ::getName
 
 ////////////////////////////////////////////////////////////////////////////////
 //
