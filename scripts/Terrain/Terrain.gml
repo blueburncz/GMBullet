@@ -293,12 +293,14 @@ function CTerrain(_heightmap=undefined, _subimage=0, _chunkSize=128) constructor
 	static submit = function ()
 	{
 		var _matrix = matrix_build(Position[0], Position[1], Position[2], 0, 0, 0, Scale[0], Scale[1], Scale[2]);
+		var _normalMatrix = matrix_build_normalmatrix(_matrix);
 		var _chunkFromX = 0;
 		var _chunkFromY = 0;
 		var _chunkToX = ds_grid_width(Chunks);
 		var _chunkToY = ds_grid_height(Chunks);
 
 		matrix_set(matrix_world, _matrix);
+		shader_set_uniform_matrix_array(shader_get_uniform(shader_current(), "u_mNormalMatrix"), _normalMatrix);
 
 		var _i = _chunkFromX;
 		repeat (_chunkToX - _chunkFromX)

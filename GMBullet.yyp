@@ -79,6 +79,7 @@
     {"id":{"name":"__init_view","path":"scripts/__init_view/__init_view.yy",},},
     {"id":{"name":"__init_global","path":"scripts/__init_global/__init_global.yy",},},
     {"id":{"name":"__global_object_depths","path":"scripts/__global_object_depths/__global_object_depths.yy",},},
+    {"id":{"name":"matrix_build_normalmatrix","path":"scripts/matrix_build_normalmatrix/matrix_build_normalmatrix.yy",},},
     {"id":{"name":"sh_default","path":"shaders/sh_default/sh_default.yy",},},
     {"id":{"name":"fnt_debug","path":"fonts/fnt_debug/fnt_debug.yy",},},
     {"id":{"name":"sh_terrain","path":"shaders/sh_terrain/sh_terrain.yy",},},

@@ -46,6 +46,7 @@
     {"name":"__init_view","order":1,"path":"scripts/__init_view/__init_view.yy",},
     {"name":"__init_global","order":6,"path":"scripts/__init_global/__init_global.yy",},
     {"name":"__global_object_depths","order":7,"path":"scripts/__global_object_depths/__global_object_depths.yy",},
+    {"name":"matrix_build_normalmatrix","order":5,"path":"scripts/matrix_build_normalmatrix/matrix_build_normalmatrix.yy",},
     {"name":"sh_terrain","order":1,"path":"shaders/sh_terrain/sh_terrain.yy",},
     {"name":"obj_camera","order":1,"path":"objects/obj_camera/obj_camera.yy",},
     {"name":"obj_box","order":2,"path":"objects/obj_box/obj_box.yy",},
