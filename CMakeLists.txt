@@ -7,6 +7,7 @@ set(CMAKE_CXX_STANDARD 17)
 set(SOURCES
     src/GMBullet/dllmain.cpp
     src/GMBullet/exports_btBoxShape.cpp
+    src/GMBullet/exports_btBvhTriangleMeshShape.cpp
     src/GMBullet/exports_btCapsuleShape.cpp
     src/GMBullet/exports_btClosestNotMeRayResultCallback.cpp
     src/GMBullet/exports_btCollisionDispatcher.cpp
@@ -25,6 +26,7 @@ set(SOURCES
     src/GMBullet/exports_btSequentialImpulseConstraintSolver.cpp
     src/GMBullet/exports_btSphereShape.cpp
     src/GMBullet/exports_btTransform.cpp
+    src/GMBullet/exports_btTriangleMesh.cpp
     src/GMBullet/exports_btVector3.cpp
     )
 

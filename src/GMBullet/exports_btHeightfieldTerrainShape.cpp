@@ -250,7 +250,7 @@ YYEXPORT void btHeightfieldTerrainShape_getVertex(
 	heightfieldTerrainShape->getVertex(x, y, vertex);
 }
 
-/// @func btHeightfieldTerrainShape_performRaycast(heightfieldTerrainShape, x, y, vertex)
+/// @func btHeightfieldTerrainShape_performRaycast(heightfieldTerrainShape, callback, raySource, rayTarget)
 ///
 /// @desc
 /// Performs a raycast on the heightfield terrain shape and invokes the
