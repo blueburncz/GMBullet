@@ -8,6 +8,7 @@ set(SOURCES
     src/GMBullet/dllmain.cpp
     src/GMBullet/exports_btBoxShape.cpp
     src/GMBullet/exports_btCapsuleShape.cpp
+    src/GMBullet/exports_btClosestNotMeRayResultCallback.cpp
     src/GMBullet/exports_btCollisionDispatcher.cpp
     src/GMBullet/exports_btCollisionObject.cpp
     src/GMBullet/exports_btCollisionShape.cpp
