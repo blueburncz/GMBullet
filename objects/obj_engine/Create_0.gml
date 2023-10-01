@@ -61,10 +61,37 @@ btHeightfieldTerrainShape_buildAccelerator(terrain_shape);
 terrain_body = btRigidBody_create(0.0, btDefaultMotionState_create(), terrain_shape);
 btDiscreteDynamicsWorld_addRigidBody(dynamicsWorld, terrain_body, -1, 1);
 
+/* Create static mesh */
+vertex_format_begin();
+vertex_format_add_position_3d();
+vertex_format_add_normal();
+vertex_format_add_color();
+vformat = vertex_format_end();
+
+var _buffer = buffer_load("house_type17.bin");
+
+vbuffer = vertex_create_buffer_from_buffer(_buffer, vformat);
+vertex_freeze(vbuffer);
+
+mesh = btTriangleMesh_create(true, false);
+var _stride = buffer_sizeof(buffer_f32) * 3 // Position
+	+ buffer_sizeof(buffer_f32) * 3 // Normal
+	+ buffer_sizeof(buffer_u32); // Color
+btTriangleMesh_addTrianglesFromBuffer(mesh, buffer_get_address(_buffer), 0, _stride, vertex_get_number(vbuffer));
+
+mesh_shape = btBvhTriangleMeshShape_create(mesh, false, true);
+btCollisionShape_setLocalScalingXYZ(mesh_shape, 200, 200, 200);
+
+mesh_body = btRigidBody_create(0, btDefaultMotionState_create(), mesh_shape);
+btRigidBody_translateXYZ(mesh_body, 0, 0, -120);
+btDiscreteDynamicsWorld_addRigidBody(dynamicsWorld, mesh_body, -1, 1);
+
+buffer_delete(_buffer);
+
 /* Create Cubes */
 for (var i = 0; i < 20; ++i)
-    for (var j = 0; j < 20; ++j)
-        instance_create_3d(j * 18, 0, (i + 1) * 18, obj_box);
+    for (var j = -10; j < 10; ++j)
+        instance_create_3d(j * 18, 0, 150 + i * 18, obj_box);
 
 /* Initialize D3D */
 d3d_start();

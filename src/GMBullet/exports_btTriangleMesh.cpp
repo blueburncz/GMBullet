@@ -163,7 +163,7 @@ YYEXPORT void btTriangleMesh_addTrianglesFromBuffer(
 	int numVerts = YYGetInt32(arg, 4);
 	float* bufferCurrent = (float*)(buffer + offset);
 
-	for (int i = 0; i < numVerts; ++i)
+	for (int i = 0; i < numVerts / 3; ++i)
 	{
 		float x, y, z;
 

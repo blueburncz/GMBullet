@@ -26,6 +26,7 @@
   ],
   "ResourceOrderSettings": [
     {"name":"bg_floor","order":1,"path":"sprites/bg_floor/bg_floor.yy",},
+    {"name":"sh_mesh","order":2,"path":"shaders/sh_mesh/sh_mesh.yy",},
     {"name":"vertex_default","order":1,"path":"scripts/vertex_default/vertex_default.yy",},
     {"name":"model_build_plane","order":1,"path":"scripts/model_build_plane/model_build_plane.yy",},
     {"name":"get_z","order":1,"path":"scripts/get_z/get_z.yy",},

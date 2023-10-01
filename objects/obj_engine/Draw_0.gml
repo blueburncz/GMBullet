@@ -1,10 +1,17 @@
+/* Draw terrain */
 shader_set(sh_terrain);
 terrain.submit();
 shader_reset();
 
-shader_set(sh_default);
+/* Draw static mesh */
+shader_set(sh_mesh);
+matrix_set(matrix_world, matrix_build(0, 0, -120, 0, 0, 0, 200, 200, 200));
+vertex_submit(vbuffer, pr_trianglelist, -1);
+shader_reset();
 
 /* Draw Boxes */
+shader_set(sh_default);
+
 with (obj_box)
 {
 	var tex = sprite_get_texture(spr_body, !btCollisionObject_isActive(body));

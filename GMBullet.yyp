@@ -38,7 +38,11 @@
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Tile Sets","folderPath":"folders/Tile Sets.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Timelines","folderPath":"folders/Timelines.yy",},
   ],
-  "IncludedFiles": [],
+  "IncludedFiles": [
+    {"resourceType":"GMIncludedFile","resourceVersion":"1.0","name":"house_type17.bin","CopyToMask":-1,"filePath":"datafiles",},
+    {"resourceType":"GMIncludedFile","resourceVersion":"1.0","name":"house_type17.mtl","CopyToMask":-1,"filePath":"datafiles",},
+    {"resourceType":"GMIncludedFile","resourceVersion":"1.0","name":"house_type17.obj","CopyToMask":-1,"filePath":"datafiles",},
+  ],
   "isEcma": false,
   "LibraryEmitters": [],
   "MetaData": {
@@ -48,6 +52,7 @@
     {"id":{"name":"spr_body","path":"sprites/spr_body/spr_body.yy",},},
     {"id":{"name":"bg_default","path":"sprites/bg_default/bg_default.yy",},},
     {"id":{"name":"bg_floor","path":"sprites/bg_floor/bg_floor.yy",},},
+    {"id":{"name":"sh_mesh","path":"shaders/sh_mesh/sh_mesh.yy",},},
     {"id":{"name":"rm_example","path":"rooms/rm_example/rm_example.yy",},},
     {"id":{"name":"vertex_formats_init","path":"scripts/vertex_formats_init/vertex_formats_init.yy",},},
     {"id":{"name":"vertex_default","path":"scripts/vertex_default/vertex_default.yy",},},
