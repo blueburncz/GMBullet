@@ -30,7 +30,9 @@ functions = []
 order = []
 
 for d in docs:
-    func_name = re.findall(r"/// @func (\w+)", d)[0]
+    m = re.findall(r"/// @func (\w+)([^\n]+)", d)[0]
+    func_name = m[0]
+    args = m[1]
     print("Injecting function", func_name)
 
     functions.append({
@@ -41,7 +43,7 @@ for d in docs:
       "args": [],
       "documentation": d,
       "externalName": "",
-      "help": "",
+      "help": f"{func_name}{args}",
       "hidden": False,
       "kind": 1,
       "returnType": 1
