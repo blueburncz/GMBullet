@@ -54,7 +54,7 @@ terrain.Position = [
 	-_terrainHeightMax * terrain.Scale[2] * 0.5,
 ];
 
-terrain_shape = btHeightfieldTerrainShape_createU8(terrain_height, terrain_width, buffer_get_address(heightfield), 1.0, _terrainHeightMin, _terrainHeightMax, 2, true);
+terrain_shape = btHeightfieldTerrainShape_createU8(terrain_height, terrain_width, heightfield, 1.0, _terrainHeightMin, _terrainHeightMax, 2, true);
 btHeightfieldTerrainShape_setFlipTriangleWinding(terrain_shape, true);
 btCollisionShape_setLocalScalingXYZ(terrain_shape, terrain.Scale[0], terrain.Scale[1], terrain.Scale[2]);
 btHeightfieldTerrainShape_buildAccelerator(terrain_shape);
@@ -77,7 +77,7 @@ mesh = btTriangleMesh_create(true, false);
 var _stride = buffer_sizeof(buffer_f32) * 3 // Position
 	+ buffer_sizeof(buffer_f32) * 3 // Normal
 	+ buffer_sizeof(buffer_u32); // Color
-btTriangleMesh_addTrianglesFromBuffer(mesh, buffer_get_address(_buffer), 0, _stride, vertex_get_number(vbuffer));
+btTriangleMesh_addTrianglesFromBuffer(mesh, _buffer, 0, _stride, vertex_get_number(vbuffer));
 
 mesh_shape = btBvhTriangleMeshShape_create(mesh, false, true);
 btCollisionShape_setLocalScalingXYZ(mesh_shape, 200, 200, 200);

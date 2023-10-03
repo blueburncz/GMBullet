@@ -10,8 +10,8 @@
 ///     The width of each height stick in the heightfield.
 /// @param {Real} heightStickLength
 ///     The length of each height stick in the heightfield.
-/// @param {Pointer} heightfieldData
-///     A pointer to a buffer of floating-point height data.
+/// @param {Id.Buffer} heightfieldData
+///     A buffer with floating-point height data.
 /// @param {Real} minHeight
 ///     The minimum height value in the heightfield.
 /// @param {Real} maxHeight
@@ -27,7 +27,7 @@ YYEXPORT void btHeightfieldTerrainShape_createF32(
 {
 	int heightStickWidth = YYGetInt32(arg, 0);
 	int heightStickLength = YYGetInt32(arg, 1);
-	float* heightfieldData = (float*)YYGetPtr(arg, 2);
+	float* heightfieldData = (float*)BufferGet(BufferGetFromGML(YYGetInt32(arg, 2)));
 	double minHeight = YYGetReal(arg, 3);
 	double maxHeight = YYGetReal(arg, 4);
 	int upAxis = YYGetInt32(arg, 5);
@@ -46,8 +46,8 @@ YYEXPORT void btHeightfieldTerrainShape_createF32(
 ///     The width of each height stick in the heightfield.
 /// @param {Real} heightStickLength
 ///     The length of each height stick in the heightfield.
-/// @param {Pointer} heightfieldData
-///     A pointer to a buffer of double-precision height data.
+/// @param {Id.Buffer} heightfieldData
+///     A buffer with double-precision height data.
 /// @param {Real} minHeight
 ///     The minimum height value in the heightfield.
 /// @param {Real} maxHeight
@@ -63,7 +63,7 @@ YYEXPORT void btHeightfieldTerrainShape_createF64(
 {
 	int heightStickWidth = YYGetInt32(arg, 0);
 	int heightStickLength = YYGetInt32(arg, 1);
-	double* heightfieldData = (double*)YYGetPtr(arg, 2);
+	double* heightfieldData = (double*)BufferGet(BufferGetFromGML(YYGetInt32(arg, 2)));
 	double minHeight = YYGetReal(arg, 3);
 	double maxHeight = YYGetReal(arg, 4);
 	int upAxis = YYGetInt32(arg, 5);
@@ -82,8 +82,8 @@ YYEXPORT void btHeightfieldTerrainShape_createF64(
 ///     The width of each height stick in the heightfield.
 /// @param {Real} heightStickLength
 ///     The length of each height stick in the heightfield.
-/// @param {Pointer} heightfieldData
-///     A pointer to a buffer of 16-bit integer height data.
+/// @param {Id.Buffer} heightfieldData
+///     A buffer with 16-bit integer height data.
 /// @param {Real} heightScale
 ///     The scale factor to apply to the height values.
 /// @param {Real} minHeight
@@ -101,7 +101,7 @@ YYEXPORT void btHeightfieldTerrainShape_createS16(
 {
 	int heightStickWidth = YYGetInt32(arg, 0);
 	int heightStickLength = YYGetInt32(arg, 1);
-	short* heightfieldData = (short*)YYGetPtr(arg, 2);
+	short* heightfieldData = (short*)BufferGet(BufferGetFromGML(YYGetInt32(arg, 2)));
 	double heightScale = YYGetReal(arg, 3);
 	double minHeight = YYGetReal(arg, 4);
 	double maxHeight = YYGetReal(arg, 5);
@@ -121,8 +121,8 @@ YYEXPORT void btHeightfieldTerrainShape_createS16(
 ///     The width of each height stick in the heightfield.
 /// @param {Real} heightStickLength
 ///     The length of each height stick in the heightfield.
-/// @param {Pointer} heightfieldData
-///     A pointer to a buffer of 8-bit unsigned integer height data.
+/// @param {Id.Buffer} heightfieldData
+///     A buffer with 8-bit unsigned integer height data.
 /// @param {Real} heightScale
 ///     The scale factor to apply to the height values.
 /// @param {Real} minHeight
@@ -140,7 +140,7 @@ YYEXPORT void btHeightfieldTerrainShape_createU8(
 {
 	int heightStickWidth = YYGetInt32(arg, 0);
 	int heightStickLength = YYGetInt32(arg, 1);
-	unsigned char* heightfieldData = (unsigned char*)YYGetPtr(arg, 2);
+	unsigned char* heightfieldData = BufferGet(BufferGetFromGML(YYGetInt32(arg, 2)));
 	double heightScale = YYGetReal(arg, 3);
 	double minHeight = YYGetReal(arg, 4);
 	double maxHeight = YYGetReal(arg, 5);

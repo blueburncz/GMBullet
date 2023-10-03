@@ -145,8 +145,8 @@ YYEXPORT void btTriangleMesh_addTriangleXYZ(
 ///
 /// @param {Pointer} triangleMesh
 ///     A pointer to the btTriangleMesh object.
-/// @param {Pointer} buffer
-///     A pointer to the buffer containing vertex data.
+/// @param {Id.Buffer} buffer
+///     A buffer containing vertex data.
 /// @param {Real} offset
 ///     The offset in bytes to the start of vertex data for the first vertex.
 /// @param {Real} stride
@@ -157,7 +157,7 @@ YYEXPORT void btTriangleMesh_addTrianglesFromBuffer(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
 	auto triangleMesh = (btTriangleMesh*)YYGetPtr(arg, 0);
-	unsigned char* buffer = (unsigned char*)YYGetPtr(arg, 1);
+	unsigned char* buffer = BufferGet(BufferGetFromGML(YYGetInt32(arg, 1)));
 	int offset = YYGetInt32(arg, 2);
 	int stride = YYGetInt32(arg, 3);
 	int numVerts = YYGetInt32(arg, 4);
