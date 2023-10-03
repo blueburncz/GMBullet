@@ -46,6 +46,77 @@ YYEXPORT void btDiscreteDynamicsWorld_destroy(
 	delete (btDiscreteDynamicsWorld*)YYGetPtr(arg, 0);
 }
 
+/// @func btDiscreteDynamicsWorld_stepSimulation(discreteDynamicsWorld, timeStep[, maxSubSteps[, fixedTimeStep]])
+///
+/// @desc
+/// Steps the dynamics simulation forward by the given time step, allowing for
+/// substeps if specified.
+///
+/// @param {Pointer} dynamicsWorld
+///     A pointer to the btDiscreteDynamicsWorld instance.
+/// @param {Real} timeStep
+///     The time step to advance the simulation.
+/// @param {Real} [maxSubSteps]
+///     The maximum number of substeps allowed in this simulation step. Defaults
+///     to 1.
+/// @param {Real} [fixedTimeStep]
+///     The fixed time step for each substep.
+YYEXPORT void btDiscreteDynamicsWorld_stepSimulation(
+	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
+{
+	auto dynamicsWorld = (btDiscreteDynamicsWorld*)YYGetPtr(arg, 0);
+	double timeStep = YYGetReal(arg, 1);
+	int maxSubSteps = (argc > 2) ? YYGetInt32(arg, 2) : 1;
+	double fixedTimeStep = (argc > 3) ? YYGetReal(arg, 3) : (1.0 / 60.0);
+	dynamicsWorld->stepSimulation(timeStep, maxSubSteps, fixedTimeStep);
+}
+
+// Note: Skipped btDiscreteDynamicsWorld::solveConstraints
+// Note: Skipped btDiscreteDynamicsWorld::synchronizeMotionStates
+// Note: Skipped btDiscreteDynamicsWorld::synchronizeSingleMotionState
+
+/// @func btDiscreteDynamicsWorld_addConstraint(discreteDynamicsWorld, constraint[, disableCollisionBetweenLinkedBodies])
+///
+/// @desc
+/// Adds a constraint to the btDiscreteDynamicsWorld.
+///
+/// @param {Pointer} discreteDynamicsWorld
+///     A pointer to the btDiscreteDynamicsWorld object.
+/// @param {Pointer} constraint
+///     A pointer to the btTypedConstraint object to be added.
+/// @param {Bool} [disableCollisionBetweenLinkedBodies]
+///     If true, disable collisions between linked bodies for this constraint.
+///     Defaults to false.
+YYEXPORT void btDiscreteDynamicsWorld_addConstraint(
+	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
+{
+	auto dynamicsWorld = (btDiscreteDynamicsWorld*)YYGetPtr(arg, 0);
+	auto constraint = (btTypedConstraint*)YYGetPtr(arg, 1);
+	bool disableCollisionBetweenLinkedBodies = (argc > 2) ? YYGetBool(arg, 2) : false;
+	dynamicsWorld->addConstraint(constraint, disableCollisionBetweenLinkedBodies);
+}
+
+/// @func btDiscreteDynamicsWorld_removeConstraint(discreteDynamicsWorld, constraint)
+///
+/// @desc
+/// Removes a constraint from the btDiscreteDynamicsWorld.
+///
+/// @param {Pointer} discreteDynamicsWorld
+///     A pointer to the btDiscreteDynamicsWorld object.
+/// @param {Pointer} constraint
+///     A pointer to the btTypedConstraint object to be removed.
+YYEXPORT void btDiscreteDynamicsWorld_removeConstraint(
+	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
+{
+	auto dynamicsWorld = (btDiscreteDynamicsWorld*)YYGetPtr(arg, 0);
+	auto constraint = (btTypedConstraint*)YYGetPtr(arg, 1);
+	dynamicsWorld->removeConstraint(constraint);
+}
+
+// Note: Skipped btDiscreteDynamicsWorld::addAction
+// Note: Skipped btDiscreteDynamicsWorld::removeAction
+// Note: Skipped btDiscreteDynamicsWorld::getSimulationIslandManager
+
 /// @func btDiscreteDynamicsWorld_getCollisionWorld(discreteDynamicsWorld)
 ///
 /// @desc
@@ -106,6 +177,25 @@ YYEXPORT void btDiscreteDynamicsWorld_setGravityXYZ(
 	dynamicsWorld->setGravity(btVector3(gravityX, gravityY, gravityZ));
 }
 
+/// @func btDiscreteDynamicsWorld_getGravity(discreteDynamicsWorld, outVector3)
+///
+/// @desc
+/// Retrieves the gravity vector from the btDiscreteDynamicsWorld.
+///
+/// @param {Pointer} discreteDynamicsWorld
+///     A pointer to the btDiscreteDynamicsWorld object.
+/// @param {Pointer} outVector3
+///     A pointer to a btVector3 where the gravity vector will be stored.
+YYEXPORT void btDiscreteDynamicsWorld_getGravity(
+	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
+{
+	auto dynamicsWorld = (btDiscreteDynamicsWorld*)YYGetPtr(arg, 0);
+	auto outVector3 = (btVector3*)YYGetPtr(arg, 1);
+	CopyVector3(dynamicsWorld->getGravity(), outVector3);
+}
+
+// Note: Skipped btDiscreteDynamicsWorld::addCollisionObject
+
 /// @func btDiscreteDynamicsWorld_addRigidBody(discreteDynamicsWorld, rigidBody, group, mask)
 ///
 /// @desc
@@ -146,27 +236,165 @@ YYEXPORT void btDiscreteDynamicsWorld_removeRigidBody(
 	dynamicsWorld->removeRigidBody(rigidBody);
 }
 
-/// @func btDiscreteDynamicsWorld_stepSimulation(discreteDynamicsWorld, timeStep[, maxSubSteps[, fixedTimeStep]])
+// Note: Skipped btDiscreteDynamicsWorld::removeCollisionObject
+// Note: Skipped btDiscreteDynamicsWorld::debugDrawConstraint
+// Note: Skipped btDiscreteDynamicsWorld::debugDrawWorld
+
+/// @func btDiscreteDynamicsWorld_setConstraintSolver(discreteDynamicsWorld, solver)
 ///
 /// @desc
-/// Steps the dynamics simulation forward by the given time step, allowing for
-/// substeps if specified.
+/// Sets the constraint solver for the btDiscreteDynamicsWorld.
 ///
-/// @param {Pointer} dynamicsWorld
-///     A pointer to the btDiscreteDynamicsWorld instance.
-/// @param {Real} timeStep
-///     The time step to advance the simulation.
-/// @param {Real} [maxSubSteps]
-///     The maximum number of substeps allowed in this simulation step. Defaults
-///     to 1.
-/// @param {Real} [fixedTimeStep]
-///     The fixed time step for each substep.
-YYEXPORT void btDiscreteDynamicsWorld_stepSimulation(
+/// @param {Pointer} discreteDynamicsWorld
+///     A pointer to the btDiscreteDynamicsWorld object.
+/// @param {Pointer} solver
+///     A pointer to the btConstraintSolver to be set as the solver.
+YYEXPORT void btDiscreteDynamicsWorld_setConstraintSolver(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
 	auto dynamicsWorld = (btDiscreteDynamicsWorld*)YYGetPtr(arg, 0);
-	double timeStep = YYGetReal(arg, 1);
-	int maxSubSteps = (argc > 1) ? YYGetInt32(arg, 2) : 1;
-	double fixedTimeStep = (argc > 2) ? YYGetReal(arg, 3) : (1.0 / 60.0);
-	dynamicsWorld->stepSimulation(timeStep, maxSubSteps, fixedTimeStep);
+	auto solver = (btConstraintSolver*)YYGetPtr(arg, 1);
+	dynamicsWorld->setConstraintSolver(solver);
+}
+
+/// @func btDiscreteDynamicsWorld_getConstraintSolver(discreteDynamicsWorld)
+///
+/// @desc
+/// Retrieves the constraint solver from the btDiscreteDynamicsWorld.
+///
+/// @param {Pointer} discreteDynamicsWorld
+///     A pointer to the btDiscreteDynamicsWorld object.
+///
+/// @return {Pointer} Returns a pointer to the btConstraintSolver associated
+/// with the world.
+YYEXPORT void btDiscreteDynamicsWorld_getConstraintSolver(
+	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
+{
+	auto dynamicsWorld = (btDiscreteDynamicsWorld*)YYGetPtr(arg, 0);
+	result.kind = VALUE_PTR;
+	result.ptr = dynamicsWorld->getConstraintSolver();
+}
+
+/// @func btDiscreteDynamicsWorld_getNumConstraints(discreteDynamicsWorld)
+///
+/// @desc
+/// Gets the total number of constraints in the btDiscreteDynamicsWorld.
+///
+/// @param {Pointer} discreteDynamicsWorld
+///     A pointer to the btDiscreteDynamicsWorld object.
+///
+/// @return {Real} Returns the total number of constraints in the dynamics world.
+YYEXPORT void btDiscreteDynamicsWorld_getNumConstraints(
+	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
+{
+	auto dynamicsWorld = (btDiscreteDynamicsWorld*)YYGetPtr(arg, 0);
+	result.kind = VALUE_INT32;
+	result.val = dynamicsWorld->getNumConstraints();
+}
+
+/// @func btDiscreteDynamicsWorld_getConstraint(discreteDynamicsWorld, index)
+///
+/// @desc
+/// Gets a constraint at the specified index from the btDiscreteDynamicsWorld.
+///
+/// @param {Pointer} discreteDynamicsWorld
+///     A pointer to the btDiscreteDynamicsWorld object.
+/// @param {Real} index
+///     The index of the constraint to retrieve.
+///
+/// @return {Pointer} Returns a pointer to the constraint at the specified index.
+YYEXPORT void btDiscreteDynamicsWorld_getConstraint(
+	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
+{
+	auto dynamicsWorld = (btDiscreteDynamicsWorld*)YYGetPtr(arg, 0);
+	int index = YYGetInt32(arg, 1);
+	result.kind = VALUE_PTR;
+	result.ptr = dynamicsWorld->getConstraint(index);
+}
+
+/// @func btDiscreteDynamicsWorld_getWorldType(discreteDynamicsWorld)
+///
+/// @desc
+/// Gets the world type for the btDiscreteDynamicsWorld.
+///
+/// @param {Pointer} discreteDynamicsWorld
+///     A pointer to the btDiscreteDynamicsWorld object.
+///
+/// @return {Real} Returns the world type as an integer.
+YYEXPORT void btDiscreteDynamicsWorld_getWorldType(
+	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
+{
+	auto dynamicsWorld = (btDiscreteDynamicsWorld*)YYGetPtr(arg, 0);
+	result.kind = VALUE_INT32;
+	result.val = dynamicsWorld->getWorldType();
+}
+
+/// @func btDiscreteDynamicsWorld_clearForces()
+///
+/// @desc
+/// Clears all applied forces and torques on objects within the
+/// btDiscreteDynamicsWorld.
+///
+/// @param {Pointer} discreteDynamicsWorld
+///     A pointer to the btDiscreteDynamicsWorld object.
+YYEXPORT void btDiscreteDynamicsWorld_clearForces(
+	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
+{
+	auto dynamicsWorld = (btDiscreteDynamicsWorld*)YYGetPtr(arg, 0);
+	dynamicsWorld->clearForces();
+}
+
+/// @func btDiscreteDynamicsWorld_applyGravity()
+///
+/// @desc
+/// Applies gravity to all objects within the btDiscreteDynamicsWorld.
+///
+/// @param {Pointer} discreteDynamicsWorld
+///     A pointer to the btDiscreteDynamicsWorld object.
+YYEXPORT void btDiscreteDynamicsWorld_applyGravity(
+	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
+{
+	auto dynamicsWorld = (btDiscreteDynamicsWorld*)YYGetPtr(arg, 0);
+	dynamicsWorld->applyGravity();
+}
+
+// Note: Skipped btDiscreteDynamicsWorld::setNumTasks
+// Note: Skipped btDiscreteDynamicsWorld::updateVehicles
+// Note: Skipped btDiscreteDynamicsWorld::addVehicle
+// Note: Skipped btDiscreteDynamicsWorld::removeVehicle
+// Note: Skipped btDiscreteDynamicsWorld::addCharacter
+// Note: Skipped btDiscreteDynamicsWorld::removeCharacter
+// Note: Skipped btDiscreteDynamicsWorld::setSynchronizeAllMotionStates
+// Note: Skipped btDiscreteDynamicsWorld::getSynchronizeAllMotionStates
+// Note: Skipped btDiscreteDynamicsWorld::setApplySpeculativeContactRestitution
+// Note: Skipped btDiscreteDynamicsWorld::getApplySpeculativeContactRestitution
+// Note: Skipped btDiscreteDynamicsWorld::serialize
+// Note: Skipped btDiscreteDynamicsWorld::setLatencyMotionStateInterpolation
+// Note: Skipped btDiscreteDynamicsWorld::getLatencyMotionStateInterpolation
+
+/// @func btDiscreteDynamicsWorld_getNonStaticRigidBodies(dynamicsWorld, outArray)
+///
+/// @desc
+/// Retrieves an array of pointers to non-static rigid bodies in the
+/// btDiscreteDynamicsWorld.
+///
+/// @param {Pointer} dynamicsWorld
+///     A pointer to the btDiscreteDynamicsWorld object.
+/// @param {Array<Pointer>} outArray
+///     An array to store pointers to non-static rigid bodies. This array will
+///     be populated by the function.
+YYEXPORT void btDiscreteDynamicsWorld_getNonStaticRigidBodies(
+	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
+{
+	auto dynamicsWorld = (btDiscreteDynamicsWorld*)YYGetPtr(arg, 0);
+	RValue* outArray = &arg[1];
+	btAlignedObjectArray<btRigidBody*>& alignedObjectArray = dynamicsWorld->getNonStaticRigidBodies();
+	RValue value;
+	value.kind = VALUE_PTR;
+	for (int i = alignedObjectArray.size() - 1; i >= 0; --i)
+	{
+		value.ptr = alignedObjectArray[i];
+		SET_RValue(outArray, &value, NULL, i);
+	}
+	FREE_RValue(&value);
 }
