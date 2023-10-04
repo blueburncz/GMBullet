@@ -23,12 +23,14 @@ set(SOURCES
     src/GMBullet/exports_btDiscreteDynamicsWorld.cpp
     src/GMBullet/exports_btHeightfieldTerrainShape.cpp
     src/GMBullet/exports_btQuaternion.cpp
+    src/GMBullet/exports_btRaycastVehicle.cpp
     src/GMBullet/exports_btRigidBody.cpp
     src/GMBullet/exports_btSequentialImpulseConstraintSolver.cpp
     src/GMBullet/exports_btSphereShape.cpp
     src/GMBullet/exports_btTransform.cpp
     src/GMBullet/exports_btTriangleMesh.cpp
     src/GMBullet/exports_btVector3.cpp
+    src/GMBullet/exports_btWheelInfo.cpp
     )
 
 set(PATH_BULLET "${CMAKE_CURRENT_SOURCE_DIR}/bullet3")

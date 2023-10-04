@@ -113,8 +113,42 @@ YYEXPORT void btDiscreteDynamicsWorld_removeConstraint(
 	dynamicsWorld->removeConstraint(constraint);
 }
 
-// Note: Skipped btDiscreteDynamicsWorld::addAction
-// Note: Skipped btDiscreteDynamicsWorld::removeAction
+/// @func btDiscreteDynamicsWorld_addAction(discreteDynamicsWorld, action)
+///
+/// @desc
+/// Adds a physics action to the dynamics world.
+///
+/// @param {Pointer} discreteDynamicsWorld
+///     A pointer to the btDiscreteDynamicsWorld object.
+/// @param {Pointer} action
+///     A pointer to the btActionInterface object to be added to the dynamics
+///     world.
+YYEXPORT void btDiscreteDynamicsWorld_addAction(
+	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
+{
+	auto dynamicsWorld = (btDiscreteDynamicsWorld*)YYGetPtr(arg, 0);
+	auto action = (btActionInterface*)YYGetPtr(arg, 1);
+	dynamicsWorld->addAction(action);
+}
+
+/// @func btDiscreteDynamicsWorld_removeAction(discreteDynamicsWorld, action)
+///
+/// @desc
+/// Removes a physics action from the dynamics world.
+///
+/// @param {Pointer} discreteDynamicsWorld
+///     A pointer to the btDiscreteDynamicsWorld object.
+/// @param {Pointer} action
+///     A pointer to the btActionInterface object to be removed from the
+///     dynamics world.
+YYEXPORT void btDiscreteDynamicsWorld_removeAction(
+	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
+{
+	auto dynamicsWorld = (btDiscreteDynamicsWorld*)YYGetPtr(arg, 0);
+	auto action = (btActionInterface*)YYGetPtr(arg, 1);
+	dynamicsWorld->removeAction(action);
+}
+
 // Note: Skipped btDiscreteDynamicsWorld::getSimulationIslandManager
 
 /// @func btDiscreteDynamicsWorld_getCollisionWorld(discreteDynamicsWorld)
