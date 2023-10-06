@@ -8,8 +8,9 @@
 /// @func btJointFeedback_create()
 ///
 /// @desc
+/// Create a new btJointFeedback instance.
 ///
-/// @return {Pointer}
+/// @return {Pointer} A pointer to the newly created btJointFeedback instance.
 YYEXPORT void btJointFeedback_create(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -20,8 +21,10 @@ YYEXPORT void btJointFeedback_create(
 /// @func btJointFeedback_destroy(jointFeedback)
 ///
 /// @desc
+/// Destroy a btJointFeedback instance, releasing associated resources.
 ///
 /// @param {Pointer} jointFeedback
+///     A pointer to the btJointFeedback instance to be destroyed.
 YYEXPORT void btJointFeedback_destroy(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -31,9 +34,12 @@ YYEXPORT void btJointFeedback_destroy(
 /// @func btJointFeedback_setAppliedForceBodyA(jointFeedback, appliedForceBodyA)
 ///
 /// @desc
+/// Set the applied force on body A for a joint feedback.
 ///
 /// @param {Pointer} jointFeedback
+///     A pointer to the btJointFeedback instance.
 /// @param {Real} appliedForceBodyA
+///     The applied force on body A as a btVector3.
 YYEXPORT void btJoinFeedback_setAppliedForceBodyA(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -45,9 +51,12 @@ YYEXPORT void btJoinFeedback_setAppliedForceBodyA(
 /// @func btJointFeedback_getAppliedForceBodyA(jointFeedback, outVector3)
 ///
 /// @desc
+/// Get the applied force on body A for a joint feedback.
 ///
 /// @param {Pointer} jointFeedback
+///     A pointer to the btJointFeedback instance.
 /// @param {Pointer} outVector3
+///     A pointer to a btVector3 to store the applied force on body A.
 YYEXPORT void btJointFeedback_getAppliedForceBodyA(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -59,9 +68,12 @@ YYEXPORT void btJointFeedback_getAppliedForceBodyA(
 /// @func btJointFeedback_setAppliedTorqueBodyA(jointFeedback, appliedTorqueBodyA)
 ///
 /// @desc
+/// Set the applied torque on body A for a joint feedback.
 ///
 /// @param {Pointer} jointFeedback
+///     A pointer to the btJointFeedback instance.
 /// @param {Real} appliedTorqueBodyA
+///     The applied torque on body A as a btVector3.
 YYEXPORT void btJoinFeedback_setAppliedTorqueBodyA(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -73,9 +85,12 @@ YYEXPORT void btJoinFeedback_setAppliedTorqueBodyA(
 /// @func btJointFeedback_getAppliedTorqueBodyA(jointFeedback, outVector3)
 ///
 /// @desc
+/// Get the applied torque on body A for a joint feedback.
 ///
 /// @param {Pointer} jointFeedback
+///     A pointer to the btJointFeedback instance.
 /// @param {Pointer} outVector3
+///     A pointer to a btVector3 to store the applied torque on body A.
 YYEXPORT void btJointFeedback_getAppliedTorqueBodyA(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -87,9 +102,12 @@ YYEXPORT void btJointFeedback_getAppliedTorqueBodyA(
 /// @func btJointFeedback_setAppliedForceBodyB(jointFeedback, appliedForceBodyB)
 ///
 /// @desc
+/// Set the applied force on body B for a joint feedback.
 ///
 /// @param {Pointer} jointFeedback
+///     A pointer to the btJointFeedback instance.
 /// @param {Real} appliedForceBodyB
+///     The applied force on body B as a btVector3.
 YYEXPORT void btJoinFeedback_setAppliedForceBodyB(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -101,9 +119,12 @@ YYEXPORT void btJoinFeedback_setAppliedForceBodyB(
 /// @func btJointFeedback_getAppliedForceBodyB(jointFeedback, outVector3)
 ///
 /// @desc
+/// Get the applied force on body B for a joint feedback.
 ///
 /// @param {Pointer} jointFeedback
+///     A pointer to the btJointFeedback instance.
 /// @param {Pointer} outVector3
+///     A pointer to a btVector3 to store the applied force on body B.
 YYEXPORT void btJointFeedback_getAppliedForceBodyB(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -115,9 +136,12 @@ YYEXPORT void btJointFeedback_getAppliedForceBodyB(
 /// @func btJointFeedback_setAppliedTorqueBodyB(jointFeedback, appliedTorqueBodyB)
 ///
 /// @desc
+/// Set the applied torque on body B for a joint feedback.
 ///
 /// @param {Pointer} jointFeedback
+///     A pointer to the btJointFeedback instance.
 /// @param {Real} appliedTorqueBodyB
+///     The applied torque on body B as a btVector3.
 YYEXPORT void btJoinFeedback_setAppliedTorqueBodyB(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -129,9 +153,12 @@ YYEXPORT void btJoinFeedback_setAppliedTorqueBodyB(
 /// @func btJointFeedback_getAppliedTorqueBodyB(jointFeedback, outVector3)
 ///
 /// @desc
+/// Get the applied torque on body B for a joint feedback.
 ///
 /// @param {Pointer} jointFeedback
+///     A pointer to the btJointFeedback instance.
 /// @param {Pointer} outVector3
+///     A pointer to a btVector3 to store the applied torque on body B.
 YYEXPORT void btJointFeedback_getAppliedTorqueBodyB(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -165,10 +192,12 @@ YYEXPORT void btTypedConstraint_destroy(
 /// @func btTypedConstraint_getOverrideNumSolverIterations(typedConstraint)
 ///
 /// @desc
+/// Get the override number of solver iterations for a typed constraint.
 ///
 /// @param {Pointer} typedConstraint
+///     A pointer to the btTypedConstraint instance.
 ///
-/// @return {Real}
+/// @return {Real} The override number of solver iterations as an integer.
 YYEXPORT void btTypedConstraint_getOverrideNumSolverIterations(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -180,9 +209,12 @@ YYEXPORT void btTypedConstraint_getOverrideNumSolverIterations(
 /// @func btTypedConstraint_setOverrideNumSolverIterations(typedConstraint, overrideNumIterations)
 ///
 /// @desc
+/// Set the override number of solver iterations for a typed constraint.
 ///
 /// @param {Pointer} typedConstraint
+///     A pointer to the btTypedConstraint instance.
 /// @param {Real} overrideNumIterations
+///     The override number of solver iterations to set as an integer.
 YYEXPORT void btTypedConstraint_setOverrideNumSolverIterations(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -194,10 +226,12 @@ YYEXPORT void btTypedConstraint_setOverrideNumSolverIterations(
 /// @func btTypedConstraint_getBreakingImpulseThreshold(typedConstraint)
 ///
 /// @desc
+/// Get the breaking impulse threshold for a typed constraint.
 ///
 /// @param {Pointer} typedConstraint
+///     A pointer to the btTypedConstraint instance.
 ///
-/// @return {Real}
+/// @return {Real} The breaking impulse threshold.
 YYEXPORT void btTypedConstraint_getBreakingImpulseThreshold(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -209,9 +243,12 @@ YYEXPORT void btTypedConstraint_getBreakingImpulseThreshold(
 /// @func btTypedConstraint_setBreakingImpulseThreshold(typedConstraint, threshold)
 ///
 /// @desc
+/// Set the breaking impulse threshold for a typed constraint.
 ///
 /// @param {Pointer} typedConstraint
+///     A pointer to the btTypedConstraint instance.
 /// @param {Real} threshold
+///     The breaking impulse threshold to set.
 YYEXPORT void btTypedConstraint_setBreakingImpulseThreshold(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -223,10 +260,12 @@ YYEXPORT void btTypedConstraint_setBreakingImpulseThreshold(
 /// @func btTypedConstraint_isEnabled(typedConstraint)
 ///
 /// @desc
+/// Check if the typed constraint is currently enabled.
 ///
 /// @param {Pointer} typedConstraint
+///     A pointer to the btTypedConstraint instance.
 ///
-/// @return {Bool}
+/// @return {Bool} Returns true if the constraint is enabled, false otherwise.
 YYEXPORT void btTypedConstraint_isEnabled(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -238,9 +277,12 @@ YYEXPORT void btTypedConstraint_isEnabled(
 /// @func btTypedConstraint_setEnabled(typedConstraint, enabled)
 ///
 /// @desc
+/// Set the enabled status of the typed constraint.
 ///
 /// @param {Pointer} typedConstraint
+///     A pointer to the btTypedConstraint instance.
 /// @param {Bool} enabled
+///     Use true to enable or false to disable.
 YYEXPORT void btTypedConstraint_setEnabled(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -252,10 +294,13 @@ YYEXPORT void btTypedConstraint_setEnabled(
 /// @func btTypedConstraint_getRigidBodyA(typedConstraint)
 ///
 /// @desc
+/// Get a pointer to the rigid body associated with the first end of the constraint.
 ///
 /// @param {Pointer} typedConstraint
+///     A pointer to the btTypedConstraint instance.
 ///
-/// @return {Real}
+/// @return {Pointer} A pointer to the btRigidBody associated with the first end
+/// of the constraint.
 YYEXPORT void btTypedConstraint_getRigidBodyA(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -267,10 +312,13 @@ YYEXPORT void btTypedConstraint_getRigidBodyA(
 /// @func btTypedConstraint_getRigidBodyB(typedConstraint)
 ///
 /// @desc
+/// Get a pointer to the rigid body associated with the second end of the constraint.
 ///
 /// @param {Pointer} typedConstraint
+///     A pointer to the btTypedConstraint instance.
 ///
-/// @return {Real}
+/// @return {Pointer} A pointer to the btRigidBody associated with the second
+/// end of the constraint.
 YYEXPORT void btTypedConstraint_getRigidBodyB(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -282,10 +330,13 @@ YYEXPORT void btTypedConstraint_getRigidBodyB(
 /// @func btTypedConstraint_getUserConstraintType(typedConstraint)
 ///
 /// @desc
+/// Get the user-defined constraint type associated with this constraint.
 ///
 /// @param {Pointer} typedConstraint
+///     A pointer to the btTypedConstraint instance.
 ///
-/// @return {Real}
+/// @return {Real} The user-defined constraint type associated with this
+/// constraint.
 YYEXPORT void btTypedConstraint_getUserConstraintType(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -297,9 +348,12 @@ YYEXPORT void btTypedConstraint_getUserConstraintType(
 /// @func btTypedConstraint_setUserConstraintType(typedConstraint, userConstraintType)
 ///
 /// @desc
+/// Set a user-defined constraint type to associate with this constraint.
 ///
 /// @param {Pointer} typedConstraint
+///     A pointer to the btTypedConstraint instance.
 /// @param {Real} userConstraintType
+///     The user-defined constraint type to set for this constraint.
 YYEXPORT void btTypedConstraint_setUserConstraintType(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -311,9 +365,12 @@ YYEXPORT void btTypedConstraint_setUserConstraintType(
 /// @func btTypedConstraint_setUserConstraintId(typedConstraint, uid)
 ///
 /// @desc
+/// Set a user-defined constraint ID to associate with this constraint.
 ///
 /// @param {Pointer} typedConstraint
+///     A pointer to the btTypedConstraint instance.
 /// @param {Real} uid
+///     The user-defined constraint ID to set for this constraint.
 YYEXPORT void btTypedConstraint_setUserConstraintId(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -325,10 +382,13 @@ YYEXPORT void btTypedConstraint_setUserConstraintId(
 /// @func btTypedConstraint_getUserConstraintId(typedConstraint)
 ///
 /// @desc
+/// Get the user-defined constraint ID associated with this constraint.
 ///
 /// @param {Pointer} typedConstraint
+///     A pointer to the btTypedConstraint instance.
 ///
-/// @return {Real}
+/// @return {Real} The user-defined constraint ID associated with this
+/// constraint.
 YYEXPORT void btTypedConstraint_getUserConstraintId(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -340,9 +400,12 @@ YYEXPORT void btTypedConstraint_getUserConstraintId(
 /// @func btTypedConstraint_setUserConstraintPtr(typedConstraint, ptr)
 ///
 /// @desc
+/// Set a user-defined pointer to associate with this constraint.
 ///
 /// @param {Pointer} typedConstraint
+///     A pointer to the btTypedConstraint instance.
 /// @param {Pointer} ptr
+///     The user-defined pointer to set for this constraint.
 YYEXPORT void btTypedConstraint_setUserConstraintPtr(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -354,10 +417,12 @@ YYEXPORT void btTypedConstraint_setUserConstraintPtr(
 /// @func btTypedConstraint_getUserConstraintPtr(typedConstraint)
 ///
 /// @desc
+/// Get the user-defined pointer associated with this constraint.
 ///
 /// @param {Pointer} typedConstraint
+///     A pointer to the btTypedConstraint instance.
 ///
-/// @return {Pointer}
+/// @return {Pointer} The user-defined pointer associated with this constraint.
 YYEXPORT void btTypedConstraint_getUserConstraintPtr(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -369,9 +434,12 @@ YYEXPORT void btTypedConstraint_getUserConstraintPtr(
 /// @func btTypedConstraint_setJointFeedback(typedConstraint, jointFeedback)
 ///
 /// @desc
+/// Set a btJointFeedback instance to provide feedback for this constraint.
 ///
 /// @param {Pointer} typedConstraint
+///     A pointer to the btTypedConstraint instance.
 /// @param {Pointer} jointFeedback
+///     A pointer to a btJointFeedback instance to set for providing feedback.
 YYEXPORT void btTypedConstraint_setJointFeedback(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -383,10 +451,14 @@ YYEXPORT void btTypedConstraint_setJointFeedback(
 /// @func btTypedConstraint_getJointFeedback(typedConstraint)
 ///
 /// @desc
+/// Get the btJointFeedback instance associated with this constraint for
+/// providing feedback.
 ///
 /// @param {Pointer} typedConstraint
+///     A pointer to the btTypedConstraint instance.
 ///
-/// @return {Pointer}
+/// @return {Pointer} A pointer to the associated btJointFeedback instance
+/// providing feedback for this constraint.
 YYEXPORT void btTypedConstraint_getJointFeedback(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -398,10 +470,12 @@ YYEXPORT void btTypedConstraint_getJointFeedback(
 /// @func btTypedConstraint_getUid(typedConstraint)
 ///
 /// @desc
+/// Get the unique identifier (uid) associated with this constraint.
 ///
 /// @param {Pointer} typedConstraint
+///     A pointer to the btTypedConstraint instance.
 ///
-/// @return {Real}
+/// @return {Real} The unique identifier (uid) associated with this constraint.
 YYEXPORT void btTypedConstraint_getUid(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -413,10 +487,13 @@ YYEXPORT void btTypedConstraint_getUid(
 /// @func btTypedConstraint_needsFeedback(typedConstraint)
 ///
 /// @desc
+/// Check if this constraint needs feedback for simulation.
 ///
 /// @param {Pointer} typedConstraint
+///     A pointer to the btTypedConstraint instance.
 ///
-/// @return {Bool}
+/// @return {Bool} True if this constraint needs feedback for simulation, false
+/// otherwise.
 YYEXPORT void btTypedConstraint_needsFeedback(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -428,9 +505,12 @@ YYEXPORT void btTypedConstraint_needsFeedback(
 /// @func btTypedConstraint_enableFeedback(typedConstraint, needsFeedback)
 ///
 /// @desc
+/// Enable or disable feedback for this constraint.
 ///
 /// @param {Pointer} typedConstraint
+///     A pointer to the btTypedConstraint instance.
 /// @param {Bool} needsFeedback
+///     True to enable feedback, false to disable feedback for this constraint.
 YYEXPORT void btTypedConstraint_enableFeedback(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -442,10 +522,12 @@ YYEXPORT void btTypedConstraint_enableFeedback(
 /// @func btTypedConstraint_getAppliedImpulse(typedConstraint)
 ///
 /// @desc
+/// Get the applied impulse of this constraint.
 ///
 /// @param {Pointer} typedConstraint
+///     A pointer to the btTypedConstraint instance.
 ///
-/// @param {Real}
+/// @return {Real} The applied impulse of this constraint.
 YYEXPORT void btTypedConstraint_getAppliedImpulse(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -457,10 +539,14 @@ YYEXPORT void btTypedConstraint_getAppliedImpulse(
 /// @func btTypedConstraint_getConstraintType(typedConstraint)
 ///
 /// @desc
+/// Get the type of this constraint.
 ///
 /// @param {Pointer} typedConstraint
+///     A pointer to the btTypedConstraint instance.
 ///
-/// @param {Real}
+/// @return {Real} The type of this constraint as an integer value.
+///
+/// @see btTypedConstraintType
 YYEXPORT void btTypedConstraint_getConstraintType(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -475,11 +561,18 @@ YYEXPORT void btTypedConstraint_getConstraintType(
 /// @func btTypedConstraint_setParam(typedConstraint, num, value[, axis])
 ///
 /// @desc
+/// Set a numerical parameter for this constraint.
 ///
 /// @param {Pointer} typedConstraint
+///     A pointer to the btTypedConstraint instance.
 /// @param {Real} num
+///     The numerical parameter identifier.
 /// @param {Real} value
+///     The value to set for the specified numerical parameter.
 /// @param {Real} [axis]
+///      The axis identifier for multi-axis constraints. Default is -1.
+///
+/// @see btConstraintParams
 YYEXPORT void btTypedConstraint_setParam(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -493,12 +586,18 @@ YYEXPORT void btTypedConstraint_setParam(
 /// @func btTypedConstraint_getParam(typedConstraint, num[, axis])
 ///
 /// @desc
+/// Get a numerical parameter of this constraint.
 ///
 /// @param {Pointer} typedConstraint
+///     A pointer to the btTypedConstraint instance.
 /// @param {Real} num
+///     The numerical parameter identifier.
 /// @param {Real} [axis]
+///     The axis identifier for multi-axis constraints. Default is -1.
 ///
-/// @return {Real}
+/// @return {Real} The value of the specified numerical parameter.
+///
+/// @see btConstraintParams
 YYEXPORT void btTypedConstraint_getParam(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -515,12 +614,16 @@ YYEXPORT void btTypedConstraint_getParam(
 /// @func btAdjustAngleToLimits(angleInRadians, angleLowerLimitInRadian, angleUpperLimitInRadians)
 ///
 /// @desc
+/// Adjust an angle to be within specified lower and upper limits.
 ///
 /// @param {Real} angleInRadians
+///     The input angle in radians.
 /// @param {Real} angleLowerLimitInRadian
+///     The lower limit for the angle in radians.
 /// @param {Real} angleUpperLimitInRadians
+///     The upper limit for the angle in radians.
 ///
-/// @return {Real}
+/// @return {Real} The adjusted angle within the specified limits.
 YYEXPORT void btAdjustAngleToLimits(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -555,8 +658,9 @@ YYEXPORT void btAdjustAngleToLimits(
 /// @func btAngularLimit_create()
 ///
 /// @desc
+/// Creates a new instance of btAngularLimit.
 ///
-/// @return {Pointer}
+/// @return {Pointer} A pointer to the created btAngularLimit instance.
 YYEXPORT void btAngularLimit_create(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -567,8 +671,10 @@ YYEXPORT void btAngularLimit_create(
 /// @func btAngularLimit_destroy(angularLimit)
 ///
 /// @desc
+/// Destroys an instance of btAngularLimit, releasing associated resources.
 ///
 /// @param {Pointer} angularLimit
+///     The pointer to the btAngularLimit instance to be destroyed.
 YYEXPORT void btAngularLimit_destroy(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -578,13 +684,20 @@ YYEXPORT void btAngularLimit_destroy(
 /// @func btAngularLimit_set(angularLimit, low, high[, softness[, biasFactor[, relaxationFactor]]])
 ///
 /// @desc
+/// Sets the angular limits for the btAngularLimit instance.
 ///
 /// @param {Pointer} angularLimit
+///     The pointer to the btAngularLimit instance.
 /// @param {Real} low
+///     The lower limit in radians.
 /// @param {Real} high
+///     The upper limit in radians.
 /// @param {Real} [softness]
+///     The softness factor. Default is 0.9.
 /// @param {Real} [biasFactor]
+///     The bias factor. Default is 0.3.
 /// @param {Real} [relaxationFactor]
+///     The relaxation factor. Default is 1.0.
 YYEXPORT void btAngularLimit_set(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -600,9 +713,12 @@ YYEXPORT void btAngularLimit_set(
 /// @func btAngularLimit_test(angularLimit, angle)
 ///
 /// @desc
+/// Tests if the given angle is within the specified angular limits.
 ///
 /// @param {Pointer} angularLimit
+///     The pointer to the btAngularLimit instance.
 /// @param {Real} angle
+///     The angle in radians to be tested.
 YYEXPORT void btAngularLimit_test(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -614,10 +730,12 @@ YYEXPORT void btAngularLimit_test(
 /// @func btAngularLimit_getSoftness(angularLimit)
 ///
 /// @desc
+/// Gets the softness factor of the angular limit.
 ///
 /// @param {Pointer} angularLimit
+///     The pointer to the btAngularLimit instance.
 ///
-/// @return {Real}
+/// @return {Real} The softness factor of the angular limit.
 YYEXPORT void btAngularLimit_getSoftness(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -629,10 +747,12 @@ YYEXPORT void btAngularLimit_getSoftness(
 /// @func btAngularLimit_getBiasFactor(angularLimit)
 ///
 /// @desc
+/// Gets the bias factor of the angular limit.
 ///
 /// @param {Pointer} angularLimit
+///     The pointer to the btAngularLimit instance.
 ///
-/// @return {Real}
+/// @return {Real} The bias factor of the angular limit.
 YYEXPORT void btAngularLimit_getBiasFactor(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -644,10 +764,12 @@ YYEXPORT void btAngularLimit_getBiasFactor(
 /// @func btAngularLimit_getRelaxationFactor(angularLimit)
 ///
 /// @desc
+/// Gets the relaxation factor of the angular limit.
 ///
 /// @param {Pointer} angularLimit
+///     The pointer to the btAngularLimit instance.
 ///
-/// @return {Real}
+/// @return {Real} The relaxation factor of the angular limit.
 YYEXPORT void btAngularLimit_getRelaxationFactor(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -659,10 +781,12 @@ YYEXPORT void btAngularLimit_getRelaxationFactor(
 /// @func btAngularLimit_getCorrection(angularLimit)
 ///
 /// @desc
+/// Gets the correction value of the angular limit.
 ///
 /// @param {Pointer} angularLimit
+///     The pointer to the btAngularLimit instance.
 ///
-/// @return {Real}
+/// @return {Real} The correction value of the angular limit.
 YYEXPORT void btAngularLimit_getCorrection(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -674,10 +798,12 @@ YYEXPORT void btAngularLimit_getCorrection(
 /// @func btAngularLimit_getSign(angularLimit)
 ///
 /// @desc
+/// Gets the sign of the angular limit.
 ///
 /// @param {Pointer} angularLimit
+///     The pointer to the btAngularLimit instance.
 ///
-/// @return {Real}
+/// @return {Real} The sign of the angular limit.
 YYEXPORT void btAngularLimit_getSign(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -689,10 +815,12 @@ YYEXPORT void btAngularLimit_getSign(
 /// @func btAngularLimit_getHalfRange(angularLimit)
 ///
 /// @desc
+/// Gets the half range of the angular limit.
 ///
 /// @param {Pointer} angularLimit
+///     The pointer to the btAngularLimit instance.
 ///
-/// @return {Real}
+/// @return {Real} The half range of the angular limit.
 YYEXPORT void btAngularLimit_getHalfRange(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -704,10 +832,12 @@ YYEXPORT void btAngularLimit_getHalfRange(
 /// @func btAngularLimit_isLimit(angularLimit)
 ///
 /// @desc
+/// Checks if the angular limit is active.
 ///
 /// @param {Pointer} angularLimit
+///     The pointer to the btAngularLimit instance.
 ///
-/// @return {Bool}
+/// @return {Bool} Returns true if the angular limit is active, otherwise false.
 YYEXPORT void btAngularLimit_isLimit(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -719,11 +849,14 @@ YYEXPORT void btAngularLimit_isLimit(
 /// @func btAngularLimit_fit(angularLimit, angle)
 ///
 /// @desc
+/// Fits the given angle within the angular limit.
 ///
 /// @param {Pointer} angularLimit
+///     The pointer to the btAngularLimit instance.
 /// @param {Real} angle
+///     The angle to fit within the limit.
 ///
-/// @return {Real}
+/// @return {Real} Returns the fitted angle within the limit.
 YYEXPORT void btAngularLimit_fit(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -737,10 +870,12 @@ YYEXPORT void btAngularLimit_fit(
 /// @func btAngularLimit_getError(angularLimit)
 ///
 /// @desc
+/// Gets the error of the angular limit.
 ///
 /// @param {Pointer} angularLimit
+///     The pointer to the btAngularLimit instance.
 ///
-/// @return {Real}
+/// @return {Real} The error of the angular limit.
 YYEXPORT void btAngularLimit_getError(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -752,10 +887,12 @@ YYEXPORT void btAngularLimit_getError(
 /// @func btAngularLimit_getLow(angularLimit)
 ///
 /// @desc
+/// Gets the lower limit of the angular limit.
 ///
 /// @param {Pointer} angularLimit
+///     The pointer to the btAngularLimit instance.
 ///
-/// @return {Real}
+/// @return {Real} The lower limit of the angular limit.
 YYEXPORT void btAngularLimit_getLow(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -767,10 +904,12 @@ YYEXPORT void btAngularLimit_getLow(
 /// @func btAngularLimit_getHigh(angularLimit)
 ///
 /// @desc
+/// Gets the upper limit of the angular limit.
 ///
 /// @param {Pointer} angularLimit
+///     The pointer to the btAngularLimit instance.
 ///
-/// @return {Real}
+/// @return {Real} The upper limit of the angular limit.
 YYEXPORT void btAngularLimit_getHigh(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {

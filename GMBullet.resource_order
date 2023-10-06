@@ -2,6 +2,7 @@
   "FolderOrderSettings": [
     {"name":"Animation Curves","order":1,"path":"folders/Animation Curves.yy",},
     {"name":"Extensions","order":13,"path":"folders/Extensions.yy",},
+    {"name":"GMBullet","order":2,"path":"folders/Extensions/GMBullet.yy",},
     {"name":"Fonts","order":7,"path":"folders/Fonts.yy",},
     {"name":"Notes","order":12,"path":"folders/Notes.yy",},
     {"name":"Objects","order":10,"path":"folders/Objects.yy",},
@@ -44,6 +45,7 @@
     {"name":"__d3d_model_add_vertex","order":10,"path":"scripts/__d3d_model_add_vertex/__d3d_model_add_vertex.yy",},
     {"name":"__init_d3d","order":11,"path":"scripts/__init_d3d/__init_d3d.yy",},
     {"name":"Terrain","order":4,"path":"scripts/Terrain/Terrain.yy",},
+    {"name":"__gmbullet","order":1,"path":"scripts/__gmbullet/__gmbullet.yy",},
     {"name":"__init_view","order":1,"path":"scripts/__init_view/__init_view.yy",},
     {"name":"__init_global","order":6,"path":"scripts/__init_global/__init_global.yy",},
     {"name":"__global_object_depths","order":7,"path":"scripts/__global_object_depths/__global_object_depths.yy",},
