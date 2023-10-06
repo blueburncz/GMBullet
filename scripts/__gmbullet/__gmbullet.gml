@@ -42,3 +42,19 @@ enum btConstraintParams
 	/// @member Stop CFM for the constraint.
 	BT_CONSTRAINT_STOP_CFM
 };
+
+////////////////////////////////////////////////////////////////////////////////
+//
+// btPoint2PointConstraint
+//
+
+/// @enum Enum representing flags for the point-to-point constraint.
+enum btPoint2PointFlags
+{
+	/// @member Flag indicating the Error Reduction Parameter (ERP) for the
+	/// point-to-point constraint.
+	BT_P2P_FLAGS_ERP = 1,
+	/// @member Flag indicating the Constraint Force Mixing (CFM) for the
+	/// point-to-point constraint.
+	BT_P2P_FLAGS_CFM = 2
+};
