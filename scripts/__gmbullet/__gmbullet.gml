@@ -58,3 +58,25 @@ enum btPoint2PointFlags
 	/// point-to-point constraint.
 	BT_P2P_FLAGS_CFM = 2
 };
+
+////////////////////////////////////////////////////////////////////////////////
+//
+// btHingeConstraint
+//
+
+/// @enum Enum representing flags for the hinge constraint.
+enum btHingeFlags
+{
+	/// @member Flag indicating Constraint Force Mixing (CFM) for the stopping
+	/// constraint in the hinge.
+	BT_HINGE_FLAGS_CFM_STOP = 1,
+	/// @member Flag indicating Error Reduction Parameter (ERP) for the stopping
+	/// constraint in the hinge.
+	BT_HINGE_FLAGS_ERP_STOP = 2,
+	/// @member Flag indicating Constraint Force Mixing (CFM) for the normal
+	/// constraint in the hinge.
+	BT_HINGE_FLAGS_CFM_NORM = 4,
+	/// @member Flag indicating Error Reduction Parameter (ERP) for the normal
+	/// constraint in the hinge.
+	BT_HINGE_FLAGS_ERP_NORM = 8
+};
