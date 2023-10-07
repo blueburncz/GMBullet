@@ -16,6 +16,7 @@ set(SOURCES
     src/GMBullet/exports_btCollisionWorld.cpp
     src/GMBullet/exports_btCompoundShape.cpp
     src/GMBullet/exports_btConeShape.cpp
+    src/GMBullet/exports_btConeTwistConstraint.cpp
     src/GMBullet/exports_btCylinderShape.cpp
     src/GMBullet/exports_btDbvtBroadphase.cpp
     src/GMBullet/exports_btDefaultCollisionConfiguration.cpp

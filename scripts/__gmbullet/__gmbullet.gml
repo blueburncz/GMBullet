@@ -80,3 +80,22 @@ enum btHingeFlags
 	/// constraint in the hinge.
 	BT_HINGE_FLAGS_ERP_NORM = 8
 };
+
+////////////////////////////////////////////////////////////////////////////////
+//
+// btConeTwistConstraint
+//
+
+/// @enum Enum representing flags for the cone twist constraint.
+enum btConeTwistFlags
+{
+	/// @member Flag indicating Constraint Force Mixing (CFM) for linear
+	/// constraint in the cone twist.
+	BT_CONETWIST_FLAGS_LIN_CFM = 1,
+	/// @member Flag indicating Error Reduction Parameter (ERP) for linear
+	/// constraint in the cone twist.
+	BT_CONETWIST_FLAGS_LIN_ERP = 2,
+	/// @member Flag indicating Constraint Force Mixing (CFM) for angular
+	/// constraint in the cone twist.
+	BT_CONETWIST_FLAGS_ANG_CFM = 4
+};
