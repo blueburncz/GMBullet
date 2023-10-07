@@ -28,6 +28,7 @@ with open(ext_path) as f:
 
 functions = []
 order = []
+total = 0
 
 for d in docs:
     m = re.findall(r"/// @func (\w+)([^\n]+)", d)[0]
@@ -54,6 +55,8 @@ for d in docs:
       "path": "extensions/GMBullet/GMBullet.yy"
     })
 
+    total += 1
+
 for f in ext_json["files"]:
     if f["filename"] == "libGMBullet.dylib":
         f["functions"] = functions
@@ -62,3 +65,5 @@ for f in ext_json["files"]:
 
 with open(ext_path, "w") as f:
     json5.dump(ext_json, f, quote_keys=True, indent=2)
+
+print("Total:", total)
