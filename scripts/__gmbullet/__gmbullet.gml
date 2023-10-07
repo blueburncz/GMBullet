@@ -99,3 +99,22 @@ enum btConeTwistFlags
 	/// constraint in the cone twist.
 	BT_CONETWIST_FLAGS_ANG_CFM = 4
 };
+
+////////////////////////////////////////////////////////////////////////////////
+//
+// btGeneric6DofConstraint
+//
+
+/// @enum Enum representing flags for the 6 degrees of freedom constraint.
+enum bt6DofFlags
+{
+	/// @member Flag indicating Constraint Force Mixing (CFM) for the normal
+	/// constraint in the 6 degrees of freedom constraint.
+	BT_6DOF_FLAGS_CFM_NORM = 1,
+	/// @member Flag indicating Constraint Force Mixing (CFM) for the stopping
+	/// constraint in the 6 degrees of freedom constraint.
+	BT_6DOF_FLAGS_CFM_STOP = 2,
+	/// @member Flag indicating Error Reduction Parameter (ERP) for the stopping
+	/// constraint in the 6 degrees of freedom constraint.
+	BT_6DOF_FLAGS_ERP_STOP = 4
+};
