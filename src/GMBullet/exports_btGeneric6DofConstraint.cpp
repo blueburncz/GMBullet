@@ -8,9 +8,12 @@
 /// @func btRotationalLimitMotor_setLoLimit(rotationalLimitMotor, loLimit)
 ///
 /// @desc
+/// Sets the lower limit for the rotational limit motor.
 ///
 /// @param {Pointer} rotationalLimitMotor
+///     The pointer to the rotational limit motor.
 /// @param {Real} loLimit
+///     The lower limit value to set.
 YYEXPORT void btRotationalLimitMotor_setLoLimit(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -22,10 +25,12 @@ YYEXPORT void btRotationalLimitMotor_setLoLimit(
 /// @func btRotationalLimitMotor_getLoLimit(rotationalLimitMotor)
 ///
 /// @desc
+/// Gets the lower limit from the rotational limit motor.
 ///
 /// @param {Pointer} rotationalLimitMotor
+///     The pointer to the rotational limit motor.
 ///
-/// @return {Real}
+/// @return {Real} The lower limit value as a real number.
 YYEXPORT void btRotationalLimitMotor_getLoLimit(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -37,9 +42,12 @@ YYEXPORT void btRotationalLimitMotor_getLoLimit(
 /// @func btRotationalLimitMotor_setHiLimit(rotationalLimitMotor, hiLimit)
 ///
 /// @desc
+/// Sets the upper limit for the rotational limit motor.
 ///
 /// @param {Pointer} rotationalLimitMotor
+///     The pointer to the rotational limit motor.
 /// @param {Real} hiLimit
+///     The upper limit value to set.
 YYEXPORT void btRotationalLimitMotor_setHiLimit(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -51,10 +59,12 @@ YYEXPORT void btRotationalLimitMotor_setHiLimit(
 /// @func btRotationalLimitMotor_getHiLimit(rotationalLimitMotor)
 ///
 /// @desc
+/// Gets the upper limit from the rotational limit motor.
 ///
 /// @param {Pointer} rotationalLimitMotor
+///     The pointer to the rotational limit motor.
 ///
-/// @return {Real}
+/// @return {Real} The upper limit value as a real number.
 YYEXPORT void btRotationalLimitMotor_getHiLimit(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -66,9 +76,12 @@ YYEXPORT void btRotationalLimitMotor_getHiLimit(
 /// @func btRotationalLimitMotor_setTargetVelocity(rotationalLimitMotor, targetVelocity)
 ///
 /// @desc
+/// Sets the target velocity for the rotational limit motor.
 ///
 /// @param {Pointer} rotationalLimitMotor
+///     The pointer to the rotational limit motor.
 /// @param {Real} targetVelocity
+///     The target velocity value to set.
 YYEXPORT void btRotationalLimitMotor_setTargetVelocity(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -80,10 +93,12 @@ YYEXPORT void btRotationalLimitMotor_setTargetVelocity(
 /// @func btRotationalLimitMotor_getTargetVelocity(rotationalLimitMotor)
 ///
 /// @desc
+/// Gets the target velocity from the rotational limit motor.
 ///
 /// @param {Pointer} rotationalLimitMotor
+///     The pointer to the rotational limit motor.
 ///
-/// @return {Real}
+/// @return {Real} The target velocity value as a real number.
 YYEXPORT void btRotationalLimitMotor_getTargetVelocity(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -95,9 +110,12 @@ YYEXPORT void btRotationalLimitMotor_getTargetVelocity(
 /// @func btRotationalLimitMotor_setMaxMotorForce(rotationalLimitMotor, maxMotorForce)
 ///
 /// @desc
+/// Sets the maximum motor force for the rotational limit motor.
 ///
 /// @param {Pointer} rotationalLimitMotor
+///     The pointer to the rotational limit motor.
 /// @param {Real} maxMotorForce
+///     The maximum motor force value to set.
 YYEXPORT void btRotationalLimitMotor_setMaxMotorForce(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -109,10 +127,12 @@ YYEXPORT void btRotationalLimitMotor_setMaxMotorForce(
 /// @func btRotationalLimitMotor_getMaxMotorForce(rotationalLimitMotor)
 ///
 /// @desc
+/// Gets the maximum motor force from the rotational limit motor.
 ///
 /// @param {Pointer} rotationalLimitMotor
+///     The pointer to the rotational limit motor.
 ///
-/// @return {Real}
+/// @return {Real} The maximum motor force value as a real number.
 YYEXPORT void btRotationalLimitMotor_getMaxMotorForce(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -124,9 +144,12 @@ YYEXPORT void btRotationalLimitMotor_getMaxMotorForce(
 /// @func btRotationalLimitMotor_setMaxLimitForce(rotationalLimitMotor, maxLimitForce)
 ///
 /// @desc
+/// Sets the maximum limit force for the rotational limit motor.
 ///
 /// @param {Pointer} rotationalLimitMotor
+///     The pointer to the rotational limit motor.
 /// @param {Real} maxLimitForce
+///     The maximum limit force value to set.
 YYEXPORT void btRotationalLimitMotor_setMaxLimitForce(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -138,10 +161,12 @@ YYEXPORT void btRotationalLimitMotor_setMaxLimitForce(
 /// @func btRotationalLimitMotor_getMaxLimitForce(rotationalLimitMotor)
 ///
 /// @desc
+/// Gets the maximum limit force from the rotational limit motor.
 ///
 /// @param {Pointer} rotationalLimitMotor
+///     The pointer to the rotational limit motor.
 ///
-/// @return {Real}
+/// @return {Real} The maximum limit force value as a real number.
 YYEXPORT void btRotationalLimitMotor_getMaxLimitForce(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -153,9 +178,12 @@ YYEXPORT void btRotationalLimitMotor_getMaxLimitForce(
 /// @func btRotationalLimitMotor_setDamping(rotationalLimitMotor, damping)
 ///
 /// @desc
+/// Sets the damping for the rotational limit motor.
 ///
 /// @param {Pointer} rotationalLimitMotor
+///     The pointer to the rotational limit motor.
 /// @param {Real} damping
+///     The damping value to set.
 YYEXPORT void btRotationalLimitMotor_setDamping(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -167,10 +195,12 @@ YYEXPORT void btRotationalLimitMotor_setDamping(
 /// @func btRotationalLimitMotor_getDamping(rotationalLimitMotor)
 ///
 /// @desc
+/// Gets the damping from the rotational limit motor.
 ///
 /// @param {Pointer} rotationalLimitMotor
+///     The pointer to the rotational limit motor.
 ///
-/// @return {Real}
+/// @return {Real} The damping value as a real number.
 YYEXPORT void btRotationalLimitMotor_getDamping(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -182,9 +212,12 @@ YYEXPORT void btRotationalLimitMotor_getDamping(
 /// @func btRotationalLimitMotor_setLimitSoftness(rotationalLimitMotor, limitSoftness)
 ///
 /// @desc
+/// Sets the limit softness for the rotational limit motor.
 ///
 /// @param {Pointer} rotationalLimitMotor
+///     The pointer to the rotational limit motor.
 /// @param {Real} limitSoftness
+///     The limit softness value to set.
 YYEXPORT void btRotationalLimitMotor_setLimitSoftness(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -196,10 +229,12 @@ YYEXPORT void btRotationalLimitMotor_setLimitSoftness(
 /// @func btRotationalLimitMotor_getLimitSoftness(rotationalLimitMotor)
 ///
 /// @desc
+/// Gets the limit softness from the rotational limit motor.
 ///
 /// @param {Pointer} rotationalLimitMotor
+///     The pointer to the rotational limit motor.
 ///
-/// @return {Real}
+/// @return {Real} The limit softness value as a real number.
 YYEXPORT void btRotationalLimitMotor_getLimitSoftness(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
