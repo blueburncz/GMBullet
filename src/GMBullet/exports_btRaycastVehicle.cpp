@@ -270,7 +270,7 @@ YYEXPORT void btVehicleTuning_setMaxSuspensionForce(
 YYEXPORT void btRaycastVehicle_create(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
-	btVehicleTuning& tuning = *(btVehicleTuning*)YYGetPtr(arg, 0);
+	auto& tuning =  *(btVehicleTuning*)YYGetPtr(arg, 0);
 	auto chassis = (btRigidBody*)YYGetPtr(arg, 1);
 	auto raycaster = (btVehicleRaycaster*)YYGetPtr(arg, 2);
 	result.kind = VALUE_PTR;
@@ -345,7 +345,7 @@ YYEXPORT void btRaycastVehicle_rayCast(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
 	auto raycastVehicle = (btRaycastVehicle*)YYGetPtr(arg, 0);
-	btWheelInfo& wheel = *(btWheelInfo*)YYGetPtr(arg, 1);
+	auto& wheel =  *(btWheelInfo*)YYGetPtr(arg, 1);
 	raycastVehicle->rayCast(wheel);
 }
 
@@ -496,12 +496,12 @@ YYEXPORT void btRaycastVehicle_addWheel(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
 	auto raycastVehicle = (btRaycastVehicle*)YYGetPtr(arg, 0);
-	btVector3& connectionPointCS0 = *(btVector3*)YYGetPtr(arg, 1);
-	btVector3& wheelDirectionCS0 = *(btVector3*)YYGetPtr(arg, 2);
-	btVector3& wheelAxleCS = *(btVector3*)YYGetPtr(arg, 3);
+	auto& connectionPointCS0 =  *(btVector3*)YYGetPtr(arg, 1);
+	auto& wheelDirectionCS0 =  *(btVector3*)YYGetPtr(arg, 2);
+	auto& wheelAxleCS =  *(btVector3*)YYGetPtr(arg, 3);
 	double suspensionRestLength = YYGetReal(arg, 4);
 	double wheelRadius = YYGetReal(arg, 5);
-	btVehicleTuning& tuning = *(btVehicleTuning*)YYGetPtr(arg, 6);
+	auto& tuning =  *(btVehicleTuning*)YYGetPtr(arg, 6);
 	bool isFrontWheel = YYGetBool(arg, 7);
 	raycastVehicle->addWheel(
 		connectionPointCS0,
@@ -566,7 +566,7 @@ YYEXPORT void btRaycastVehicle_updateWheelTransformsWS(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
 	auto raycastVehicle = (btRaycastVehicle*)YYGetPtr(arg, 0);
-	btWheelInfo& wheel = *(btWheelInfo*)YYGetPtr(arg, 1);
+	auto& wheel =  *(btWheelInfo*)YYGetPtr(arg, 1);
 	bool interpolatedTransform = (argc > 2) ? YYGetBool(arg, 2) : true;
 	raycastVehicle->updateWheelTransformsWS(wheel, interpolatedTransform);
 }
@@ -830,8 +830,8 @@ YYEXPORT void btDefaultVehicleRaycaster_castRay(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
 	auto defaultVehicleRaycaster = (btDefaultVehicleRaycaster*)YYGetPtr(arg, 0);
-	btVector3& from = *(btVector3*)YYGetPtr(arg, 1);
-	btVector3& to = *(btVector3*)YYGetPtr(arg, 2);
-	btVehicleRaycasterResult& raycastResult = *(btVehicleRaycasterResult*)YYGetPtr(arg, 3);
+	auto& from =  *(btVector3*)YYGetPtr(arg, 1);
+	auto& to =  *(btVector3*)YYGetPtr(arg, 2);
+	auto& raycastResult =  *(btVehicleRaycasterResult*)YYGetPtr(arg, 3);
 	defaultVehicleRaycaster->castRay(from, to, raycastResult);
 }

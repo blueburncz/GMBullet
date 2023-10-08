@@ -42,7 +42,7 @@ YYEXPORT void btQuaternion_create(
 YYEXPORT void btQuaternion_createFromAxisAngle(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
-	btVector3& axis = *(btVector3*)YYGetPtr(arg, 0);
+	auto& axis =  *(btVector3*)YYGetPtr(arg, 0);
 	double angle = YYGetReal(arg, 1);
 	result.kind = VALUE_PTR;
 	result.ptr = new btQuaternion(axis, angle);

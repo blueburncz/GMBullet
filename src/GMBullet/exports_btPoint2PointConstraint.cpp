@@ -128,8 +128,8 @@ YYEXPORT void btConstraintSetting_getImpulseClamp(
 YYEXPORT void btPoint2PointConstraint_create1(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
-	btRigidBody& rigidBodyA = *(btRigidBody*)YYGetPtr(arg, 0);
-	btVector3& pivotInA = *(btVector3*)YYGetPtr(arg, 1);
+	auto& rigidBodyA =  *(btRigidBody*)YYGetPtr(arg, 0);
+	auto& pivotInA =  *(btVector3*)YYGetPtr(arg, 1);
 	result.kind = VALUE_PTR;
 	result.ptr = new btPoint2PointConstraint(rigidBodyA, pivotInA);
 }
@@ -156,7 +156,7 @@ YYEXPORT void btPoint2PointConstraint_create1(
 YYEXPORT void btPoint2PointConstraint_create1XYZ(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
-	btRigidBody& rigidBodyA = *(btRigidBody*)YYGetPtr(arg, 0);
+	auto& rigidBodyA =  *(btRigidBody*)YYGetPtr(arg, 0);
 	double pivotInAX = YYGetReal(arg, 1);
 	double pivotInAY = YYGetReal(arg, 2);
 	double pivotInAZ = YYGetReal(arg, 3);
@@ -186,10 +186,10 @@ YYEXPORT void btPoint2PointConstraint_create1XYZ(
 YYEXPORT void btPoint2PointConstraint_create2(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
-	btRigidBody& rigidBodyA = *(btRigidBody*)YYGetPtr(arg, 0);
-	btRigidBody& rigidBodyB = *(btRigidBody*)YYGetPtr(arg, 1);
-	btVector3& pivotInA = *(btVector3*)YYGetPtr(arg, 2);
-	btVector3& pivotInB = *(btVector3*)YYGetPtr(arg, 3);
+	auto& rigidBodyA =  *(btRigidBody*)YYGetPtr(arg, 0);
+	auto& rigidBodyB =  *(btRigidBody*)YYGetPtr(arg, 1);
+	auto& pivotInA =  *(btVector3*)YYGetPtr(arg, 2);
+	auto& pivotInB =  *(btVector3*)YYGetPtr(arg, 3);
 	result.kind = VALUE_PTR;
 	result.ptr = new btPoint2PointConstraint(rigidBodyA, rigidBodyB, pivotInA, pivotInB);
 }
@@ -228,8 +228,8 @@ YYEXPORT void btPoint2PointConstraint_create2(
 YYEXPORT void btPoint2PointConstraint_create2XYZ(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
-	btRigidBody& rigidBodyA = *(btRigidBody*)YYGetPtr(arg, 0);
-	btRigidBody& rigidBodyB = *(btRigidBody*)YYGetPtr(arg, 1);
+	auto& rigidBodyA =  *(btRigidBody*)YYGetPtr(arg, 0);
+	auto& rigidBodyB =  *(btRigidBody*)YYGetPtr(arg, 1);
 	double pivotInAX = YYGetReal(arg, 2);
 	double pivotInAY = YYGetReal(arg, 3);
 	double pivotInAZ = YYGetReal(arg, 4);
@@ -315,7 +315,7 @@ YYEXPORT void btPoint2PointConstraint_setPivotA(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
 	auto point2PointConstraint = (btPoint2PointConstraint*)YYGetPtr(arg, 0);
-	btVector3& pivotA = *(btVector3*)YYGetPtr(arg, 1);
+	auto& pivotA =  *(btVector3*)YYGetPtr(arg, 1);
 	point2PointConstraint->setPivotA(pivotA);
 }
 
@@ -334,7 +334,7 @@ YYEXPORT void btPoint2PointConstraint_setPivotB(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
 	auto point2PointConstraint = (btPoint2PointConstraint*)YYGetPtr(arg, 0);
-	btVector3& pivotB = *(btVector3*)YYGetPtr(arg, 1);
+	auto& pivotB =  *(btVector3*)YYGetPtr(arg, 1);
 	point2PointConstraint->setPivotB(pivotB);
 }
 

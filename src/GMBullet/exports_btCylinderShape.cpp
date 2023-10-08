@@ -13,7 +13,7 @@
 YYEXPORT void btCylinderShape_create(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
-	btVector3& halfExtents = *(btVector3*)YYGetPtr(arg, 0);
+	auto& halfExtents =  *(btVector3*)YYGetPtr(arg, 0);
 	result.kind = VALUE_PTR;
 	result.ptr = new btCylinderShape(halfExtents);
 }
@@ -154,7 +154,7 @@ YYEXPORT void btCylinderShape_getRadius(
 YYEXPORT void btCylinderShapeX_create(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
-	btVector3& halfExtents = *(btVector3*)YYGetPtr(arg, 0);
+	auto& halfExtents =  *(btVector3*)YYGetPtr(arg, 0);
 	result.kind = VALUE_PTR;
 	result.ptr = new btCylinderShapeX(halfExtents);
 }
@@ -218,7 +218,7 @@ YYEXPORT void btCylinderShapeX_destroy(
 YYEXPORT void btCylinderShapeZ_create(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
-	btVector3& halfExtents = *(btVector3*)YYGetPtr(arg, 0);
+	auto& halfExtents =  *(btVector3*)YYGetPtr(arg, 0);
 	result.kind = VALUE_PTR;
 	result.ptr = new btCylinderShapeZ(halfExtents);
 }

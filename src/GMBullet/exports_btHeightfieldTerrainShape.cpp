@@ -246,7 +246,7 @@ YYEXPORT void btHeightfieldTerrainShape_getVertex(
 	auto heightfieldTerrainShape = (btHeightfieldTerrainShape*)YYGetPtr(arg, 0);
 	int x = YYGetReal(arg, 1);
 	int y = YYGetReal(arg, 2);
-	btVector3& vertex = *(btVector3*)YYGetPtr(arg, 3);
+	auto& vertex =  *(btVector3*)YYGetPtr(arg, 3);
 	heightfieldTerrainShape->getVertex(x, y, vertex);
 }
 
@@ -270,8 +270,8 @@ YYEXPORT void btHeightfieldTerrainShape_performRaycast(
 {
 	auto heightfieldTerrainShape = (btHeightfieldTerrainShape*)YYGetPtr(arg, 0);
 	auto callback = (btTriangleCallback*)YYGetPtr(arg, 1);
-	btVector3& raySource = *(btVector3*)YYGetPtr(arg, 2);
-	btVector3& rayTarget = *(btVector3*)YYGetPtr(arg, 3);
+	auto& raySource =  *(btVector3*)YYGetPtr(arg, 2);
+	auto& rayTarget =  *(btVector3*)YYGetPtr(arg, 3);
 	heightfieldTerrainShape->performRaycast(callback, raySource, rayTarget);
 }
 

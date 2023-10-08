@@ -12,7 +12,7 @@
 YYEXPORT void btBoxShape_create(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
-	btVector3& halfExtents = *(btVector3*)YYGetPtr(arg, 0);
+	auto& halfExtents =  *(btVector3*)YYGetPtr(arg, 0);
 	result.kind = VALUE_PTR;
 	result.ptr = new btBoxShape(halfExtents);
 }

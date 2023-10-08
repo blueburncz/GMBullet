@@ -141,7 +141,7 @@ YYEXPORT void btCompoundShape_addChildShape(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
 	auto compoundShape = (btCompoundShape*)YYGetPtr(arg, 0);
-	btTransform& localTransform = *(btTransform*)YYGetPtr(arg, 1);
+	auto& localTransform =  *(btTransform*)YYGetPtr(arg, 1);
 	auto shape = (btCompoundShape*)YYGetPtr(arg, 2);
 	compoundShape->addChildShape(localTransform, shape);
 }
@@ -259,7 +259,7 @@ YYEXPORT void btCompoundShape_updateChildTransform(
 {
 	auto compoundShape = (btCompoundShape*)YYGetPtr(arg, 0);
 	int childIndex = YYGetInt32(arg, 1);
-	btTransform& newChildTransform = *(btTransform*)YYGetPtr(arg, 2);
+	auto& newChildTransform =  *(btTransform*)YYGetPtr(arg, 2);
 	bool shouldRecalculateLocalAabb = (argc > 3) ? YYGetBool(arg, 3) : true;
 	compoundShape->updateChildTransform(childIndex, newChildTransform, shouldRecalculateLocalAabb);
 }
@@ -354,8 +354,8 @@ YYEXPORT void btCompoundShape_calculatePrincipalAxisTransform(
 {
 	auto compoundShape = (btCompoundShape*)YYGetPtr(arg, 0);
 	RValue* massesArray = &arg[1];
-	btTransform& principal = *(btTransform*)YYGetPtr(arg, 1);
-	btVector3& inertia = *(btVector3*)YYGetPtr(arg, 3);
+	auto& principal =  *(btTransform*)YYGetPtr(arg, 1);
+	auto& inertia =  *(btVector3*)YYGetPtr(arg, 3);
 	int numChildShapes = compoundShape->getNumChildShapes();
 	std::vector<btScalar> masses;
 	RValue value;

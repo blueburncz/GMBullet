@@ -183,7 +183,7 @@ YYEXPORT void btDiscreteDynamicsWorld_setGravity(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
 	auto dynamicsWorld = (btDiscreteDynamicsWorld*)YYGetPtr(arg, 0);
-	btVector3& gravity = *(btVector3*)YYGetPtr(arg, 0);
+	auto& gravity =  *(btVector3*)YYGetPtr(arg, 0);
 	dynamicsWorld->setGravity(gravity);
 }
 

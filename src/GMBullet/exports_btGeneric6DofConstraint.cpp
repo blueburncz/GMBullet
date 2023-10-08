@@ -631,7 +631,7 @@ YYEXPORT void btRotationalLimitMotor_solveAngularLimits(
 {
 	auto rotationalLimitMotor = (btRotationalLimitMotor*)YYGetPtr(arg, 0);
 	double timeStep = YYGetReal(arg, 1);
-	btVector3& axis = *(btVector3*)YYGetPtr(arg, 2);
+	auto& axis =  *(btVector3*)YYGetPtr(arg, 2);
 	double jacDiagABInv = YYGetReal(arg, 3);
 	auto body0 = (btRigidBody*)YYGetPtr(arg, 4);
 	auto body1 = (btRigidBody*)YYGetPtr(arg, 5);
@@ -649,7 +649,7 @@ YYEXPORT void btTranslationalLimitMotor_setLowerLimit(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
 	auto translationalLimitMotor = (btTranslationalLimitMotor*)YYGetPtr(arg, 0);
-	btVector3& lowerLimit = *(btVector3*)YYGetPtr(arg, 1);
+	auto& lowerLimit =  *(btVector3*)YYGetPtr(arg, 1);
 	CopyVector3(lowerLimit, &translationalLimitMotor->m_lowerLimit);
 }
 
@@ -677,7 +677,7 @@ YYEXPORT void btTranslationalLimitMotor_setUpperLimit(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
 	auto translationalLimitMotor = (btTranslationalLimitMotor*)YYGetPtr(arg, 0);
-	btVector3& upperLimit = *(btVector3*)YYGetPtr(arg, 1);
+	auto& upperLimit =  *(btVector3*)YYGetPtr(arg, 1);
 	CopyVector3(upperLimit, &translationalLimitMotor->m_upperLimit);
 }
 
@@ -705,7 +705,7 @@ YYEXPORT void btTranslationalLimitMotor_setAccumulatedImpulse(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
 	auto translationalLimitMotor = (btTranslationalLimitMotor*)YYGetPtr(arg, 0);
-	btVector3& accumulatedImpulse = *(btVector3*)YYGetPtr(arg, 1);
+	auto& accumulatedImpulse =  *(btVector3*)YYGetPtr(arg, 1);
 	CopyVector3(accumulatedImpulse, &translationalLimitMotor->m_accumulatedImpulse);
 }
 
@@ -820,7 +820,7 @@ YYEXPORT void btTranslationalLimitMotor_setNormalCFM(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
 	auto translationalLimitMotor = (btTranslationalLimitMotor*)YYGetPtr(arg, 0);
-	btVector3& normalCFM = *(btVector3*)YYGetPtr(arg, 1);
+	auto& normalCFM =  *(btVector3*)YYGetPtr(arg, 1);
 	CopyVector3(normalCFM, &translationalLimitMotor->m_normalCFM);
 }
 
@@ -848,7 +848,7 @@ YYEXPORT void btTranslationalLimitMotor_setStopERP(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
 	auto translationalLimitMotor = (btTranslationalLimitMotor*)YYGetPtr(arg, 0);
-	btVector3& stopERP = *(btVector3*)YYGetPtr(arg, 1);
+	auto& stopERP =  *(btVector3*)YYGetPtr(arg, 1);
 	CopyVector3(stopERP, &translationalLimitMotor->m_stopERP);
 }
 
@@ -876,7 +876,7 @@ YYEXPORT void btTranslationalLimitMotor_setStopCFM(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
 	auto translationalLimitMotor = (btTranslationalLimitMotor*)YYGetPtr(arg, 0);
-	btVector3& stopCFM = *(btVector3*)YYGetPtr(arg, 1);
+	auto& stopCFM =  *(btVector3*)YYGetPtr(arg, 1);
 	CopyVector3(stopCFM, &translationalLimitMotor->m_stopCFM);
 }
 
@@ -937,7 +937,7 @@ YYEXPORT void btTranslationalLimitMotor_setTargetVelocity(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
 	auto translationalLimitMotor = (btTranslationalLimitMotor*)YYGetPtr(arg, 0);
-	btVector3& targetVelocity = *(btVector3*)YYGetPtr(arg, 1);
+	auto& targetVelocity =  *(btVector3*)YYGetPtr(arg, 1);
 	CopyVector3(targetVelocity, &translationalLimitMotor->m_targetVelocity);
 }
 
@@ -965,7 +965,7 @@ YYEXPORT void btTranslationalLimitMotor_setMaxMotorForce(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
 	auto translationalLimitMotor = (btTranslationalLimitMotor*)YYGetPtr(arg, 0);
-	btVector3& maxMotorForce = *(btVector3*)YYGetPtr(arg, 1);
+	auto& maxMotorForce =  *(btVector3*)YYGetPtr(arg, 1);
 	CopyVector3(maxMotorForce, &translationalLimitMotor->m_maxMotorForce);
 }
 
@@ -993,7 +993,7 @@ YYEXPORT void btTranslationalLimitMotor_setCurrentLimitError(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
 	auto translationalLimitMotor = (btTranslationalLimitMotor*)YYGetPtr(arg, 0);
-	btVector3& currentLimitError = *(btVector3*)YYGetPtr(arg, 1);
+	auto& currentLimitError =  *(btVector3*)YYGetPtr(arg, 1);
 	CopyVector3(currentLimitError, &translationalLimitMotor->m_currentLimitError);
 }
 
@@ -1021,7 +1021,7 @@ YYEXPORT void btTranslationalLimitMotor_setCurrentLinearDiff(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
 	auto translationalLimitMotor = (btTranslationalLimitMotor*)YYGetPtr(arg, 0);
-	btVector3& currentLinearDiff = *(btVector3*)YYGetPtr(arg, 1);
+	auto& currentLinearDiff =  *(btVector3*)YYGetPtr(arg, 1);
 	CopyVector3(currentLinearDiff, &translationalLimitMotor->m_currentLinearDiff);
 }
 
@@ -1147,13 +1147,13 @@ YYEXPORT void btTranslationalLimitMotor_solveLinearAxis(
 	auto translationalLimitMotor = (btTranslationalLimitMotor*)YYGetPtr(arg, 0);
 	double timeStep = YYGetReal(arg, 1);
 	double jacDiagABInv = YYGetReal(arg, 2);
-	btRigidBody& body1 = *(btRigidBody*)YYGetPtr(arg, 3);
-	btVector3& pointInA = *(btVector3*)YYGetPtr(arg, 4);
-	btRigidBody& body2 = *(btRigidBody*)YYGetPtr(arg, 5);
-	btVector3& pointInB = *(btVector3*)YYGetPtr(arg, 6);
+	auto& body1 =  *(btRigidBody*)YYGetPtr(arg, 3);
+	auto& pointInA =  *(btVector3*)YYGetPtr(arg, 4);
+	auto& body2 =  *(btRigidBody*)YYGetPtr(arg, 5);
+	auto& pointInB =  *(btVector3*)YYGetPtr(arg, 6);
 	int limitIndex = YYGetInt32(arg, 7);
-	btVector3& axisNormalOnA = *(btVector3*)YYGetPtr(arg, 8);
-	btVector3& anchorPos = *(btVector3*)YYGetPtr(arg, 9);
+	auto& axisNormalOnA =  *(btVector3*)YYGetPtr(arg, 8);
+	auto& anchorPos =  *(btVector3*)YYGetPtr(arg, 9);
 	result.kind = VALUE_REAL;
 	result.val = translationalLimitMotor->solveLinearAxis(
 		timeStep,
@@ -1186,8 +1186,8 @@ YYEXPORT void btTranslationalLimitMotor_solveLinearAxis(
 YYEXPORT void btGeneric6DofConstraint_create1(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
-	btRigidBody& rigidBodyB = *(btRigidBody*)YYGetPtr(arg, 0);
-	btTransform& frameInB = *(btTransform*)YYGetPtr(arg, 1);
+	auto& rigidBodyB =  *(btRigidBody*)YYGetPtr(arg, 0);
+	auto& frameInB =  *(btTransform*)YYGetPtr(arg, 1);
 	bool useLinearReferenceFrameB = YYGetBool(arg, 2);
 	result.kind = VALUE_PTR;
 	result.ptr = new btGeneric6DofConstraint(
@@ -1208,10 +1208,10 @@ YYEXPORT void btGeneric6DofConstraint_create1(
 YYEXPORT void btGeneric6DofConstraint_create2(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
-	btRigidBody& rigidBodyA = *(btRigidBody*)YYGetPtr(arg, 0);
-	btRigidBody& rigidBodyB = *(btRigidBody*)YYGetPtr(arg, 1);
-	btTransform& frameInA = *(btTransform*)YYGetPtr(arg, 2);
-	btTransform& frameInB = *(btTransform*)YYGetPtr(arg, 3);
+	auto& rigidBodyA =  *(btRigidBody*)YYGetPtr(arg, 0);
+	auto& rigidBodyB =  *(btRigidBody*)YYGetPtr(arg, 1);
+	auto& frameInA =  *(btTransform*)YYGetPtr(arg, 2);
+	auto& frameInB =  *(btTransform*)YYGetPtr(arg, 3);
 	bool useLinearReferenceFrameA = YYGetBool(arg, 4);
 	result.kind = VALUE_PTR;
 	result.ptr = new btGeneric6DofConstraint(
@@ -1242,8 +1242,8 @@ YYEXPORT void btGeneric6DofConstraint_calculateTransforms(
 	auto generic6DofConstraint = (btGeneric6DofConstraint*)YYGetPtr(arg, 0);
 	if (argc == 3)
 	{
-		btTransform& transA = *(btTransform*)YYGetPtr(arg, 1);
-		btTransform& transB = *(btTransform*)YYGetPtr(arg, 2);
+		auto& transA =  *(btTransform*)YYGetPtr(arg, 1);
+		auto& transB =  *(btTransform*)YYGetPtr(arg, 2);
 		generic6DofConstraint->calculateTransforms(transA, transB);
 	}
 	else
@@ -1393,8 +1393,8 @@ YYEXPORT void btGeneric6DofConstraint_setFrames(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
 	auto generic6DofConstraint = (btGeneric6DofConstraint*)YYGetPtr(arg, 0);
-	btTransform& frameA = *(btTransform*)YYGetPtr(arg, 1);
-	btTransform& frameB = *(btTransform*)YYGetPtr(arg, 2);
+	auto& frameA =  *(btTransform*)YYGetPtr(arg, 1);
+	auto& frameB =  *(btTransform*)YYGetPtr(arg, 2);
 	generic6DofConstraint->setFrames(frameA, frameB);
 }
 
@@ -1425,7 +1425,7 @@ YYEXPORT void btGeneric6DofConstraint_setLinearLowerLimit(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
 	auto generic6DofConstraint = (btGeneric6DofConstraint*)YYGetPtr(arg, 0);
-	btVector3& linearLower = *(btVector3*)YYGetPtr(arg, 1);
+	auto& linearLower =  *(btVector3*)YYGetPtr(arg, 1);
 	generic6DofConstraint->setLinearLowerLimit(linearLower);
 }
 
@@ -1439,7 +1439,7 @@ YYEXPORT void btGeneric6DofConstraint_getLinearLowerLimit(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
 	auto generic6DofConstraint = (btGeneric6DofConstraint*)YYGetPtr(arg, 0);
-	btVector3& outVector3 = *(btVector3*)YYGetPtr(arg, 1);
+	auto& outVector3 =  *(btVector3*)YYGetPtr(arg, 1);
 	generic6DofConstraint->getLinearLowerLimit(outVector3);
 }
 
@@ -1453,7 +1453,7 @@ YYEXPORT void btGeneric6DofConstraint_setLinearUpperLimit(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
 	auto generic6DofConstraint = (btGeneric6DofConstraint*)YYGetPtr(arg, 0);
-	btVector3& linearLower = *(btVector3*)YYGetPtr(arg, 1);
+	auto& linearLower =  *(btVector3*)YYGetPtr(arg, 1);
 	generic6DofConstraint->setLinearUpperLimit(linearLower);
 }
 
@@ -1467,7 +1467,7 @@ YYEXPORT void btGeneric6DofConstraint_getLinearUpperLimit(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
 	auto generic6DofConstraint = (btGeneric6DofConstraint*)YYGetPtr(arg, 0);
-	btVector3& outVector3 = *(btVector3*)YYGetPtr(arg, 1);
+	auto& outVector3 =  *(btVector3*)YYGetPtr(arg, 1);
 	generic6DofConstraint->getLinearUpperLimit(outVector3);
 }
 
@@ -1481,7 +1481,7 @@ YYEXPORT void btGeneric6DofConstraint_setAngularLowerLimit(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
 	auto generic6DofConstraint = (btGeneric6DofConstraint*)YYGetPtr(arg, 0);
-	btVector3& angularLower = *(btVector3*)YYGetPtr(arg, 1);
+	auto& angularLower =  *(btVector3*)YYGetPtr(arg, 1);
 	generic6DofConstraint->setAngularLowerLimit(angularLower);
 }
 
@@ -1495,7 +1495,7 @@ YYEXPORT void btGeneric6DofConstraint_getAngularLowerLimit(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
 	auto generic6DofConstraint = (btGeneric6DofConstraint*)YYGetPtr(arg, 0);
-	btVector3& outVector3 = *(btVector3*)YYGetPtr(arg, 1);
+	auto& outVector3 =  *(btVector3*)YYGetPtr(arg, 1);
 	generic6DofConstraint->getAngularLowerLimit(outVector3);
 }
 
@@ -1509,7 +1509,7 @@ YYEXPORT void btGeneric6DofConstraint_setAngularUpperLimit(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
 	auto generic6DofConstraint = (btGeneric6DofConstraint*)YYGetPtr(arg, 0);
-	btVector3& angularUpper = *(btVector3*)YYGetPtr(arg, 1);
+	auto& angularUpper =  *(btVector3*)YYGetPtr(arg, 1);
 	generic6DofConstraint->setAngularUpperLimit(angularUpper);
 }
 
@@ -1523,7 +1523,7 @@ YYEXPORT void btGeneric6DofConstraint_getAngularUpperLimit(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
 	auto generic6DofConstraint = (btGeneric6DofConstraint*)YYGetPtr(arg, 0);
-	btVector3& outVector3 = *(btVector3*)YYGetPtr(arg, 1);
+	auto& outVector3 =  *(btVector3*)YYGetPtr(arg, 1);
 	generic6DofConstraint->getAngularUpperLimit(outVector3);
 }
 
@@ -1680,8 +1680,8 @@ YYEXPORT void btGeneric6DofConstraint_setAxis(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
 	auto generic6DofConstraint = (btGeneric6DofConstraint*)YYGetPtr(arg, 0);
-	btVector3& axis1 = *(btVector3*)YYGetPtr(arg, 1);
-	btVector3& axis2 = *(btVector3*)YYGetPtr(arg, 2);
+	auto& axis1 =  *(btVector3*)YYGetPtr(arg, 1);
+	auto& axis2 =  *(btVector3*)YYGetPtr(arg, 2);
 	generic6DofConstraint->setAxis(axis1, axis2);
 }
 

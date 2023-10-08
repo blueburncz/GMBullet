@@ -48,7 +48,7 @@ YYEXPORT void btWheelInfoConstructionInfo_setChassisConnectionCS(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
 	auto wheelInfoConstructionInfo = (btWheelInfoConstructionInfo*)YYGetPtr(arg, 0);
-	btVector3& chassisConnectionCS = *(btVector3*)YYGetPtr(arg, 1);
+	auto& chassisConnectionCS =  *(btVector3*)YYGetPtr(arg, 1);
 	CopyVector3(chassisConnectionCS, &wheelInfoConstructionInfo->m_chassisConnectionCS);
 }
 
@@ -84,7 +84,7 @@ YYEXPORT void btWheelInfoConstructionInfo_setWheelDirectionCS(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
 	auto wheelInfoConstructionInfo = (btWheelInfoConstructionInfo*)YYGetPtr(arg, 0);
-	btVector3& wheelDirectionCS = *(btVector3*)YYGetPtr(arg, 1);
+	auto& wheelDirectionCS =  *(btVector3*)YYGetPtr(arg, 1);
 	CopyVector3(wheelDirectionCS, &wheelInfoConstructionInfo->m_wheelDirectionCS);
 }
 
@@ -120,7 +120,7 @@ YYEXPORT void btWheelInfoConstructionInfo_setWheelAxleCS(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
 	auto wheelInfoConstructionInfo = (btWheelInfoConstructionInfo*)YYGetPtr(arg, 0);
-	btVector3& wheelAxleCS = *(btVector3*)YYGetPtr(arg, 1);
+	auto& wheelAxleCS =  *(btVector3*)YYGetPtr(arg, 1);
 	CopyVector3(wheelAxleCS, &wheelInfoConstructionInfo->m_wheelAxleCS);
 }
 
@@ -610,7 +610,7 @@ YYEXPORT void btWheelInfo_create(
 	result.kind = VALUE_PTR;
 	if (argc > 0)
 	{
-		btWheelInfoConstructionInfo& ci = *(btWheelInfoConstructionInfo*)YYGetPtr(arg, 0);
+		auto& ci =  *(btWheelInfoConstructionInfo*)YYGetPtr(arg, 0);
 		result.ptr = new btWheelInfo(ci);
 	}
 	else
@@ -683,7 +683,7 @@ YYEXPORT void btWheelInfo_setChassisConnectionPointCS(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
 	auto wheelInfo = (btWheelInfo*)YYGetPtr(arg, 0);
-	btVector3& chassisConnectionPointCS = *(btVector3*)YYGetPtr(arg, 1);
+	auto& chassisConnectionPointCS =  *(btVector3*)YYGetPtr(arg, 1);
 	CopyVector3(chassisConnectionPointCS, &wheelInfo->m_chassisConnectionPointCS);
 }
 
@@ -719,7 +719,7 @@ YYEXPORT void btWheelInfo_setWheelDirectionCS(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
 	auto wheelInfo = (btWheelInfo*)YYGetPtr(arg, 0);
-	btVector3& wheelDirectionCS = *(btVector3*)YYGetPtr(arg, 1);
+	auto& wheelDirectionCS =  *(btVector3*)YYGetPtr(arg, 1);
 	CopyVector3(wheelDirectionCS, &wheelInfo->m_wheelDirectionCS);
 }
 
@@ -754,7 +754,7 @@ YYEXPORT void btWheelInfo_setWheelAxleCS(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
 	auto wheelInfo = (btWheelInfo*)YYGetPtr(arg, 0);
-	btVector3& wheelAxleCS = *(btVector3*)YYGetPtr(arg, 1);
+	auto& wheelAxleCS =  *(btVector3*)YYGetPtr(arg, 1);
 	CopyVector3(wheelAxleCS, &wheelInfo->m_wheelAxleCS);
 }
 
@@ -1339,8 +1339,8 @@ YYEXPORT void btWheelInfo_updateWheel(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
 	auto wheelInfo = (btWheelInfo*)YYGetPtr(arg, 0);
-	btRigidBody& chassis = *(btRigidBody*)YYGetPtr(arg, 1);
-	btRaycastInfo& raycastInfo = *(btRaycastInfo*)YYGetPtr(arg, 2);
+	auto& chassis =  *(btRigidBody*)YYGetPtr(arg, 1);
+	auto& raycastInfo =  *(btRaycastInfo*)YYGetPtr(arg, 2);
 	wheelInfo->updateWheel(chassis, raycastInfo);
 }
 
