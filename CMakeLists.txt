@@ -35,6 +35,7 @@ set(SOURCES
     src/GMBullet/exports_btTransform.cpp
     src/GMBullet/exports_btTriangleMesh.cpp
     src/GMBullet/exports_btTypedConstraint.cpp
+    src/GMBullet/exports_btUniversalConstraint.cpp
     src/GMBullet/exports_btVector3.cpp
     src/GMBullet/exports_btWheelInfo.cpp
     )
