@@ -645,6 +645,17 @@ YYEXPORT void btRotationalLimitMotor_solveAngularLimits(
 // btTranslationalLimitMotor
 //
 
+/// @func btTranslationalLimitMotor_setLowerLimit(translationalLimitMotor, lowerLimit)
+///
+/// @desc
+/// Sets the lower limit for translational movement in the translational limit
+/// motor.
+///
+/// @param {Pointer} translationalLimitMotor
+///     The pointer to the translational limit motor.
+/// @param {Pointer} lowerLimit
+///     The lower limit for translational movement specified as a btVector3
+///     pointer.
 YYEXPORT void btTranslationalLimitMotor_setLowerLimit(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -656,9 +667,13 @@ YYEXPORT void btTranslationalLimitMotor_setLowerLimit(
 /// @func btTranslationalLimitMotor_getLowerLimit(translationalLimitMotor, outVector3)
 ///
 /// @desc
+/// Gets the lower limit for translational movement from the translational limit
+/// motor.
 ///
 /// @param {Pointer} translationalLimitMotor
+///     The pointer to the translational limit motor.
 /// @param {Pointer} outVector3
+///     A pointer to a btVector3 to store the lower limit.
 YYEXPORT void btTranslationalLimitMotor_getLowerLimit(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -670,9 +685,14 @@ YYEXPORT void btTranslationalLimitMotor_getLowerLimit(
 /// @func btTranslationalLimitMotor_setUpperLimit(translationalLimitMotor, upperLimit)
 ///
 /// @desc
+/// Sets the upper limit for translational movement in the translational limit
+/// motor.
 ///
 /// @param {Pointer} translationalLimitMotor
+///     The pointer to the translational limit motor.
 /// @param {Pointer} upperLimit
+///     The upper limit for translational movement specified as a btVector3
+///     pointer.
 YYEXPORT void btTranslationalLimitMotor_setUpperLimit(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -684,9 +704,13 @@ YYEXPORT void btTranslationalLimitMotor_setUpperLimit(
 /// @func btTranslationalLimitMotor_getUpperLimit(translationalLimitMotor, outVector3)
 ///
 /// @desc
+/// Gets the upper limit for translational movement from the translational limit
+/// motor.
 ///
 /// @param {Pointer} translationalLimitMotor
+///     The pointer to the translational limit motor.
 /// @param {Pointer} outVector3
+///     A pointer to a btVector3 to store the upper limit.
 YYEXPORT void btTranslationalLimitMotor_getUpperLimit(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -698,9 +722,12 @@ YYEXPORT void btTranslationalLimitMotor_getUpperLimit(
 /// @func btTranslationalLimitMotor_setAccumulatedImpulse(translationalLimitMotor, accumulatedImpulse)
 ///
 /// @desc
+/// Sets the accumulated impulse for the translational limit motor.
 ///
 /// @param {Pointer} translationalLimitMotor
+///     The pointer to the translational limit motor.
 /// @param {Pointer} accumulatedImpulse
+///     The accumulated impulse specified as a btVector3 pointer.
 YYEXPORT void btTranslationalLimitMotor_setAccumulatedImpulse(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -712,9 +739,12 @@ YYEXPORT void btTranslationalLimitMotor_setAccumulatedImpulse(
 /// @func btTranslationalLimitMotor_getAccumulatedImpulse(translationalLimitMotor, outVector3)
 ///
 /// @desc
+/// Gets the accumulated impulse from the translational limit motor.
 ///
 /// @param {Pointer} translationalLimitMotor
+///     The pointer to the translational limit motor.
 /// @param {Pointer} outVector3
+///     A pointer to a btVector3 to store the accumulated impulse.
 YYEXPORT void btTranslationalLimitMotor_getAccumulatedImpulse(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -726,9 +756,12 @@ YYEXPORT void btTranslationalLimitMotor_getAccumulatedImpulse(
 /// @func btTranslationalLimitMotor_setLimitSoftness(translationalLimitMotor, limitSoftness)
 ///
 /// @desc
+/// Sets the limit softness for the translational limit motor.
 ///
 /// @param {Pointer} translationalLimitMotor
+///     The pointer to the translational limit motor.
 /// @param {Real} limitSoftness
+///     The limit softness value to be set.
 YYEXPORT void btTranslationalLimitMotor_setLimitSoftness(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -740,10 +773,12 @@ YYEXPORT void btTranslationalLimitMotor_setLimitSoftness(
 /// @func btTranslationalLimitMotor_getLimitSoftness(translationalLimitMotor)
 ///
 /// @desc
+/// Gets the limit softness from the translational limit motor.
 ///
 /// @param {Pointer} translationalLimitMotor
+///     The pointer to the translational limit motor.
 ///
-/// @param {Real}
+/// @return {Real} The limit softness value.
 YYEXPORT void btTranslationalLimitMotor_getLimitSoftness(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -755,9 +790,12 @@ YYEXPORT void btTranslationalLimitMotor_getLimitSoftness(
 /// @func btTranslationalLimitMotor_setDamping(translationalLimitMotor, damping)
 ///
 /// @desc
+/// Sets the damping for the translational limit motor.
 ///
 /// @param {Pointer} translationalLimitMotor
+///     The pointer to the translational limit motor.
 /// @param {Real} damping
+///     The damping value to be set.
 YYEXPORT void btTranslationalLimitMotor_setDamping(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -769,10 +807,12 @@ YYEXPORT void btTranslationalLimitMotor_setDamping(
 /// @func btTranslationalLimitMotor_getDamping(translationalLimitMotor)
 ///
 /// @desc
+/// Gets the damping from the translational limit motor.
 ///
 /// @param {Pointer} translationalLimitMotor
+///     The pointer to the translational limit motor.
 ///
-/// @return {Real}
+/// @return {Real} The damping value.
 YYEXPORT void btTranslationalLimitMotor_getDamping(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -784,9 +824,12 @@ YYEXPORT void btTranslationalLimitMotor_getDamping(
 /// @func btTranslationalLimitMotor_setRestitution(translationalLimitMotor, restitution)
 ///
 /// @desc
+/// Sets the restitution for the translational limit motor.
 ///
 /// @param {Pointer} translationalLimitMotor
+///     The pointer to the translational limit motor.
 /// @param {Real} restitution
+///     The restitution value to be set.
 YYEXPORT void btTranslationalLimitMotor_setRestitution(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -798,10 +841,12 @@ YYEXPORT void btTranslationalLimitMotor_setRestitution(
 /// @func btTranslationalLimitMotor_getRestitution(translationalLimitMotor)
 ///
 /// @desc
+/// Gets the restitution from the translational limit motor.
 ///
 /// @param {Pointer} translationalLimitMotor
+///     The pointer to the translational limit motor.
 ///
-/// @param {Real}
+/// @return {Real} The restitution value.
 YYEXPORT void btTranslationalLimitMotor_getRestitution(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -813,9 +858,14 @@ YYEXPORT void btTranslationalLimitMotor_getRestitution(
 /// @func btTranslationalLimitMotor_setNormalCFM(translationalLimitMotor, normalCFM)
 ///
 /// @desc
+/// Sets the normal constraint force mixing factor for the translational limit
+/// motor.
 ///
 /// @param {Pointer} translationalLimitMotor
+///     The pointer to the translational limit motor.
 /// @param {Pointer} normalCFM
+///     The pointer to a vector representing the normal constraint force mixing
+///     factor to be set.
 YYEXPORT void btTranslationalLimitMotor_setNormalCFM(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -827,9 +877,14 @@ YYEXPORT void btTranslationalLimitMotor_setNormalCFM(
 /// @func btTranslationalLimitMotor_getNormalCFM(translationalLimitMotor, outVector3)
 ///
 /// @desc
+/// Gets the normal constraint force mixing factor from the translational limit
+/// motor.
 ///
 /// @param {Pointer} translationalLimitMotor
+///     The pointer to the translational limit motor.
 /// @param {Pointer} outVector3
+///     The pointer to an output vector where the normal constraint force mixing
+///     factor will be stored.
 YYEXPORT void btTranslationalLimitMotor_getNormalCFM(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -841,9 +896,13 @@ YYEXPORT void btTranslationalLimitMotor_getNormalCFM(
 /// @func btTranslationalLimitMotor_setStopERP(translationalLimitMotor, stopERP)
 ///
 /// @desc
+/// Sets the error reduction parameter for the translational limit motor.
 ///
 /// @param {Pointer} translationalLimitMotor
+///     The pointer to the translational limit motor.
 /// @param {Pointer} stopERP
+///     The pointer to a vector representing the error reduction parameter to be
+///     set.
 YYEXPORT void btTranslationalLimitMotor_setStopERP(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -855,9 +914,13 @@ YYEXPORT void btTranslationalLimitMotor_setStopERP(
 /// @func btTranslationalLimitMotor_getStopERP(translationalLimitMotor, outVector3)
 ///
 /// @desc
+/// Gets the error reduction parameter from the translational limit motor.
 ///
 /// @param {Pointer} translationalLimitMotor
+///     The pointer to the translational limit motor.
 /// @param {Pointer} outVector3
+///     The pointer to an output vector where the error reduction parameter will
+///     be stored.
 YYEXPORT void btTranslationalLimitMotor_getStopERP(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -869,9 +932,13 @@ YYEXPORT void btTranslationalLimitMotor_getStopERP(
 /// @func btTranslationalLimitMotor_setStopCFM(translationalLimitMotor, stopCFM)
 ///
 /// @desc
+/// Sets the constraint force mixing factor for the translational limit motor.
 ///
 /// @param {Pointer} translationalLimitMotor
+///     The pointer to the translational limit motor.
 /// @param {Pointer} stopCFM
+///     The pointer to a vector representing the constraint force mixing factor
+///     to be set.
 YYEXPORT void btTranslationalLimitMotor_setStopCFM(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -883,9 +950,13 @@ YYEXPORT void btTranslationalLimitMotor_setStopCFM(
 /// @func btTranslationalLimitMotor_getStopCFM(translationalLimitMotor, outVector3)
 ///
 /// @desc
+/// Gets the constraint force mixing factor from the translational limit motor.
 ///
 /// @param {Pointer} translationalLimitMotor
+///     The pointer to the translational limit motor.
 /// @param {Pointer} outVector3
+///     The pointer to an output vector where the constraint force mixing factor
+///     will be stored.
 YYEXPORT void btTranslationalLimitMotor_getStopCFM(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -897,10 +968,16 @@ YYEXPORT void btTranslationalLimitMotor_getStopCFM(
 /// @func btTranslationalLimitMotor_setEnableMotor(translationalLimitMotor, index, enableMotor)
 ///
 /// @desc
+/// Sets whether the specified translational limit motor is enabled for a given
+/// index.
 ///
 /// @param {Pointer} translationalLimitMotor
+///     The pointer to the translational limit motor.
 /// @param {Real} index
+///     The index of the translational limit motor to enable or disable.
 /// @param {Bool} enableMotor
+///     The boolean value indicating whether to enable (true) or disable (false)
+///     the motor.
 YYEXPORT void btTranslationalLimitMotor_setEnableMotor(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -913,11 +990,16 @@ YYEXPORT void btTranslationalLimitMotor_setEnableMotor(
 /// @func btTranslationalLimitMotor_getEnableMotor(translationalLimitMotor, index)
 ///
 /// @desc
+/// Gets whether the specified translational limit motor is enabled for a given
+/// index.
 ///
 /// @param {Pointer} translationalLimitMotor
+///     The pointer to the translational limit motor.
 /// @param {Real} index
+///     The index of the translational limit motor to query.
 ///
-/// @return {Bool}
+/// @return {Bool} Returns true if the motor at the specified index is enabled,
+/// false otherwise.
 YYEXPORT void btTranslationalLimitMotor_getEnableMotor(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -930,9 +1012,12 @@ YYEXPORT void btTranslationalLimitMotor_getEnableMotor(
 /// @func btTranslationalLimitMotor_setTargetVelocity(translationalLimitMotor, targetVelocity)
 ///
 /// @desc
+/// Sets the target velocity for the translational limit motor.
 ///
 /// @param {Pointer} translationalLimitMotor
+///     The pointer to the translational limit motor.
 /// @param {Pointer} targetVelocity
+///     The pointer to a vector representing the target velocity to be set.
 YYEXPORT void btTranslationalLimitMotor_setTargetVelocity(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -944,9 +1029,12 @@ YYEXPORT void btTranslationalLimitMotor_setTargetVelocity(
 /// @func btTranslationalLimitMotor_getTargetVelocity(translationalLimitMotor, outVector3)
 ///
 /// @desc
+/// Gets the target velocity from the translational limit motor.
 ///
 /// @param {Pointer} translationalLimitMotor
+///     The pointer to the translational limit motor.
 /// @param {Pointer} outVector3
+///     The pointer to an output vector where the target velocity will be stored.
 YYEXPORT void btTranslationalLimitMotor_getTargetVelocity(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -958,9 +1046,12 @@ YYEXPORT void btTranslationalLimitMotor_getTargetVelocity(
 /// @func btTranslationalLimitMotor_setMaxMotorForce(translationalLimitMotor, maxMotorForce)
 ///
 /// @desc
+/// Sets the maximum motor force for the translational limit motor.
 ///
 /// @param {Pointer} translationalLimitMotor
+///     The pointer to the translational limit motor.
 /// @param {Pointer} maxMotorForce
+///     The pointer to a vector representing the maximum motor force to be set.
 YYEXPORT void btTranslationalLimitMotor_setMaxMotorForce(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -972,9 +1063,13 @@ YYEXPORT void btTranslationalLimitMotor_setMaxMotorForce(
 /// @func btTranslationalLimitMotor_getMaxMotorForce(translationalLimitMotor, outVector3)
 ///
 /// @desc
+/// Gets the maximum motor force from the translational limit motor.
 ///
 /// @param {Pointer} translationalLimitMotor
+///     The pointer to the translational limit motor.
 /// @param {Pointer} outVector3
+///     The pointer to an output vector where the maximum motor force will be
+///     stored.
 YYEXPORT void btTranslationalLimitMotor_getMaxMotorForce(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -986,9 +1081,12 @@ YYEXPORT void btTranslationalLimitMotor_getMaxMotorForce(
 /// @func btTranslationalLimitMotor_setCurrentLimitError(translationalLimitMotor, currentLimitError)
 ///
 /// @desc
+/// Sets the current limit error for the translational limit motor.
 ///
 /// @param {Pointer} translationalLimitMotor
+///     The pointer to the translational limit motor.
 /// @param {Pointer} currentLimitError
+///     The pointer to a vector representing the current limit error to be set.
 YYEXPORT void btTranslationalLimitMotor_setCurrentLimitError(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -1000,9 +1098,13 @@ YYEXPORT void btTranslationalLimitMotor_setCurrentLimitError(
 /// @func btTranslationalLimitMotor_getCurrentLimitError(translationalLimitMotor, outVector3)
 ///
 /// @desc
+/// Gets the current limit error from the translational limit motor.
 ///
 /// @param {Pointer} translationalLimitMotor
+///     The pointer to the translational limit motor.
 /// @param {Pointer} outVector3
+///     The pointer to an output vector where the current limit error will be
+///     stored.
 YYEXPORT void btTranslationalLimitMotor_getCurrentLimitError(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -1014,9 +1116,13 @@ YYEXPORT void btTranslationalLimitMotor_getCurrentLimitError(
 /// @func btTranslationalLimitMotor_setCurrentLinearDiff(translationalLimitMotor, currentLinearDiff)
 ///
 /// @desc
+/// Sets the current linear difference for the translational limit motor.
 ///
 /// @param {Pointer} translationalLimitMotor
+///     The pointer to the translational limit motor.
 /// @param {Pointer} currentLinearDiff
+///     The pointer to a vector representing the current linear difference to be
+///     set.
 YYEXPORT void btTranslationalLimitMotor_setCurrentLinearDiff(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -1028,9 +1134,13 @@ YYEXPORT void btTranslationalLimitMotor_setCurrentLinearDiff(
 /// @func btTranslationalLimitMotor_getCurrentLinearDiff(translationalLimitMotor, outVector3)
 ///
 /// @desc
+/// Gets the current linear difference from the translational limit motor.
 ///
 /// @param {Pointer} translationalLimitMotor
+///     The pointer to the translational limit motor.
 /// @param {Pointer} outVector3
+///     The pointer to an output vector where the current linear difference will
+///     be stored.
 YYEXPORT void btTranslationalLimitMotor_getCurrentLinearDiff(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -1042,10 +1152,15 @@ YYEXPORT void btTranslationalLimitMotor_getCurrentLinearDiff(
 /// @func btTranslationalLimitMotor_setCurrentLimit(translationalLimitMotor, index, currentLimit)
 ///
 /// @desc
+/// Sets the current limit for the translational limit motor at the specified
+/// index.
 ///
 /// @param {Pointer} translationalLimitMotor
+///     The pointer to the translational limit motor.
 /// @param {Real} index
+///     The index specifying the limit to be set.
 /// @param {Real} currentLimit
+///     The current limit value to be set for the specified index.
 YYEXPORT void btTranslationalLimitMotor_setCurrentLimit(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -1058,11 +1173,15 @@ YYEXPORT void btTranslationalLimitMotor_setCurrentLimit(
 /// @func btTranslationalLimitMotor_getCurrentLimit(translationalLimitMotor, index)
 ///
 /// @desc
+/// Gets the current limit from the translational limit motor at the specified
+/// index.
 ///
 /// @param {Pointer} translationalLimitMotor
+///     The pointer to the translational limit motor.
 /// @param {Real} index
+///     The index specifying the limit to be retrieved.
 ///
-/// @return {Real}
+/// @return {Real} The current limit value at the specified index.
 YYEXPORT void btTranslationalLimitMotor_getCurrentLimit(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -1075,11 +1194,15 @@ YYEXPORT void btTranslationalLimitMotor_getCurrentLimit(
 /// @func btTranslationalLimitMotor_isLimited(translationalLimitMotor, limitIndex)
 ///
 /// @desc
+/// Checks if the translational limit motor is limited at the specified index.
 ///
 /// @param {Pointer} translationalLimitMotor
+///     The pointer to the translational limit motor.
 /// @param {Real} limitIndex
+///     The index specifying the limit to be checked.
 ///
-/// @return {Bool}
+/// @return {Bool} True if the translational limit motor is limited at the
+/// specified index, false otherwise.
 YYEXPORT void btTranslationalLimitMotor_isLimited(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -1092,11 +1215,16 @@ YYEXPORT void btTranslationalLimitMotor_isLimited(
 /// @func btTranslationalLimitMotor_needApplyForce(translationalLimitMotor, limitIndex)
 ///
 /// @desc
+/// Checks if force needs to be applied for the translational limit motor at the
+/// specified index.
 ///
 /// @param {Pointer} translationalLimitMotor
+///     The pointer to the translational limit motor.
 /// @param {Real} limitIndex
+///     The index specifying the limit to be checked.
 ///
-/// @return {Bool}
+/// @return {Bool} True if force needs to be applied for the translational limit
+/// motor at the specified index, false otherwise.
 YYEXPORT void btTranslationalLimitMotor_needApplyForce(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -1109,12 +1237,17 @@ YYEXPORT void btTranslationalLimitMotor_needApplyForce(
 /// @func btTranslationalLimitMotor_testLimitValue(translationalLimitMotor, limitIndex, testValue)
 ///
 /// @desc
+/// Tests the limit value for the translational limit motor at the specified
+/// index.
 ///
 /// @param {Pointer} translationalLimitMotor
+///     The pointer to the translational limit motor.
 /// @param {Real} limitIndex
+///     The index specifying the limit to be tested.
 /// @param {Real} testValue
+///     The test value against the limit.
 ///
-/// @return {Real}
+/// @return {Real} The result of the limit test.
 YYEXPORT void btTranslationalLimitMotor_testLimitValue(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -1128,19 +1261,32 @@ YYEXPORT void btTranslationalLimitMotor_testLimitValue(
 /// @func btTranslationalLimitMotor_solveLinearAxis(translationalLimitMotor, timeStep, jacDiagABInv, body1, pointInA, body2, pointInB, limitIndex, axisNormalOnA, anchorPos)
 ///
 /// @desc
+/// Solves the linear axis for the translational limit motor.
 ///
 /// @param {Pointer} translationalLimitMotor
+///     The pointer to the translational limit motor.
 /// @param {Real} timeStep
+///     The time step for the simulation.
 /// @param {Real} jacDiagABInv
+///     The inverse diagonal coefficient of the constraint jacobi matrix.
 /// @param {Pointer} body1
+///     The pointer to the first rigid body involved in the constraint.
 /// @param {Pointer} pointInA
+///     The pointer to the point of constraint application on body1 in local
+///     space.
 /// @param {Pointer} body2
+///     The pointer to the second rigid body involved in the constraint.
 /// @param {Pointer} pointInB
+///     The pointer to the point of constraint application on body2 in local
+///     space.
 /// @param {Real} limitIndex
+///     The index specifying the limit.
 /// @param {Pointer} axisNormalOnA
+///     The pointer to the axis normal on body1 in local space.
 /// @param {Pointer} anchorPos
+///     The pointer to the anchor position.
 ///
-/// @return {Real}
+/// @return {Real} The result of solving the linear axis.
 YYEXPORT void btTranslationalLimitMotor_solveLinearAxis(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
