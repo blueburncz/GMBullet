@@ -23,6 +23,7 @@ set(SOURCES
     src/GMBullet/exports_btDefaultMotionState.cpp
     src/GMBullet/exports_btDiscreteDynamicsWorld.cpp
     src/GMBullet/exports_btGeneric6DofConstraint.cpp
+    src/GMBullet/exports_btGeneric6DofSpringConstraint.cpp
     src/GMBullet/exports_btHeightfieldTerrainShape.cpp
     src/GMBullet/exports_btHingeConstraint.cpp
     src/GMBullet/exports_btPoint2PointConstraint.cpp
