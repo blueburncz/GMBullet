@@ -1323,12 +1323,18 @@ YYEXPORT void btTranslationalLimitMotor_solveLinearAxis(
 /// @func btGeneric6DofConstraint_create1(rigidBodyB, frameInB, useLinearReferenceFrameB)
 ///
 /// @desc
+/// Creates a btGeneric6DofConstraint using a single rigid body and frame for
+/// the constraint.
 ///
 /// @param {Pointer} rigidBodyB
+///     The pointer to the rigid body involved in the constraint.
 /// @param {Pointer} frameInB
+///     The transform frame associated with the rigid body (btTransform type).
 /// @param {Bool} useLinearReferenceFrameB
+///     A boolean indicating whether to use the linear reference frame for the
+///     constraint.
 ///
-/// @return {Pointer}
+/// @return {Pointer} The pointer to the created btGeneric6DofConstraint.
 YYEXPORT void btGeneric6DofConstraint_create1(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -1343,14 +1349,24 @@ YYEXPORT void btGeneric6DofConstraint_create1(
 /// @func btGeneric6DofConstraint_create2(rigidBodyA, rigidBodyB, frameInA, frameInB, useLinearReferenceFrameA)
 ///
 /// @desc
+/// Creates a btGeneric6DofConstraint using two rigid bodies and their
+/// respective frames for the constraint.
 ///
 /// @param {Pointer} rigidBodyA
+///     The pointer to the first rigid body involved in the constraint.
 /// @param {Pointer} rigidBodyB
+///     The pointer to the second rigid body involved in the constraint.
 /// @param {Pointer} frameInA
+///     The transform frame associated with the first rigid body (btTransform
+///     type).
 /// @param {Pointer} frameInB
+///     The transform frame associated with the second rigid body (btTransform
+///     type).
 /// @param {Bool} useLinearReferenceFrameA
+///     A boolean indicating whether to use the linear reference frame for the
+///     first rigid body.
 ///
-/// @return {Pointer}
+/// @return {Pointer} The pointer to the created btGeneric6DofConstraint.
 YYEXPORT void btGeneric6DofConstraint_create2(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -1367,8 +1383,10 @@ YYEXPORT void btGeneric6DofConstraint_create2(
 /// @func btGeneric6DofConstraint_destroy(generic6DofConstraint)
 ///
 /// @desc
+/// Destroys the btGeneric6DofConstraint.
 ///
 /// @param {Pointer} generic6DofConstraint
+///     The pointer to the btGeneric6DofConstraint to be destroyed.
 YYEXPORT void btGeneric6DofConstraint_destroy(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -1378,10 +1396,15 @@ YYEXPORT void btGeneric6DofConstraint_destroy(
 /// @func btGeneric6DofConstraint_calculateTransforms(generic6DofConstraint[, transA, transB])
 ///
 /// @desc
+/// Calculates the transforms for the constraint.
+/// Optionally, you can provide the transforms for the involved bodies.
 ///
 /// @param {Pointer} generic6DofConstraint
+///     The pointer to the btGeneric6DofConstraint.
 /// @param {Pointer} [transA]
+///     The transform associated with the first rigid body (btTransform type).
 /// @param {Pointer} [transB]
+///     The transform associated with the second rigid body (btTransform type).
 YYEXPORT void btGeneric6DofConstraint_calculateTransforms(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -1401,10 +1424,13 @@ YYEXPORT void btGeneric6DofConstraint_calculateTransforms(
 /// @func btGeneric6DofConstraint_getCalculatedTransformA(generic6DofConstraint)
 ///
 /// @desc
+/// Gets the calculated transform of the first rigid body in the constraint.
 ///
 /// @param {Pointer} generic6DofConstraint
+///     The pointer to the btGeneric6DofConstraint.
 ///
-/// @return {Pointer}
+/// @return {Pointer} The pointer to the calculated transform (btTransform) of
+/// the first rigid body.
 YYEXPORT void btGeneric6DofConstraint_getCalculatedTransformA(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -1416,10 +1442,13 @@ YYEXPORT void btGeneric6DofConstraint_getCalculatedTransformA(
 /// @func btGeneric6DofConstraint_getCalculatedTransformB(generic6DofConstraint)
 ///
 /// @desc
+/// Gets the calculated transform of the second rigid body in the constraint.
 ///
 /// @param {Pointer} generic6DofConstraint
+///     The pointer to the btGeneric6DofConstraint.
 ///
-/// @return {Pointer}
+/// @return {Pointer} The pointer to the calculated transform (btTransform) of
+/// the second rigid body.
 YYEXPORT void btGeneric6DofConstraint_getCalculatedTransformB(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -1431,10 +1460,13 @@ YYEXPORT void btGeneric6DofConstraint_getCalculatedTransformB(
 /// @func btGeneric6DofConstraint_getFrameOffsetA(generic6DofConstraint)
 ///
 /// @desc
+/// Gets the frame offset associated with the first rigid body in the constraint.
 ///
 /// @param {Pointer} generic6DofConstraint
+///     The pointer to the btGeneric6DofConstraint.
 ///
-/// @return {Pointer}
+/// @return {Pointer} The pointer to the frame offset (btTransform) of the first
+/// rigid body.
 YYEXPORT void btGeneric6DofConstraint_getFrameOffsetA(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -1446,10 +1478,14 @@ YYEXPORT void btGeneric6DofConstraint_getFrameOffsetA(
 /// @func btGeneric6DofConstraint_getFrameOffsetB(generic6DofConstraint)
 ///
 /// @desc
+/// Gets the frame offset associated with the second rigid body in the
+/// constraint.
 ///
 /// @param {Pointer} generic6DofConstraint
+///     The pointer to the btGeneric6DofConstraint.
 ///
-/// @return {Pointer}
+/// @return {Pointer} The pointer to the frame offset (btTransform) of the
+/// second rigid body.
 YYEXPORT void btGeneric6DofConstraint_getFrameOffsetB(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -1467,9 +1503,13 @@ YYEXPORT void btGeneric6DofConstraint_getFrameOffsetB(
 /// @func btGeneric6DofConstraint_updateRHS(generic6DofConstraint, timeStep)
 ///
 /// @desc
+/// Updates the right-hand side (RHS) of the equations for a generic
+/// 6-degree-of-freedom constraint, considering the provided time step.
 ///
 /// @param {Pointer} generic6DofConstraint
+///     A pointer to the btGeneric6DofConstraint instance.
 /// @param {Real} timeStep
+///     The time step used to update the constraint equations.
 YYEXPORT void btGeneric6DofConstraint_updateRHS(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -1481,10 +1521,16 @@ YYEXPORT void btGeneric6DofConstraint_updateRHS(
 /// @func btGeneric6DofConstraint_getAxis(generic6DofConstraint, axisIndex, outVector3)
 ///
 /// @desc
+/// Retrieves the axis associated with the specified index from the generic
+/// 6-degree-of-freedom constraint.
 ///
 /// @param {Pointer} generic6DofConstraint
+///     A pointer to the btGeneric6DofConstraint instance.
 /// @param {Real} axisIndex
+///     The index of the axis to retrieve.
 /// @param {Pointer} outVector3
+///     A pointer to the btVector3 where the retrieved axis will be stored.
+///     The retrieved axis is represented as a 3D vector (x, y, z).
 YYEXPORT void btGeneric6DofConstraint_getAxis(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -1497,11 +1543,16 @@ YYEXPORT void btGeneric6DofConstraint_getAxis(
 /// @func btGeneric6DofConstraint_getAngle(generic6DofConstraint, axisIndex)
 ///
 /// @desc
+/// Retrieves the angle for the specified axis index from the generic 6-degree-
+/// of-freedom constraint.
 ///
 /// @param {Pointer} generic6DofConstraint
+///     Pointer to the btGeneric6DofConstraint instance.
 /// @param {Real} axisIndex
+///     Index of the axis for which the angle is to be retrieved.
 ///
-/// @return {Real}
+/// @return {Real} The angle (in radians) associated with the specified axis
+/// index.
 YYEXPORT void btGeneric6DofConstraint_getAngle(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -1514,11 +1565,18 @@ YYEXPORT void btGeneric6DofConstraint_getAngle(
 /// @func btGeneric6DofConstraint_getRelativePivotPosition(generic6DofConstraint, axisIndex)
 ///
 /// @desc
+/// Retrieves the relative pivot position for the specified axis index from the
+/// generic 6-degree-of-freedom constraint.
 ///
 /// @param {Pointer} generic6DofConstraint
-/// @param {Real} axisIndex
+///     Pointer to the btGeneric6DofConstraint instance.
 ///
-/// @return {Real}
+/// @param {Real} axisIndex
+///     Index of the axis for which the relative pivot position is to be
+///     retrieved.
+///
+/// @return {Real} The relative pivot position associated with the specified
+/// axis index.
 YYEXPORT void btGeneric6DofConstraint_getRelativePivotPosition(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -1531,10 +1589,17 @@ YYEXPORT void btGeneric6DofConstraint_getRelativePivotPosition(
 /// @func btGeneric6DofConstraint_setFrames(generic6DofConstraint, frameA, frameB)
 ///
 /// @desc
+/// Sets the frames of the generic 6-degree-of-freedom constraint based on the
+/// provided btTransform instances for each rigid body involved.
 ///
 /// @param {Pointer} generic6DofConstraint
+///     Pointer to the btGeneric6DofConstraint instance.
 /// @param {Pointer} frameA
+///     Pointer to the btTransform representing the frame associated with the
+///     first rigid body.
 /// @param {Pointer} frameB
+///     Pointer to the btTransform representing the frame associated with the
+///     second rigid body.
 YYEXPORT void btGeneric6DofConstraint_setFrames(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -1547,11 +1612,16 @@ YYEXPORT void btGeneric6DofConstraint_setFrames(
 /// @func btGeneric6DofConstraint_testAngularLimitMotor(generic6DofConstraint, axisIndex)
 ///
 /// @desc
+/// Tests the angular limit motor for the specified axis index in the generic 
+/// 6-degree-of-freedom constraint.
 ///
 /// @param {Pointer} generic6DofConstraint
+///     Pointer to the btGeneric6DofConstraint instance.
 /// @param {Real} axisIndex
-///
+///     Index of the axis for which the angular limit motor is to be tested.
 /// @return {Bool}
+///     Returns true if the angular limit motor is active for the specified axis,
+///     false otherwise.
 YYEXPORT void btGeneric6DofConstraint_testAngularLimitMotor(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -1564,9 +1634,13 @@ YYEXPORT void btGeneric6DofConstraint_testAngularLimitMotor(
 /// @func btGeneric6DofConstraint_setLinearLowerLimit(generic6DofConstraint, linearLower)
 ///
 /// @desc
+/// Sets the lower limit for linear motion in the generic 6-degree-of-freedom 
+/// constraint for all axes.
 ///
 /// @param {Pointer} generic6DofConstraint
+///     Pointer to the btGeneric6DofConstraint instance.
 /// @param {Pointer} linearLower
+///     Pointer to the btVector3 representing the lower linear limits.
 YYEXPORT void btGeneric6DofConstraint_setLinearLowerLimit(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -1578,9 +1652,14 @@ YYEXPORT void btGeneric6DofConstraint_setLinearLowerLimit(
 /// @func btGeneric6DofConstraint_getLinearLowerLimit(generic6DofConstraint, outVector3)
 ///
 /// @desc
+/// Retrieves the lower limit for linear motion in the generic 6-degree-of-freedom 
+/// constraint for all axes.
 ///
 /// @param {Pointer} generic6DofConstraint
+///     Pointer to the btGeneric6DofConstraint instance.
 /// @param {Pointer} outVector3
+///     Pointer to the btVector3 where the retrieved lower linear limits will be
+///     stored.
 YYEXPORT void btGeneric6DofConstraint_getLinearLowerLimit(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -1592,9 +1671,13 @@ YYEXPORT void btGeneric6DofConstraint_getLinearLowerLimit(
 /// @func btGeneric6DofConstraint_setLinearUpperLimit(generic6DofConstraint, linearUpper)
 ///
 /// @desc
+/// Sets the upper limit for linear motion in the generic 6-degree-of-freedom 
+/// constraint for all axes.
 ///
 /// @param {Pointer} generic6DofConstraint
+///     Pointer to the btGeneric6DofConstraint instance.
 /// @param {Pointer} linearUpper
+///     Pointer to the btVector3 representing the upper linear limits.
 YYEXPORT void btGeneric6DofConstraint_setLinearUpperLimit(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -1606,9 +1689,14 @@ YYEXPORT void btGeneric6DofConstraint_setLinearUpperLimit(
 /// @func btGeneric6DofConstraint_getLinearUpperLimit(generic6DofConstraint, outVector3)
 ///
 /// @desc
+/// Retrieves the upper limit for linear motion in the generic 6-degree-of-
+/// freedom constraint for all axes.
 ///
 /// @param {Pointer} generic6DofConstraint
+///     Pointer to the btGeneric6DofConstraint instance.
 /// @param {Pointer} outVector3
+///     Pointer to the btVector3 where the retrieved upper linear limits will be
+///     stored.
 YYEXPORT void btGeneric6DofConstraint_getLinearUpperLimit(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -1617,12 +1705,17 @@ YYEXPORT void btGeneric6DofConstraint_getLinearUpperLimit(
 	generic6DofConstraint->getLinearUpperLimit(outVector3);
 }
 
-/// @func btGeneric6DofConstraint_setAngularLowerLimit(generic6DofConstraint, angularLower)
+/// @func btGeneric6DofConstraint_getLinearUpperLimit(generic6DofConstraint, outVector3)
 ///
 /// @desc
+/// Retrieves the upper limit for linear motion in the generic 6-degree-of-
+/// freedom constraint for all axes.
 ///
 /// @param {Pointer} generic6DofConstraint
-/// @param {Pointer} angularLower
+///     Pointer to the btGeneric6DofConstraint instance.
+/// @param {Pointer} outVector3
+///     Pointer to the btVector3 where the retrieved upper linear limits will be
+/// stored.
 YYEXPORT void btGeneric6DofConstraint_setAngularLowerLimit(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -1634,9 +1727,14 @@ YYEXPORT void btGeneric6DofConstraint_setAngularLowerLimit(
 /// @func btGeneric6DofConstraint_getAngularLowerLimit(generic6DofConstraint, outVector3)
 ///
 /// @desc
+/// Retrieves the lower limit for angular motion in the generic
+/// 6-degree-of-freedom constraint for all rotational axes.
 ///
 /// @param {Pointer} generic6DofConstraint
+///     Pointer to the btGeneric6DofConstraint instance.
 /// @param {Pointer} outVector3
+///     Pointer to the btVector3 where the retrieved lower angular limits will
+///     be stored.
 YYEXPORT void btGeneric6DofConstraint_getAngularLowerLimit(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -1648,9 +1746,13 @@ YYEXPORT void btGeneric6DofConstraint_getAngularLowerLimit(
 /// @func btGeneric6DofConstraint_setAngularUpperLimit(generic6DofConstraint, angularUpper)
 ///
 /// @desc
+/// Sets the upper limit for angular motion in the generic 6-degree-of-freedom 
+/// constraint for all rotational axes.
 ///
 /// @param {Pointer} generic6DofConstraint
+///     Pointer to the btGeneric6DofConstraint instance.
 /// @param {Pointer} angularUpper
+///     Pointer to the btVector3 representing the upper angular limits.
 YYEXPORT void btGeneric6DofConstraint_setAngularUpperLimit(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -1662,9 +1764,14 @@ YYEXPORT void btGeneric6DofConstraint_setAngularUpperLimit(
 /// @func btGeneric6DofConstraint_getAngularUpperLimit(generic6DofConstraint, outVector3)
 ///
 /// @desc
+/// Retrieves the upper limit for angular motion in the generic 6-degree-of-
+/// freedom constraint for all rotational axes.
 ///
 /// @param {Pointer} generic6DofConstraint
+///     Pointer to the btGeneric6DofConstraint instance.
 /// @param {Pointer} outVector3
+///     Pointer to the btVector3 where the retrieved upper angular limits will
+///     be stored.
 YYEXPORT void btGeneric6DofConstraint_getAngularUpperLimit(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -1676,11 +1783,17 @@ YYEXPORT void btGeneric6DofConstraint_getAngularUpperLimit(
 /// @func btGeneric6DofConstraint_getRotationalLimitMotor(generic6DofConstraint, index)
 ///
 /// @desc
+/// Gets the rotational limit motor for the specified axis index in the generic 
+/// 6-degree-of-freedom constraint.
 ///
 /// @param {Pointer} generic6DofConstraint
+///     Pointer to the btGeneric6DofConstraint instance.
 /// @param {Real} index
+///     Index of the axis for which the rotational limit motor is to be
+///     retrieved.
 ///
-/// @return {Pointer}
+/// @return {Pointer} Pointer to the btRotationalLimitMotor for the specified
+/// axis index.
 YYEXPORT void btGeneric6DofConstraint_getRotationalLimitMotor(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -1693,10 +1806,14 @@ YYEXPORT void btGeneric6DofConstraint_getRotationalLimitMotor(
 /// @func btGeneric6DofConstraint_getTranslationalLimitMotor(generic6DofConstraint)
 ///
 /// @desc
+/// Gets the translational limit motor associated with the generic 6-degree-of-
+/// freedom constraint.
 ///
 /// @param {Pointer} generic6DofConstraint
+///     Pointer to the btGeneric6DofConstraint instance.
 ///
-/// @return {Pointer}
+/// @return {Pointer} Pointer to the btTranslationalLimitMotor associated with
+/// the constraint.
 YYEXPORT void btGeneric6DofConstraint_getTranslationalLimitMotor(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -1708,11 +1825,17 @@ YYEXPORT void btGeneric6DofConstraint_getTranslationalLimitMotor(
 /// @func btGeneric6DofConstraint_setLimit(generic6DofConstraint, axis, low, high)
 ///
 /// @desc
+/// Sets the limits for a specific axis in the generic 6-degree-of-freedom
+/// constraint.
 ///
 /// @param {Pointer} generic6DofConstraint
+///     Pointer to the btGeneric6DofConstraint instance.
 /// @param {Real} axis
+///     Index of the axis for which the limits are to be set.
 /// @param {Real} low
+///     The lower limit for the specified axis.
 /// @param {Real} high
+///     The upper limit for the specified axis.
 YYEXPORT void btGeneric6DofConstraint_setLimit(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -1726,11 +1849,15 @@ YYEXPORT void btGeneric6DofConstraint_setLimit(
 /// @func btGeneric6DofConstraint_isLimited(generic6DofConstraint, limitIndex)
 ///
 /// @desc
+/// Checks if the specified limit (rotational or translational) is active in the
+/// generic 6-degree-of-freedom constraint.
 ///
 /// @param {Pointer} generic6DofConstraint
+///     Pointer to the btGeneric6DofConstraint instance.
 /// @param {Real} limitIndex
+///     Index of the limit to be checked (for rotational or translational).
 ///
-/// @return {Bool}
+/// @return {Bool} Returns true if the specified limit is active, false otherwise.
 YYEXPORT void btGeneric6DofConstraint_isLimited(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -1743,8 +1870,11 @@ YYEXPORT void btGeneric6DofConstraint_isLimited(
 /// @func btGeneric6DofConstraint_calcAnchorPos(generic6DofConstraint)
 ///
 /// @desc
+/// Calculates the anchor position for the generic 6-degree-of-freedom
+/// constraint.
 ///
 /// @param {Pointer} generic6DofConstraint
+///     Pointer to the btGeneric6DofConstraint instance.
 YYEXPORT void btGeneric6DofConstraint_calcAnchorPos(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -1757,10 +1887,13 @@ YYEXPORT void btGeneric6DofConstraint_calcAnchorPos(
 /// @func btGeneric6DofConstraint_getUseFrameOffset(generic6DofConstraint)
 ///
 /// @desc
+/// Checks if the frame offset is being used in the generic 6-degree-of-freedom 
+/// constraint.
 ///
 /// @param {Pointer} generic6DofConstraint
+///     Pointer to the btGeneric6DofConstraint instance.
 ///
-/// @return {Bool}
+/// @return {Bool} Returns true if the frame offset is being used, false otherwise.
 YYEXPORT void btGeneric6DofConstraint_getUseFrameOffset(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -1772,9 +1905,14 @@ YYEXPORT void btGeneric6DofConstraint_getUseFrameOffset(
 /// @func btGeneric6DofConstraint_setUseFrameOffset(generic6DofConstraint, frameOffsetOnOff)
 ///
 /// @desc
+/// Sets whether to use the frame offset in the generic 6-degree-of-freedom 
+/// constraint.
 ///
 /// @param {Pointer} generic6DofConstraint
-/// @param {Bool} frameOffsetOnOff
+///     Pointer to the btGeneric6DofConstraint instance.
+///
+/// @param {Bool} frameOffsetOnOff A boolean indicating whether to use the frame
+/// offset (true) or not (false).
 YYEXPORT void btGeneric6DofConstraint_setUseFrameOffset(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -1786,10 +1924,14 @@ YYEXPORT void btGeneric6DofConstraint_setUseFrameOffset(
 /// @func btGeneric6DofConstraint_getUseLinearReferenceFrameA(generic6DofConstraint)
 ///
 /// @desc
+/// Checks if the linear reference frame A is being used in the generic 
+/// 6-degree-of-freedom constraint.
 ///
 /// @param {Pointer} generic6DofConstraint
+///     Pointer to the btGeneric6DofConstraint instance.
 ///
-/// @return {Bool}
+/// @return {Bool} Returns true if the linear reference frame A is being used,
+/// false otherwise.
 YYEXPORT void btGeneric6DofConstraint_getUseLinearReferenceFrameA(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -1801,9 +1943,14 @@ YYEXPORT void btGeneric6DofConstraint_getUseLinearReferenceFrameA(
 /// @func btGeneric6DofConstraint_setUseLinearReferenceFrameA(generic6DofConstraint, linearReferenceFrameA)
 ///
 /// @desc
+/// Sets whether to use the linear reference frame A in the generic 6-degree-of-
+/// freedom  constraint.
 ///
 /// @param {Pointer} generic6DofConstraint
+///     Pointer to the btGeneric6DofConstraint instance.
 /// @param {Bool} linearReferenceFrameA
+///     A boolean indicating whether to use the linear reference frame A (true)
+/// or not (false).
 YYEXPORT void btGeneric6DofConstraint_setUseLinearReferenceFrameA(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -1818,10 +1965,14 @@ YYEXPORT void btGeneric6DofConstraint_setUseLinearReferenceFrameA(
 /// @func btGeneric6DofConstraint_setAxis(generic6DofConstraint, axis1, axis2)
 ///
 /// @desc
+/// Sets the axis vectors for the generic 6-degree-of-freedom constraint.
 ///
 /// @param {Pointer} generic6DofConstraint
+///     Pointer to the btGeneric6DofConstraint instance.
 /// @param {Pointer} axis1
+///     Pointer to the btVector3 representing the first axis vector.
 /// @param {Pointer} axis2
+///     Pointer to the btVector3 representing the second axis vector.
 YYEXPORT void btGeneric6DofConstraint_setAxis(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -1834,10 +1985,12 @@ YYEXPORT void btGeneric6DofConstraint_setAxis(
 /// @func btGeneric6DofConstraint_getFlags(generic6DofConstraint)
 ///
 /// @desc
+/// Gets the flags associated with the generic 6-degree-of-freedom constraint.
 ///
 /// @param {Pointer} generic6DofConstraint
+///     Pointer to the btGeneric6DofConstraint instance.
 ///
-/// @return {Real}
+/// @return {Real} The flags associated with the constraint.
 YYEXPORT void btGeneric6DofConstraint_getFlags(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
