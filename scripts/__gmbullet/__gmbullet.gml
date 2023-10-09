@@ -118,3 +118,62 @@ enum bt6DofFlags
 	/// constraint in the 6 degrees of freedom constraint.
 	BT_6DOF_FLAGS_ERP_STOP = 4
 };
+
+////////////////////////////////////////////////////////////////////////////////
+//
+// btSliderConstraint
+//
+
+/// @macro {Real} Default softness value for the slider constraint.
+#macro SLIDER_CONSTRAINT_DEF_SOFTNESS 1.0
+
+/// @macro {Real} Default damping value for the slider constraint.
+#macro SLIDER_CONSTRAINT_DEF_DAMPING 1.0
+
+/// @macro {Real} Default restitution value for the slider constraint.
+#macro SLIDER_CONSTRAINT_DEF_RESTITUTION 0.7
+
+/// @macro {Real} Default constraint force mixing value for the slider
+/// constraint.
+#macro SLIDER_CONSTRAINT_DEF_CFM 0.0
+
+/// @enum Enum representing flags for the slider constraint.
+enum btSliderFlags
+{
+	/// @member Flag indicating Constraint Force Mixing (CFM) for linear
+	/// direction in the slider.
+	BT_SLIDER_FLAGS_CFM_DIRLIN = 0b1,
+	/// @member Flag indicating Error Reduction Parameter (ERP) for linear
+	/// direction in the slider.
+	BT_SLIDER_FLAGS_ERP_DIRLIN = 0b10,
+	/// @member Flag indicating Constraint Force Mixing (CFM) for angular
+	/// direction in the slider.
+	BT_SLIDER_FLAGS_CFM_DIRANG = 0b100,
+	/// @member Flag indicating Error Reduction Parameter (ERP) for angular
+	/// direction in the slider.
+	BT_SLIDER_FLAGS_ERP_DIRANG = 0b1000,
+	/// @member Flag indicating Constraint Force Mixing (CFM) for orthogonal
+	/// linear direction in the slider.
+	BT_SLIDER_FLAGS_CFM_ORTLIN = 0b10000,
+	/// @member Flag indicating Error Reduction Parameter (ERP) for orthogonal
+	/// linear direction in the slider.
+	BT_SLIDER_FLAGS_ERP_ORTLIN = 0b10000,
+	/// @member Flag indicating Constraint Force Mixing (CFM) for orthogonal
+	/// angular direction in the slider.
+	BT_SLIDER_FLAGS_CFM_ORTANG = 0b100000,
+	/// @member Flag indicating Error Reduction Parameter (ERP) for orthogonal
+	/// angular direction in the slider.
+	BT_SLIDER_FLAGS_ERP_ORTANG = 0b1000000,
+	/// @member Flag indicating Constraint Force Mixing (CFM) for linear limit
+	/// in the slider.
+	BT_SLIDER_FLAGS_CFM_LIMLIN = 0b10000000,
+	/// @member Flag indicating Error Reduction Parameter (ERP) for linear limit
+	/// in the slider.
+	BT_SLIDER_FLAGS_ERP_LIMLIN = 0b100000000,
+	/// @member Flag indicating Constraint Force Mixing (CFM) for angular limit
+	/// in the slider.
+	BT_SLIDER_FLAGS_CFM_LIMANG = 0b1000000000,
+	/// @member Flag indicating Error Reduction Parameter (ERP) for angular
+	/// limit in the slider.
+	BT_SLIDER_FLAGS_ERP_LIMANG = 0b10000000000
+};

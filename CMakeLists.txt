@@ -31,6 +31,7 @@ set(SOURCES
     src/GMBullet/exports_btRaycastVehicle.cpp
     src/GMBullet/exports_btRigidBody.cpp
     src/GMBullet/exports_btSequentialImpulseConstraintSolver.cpp
+    src/GMBullet/exports_btSliderConstraint.cpp
     src/GMBullet/exports_btSphereShape.cpp
     src/GMBullet/exports_btTransform.cpp
     src/GMBullet/exports_btTriangleMesh.cpp
