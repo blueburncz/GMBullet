@@ -84,10 +84,14 @@ YYEXPORT void btSliderConstraint_destroy(
 /// @func btSliderConstraint_getRigidBodyA(sliderConstraint)
 ///
 /// @desc
+/// Gets the pointer to the rigid body associated with the first end of the
+/// slider constraint.
 ///
 /// @param {Pointer} sliderConstraint
+///     Pointer to the btSliderConstraint instance.
 ///
-/// @return {Pointer}
+/// @return {Pointer} Returns a pointer to the btRigidBody associated with the
+/// first end of the slider constraint.
 YYEXPORT void btSliderConstraint_getRigidBodyA(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -99,10 +103,14 @@ YYEXPORT void btSliderConstraint_getRigidBodyA(
 /// @func btSliderConstraint_getRigidBodyB(sliderConstraint)
 ///
 /// @desc
+/// Gets the pointer to the rigid body associated with the second end of the
+/// slider constraint.
 ///
 /// @param {Pointer} sliderConstraint
+///     Pointer to the btSliderConstraint instance.
 ///
-/// @return {Pointer}
+/// @return {Pointer} Returns a pointer to the btRigidBody associated with the
+/// second end of the slider constraint.
 YYEXPORT void btSliderConstraint_getRigidBodyB(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -114,10 +122,14 @@ YYEXPORT void btSliderConstraint_getRigidBodyB(
 /// @func btSliderConstraint_getCalculatedTransformA(sliderConstraint)
 ///
 /// @desc
+/// Gets the calculated transform of the first rigid body in the slider
+/// constraint.
 ///
 /// @param {Pointer} sliderConstraint
+///     Pointer to the btSliderConstraint instance.
 ///
-/// @return {Pointer}
+/// @return {Pointer} Returns a pointer to the calculated btTransform of the
+/// first rigid body in the slider constraint.
 YYEXPORT void btSliderConstraint_getCalculatedTransformA(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -129,10 +141,14 @@ YYEXPORT void btSliderConstraint_getCalculatedTransformA(
 /// @func btSliderConstraint_getCalculatedTransformB(sliderConstraint)
 ///
 /// @desc
+/// Gets the calculated transform of the second rigid body in the slider
+/// constraint.
 ///
 /// @param {Pointer} sliderConstraint
+///     Pointer to the btSliderConstraint instance.
 ///
-/// @return {Pointer}
+/// @return {Pointer} Returns a pointer to the calculated btTransform of the
+/// second rigid body in the slider constraint.
 YYEXPORT void btSliderConstraint_getCalculatedTransformB(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -144,38 +160,54 @@ YYEXPORT void btSliderConstraint_getCalculatedTransformB(
 /// @func btSliderConstraint_getFrameOffsetA(sliderConstraint)
 ///
 /// @desc
+/// Gets the frame offset A of a btSliderConstraint instance. The frame offset A
+/// represents the transformation of the first rigid body in the slider
+/// constraint.
 ///
 /// @param {Pointer} sliderConstraint
+///     A pointer to the btSliderConstraint instance.
 ///
-/// @return {Pointer}
+/// @return {Pointer} Returns a pointer to the btTransform representing the
+/// frame offset A of the slider constraint's first rigid body.
 YYEXPORT void btSliderConstraint_getFrameOffsetA(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
 	auto sliderConstraint = (btSliderConstraint*)YYGetPtr(arg, 0);
 	result.kind = VALUE_PTR;
-	result.ptr = &sliderConstraint->getFrameOffsetA();
+	result.ptr = (btTransform*)&sliderConstraint->getFrameOffsetA();
 }
 
 /// @func btSliderConstraint_getFrameOffsetB(sliderConstraint)
 ///
 /// @desc
+/// Gets the frame offset B of a btSliderConstraint instance. The frame offset B
+/// represents the transformation of the second rigid body in the slider
+/// constraint.
 ///
 /// @param {Pointer} sliderConstraint
+///     A pointer to the btSliderConstraint instance.
 ///
-/// @return {Pointer}
+/// @return {Pointer} Returns a pointer to the btTransform representing the
+/// frame offset B of the slider constraint's second rigid body.
 YYEXPORT void btSliderConstraint_getFrameOffsetB(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
 	auto sliderConstraint = (btSliderConstraint*)YYGetPtr(arg, 0);
 	result.kind = VALUE_PTR;
-	result.ptr = &sliderConstraint->getFrameOffsetB();
+	result.ptr = (btTransform*)&sliderConstraint->getFrameOffsetB();
 }
 
 /// @func btSliderConstraint_getLowerLinLimit(sliderConstraint)
 ///
 /// @desc
+/// Gets the lower linear limit of a btSliderConstraint instance. The lower
+/// linear limit represents the minimum allowable linear movement along the
+/// slider's axis.
 ///
 /// @param {Pointer} sliderConstraint
+///     A pointer to the btSliderConstraint instance.
+///
+/// @return {Real} Returns the lower linear limit as a real value.
 YYEXPORT void btSliderConstraint_getLowerLinLimit(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -187,9 +219,14 @@ YYEXPORT void btSliderConstraint_getLowerLinLimit(
 /// @func btSliderConstraint_setLowerLinLimit(sliderConstraint, lowerLimit)
 ///
 /// @desc
+/// Sets the lower linear limit of a btSliderConstraint instance. The lower
+/// linear limit represents the minimum allowable linear movement along the
+/// slider's axis.
 ///
 /// @param {Pointer} sliderConstraint
+///     A pointer to the btSliderConstraint instance.
 /// @param {Real} lowerLimit
+///     The lower linear limit to be set.
 YYEXPORT void btSliderConstraint_setLowerLinLimit(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -201,10 +238,14 @@ YYEXPORT void btSliderConstraint_setLowerLinLimit(
 /// @func btSliderConstraint_getUpperLinLimit(sliderConstraint)
 ///
 /// @desc
+/// Gets the upper linear limit of a btSliderConstraint instance. The upper
+/// linear limit represents the maximum allowable linear movement along the
+/// slider's axis.
 ///
 /// @param {Pointer} sliderConstraint
+///     A pointer to the btSliderConstraint instance.
 ///
-/// @return {Real}
+/// @return {Real} Returns the upper linear limit as a real value.
 YYEXPORT void btSliderConstraint_getUpperLinLimit(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -216,9 +257,14 @@ YYEXPORT void btSliderConstraint_getUpperLinLimit(
 /// @func btSliderConstraint_setUpperLinLimit(sliderConstraint, upperLimit)
 ///
 /// @desc
+/// Sets the upper linear limit of a btSliderConstraint instance. The upper
+/// linear limit represents the maximum allowable linear movement along the
+/// slider's axis.
 ///
 /// @param {Pointer} sliderConstraint
+///     A pointer to the btSliderConstraint instance.
 /// @param {Real} upperLimit
+///     The upper linear limit to be set.
 YYEXPORT void btSliderConstraint_setUpperLinLimit(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -230,10 +276,14 @@ YYEXPORT void btSliderConstraint_setUpperLinLimit(
 /// @func btSliderConstraint_getLowerAngLimit(sliderConstraint)
 ///
 /// @desc
+/// Gets the lower angular limit of a btSliderConstraint instance. The lower
+/// angular limit represents the minimum allowable angular movement around the
+/// slider's axis.
 ///
 /// @param {Pointer} sliderConstraint
+///     A pointer to the btSliderConstraint instance.
 ///
-/// @return {Real}
+/// @return {Real} Returns the lower angular limit as a real value.
 YYEXPORT void btSliderConstraint_getLowerAngLimit(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -241,13 +291,17 @@ YYEXPORT void btSliderConstraint_getLowerAngLimit(
 	result.kind = VALUE_REAL;
 	result.val = sliderConstraint->getLowerAngLimit();
 }
-
 /// @func btSliderConstraint_setLowerAngLimit(sliderConstraint, lowerLimit)
 ///
 /// @desc
+/// Sets the lower angular limit of a btSliderConstraint instance. The lower
+/// angular limit represents the minimum allowable angular movement around the
+/// slider's axis.
 ///
 /// @param {Pointer} sliderConstraint
+///     A pointer to the btSliderConstraint instance.
 /// @param {Real} lowerLimit
+///     The lower angular limit to be set.
 YYEXPORT void btSliderConstraint_setLowerAngLimit(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -259,10 +313,14 @@ YYEXPORT void btSliderConstraint_setLowerAngLimit(
 /// @func btSliderConstraint_getUpperAngLimit(sliderConstraint)
 ///
 /// @desc
+/// Gets the upper angular limit of a btSliderConstraint instance. The upper
+/// angular limit represents the maximum allowable angular movement around the
+/// slider's axis.
 ///
 /// @param {Pointer} sliderConstraint
+///     A pointer to the btSliderConstraint instance.
 ///
-/// @return {Real}
+/// @return {Real} Returns the upper angular limit as a real value.
 YYEXPORT void btSliderConstraint_getUpperAngLimit(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -274,9 +332,14 @@ YYEXPORT void btSliderConstraint_getUpperAngLimit(
 /// @func btSliderConstraint_setUpperAngLimit(sliderConstraint, upperLimit)
 ///
 /// @desc
+/// Sets the upper angular limit of a btSliderConstraint instance. The upper
+/// angular limit represents the maximum allowable angular movement around the
+/// slider's axis.
 ///
 /// @param {Pointer} sliderConstraint
+///     A pointer to the btSliderConstraint instance.
 /// @param {Real} upperLimit
+///     The upper angular limit to be set.
 YYEXPORT void btSliderConstraint_setUpperAngLimit(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -288,10 +351,14 @@ YYEXPORT void btSliderConstraint_setUpperAngLimit(
 /// @func btSliderConstraint_getUseLinearReferenceFrameA(sliderConstraint)
 ///
 /// @desc
+/// Gets whether the linear reference frame A is being used in the slider
+/// constraint.
 ///
 /// @param {Pointer} sliderConstraint
+///     A pointer to the btSliderConstraint instance.
 ///
-/// @return {Bool}
+/// @return {Bool} Returns a boolean indicating whether the linear reference
+/// frame A is being used.
 YYEXPORT void btSliderConstraint_getUseLinearReferenceFrameA(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -303,10 +370,12 @@ YYEXPORT void btSliderConstraint_getUseLinearReferenceFrameA(
 /// @func btSliderConstraint_getSoftnessDirLin(sliderConstraint)
 ///
 /// @desc
+/// Gets the softness value for linear direction in the slider constraint.
 ///
 /// @param {Pointer} sliderConstraint
+///     A pointer to the btSliderConstraint instance.
 ///
-/// @return {Real}
+/// @return {Real} Returns the softness value for linear direction.
 YYEXPORT void btSliderConstraint_getSoftnessDirLin(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -318,10 +387,12 @@ YYEXPORT void btSliderConstraint_getSoftnessDirLin(
 /// @func btSliderConstraint_getRestitutionDirLin(sliderConstraint)
 ///
 /// @desc
+/// Gets the restitution value for linear direction in the slider constraint.
 ///
 /// @param {Pointer} sliderConstraint
+///     A pointer to the btSliderConstraint instance.
 ///
-/// @return {Real}
+/// @return {Real} Returns the restitution value for linear direction.
 YYEXPORT void btSliderConstraint_getRestitutionDirLin(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -333,10 +404,12 @@ YYEXPORT void btSliderConstraint_getRestitutionDirLin(
 /// @func btSliderConstraint_getDampingDirLin(sliderConstraint)
 ///
 /// @desc
+/// Gets the damping value for linear direction in the slider constraint.
 ///
 /// @param {Pointer} sliderConstraint
+///     A pointer to the btSliderConstraint instance.
 ///
-/// @return {Real}
+/// @return {Real} Returns the damping value for linear direction.
 YYEXPORT void btSliderConstraint_getDampingDirLin(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -348,10 +421,12 @@ YYEXPORT void btSliderConstraint_getDampingDirLin(
 /// @func btSliderConstraint_getSoftnessDirAng(sliderConstraint)
 ///
 /// @desc
+/// Gets the softness value for angular direction in the slider constraint.
 ///
 /// @param {Pointer} sliderConstraint
+///     A pointer to the btSliderConstraint instance.
 ///
-/// @return {Real}
+/// @return {Real} Returns the softness value for angular direction.
 YYEXPORT void btSliderConstraint_getSoftnessDirAng(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -363,10 +438,12 @@ YYEXPORT void btSliderConstraint_getSoftnessDirAng(
 /// @func btSliderConstraint_getRestitutionDirAng(sliderConstraint)
 ///
 /// @desc
+/// Gets the restitution value for angular direction in the slider constraint.
 ///
 /// @param {Pointer} sliderConstraint
+///     A pointer to the btSliderConstraint instance.
 ///
-/// @return {Real}
+/// @return {Real} Returns the restitution value for angular direction.
 YYEXPORT void btSliderConstraint_getRestitutionDirAng(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -378,10 +455,12 @@ YYEXPORT void btSliderConstraint_getRestitutionDirAng(
 /// @func btSliderConstraint_getDampingDirAng(sliderConstraint)
 ///
 /// @desc
+/// Gets the damping value for angular direction in the slider constraint.
 ///
 /// @param {Pointer} sliderConstraint
+///     A pointer to the btSliderConstraint instance.
 ///
-/// @return {Real}
+/// @return {Real} Returns the damping value for angular direction.
 YYEXPORT void btSliderConstraint_getDampingDirAng(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -393,10 +472,12 @@ YYEXPORT void btSliderConstraint_getDampingDirAng(
 /// @func btSliderConstraint_getSoftnessLimLin(sliderConstraint)
 ///
 /// @desc
+/// Gets the softness value for linear limit in the slider constraint.
 ///
 /// @param {Pointer} sliderConstraint
+///     A pointer to the btSliderConstraint instance.
 ///
-/// @return {Real}
+/// @return {Real} Returns the softness value for linear limit.
 YYEXPORT void btSliderConstraint_getSoftnessLimLin(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -408,10 +489,12 @@ YYEXPORT void btSliderConstraint_getSoftnessLimLin(
 /// @func btSliderConstraint_getRestitutionLimLin(sliderConstraint)
 ///
 /// @desc
+/// Gets the restitution value for linear limit in the slider constraint.
 ///
 /// @param {Pointer} sliderConstraint
+///     A pointer to the btSliderConstraint instance.
 ///
-/// @return {Real}
+/// @return {Real} Returns the restitution value for linear limit.
 YYEXPORT void btSliderConstraint_getRestitutionLimLin(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -423,10 +506,12 @@ YYEXPORT void btSliderConstraint_getRestitutionLimLin(
 /// @func btSliderConstraint_getDampingLimLin(sliderConstraint)
 ///
 /// @desc
+/// Gets the damping value for linear limit in the slider constraint.
 ///
 /// @param {Pointer} sliderConstraint
+///     A pointer to the btSliderConstraint instance.
 ///
-/// @return {Real}
+/// @return {Real} Returns the damping value for linear limit.
 YYEXPORT void btSliderConstraint_getDampingLimLin(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -438,10 +523,12 @@ YYEXPORT void btSliderConstraint_getDampingLimLin(
 /// @func btSliderConstraint_getSoftnessLimAng(sliderConstraint)
 ///
 /// @desc
+/// Gets the softness value for angular limit in the slider constraint.
 ///
 /// @param {Pointer} sliderConstraint
+///     A pointer to the btSliderConstraint instance.
 ///
-/// @return {Real}
+/// @return {Real} Returns the softness value for angular limit.
 YYEXPORT void btSliderConstraint_getSoftnessLimAng(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -453,10 +540,12 @@ YYEXPORT void btSliderConstraint_getSoftnessLimAng(
 /// @func btSliderConstraint_getRestitutionLimAng(sliderConstraint)
 ///
 /// @desc
+/// Gets the restitution value for angular limit in the slider constraint.
 ///
 /// @param {Pointer} sliderConstraint
+///     A pointer to the btSliderConstraint instance.
 ///
-/// @return {Real}
+/// @return {Real} Returns the restitution value for angular limit.
 YYEXPORT void btSliderConstraint_getRestitutionLimAng(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -468,10 +557,12 @@ YYEXPORT void btSliderConstraint_getRestitutionLimAng(
 /// @func btSliderConstraint_getDampingLimAng(sliderConstraint)
 ///
 /// @desc
+/// Gets the damping value for angular limit in the slider constraint.
 ///
 /// @param {Pointer} sliderConstraint
+///     A pointer to the btSliderConstraint instance.
 ///
-/// @return {Real}
+/// @return {Real} Returns the damping value for angular limit.
 YYEXPORT void btSliderConstraint_getDampingLimAng(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -483,10 +574,13 @@ YYEXPORT void btSliderConstraint_getDampingLimAng(
 /// @func btSliderConstraint_getSoftnessOrthoLin(sliderConstraint)
 ///
 /// @desc
+/// Gets the softness value for orthogonal linear movement in the slider
+/// constraint.
 ///
 /// @param {Pointer} sliderConstraint
+///     A pointer to the btSliderConstraint instance.
 ///
-/// @return {Real}
+/// @return {Real} Returns the softness value for orthogonal linear movement.
 YYEXPORT void btSliderConstraint_getSoftnessOrthoLin(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -498,10 +592,13 @@ YYEXPORT void btSliderConstraint_getSoftnessOrthoLin(
 /// @func btSliderConstraint_getRestitutionOrthoLin(sliderConstraint)
 ///
 /// @desc
+/// Gets the restitution value for orthogonal linear movement in the slider
+/// constraint.
 ///
 /// @param {Pointer} sliderConstraint
+///     A pointer to the btSliderConstraint instance.
 ///
-/// @return {Real}
+/// @return {Real} Returns the restitution value for orthogonal linear movement.
 YYEXPORT void btSliderConstraint_getRestitutionOrthoLin(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -513,10 +610,13 @@ YYEXPORT void btSliderConstraint_getRestitutionOrthoLin(
 /// @func btSliderConstraint_getDampingOrthoLin(sliderConstraint)
 ///
 /// @desc
+/// Gets the damping value for orthogonal linear movement in the slider
+/// constraint.
 ///
 /// @param {Pointer} sliderConstraint
+///     A pointer to the btSliderConstraint instance.
 ///
-/// @return {Real}
+/// @return {Real} Returns the damping value for orthogonal linear movement.
 YYEXPORT void btSliderConstraint_getDampingOrthoLin(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -528,10 +628,13 @@ YYEXPORT void btSliderConstraint_getDampingOrthoLin(
 /// @func btSliderConstraint_getSoftnessOrthoAng(sliderConstraint)
 ///
 /// @desc
+/// Gets the softness value for orthogonal angular movement in the slider
+/// constraint.
 ///
 /// @param {Pointer} sliderConstraint
+///     A pointer to the btSliderConstraint instance.
 ///
-/// @return {Real}
+/// @return {Real} Returns the softness value for orthogonal angular movement.
 YYEXPORT void btSliderConstraint_getSoftnessOrthoAng(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -543,10 +646,13 @@ YYEXPORT void btSliderConstraint_getSoftnessOrthoAng(
 /// @func btSliderConstraint_getRestitutionOrthoAng(sliderConstraint)
 ///
 /// @desc
+/// Gets the restitution value for orthogonal angular movement in the slider
+/// constraint.
 ///
 /// @param {Pointer} sliderConstraint
+///     A pointer to the btSliderConstraint instance.
 ///
-/// @return {Real}
+/// @return {Real} Returns the restitution value for orthogonal angular movement.
 YYEXPORT void btSliderConstraint_getRestitutionOrthoAng(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -558,10 +664,13 @@ YYEXPORT void btSliderConstraint_getRestitutionOrthoAng(
 /// @func btSliderConstraint_getDampingOrthoAng(sliderConstraint)
 ///
 /// @desc
+/// Gets the damping value for orthogonal angular movement in the slider
+/// constraint.
 ///
 /// @param {Pointer} sliderConstraint
+///     A pointer to the btSliderConstraint instance.
 ///
-/// @return {Real}
+/// @return {Real} Returns the damping value for orthogonal angular movement.
 YYEXPORT void btSliderConstraint_getDampingOrthoAng(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -573,9 +682,12 @@ YYEXPORT void btSliderConstraint_getDampingOrthoAng(
 /// @func btSliderConstraint_setSoftnessDirLin(sliderConstraint, softnessDirLin)
 ///
 /// @desc
+/// Sets the softness value for linear direction in the slider constraint.
 ///
 /// @param {Pointer} sliderConstraint
+///     A pointer to the btSliderConstraint instance.
 /// @param {Real} softnessDirLin
+///     The softness value for linear direction to be set.
 YYEXPORT void btSliderConstraint_setSoftnessDirLin(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -587,9 +699,12 @@ YYEXPORT void btSliderConstraint_setSoftnessDirLin(
 /// @func btSliderConstraint_setRestitutionDirLin(sliderConstraint, restitutionDirLin)
 ///
 /// @desc
+/// Sets the restitution value for linear direction in the slider constraint.
 ///
 /// @param {Pointer} sliderConstraint
+///     A pointer to the btSliderConstraint instance.
 /// @param {Real} restitutionDirLin
+///     The restitution value for linear direction to be set.
 YYEXPORT void btSliderConstraint_setRestitutionDirLin(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -601,9 +716,12 @@ YYEXPORT void btSliderConstraint_setRestitutionDirLin(
 /// @func btSliderConstraint_setDampingDirLin(sliderConstraint, dampingDirLin)
 ///
 /// @desc
+/// Sets the damping value for linear direction in the slider constraint.
 ///
 /// @param {Pointer} sliderConstraint
+///     A pointer to the btSliderConstraint instance.
 /// @param {Real} dampingDirLin
+///     The damping value for linear direction to be set.
 YYEXPORT void btSliderConstraint_setDampingDirLin(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -615,9 +733,12 @@ YYEXPORT void btSliderConstraint_setDampingDirLin(
 /// @func btSliderConstraint_setSoftnessDirAng(sliderConstraint, softnessDirAng)
 ///
 /// @desc
+/// Sets the softness value for angular direction in the slider constraint.
 ///
 /// @param {Pointer} sliderConstraint
+///     A pointer to the btSliderConstraint instance.
 /// @param {Real} softnessDirAng
+///     The softness value for angular direction to be set.
 YYEXPORT void btSliderConstraint_setSoftnessDirAng(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -629,9 +750,12 @@ YYEXPORT void btSliderConstraint_setSoftnessDirAng(
 /// @func btSliderConstraint_setRestitutionDirAng(sliderConstraint, restitutionDirAng)
 ///
 /// @desc
+/// Sets the restitution value for angular direction in the slider constraint.
 ///
 /// @param {Pointer} sliderConstraint
+///     A pointer to the btSliderConstraint instance.
 /// @param {Real} restitutionDirAng
+///     The restitution value for angular direction to be set.
 YYEXPORT void btSliderConstraint_setRestitutionDirAng(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -643,9 +767,12 @@ YYEXPORT void btSliderConstraint_setRestitutionDirAng(
 /// @func btSliderConstraint_setDampingDirAng(sliderConstraint, dampingDirAng)
 ///
 /// @desc
+/// Sets the damping value for angular direction in the slider constraint.
 ///
 /// @param {Pointer} sliderConstraint
+///     A pointer to the btSliderConstraint instance.
 /// @param {Real} dampingDirAng
+///     The damping value for angular direction to be set.
 YYEXPORT void btSliderConstraint_setDampingDirAng(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -657,9 +784,12 @@ YYEXPORT void btSliderConstraint_setDampingDirAng(
 /// @func btSliderConstraint_setSoftnessLimLin(sliderConstraint, softnessLimLin)
 ///
 /// @desc
+/// Sets the softness value for linear limit in the slider constraint.
 ///
 /// @param {Pointer} sliderConstraint
+///     A pointer to the btSliderConstraint instance.
 /// @param {Real} softnessLimLin
+///     The softness value for linear limit to be set.
 YYEXPORT void btSliderConstraint_setSoftnessLimLin(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -671,9 +801,12 @@ YYEXPORT void btSliderConstraint_setSoftnessLimLin(
 /// @func btSliderConstraint_setRestitutionLimLin(sliderConstraint, restitutionLimLin)
 ///
 /// @desc
+/// Sets the restitution value for linear limit in the slider constraint.
 ///
 /// @param {Pointer} sliderConstraint
+///     A pointer to the btSliderConstraint instance.
 /// @param {Real} restitutionLimLin
+///     The restitution value for linear limit to be set.
 YYEXPORT void btSliderConstraint_setRestitutionLimLin(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -685,9 +818,12 @@ YYEXPORT void btSliderConstraint_setRestitutionLimLin(
 /// @func btSliderConstraint_setDampingLimLin(sliderConstraint, dampingLimLin)
 ///
 /// @desc
+/// Sets the damping value for linear limit in the slider constraint.
 ///
 /// @param {Pointer} sliderConstraint
+///     A pointer to the btSliderConstraint instance.
 /// @param {Real} dampingLimLin
+///     The damping value for linear limit to be set.
 YYEXPORT void btSliderConstraint_setDampingLimLin(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -699,9 +835,12 @@ YYEXPORT void btSliderConstraint_setDampingLimLin(
 /// @func btSliderConstraint_setSoftnessLimAng(sliderConstraint, softnessLimAng)
 ///
 /// @desc
+/// Sets the softness value for angular limit in the slider constraint.
 ///
 /// @param {Pointer} sliderConstraint
+///     A pointer to the btSliderConstraint instance.
 /// @param {Real} softnessLimAng
+///     The softness value for angular limit to be set.
 YYEXPORT void btSliderConstraint_setSoftnessLimAng(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -713,9 +852,12 @@ YYEXPORT void btSliderConstraint_setSoftnessLimAng(
 /// @func btSliderConstraint_setRestitutionLimAng(sliderConstraint, restitutionLimAng)
 ///
 /// @desc
+/// Sets the restitution value for angular limit in the slider constraint.
 ///
 /// @param {Pointer} sliderConstraint
+///     A pointer to the btSliderConstraint instance.
 /// @param {Real} restitutionLimAng
+///     The restitution value for angular limit to be set.
 YYEXPORT void btSliderConstraint_setRestitutionLimAng(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -727,9 +869,12 @@ YYEXPORT void btSliderConstraint_setRestitutionLimAng(
 /// @func btSliderConstraint_setDampingLimAng(sliderConstraint, dampingLimAng)
 ///
 /// @desc
+/// Sets the damping value for angular limit in the slider constraint.
 ///
 /// @param {Pointer} sliderConstraint
+///     A pointer to the btSliderConstraint instance.
 /// @param {Real} dampingLimAng
+///     The damping value for angular limit to be set.
 YYEXPORT void btSliderConstraint_setDampingLimAng(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -741,9 +886,13 @@ YYEXPORT void btSliderConstraint_setDampingLimAng(
 /// @func btSliderConstraint_setSoftnessOrthoLin(sliderConstraint, softnessOrthoLin)
 ///
 /// @desc
+/// Sets the softness value for orthogonal linear movement in the slider
+/// constraint.
 ///
 /// @param {Pointer} sliderConstraint
+///     A pointer to the btSliderConstraint instance.
 /// @param {Real} softnessOrthoLin
+///     The softness value for orthogonal linear movement to be set.
 YYEXPORT void btSliderConstraint_setSoftnessOrthoLin(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -755,9 +904,13 @@ YYEXPORT void btSliderConstraint_setSoftnessOrthoLin(
 /// @func btSliderConstraint_setRestitutionOrthoLin(sliderConstraint, restitutionOrthoLin)
 ///
 /// @desc
+/// Sets the restitution value for orthogonal linear movement in the slider
+/// constraint.
 ///
 /// @param {Pointer} sliderConstraint
+///     A pointer to the btSliderConstraint instance.
 /// @param {Real} restitutionOrthoLin
+///     The restitution value for orthogonal linear movement to be set.
 YYEXPORT void btSliderConstraint_setRestitutionOrthoLin(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -769,9 +922,12 @@ YYEXPORT void btSliderConstraint_setRestitutionOrthoLin(
 /// @func btSliderConstraint_setDampingOrthoLin(sliderConstraint, dampingOrthoLin)
 ///
 /// @desc
+/// Sets the damping value for orthogonal linear movement in the slider constraint.
 ///
 /// @param {Pointer} sliderConstraint
+///     A pointer to the btSliderConstraint instance.
 /// @param {Real} dampingOrthoLin
+///     The damping value for orthogonal linear movement to be set.
 YYEXPORT void btSliderConstraint_setDampingOrthoLin(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -783,9 +939,13 @@ YYEXPORT void btSliderConstraint_setDampingOrthoLin(
 /// @func btSliderConstraint_setSoftnessOrthoAng(sliderConstraint, softnessOrthoAng)
 ///
 /// @desc
+/// Sets the softness value for orthogonal angular movement in the slider
+/// constraint.
 ///
 /// @param {Pointer} sliderConstraint
+///     A pointer to the btSliderConstraint instance.
 /// @param {Real} softnessOrthoAng
+///     The softness value for orthogonal angular movement to be set.
 YYEXPORT void btSliderConstraint_setSoftnessOrthoAng(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -797,9 +957,13 @@ YYEXPORT void btSliderConstraint_setSoftnessOrthoAng(
 /// @func btSliderConstraint_setRestitutionOrthoAng(sliderConstraint, restitutionOrthoAng)
 ///
 /// @desc
+/// Sets the restitution value for orthogonal angular movement in the slider
+/// constraint.
 ///
 /// @param {Pointer} sliderConstraint
+///     A pointer to the btSliderConstraint instance.
 /// @param {Real} restitutionOrthoAng
+///     The restitution value for orthogonal angular movement to be set.
 YYEXPORT void btSliderConstraint_setRestitutionOrthoAng(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -811,9 +975,13 @@ YYEXPORT void btSliderConstraint_setRestitutionOrthoAng(
 /// @func btSliderConstraint_setDampingOrthoAng(sliderConstraint, dampingOrthoAng)
 ///
 /// @desc
+/// Sets the damping value for orthogonal angular movement in the slider
+/// constraint.
 ///
 /// @param {Pointer} sliderConstraint
+///     A pointer to the btSliderConstraint instance.
 /// @param {Real} dampingOrthoAng
+///     The damping value for orthogonal angular movement to be set.
 YYEXPORT void btSliderConstraint_setDampingOrthoAng(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -825,9 +993,13 @@ YYEXPORT void btSliderConstraint_setDampingOrthoAng(
 /// @func btSliderConstraint_setPoweredLinMotor(sliderConstraint, onOff)
 ///
 /// @desc
+/// Sets whether the linear motor for the slider constraint is powered or not.
 ///
 /// @param {Pointer} sliderConstraint
+///     A pointer to the btSliderConstraint instance.
 /// @param {Bool} onOff
+///     A boolean indicating whether the linear motor is powered (true) or not
+///     (false).
 YYEXPORT void btSliderConstraint_setPoweredLinMotor(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -839,10 +1011,13 @@ YYEXPORT void btSliderConstraint_setPoweredLinMotor(
 /// @func btSliderConstraint_getPoweredLinMotor(sliderConstraint)
 ///
 /// @desc
+/// Gets whether the linear motor for the slider constraint is powered or not.
 ///
 /// @param {Pointer} sliderConstraint
+///     A pointer to the btSliderConstraint instance.
 ///
-/// @return {Real}
+/// @return {Bool} Returns a boolean indicating whether the linear motor is
+/// powered (true) or not (false).
 YYEXPORT void btSliderConstraint_getPoweredLinMotor(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -854,9 +1029,12 @@ YYEXPORT void btSliderConstraint_getPoweredLinMotor(
 /// @func btSliderConstraint_setTargetLinMotorVelocity(sliderConstraint, targetLinMotorVelocity)
 ///
 /// @desc
+/// Sets the target linear motor velocity for the slider constraint.
 ///
 /// @param {Pointer} sliderConstraint
+///     A pointer to the btSliderConstraint instance.
 /// @param {Real} targetLinMotorVelocity
+///     The target linear motor velocity to be set.
 YYEXPORT void btSliderConstraint_setTargetLinMotorVelocity(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -868,10 +1046,13 @@ YYEXPORT void btSliderConstraint_setTargetLinMotorVelocity(
 /// @func btSliderConstraint_getTargetLinMotorVelocity(sliderConstraint)
 ///
 /// @desc
+/// Gets the target linear motor velocity for the slider constraint.
 ///
 /// @param {Pointer} sliderConstraint
+///     A pointer to the btSliderConstraint instance.
 ///
-/// @return {Real}
+/// @return {Real} Returns the target linear motor velocity set for the slider
+/// constraint.
 YYEXPORT void btSliderConstraint_getTargetLinMotorVelocity(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -883,9 +1064,12 @@ YYEXPORT void btSliderConstraint_getTargetLinMotorVelocity(
 /// @func btSliderConstraint_setMaxLinMotorForce(sliderConstraint, maxLinMotorForce)
 ///
 /// @desc
+/// Sets the maximum linear motor force for the slider constraint.
 ///
 /// @param {Pointer} sliderConstraint
+///     A pointer to the btSliderConstraint instance.
 /// @param {Real} maxLinMotorForce
+///     The maximum linear motor force to be set.
 YYEXPORT void btSliderConstraint_setMaxLinMotorForce(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -897,10 +1081,13 @@ YYEXPORT void btSliderConstraint_setMaxLinMotorForce(
 /// @func btSliderConstraint_getMaxLinMotorForce(sliderConstraint)
 ///
 /// @desc
+/// Gets the maximum linear motor force for the slider constraint.
 ///
 /// @param {Pointer} sliderConstraint
+///     A pointer to the btSliderConstraint instance.
 ///
-/// @return {Real}
+/// @return {Real} Returns the maximum linear motor force set for the slider
+/// constraint.
 YYEXPORT void btSliderConstraint_getMaxLinMotorForce(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -912,9 +1099,14 @@ YYEXPORT void btSliderConstraint_getMaxLinMotorForce(
 /// @func btSliderConstraint_setPoweredAngMotor(sliderConstraint, onOff)
 ///
 /// @desc
+/// Sets whether the angular motor for the slider constraint is powered on or
+/// off.
 ///
 /// @param {Pointer} sliderConstraint
+///     A pointer to the btSliderConstraint instance.
 /// @param {Bool} onOff
+///     A boolean indicating whether the angular motor is powered on (true) or
+///     off (false).
 YYEXPORT void btSliderConstraint_setPoweredAngMotor(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -926,10 +1118,14 @@ YYEXPORT void btSliderConstraint_setPoweredAngMotor(
 /// @func btSliderConstraint_getPoweredAngMotor(sliderConstraint)
 ///
 /// @desc
+/// Gets whether the angular motor for the slider constraint is powered on or
+/// off.
 ///
 /// @param {Pointer} sliderConstraint
+///     A pointer to the btSliderConstraint instance.
 ///
-/// @return {Bool}
+/// @return {Bool} Returns true if the angular motor is powered on, false if it
+/// is powered off.
 YYEXPORT void btSliderConstraint_getPoweredAngMotor(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -941,9 +1137,12 @@ YYEXPORT void btSliderConstraint_getPoweredAngMotor(
 /// @func btSliderConstraint_setTargetAngMotorVelocity(sliderConstraint, targetAngMotorVelocity)
 ///
 /// @desc
+/// Sets the target angular motor velocity for the slider constraint.
 ///
 /// @param {Pointer} sliderConstraint
+///     A pointer to the btSliderConstraint instance.
 /// @param {Real} targetAngMotorVelocity
+///     The target angular motor velocity to be set.
 YYEXPORT void btSliderConstraint_setTargetAngMotorVelocity(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -955,10 +1154,12 @@ YYEXPORT void btSliderConstraint_setTargetAngMotorVelocity(
 /// @func btSliderConstraint_getTargetAngMotorVelocity(sliderConstraint)
 ///
 /// @desc
+/// Gets the target angular motor velocity for the slider constraint.
 ///
 /// @param {Pointer} sliderConstraint
+///     A pointer to the btSliderConstraint instance.
 ///
-/// @return {Real}
+/// @return {Real} Returns the target angular motor velocity.
 YYEXPORT void btSliderConstraint_getTargetAngMotorVelocity(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -970,9 +1171,12 @@ YYEXPORT void btSliderConstraint_getTargetAngMotorVelocity(
 /// @func btSliderConstraint_setMaxAngMotorForce(sliderConstraint, maxAngMotorForce)
 ///
 /// @desc
+/// Sets the maximum angular motor force for the slider constraint.
 ///
 /// @param {Pointer} sliderConstraint
+///     A pointer to the btSliderConstraint instance.
 /// @param {Real} maxAngMotorForce
+///     The maximum angular motor force to be set.
 YYEXPORT void btSliderConstraint_setMaxAngMotorForce(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -984,10 +1188,12 @@ YYEXPORT void btSliderConstraint_setMaxAngMotorForce(
 /// @func btSliderConstraint_getMaxAngMotorForce(sliderConstraint)
 ///
 /// @desc
+/// Gets the maximum angular motor force for the slider constraint.
 ///
 /// @param {Pointer} sliderConstraint
+///     A pointer to the btSliderConstraint instance.
 ///
-/// @return {Real}
+/// @return {Real} Returns the maximum angular motor force.
 YYEXPORT void btSliderConstraint_getMaxAngMotorForce(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -999,10 +1205,12 @@ YYEXPORT void btSliderConstraint_getMaxAngMotorForce(
 /// @func btSliderConstraint_getLinearPos(sliderConstraint)
 ///
 /// @desc
+/// Gets the linear position of the slider constraint.
 ///
 /// @param {Pointer} sliderConstraint
+///     A pointer to the btSliderConstraint instance.
 ///
-/// @return {Real}
+/// @return {Real} Returns the linear position.
 YYEXPORT void btSliderConstraint_getLinearPos(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -1014,10 +1222,12 @@ YYEXPORT void btSliderConstraint_getLinearPos(
 /// @func btSliderConstraint_getAngularPos(sliderConstraint)
 ///
 /// @desc
+/// Gets the angular position of the slider constraint.
 ///
 /// @param {Pointer} sliderConstraint
+///     A pointer to the btSliderConstraint instance.
 ///
-/// @return {Real}
+/// @return {Real} Returns the angular position.
 YYEXPORT void btSliderConstraint_getAngularPos(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -1029,10 +1239,13 @@ YYEXPORT void btSliderConstraint_getAngularPos(
 /// @func btSliderConstraint_getSolveLinLimit(sliderConstraint)
 ///
 /// @desc
+/// Gets whether the linear limits are being solved for the slider constraint.
 ///
 /// @param {Pointer} sliderConstraint
+///     A pointer to the btSliderConstraint instance.
 ///
-/// @return {Bool}
+/// @return {Bool} Returns true if the linear limits are being solved, false
+/// otherwise.
 YYEXPORT void btSliderConstraint_getSolveLinLimit(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -1044,10 +1257,12 @@ YYEXPORT void btSliderConstraint_getSolveLinLimit(
 /// @func btSliderConstraint_getLinDepth(sliderConstraint)
 ///
 /// @desc
+/// Gets the linear depth of the slider constraint.
 ///
 /// @param {Pointer} sliderConstraint
+///     A pointer to the btSliderConstraint instance.
 ///
-/// @return {Real}
+/// @return {Real} Returns the linear depth.
 YYEXPORT void btSliderConstraint_getLinDepth(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -1059,10 +1274,13 @@ YYEXPORT void btSliderConstraint_getLinDepth(
 /// @func btSliderConstraint_getSolveAngLimit(sliderConstraint)
 ///
 /// @desc
+/// Gets whether the angular limits are being solved for the slider constraint.
 ///
 /// @param {Pointer} sliderConstraint
+///     A pointer to the btSliderConstraint instance.
 ///
-/// @return {Bool}
+/// @return {Bool} Returns true if the angular limits are being solved, false
+/// otherwise.
 YYEXPORT void btSliderConstraint_getSolveAngLimit(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -1074,10 +1292,12 @@ YYEXPORT void btSliderConstraint_getSolveAngLimit(
 /// @func btSliderConstraint_getAngDepth(sliderConstraint)
 ///
 /// @desc
+/// Gets the angular depth of the slider constraint.
 ///
 /// @param {Pointer} sliderConstraint
+///     A pointer to the btSliderConstraint instance.
 ///
-/// @return {Real}
+/// @return {Real} Returns the angular depth.
 YYEXPORT void btSliderConstraint_getAngDepth(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -1089,10 +1309,14 @@ YYEXPORT void btSliderConstraint_getAngDepth(
 /// @func btSliderConstraint_calculateTransforms(sliderConstraint, transA, transB)
 ///
 /// @desc
+/// Calculates and updates the transforms associated with the slider constraint.
 ///
 /// @param {Pointer} sliderConstraint
+///     A pointer to the btSliderConstraint instance.
 /// @param {Pointer} transA
+///     A pointer to a btTransform representing the transform of the first body.
 /// @param {Pointer} transB
+///     A pointer to a btTransform representing the transform of the second body.
 YYEXPORT void btSliderConstraint_calculateTransforms(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -1105,8 +1329,10 @@ YYEXPORT void btSliderConstraint_calculateTransforms(
 /// @func btSliderConstraint_testLinLimits(sliderConstraint)
 ///
 /// @desc
+/// Tests and enforces the linear limits of the slider constraint.
 ///
 /// @param {Pointer} sliderConstraint
+///     A pointer to the btSliderConstraint instance.
 YYEXPORT void btSliderConstraint_testLinLimits(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -1117,8 +1343,10 @@ YYEXPORT void btSliderConstraint_testLinLimits(
 /// @func btSliderConstraint_testAngLimits(sliderConstraint)
 ///
 /// @desc
+/// Tests and enforces the angular limits of the slider constraint.
 ///
 /// @param {Pointer} sliderConstraint
+///     A pointer to the btSliderConstraint instance.
 YYEXPORT void btSliderConstraint_testAngLimits(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -1129,9 +1357,14 @@ YYEXPORT void btSliderConstraint_testAngLimits(
 /// @func btSliderConstraint_getAncorInA(sliderConstraint, outVector3)
 ///
 /// @desc
+/// Gets the anchor point in the local frame of body A associated with the
+/// slider constraint.
 ///
 /// @param {Pointer} sliderConstraint
+///     A pointer to the btSliderConstraint instance.
 /// @param {Pointer} outVector3
+///     A pointer to a btVector3 where the anchor point in the local frame of
+///     body A will be copied.
 YYEXPORT void btSliderConstraint_getAncorInA(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -1143,9 +1376,14 @@ YYEXPORT void btSliderConstraint_getAncorInA(
 /// @func btSliderConstraint_getAncorInB(sliderConstraint, outVector3)
 ///
 /// @desc
+/// Gets the anchor point in the local frame of body B associated with the
+/// slider constraint.
 ///
 /// @param {Pointer} sliderConstraint
+///     A pointer to the btSliderConstraint instance.
 /// @param {Pointer} outVector3
+///     A pointer to a btVector3 where the anchor point in the local frame of
+///     body B will be copied.
 YYEXPORT void btSliderConstraint_getAncorInB(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -1157,10 +1395,12 @@ YYEXPORT void btSliderConstraint_getAncorInB(
 /// @func btSliderConstraint_getUseFrameOffset(sliderConstraint)
 ///
 /// @desc
+/// Gets whether the constraint uses frame offset.
 ///
 /// @param {Pointer} sliderConstraint
+///     A pointer to the btSliderConstraint instance.
 ///
-/// @return {Bool}
+/// @return {Bool} True if the constraint uses frame offset, false otherwise.
 YYEXPORT void btSliderConstraint_getUseFrameOffset(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -1172,9 +1412,12 @@ YYEXPORT void btSliderConstraint_getUseFrameOffset(
 /// @func btSliderConstraint_setUseFrameOffset(sliderConstraint, frameOffsetOnOff)
 ///
 /// @desc
+/// Sets whether the constraint uses frame offset.
 ///
 /// @param {Pointer} sliderConstraint
+///     A pointer to the btSliderConstraint instance.
 /// @param {Bool} frameOffsetOnOff
+///     True to enable frame offset, false to disable.
 YYEXPORT void btSliderConstraint_setUseFrameOffset(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -1186,10 +1429,14 @@ YYEXPORT void btSliderConstraint_setUseFrameOffset(
 /// @func btSliderConstraint_setFrames(sliderConstraint, frameA, frameB)
 ///
 /// @desc
+/// Sets the frames for the slider constraint.
 ///
 /// @param {Pointer} sliderConstraint
+///     A pointer to the btSliderConstraint instance.
 /// @param {Pointer} frameA
+///     A pointer to a btTransform representing the frame for body A.
 /// @param {Pointer} frameB
+///     A pointer to a btTransform representing the frame for body B.
 YYEXPORT void btSliderConstraint_setFrames(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
