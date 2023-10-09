@@ -3,6 +3,7 @@ import re
 import json5
 
 docs = []
+prev_arg = None
 
 src_dir = os.path.join("src", "GMBullet")
 for fname in os.listdir(src_dir):
@@ -12,7 +13,33 @@ for fname in os.listdir(src_dir):
     print("Parsing file", fpath)
     docs_current = ""
     with open(fpath) as f:
+        line_number = 0
         for line in f.readlines():
+            line_number += 1
+
+            m = re.findall(r"arg[,\[] ?(\d+)", line)
+            if m:
+                current = int(m[0])
+                if prev_arg is not None:
+                    if current != prev_arg + 1:
+                        print(f"ERROR: {fpath}:{line_number} : Invalid arg number {current}, expected {prev_arg + 1}")
+                        exit()
+                prev_arg = current
+            else:
+                prev_arg = None
+
+            m = re.findall(r"\t(.*) \w+ = .*YYGet(\w+)", line)
+            if m:
+                m = m[0]
+                if (m[0] == "bool" and m[1] != "Bool") or \
+                    (m[0] == "btScalar" and m[1] != "Real") or \
+                    (m[0] == "double" and m[1] != "Real") or \
+                    (m[0] == "int" and m[1] != "Int32") or \
+                    (m[0] == "auto" and m[1] != "Ptr") or \
+                    (m[0] == "auto&" and m[1] != "Ptr"):
+                    print(f"ERROR: {fpath}:{line_number} : Inconsistent argument type {m[0]}/{m[1]}")
+                    exit()
+
             if line.startswith("///") and not line.startswith("////"):
                 docs_current += line
             elif docs_current != "":

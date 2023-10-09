@@ -86,9 +86,9 @@ YYEXPORT void btTriangleMesh_addTriangle(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
 	auto triangleMesh = (btTriangleMesh*)YYGetPtr(arg, 0);
-	auto& vertex0 =  *(btVector3*)YYGetPtr(arg, 1);
-	auto& vertex1 =  *(btVector3*)YYGetPtr(arg, 2);
-	auto& vertex2 =  *(btVector3*)YYGetPtr(arg, 3);
+	auto& vertex0 = *(btVector3*)YYGetPtr(arg, 1);
+	auto& vertex1 = *(btVector3*)YYGetPtr(arg, 2);
+	auto& vertex2 = *(btVector3*)YYGetPtr(arg, 3);
 	triangleMesh->addTriangle(vertex0, vertex1, vertex2);
 }
 

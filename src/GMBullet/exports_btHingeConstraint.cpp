@@ -22,9 +22,9 @@
 YYEXPORT void btHingeConstraint_create1(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
-	auto& rigidBodyA =  *(btRigidBody*)YYGetPtr(arg, 0);
-	auto& pivotInA =  *(btVector3*)YYGetPtr(arg, 1);
-	auto& axisInA =  *(btVector3*)YYGetPtr(arg, 2);
+	auto& rigidBodyA = *(btRigidBody*)YYGetPtr(arg, 0);
+	auto& pivotInA = *(btVector3*)YYGetPtr(arg, 1);
+	auto& axisInA = *(btVector3*)YYGetPtr(arg, 2);
 	bool useReferenceFrameA = (argc > 3) ? YYGetBool(arg, 3) : false;
 	result.kind = VALUE_PTR;
 	result.ptr = new btHingeConstraint(
@@ -61,12 +61,12 @@ YYEXPORT void btHingeConstraint_create1(
 YYEXPORT void btHingeConstraint_create2(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
-	auto& rigidBodyA =  *(btRigidBody*)YYGetPtr(arg, 0);
-	auto& rigidBodyB =  *(btRigidBody*)YYGetPtr(arg, 1);
-	auto& pivotInA =  *(btVector3*)YYGetPtr(arg, 2);
-	auto& pivotInB =  *(btVector3*)YYGetPtr(arg, 3);
-	auto& axisInA =  *(btVector3*)YYGetPtr(arg, 4);
-	auto& axisInB =  *(btVector3*)YYGetPtr(arg, 5);
+	auto& rigidBodyA = *(btRigidBody*)YYGetPtr(arg, 0);
+	auto& rigidBodyB = *(btRigidBody*)YYGetPtr(arg, 1);
+	auto& pivotInA = *(btVector3*)YYGetPtr(arg, 2);
+	auto& pivotInB = *(btVector3*)YYGetPtr(arg, 3);
+	auto& axisInA = *(btVector3*)YYGetPtr(arg, 4);
+	auto& axisInB = *(btVector3*)YYGetPtr(arg, 5);
 	bool useReferenceFrameA = (argc > 6) ? YYGetBool(arg, 6) : false;
 	result.kind = VALUE_PTR;
 	result.ptr = new btHingeConstraint(
@@ -92,8 +92,8 @@ YYEXPORT void btHingeConstraint_create2(
 YYEXPORT void btHingeConstraint_create1Transform(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
-	auto& rigidBodyA =  *(btRigidBody*)YYGetPtr(arg, 0);
-	auto& rigidBodyAFrame =  *(btTransform*)YYGetPtr(arg, 1);
+	auto& rigidBodyA = *(btRigidBody*)YYGetPtr(arg, 0);
+	auto& rigidBodyAFrame = *(btTransform*)YYGetPtr(arg, 1);
 	bool useReferenceFrameA = (argc > 2) ? YYGetBool(arg, 2) : false;
 	result.kind = VALUE_PTR;
 	result.ptr = new btHingeConstraint(
@@ -125,10 +125,10 @@ YYEXPORT void btHingeConstraint_create1Transform(
 YYEXPORT void btHingeConstraint_create2Transform(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
-	auto& rigidBodyA =  *(btRigidBody*)YYGetPtr(arg, 0);
-	auto& rigidBodyB =  *(btRigidBody*)YYGetPtr(arg, 1);
-	auto& rigidBodyAFrame =  *(btTransform*)YYGetPtr(arg, 2);
-	auto& rigidBodyBFrame =  *(btTransform*)YYGetPtr(arg, 3);
+	auto& rigidBodyA = *(btRigidBody*)YYGetPtr(arg, 0);
+	auto& rigidBodyB = *(btRigidBody*)YYGetPtr(arg, 1);
+	auto& rigidBodyAFrame = *(btTransform*)YYGetPtr(arg, 2);
+	auto& rigidBodyBFrame = *(btTransform*)YYGetPtr(arg, 3);
 	bool useReferenceFrameA = (argc > 4) ? YYGetBool(arg, 4) : false;
 	result.kind = VALUE_PTR;
 	result.ptr = new btHingeConstraint(
@@ -263,8 +263,8 @@ YYEXPORT void btHingeConstraint_setFrames(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
 	auto hingeConstraint = (btHingeConstraint*)YYGetPtr(arg, 0);
-	auto& frameA =  *(btTransform*)YYGetPtr(arg, 1);
-	auto& frameB =  *(btTransform*)YYGetPtr(arg, 2);
+	auto& frameA = *(btTransform*)YYGetPtr(arg, 1);
+	auto& frameB = *(btTransform*)YYGetPtr(arg, 2);
 	hingeConstraint->setFrames(frameA, frameB);
 }
 
@@ -375,7 +375,7 @@ YYEXPORT void btHingeConstraint_setMotorTargetQuaternion(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
 	auto hingeConstraint = (btHingeConstraint*)YYGetPtr(arg, 0);
-	auto& qAinB =  *(btQuaternion*)YYGetPtr(arg, 1);
+	auto& qAinB = *(btQuaternion*)YYGetPtr(arg, 1);
 	double dt = YYGetReal(arg, 2);
 	hingeConstraint->setMotorTarget(qAinB, dt);
 }
@@ -494,7 +494,7 @@ YYEXPORT void btHingeConstraint_setAxis(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
 	auto hingeConstraint = (btHingeConstraint*)YYGetPtr(arg, 0);
-	auto& axisInA =  *(btVector3*)YYGetPtr(arg, 1);
+	auto& axisInA = *(btVector3*)YYGetPtr(arg, 1);
 	hingeConstraint->setAxis(axisInA);
 }
 
@@ -608,8 +608,8 @@ YYEXPORT void btHingeConstraint_getHingeAngleTransform(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
 	auto hingeConstraint = (btHingeConstraint*)YYGetPtr(arg, 0);
-	auto& transA =  *(btTransform*)YYGetPtr(arg, 1);
-	auto& transB =  *(btTransform*)YYGetPtr(arg, 2);
+	auto& transA = *(btTransform*)YYGetPtr(arg, 1);
+	auto& transB = *(btTransform*)YYGetPtr(arg, 2);
 	result.kind = VALUE_REAL;
 	result.val = hingeConstraint->getHingeAngle(transA, transB);
 }
@@ -630,8 +630,8 @@ YYEXPORT void btHingeConstraint_testLimit(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
 	auto hingeConstraint = (btHingeConstraint*)YYGetPtr(arg, 0);
-	auto& transA =  *(btTransform*)YYGetPtr(arg, 1);
-	auto& transB =  *(btTransform*)YYGetPtr(arg, 2);
+	auto& transA = *(btTransform*)YYGetPtr(arg, 1);
+	auto& transB = *(btTransform*)YYGetPtr(arg, 2);
 	hingeConstraint->testLimit(transA, transB);
 }
 
@@ -899,9 +899,9 @@ YYEXPORT void btHingeConstraint_getFlags(
 YYEXPORT void btHingeAccumulatedAngleConstraint_create1(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
-	auto& rigidBodyA =  *(btRigidBody*)YYGetPtr(arg, 0);
-	auto& pivotInA =  *(btVector3*)YYGetPtr(arg, 1);
-	auto& axisInA =  *(btVector3*)YYGetPtr(arg, 2);
+	auto& rigidBodyA = *(btRigidBody*)YYGetPtr(arg, 0);
+	auto& pivotInA = *(btVector3*)YYGetPtr(arg, 1);
+	auto& axisInA = *(btVector3*)YYGetPtr(arg, 2);
 	bool useReferenceFrameA = (argc > 3) ? YYGetBool(arg, 3) : false;
 	result.kind = VALUE_PTR;
 	result.ptr = new btHingeAccumulatedAngleConstraint(
@@ -937,12 +937,12 @@ YYEXPORT void btHingeAccumulatedAngleConstraint_create1(
 YYEXPORT void btHingeAccumulatedAngleConstraint_create2(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
-	auto& rigidBodyA =  *(btRigidBody*)YYGetPtr(arg, 0);
-	auto& rigidBodyB =  *(btRigidBody*)YYGetPtr(arg, 1);
-	auto& pivotInA =  *(btVector3*)YYGetPtr(arg, 2);
-	auto& pivotInB =  *(btVector3*)YYGetPtr(arg, 3);
-	auto& axisInA =  *(btVector3*)YYGetPtr(arg, 4);
-	auto& axisInB =  *(btVector3*)YYGetPtr(arg, 5);
+	auto& rigidBodyA = *(btRigidBody*)YYGetPtr(arg, 0);
+	auto& rigidBodyB = *(btRigidBody*)YYGetPtr(arg, 1);
+	auto& pivotInA = *(btVector3*)YYGetPtr(arg, 2);
+	auto& pivotInB = *(btVector3*)YYGetPtr(arg, 3);
+	auto& axisInA = *(btVector3*)YYGetPtr(arg, 4);
+	auto& axisInB = *(btVector3*)YYGetPtr(arg, 5);
 	bool useReferenceFrameA = (argc > 6) ? YYGetBool(arg, 6) : false;
 	result.kind = VALUE_PTR;
 	result.ptr = new btHingeAccumulatedAngleConstraint(
@@ -968,8 +968,8 @@ YYEXPORT void btHingeAccumulatedAngleConstraint_create2(
 YYEXPORT void btHingeAccumulatedAngleConstraint_create1Transform(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
-	auto& rigidBodyA =  *(btRigidBody*)YYGetPtr(arg, 0);
-	auto& rigidBodyAFrame =  *(btTransform*)YYGetPtr(arg, 1);
+	auto& rigidBodyA = *(btRigidBody*)YYGetPtr(arg, 0);
+	auto& rigidBodyAFrame = *(btTransform*)YYGetPtr(arg, 1);
 	bool useReferenceFrameA = (argc > 2) ? YYGetBool(arg, 2) : false;
 	result.kind = VALUE_PTR;
 	result.ptr = new btHingeAccumulatedAngleConstraint(
@@ -999,10 +999,10 @@ YYEXPORT void btHingeAccumulatedAngleConstraint_create1Transform(
 YYEXPORT void btHingeAccumulatedAngleConstraint_create2Transform(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
-	auto& rigidBodyA =  *(btRigidBody*)YYGetPtr(arg, 0);
-	auto& rigidBodyB =  *(btRigidBody*)YYGetPtr(arg, 1);
-	auto& rigidBodyAFrame =  *(btTransform*)YYGetPtr(arg, 2);
-	auto& rigidBodyBFrame =  *(btTransform*)YYGetPtr(arg, 3);
+	auto& rigidBodyA = *(btRigidBody*)YYGetPtr(arg, 0);
+	auto& rigidBodyB = *(btRigidBody*)YYGetPtr(arg, 1);
+	auto& rigidBodyAFrame = *(btTransform*)YYGetPtr(arg, 2);
+	auto& rigidBodyBFrame = *(btTransform*)YYGetPtr(arg, 3);
 	bool useReferenceFrameA = (argc > 4) ? YYGetBool(arg, 4) : false;
 	result.kind = VALUE_PTR;
 	result.ptr = new btHingeAccumulatedAngleConstraint(

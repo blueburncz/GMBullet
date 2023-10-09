@@ -42,7 +42,7 @@ YYEXPORT void btCollisionObject_getAnisotropicFriction(
 {
 	auto collisionObject = (btCollisionObject*)YYGetPtr(arg, 0);
 	auto outVector3 = (btVector3*)YYGetPtr(arg, 1);
-	const auto& anisotropicFriction =  collisionObject->getAnisotropicFriction();
+	const auto& anisotropicFriction = collisionObject->getAnisotropicFriction();
 	CopyVector3(anisotropicFriction, outVector3);
 }
 
@@ -62,7 +62,7 @@ YYEXPORT void btCollisionObject_setAnisotropicFriction(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
 	auto collisionObject = (btCollisionObject*)YYGetPtr(arg, 0);
-	auto& anisotropicFriction =  *(btVector3*)YYGetPtr(arg, 1);
+	auto& anisotropicFriction = *(btVector3*)YYGetPtr(arg, 1);
 	int frictionMode = (argc > 2) ? YYGetInt32(arg, 2) : 1;
 	collisionObject->setAnisotropicFriction(anisotropicFriction, frictionMode);
 }
@@ -686,7 +686,7 @@ YYEXPORT void btCollisionObject_setWorldTransform(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
 	auto collisionObject = (btCollisionObject*)YYGetPtr(arg, 0);
-	auto& transform =  *(btTransform*)YYGetPtr(arg, 1);
+	auto& transform = *(btTransform*)YYGetPtr(arg, 1);
 	collisionObject->setWorldTransform(transform);
 }
 
@@ -725,7 +725,7 @@ YYEXPORT void btCollisionObject_setInterpolationWorldTransform(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
 	auto collisionObject = (btCollisionObject*)YYGetPtr(arg, 0);
-	auto& transform =  *(btTransform*)YYGetPtr(arg, 1);
+	auto& transform = *(btTransform*)YYGetPtr(arg, 1);
 	collisionObject->setInterpolationWorldTransform(transform);
 }
 
@@ -743,7 +743,7 @@ YYEXPORT void btCollisionObject_setInterpolationLinearVelocity(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
 	auto collisionObject = (btCollisionObject*)YYGetPtr(arg, 0);
-	auto& linearVelocity =  *(btVector3*)YYGetPtr(arg, 1);
+	auto& linearVelocity = *(btVector3*)YYGetPtr(arg, 1);
 	collisionObject->setInterpolationLinearVelocity(linearVelocity);
 }
 
@@ -761,7 +761,7 @@ YYEXPORT void btCollisionObject_setInterpolationAngularVelocity(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
 	auto collisionObject = (btCollisionObject*)YYGetPtr(arg, 0);
-	auto& angularVelocity =  *(btVector3*)YYGetPtr(arg, 1);
+	auto& angularVelocity = *(btVector3*)YYGetPtr(arg, 1);
 	collisionObject->setInterpolationAngularVelocity(angularVelocity);
 }
 

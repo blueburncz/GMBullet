@@ -15,8 +15,8 @@
 YYEXPORT void btConeTwistConstraint_create1(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
-	auto& rigidBodyA =  *(btRigidBody*)YYGetPtr(arg, 0);
-	auto& rigidBodyAFrame =  *(btTransform*)YYGetPtr(arg, 1);
+	auto& rigidBodyA = *(btRigidBody*)YYGetPtr(arg, 0);
+	auto& rigidBodyAFrame = *(btTransform*)YYGetPtr(arg, 1);
 	result.kind = VALUE_PTR;
 	result.ptr = new btConeTwistConstraint(rigidBodyA, rigidBodyAFrame);
 }
@@ -40,10 +40,10 @@ YYEXPORT void btConeTwistConstraint_create1(
 YYEXPORT void btConeTwistConstraint_create2(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
-	auto& rigidBodyA =  *(btRigidBody*)YYGetPtr(arg, 0);
-	auto& rigidBodyB =  *(btRigidBody*)YYGetPtr(arg, 1);
-	auto& rigidBodyAFrame =  *(btTransform*)YYGetPtr(arg, 2);
-	auto& rigidBodyBFrame =  *(btTransform*)YYGetPtr(arg, 3);
+	auto& rigidBodyA = *(btRigidBody*)YYGetPtr(arg, 0);
+	auto& rigidBodyB = *(btRigidBody*)YYGetPtr(arg, 1);
+	auto& rigidBodyAFrame = *(btTransform*)YYGetPtr(arg, 2);
+	auto& rigidBodyBFrame = *(btTransform*)YYGetPtr(arg, 3);
 	result.kind = VALUE_PTR;
 	result.ptr = new btConeTwistConstraint(
 		rigidBodyA, rigidBodyB, rigidBodyAFrame, rigidBodyBFrame);
@@ -176,7 +176,7 @@ YYEXPORT void btConeTwistConstraint_setLimitIndex(
 {
 	auto coneTwistConstraint = (btConeTwistConstraint*)YYGetPtr(arg, 0);
 	int limitIndex = YYGetInt32(arg, 1);
-	double limitValue = YYGetInt32(arg, 2);
+	double limitValue = YYGetReal(arg, 2);
 	coneTwistConstraint->setLimit(limitIndex, limitValue);
 }
 
@@ -661,7 +661,7 @@ YYEXPORT void btConeTwistConstraint_setMotorTarget(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
 	auto coneTwistConstraint = (btConeTwistConstraint*)YYGetPtr(arg, 0);
-	auto& quaternion =  *(btQuaternion*)YYGetPtr(arg, 1);
+	auto& quaternion = *(btQuaternion*)YYGetPtr(arg, 1);
 	coneTwistConstraint->setMotorTarget(quaternion);
 }
 
@@ -696,7 +696,7 @@ YYEXPORT void btConeTwistConstraint_setMotorTargetInConstraintSpace(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
 	auto coneTwistConstraint = (btConeTwistConstraint*)YYGetPtr(arg, 0);
-	auto& quaternion =  *(btQuaternion*)YYGetPtr(arg, 1);
+	auto& quaternion = *(btQuaternion*)YYGetPtr(arg, 1);
 	coneTwistConstraint->setMotorTargetInConstraintSpace(quaternion);
 }
 
@@ -741,8 +741,8 @@ YYEXPORT void btConeTwistConstraint_setFrames(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
 	auto coneTwistConstraint = (btConeTwistConstraint*)YYGetPtr(arg, 0);
-	auto& frameA =  *(btTransform*)YYGetPtr(arg, 1);
-	auto& frameB =  *(btTransform*)YYGetPtr(arg, 2);
+	auto& frameA = *(btTransform*)YYGetPtr(arg, 1);
+	auto& frameB = *(btTransform*)YYGetPtr(arg, 2);
 	coneTwistConstraint->setFrames(frameA, frameB);
 }
 

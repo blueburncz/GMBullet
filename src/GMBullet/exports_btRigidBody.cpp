@@ -27,7 +27,7 @@ YYEXPORT void btRigidBody_create(
 	result.kind = VALUE_PTR;
 	if (argc > 3)
 	{
-		auto& localInertia =  *(btVector3*)YYGetPtr(arg, 3);
+		auto& localInertia = *(btVector3*)YYGetPtr(arg, 3);
 		btRigidBody::btRigidBodyConstructionInfo rbInfo(mass, motionState, collisionShape, localInertia);
 		result.ptr = new btRigidBody(rbInfo);
 	}
@@ -115,7 +115,7 @@ YYEXPORT void btRigidBody_setGravity(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
 	auto rigidBody = (btRigidBody*)YYGetPtr(arg, 0);
-	auto& gravity =  *(btVector3*)YYGetPtr(arg, 1);
+	auto& gravity = *(btVector3*)YYGetPtr(arg, 1);
 	rigidBody->setGravity(gravity);
 }
 
@@ -298,7 +298,7 @@ YYEXPORT void btRigidBody_setMassProps(
 {
 	auto rigidBody = (btRigidBody*)YYGetPtr(arg, 0);
 	double mass = YYGetReal(arg, 1);
-	auto& inertia =  *(btVector3*)YYGetPtr(arg, 2);
+	auto& inertia = *(btVector3*)YYGetPtr(arg, 2);
 	rigidBody->setMassProps(mass, inertia);
 }
 
@@ -361,7 +361,7 @@ YYEXPORT void btRigidBody_setLinearFactor(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
 	auto rigidBody = (btRigidBody*)YYGetPtr(arg, 0);
-	auto& linearFactor =  *(btVector3*)YYGetPtr(arg, 1);
+	auto& linearFactor = *(btVector3*)YYGetPtr(arg, 1);
 	rigidBody->setLinearFactor(linearFactor);
 }
 
@@ -431,7 +431,7 @@ YYEXPORT void btRigidBody_setCenterOfMassTransform(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
 	auto rigidBody = (btRigidBody*)YYGetPtr(arg, 0);
-	auto& transform =  *(btTransform*)YYGetPtr(arg, 0);
+	auto& transform = *(btTransform*)YYGetPtr(arg, 1);
 	rigidBody->setCenterOfMassTransform(transform);
 }
 
@@ -448,7 +448,7 @@ YYEXPORT void btRigidBody_applyCentralForce(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
 	auto rigidBody = (btRigidBody*)YYGetPtr(arg, 0);
-	auto& force =  *(btVector3*)YYGetPtr(arg, 1);
+	auto& force = *(btVector3*)YYGetPtr(arg, 1);
 	rigidBody->applyCentralForce(force);
 }
 
@@ -539,7 +539,7 @@ YYEXPORT void btRigidBody_setInvInertiaDiagLocal(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
 	auto rigidBody = (btRigidBody*)YYGetPtr(arg, 0);
-	auto& diagInvInertia =  *(btVector3*)YYGetPtr(arg, 1);
+	auto& diagInvInertia = *(btVector3*)YYGetPtr(arg, 1);
 	rigidBody->setInvInertiaDiagLocal(diagInvInertia);
 }
 
@@ -578,7 +578,7 @@ YYEXPORT void btRigidBody_applyTorque(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
 	auto rigidBody = (btRigidBody*)YYGetPtr(arg, 0);
-	auto& torque =  *(btVector3*)YYGetPtr(arg, 1);
+	auto& torque = *(btVector3*)YYGetPtr(arg, 1);
 	rigidBody->applyTorque(torque);
 }
 
@@ -598,8 +598,8 @@ YYEXPORT void btRigidBody_applyForce(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
 	auto rigidBody = (btRigidBody*)YYGetPtr(arg, 0);
-	auto& force =  *(btVector3*)YYGetPtr(arg, 1);
-	auto& relPos =  *(btVector3*)YYGetPtr(arg, 2);
+	auto& force = *(btVector3*)YYGetPtr(arg, 1);
+	auto& relPos = *(btVector3*)YYGetPtr(arg, 2);
 	rigidBody->applyForce(force, relPos);
 }
 
@@ -651,7 +651,7 @@ YYEXPORT void btRigidBody_applyCentralImpulse(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
 	auto rigidBody = (btRigidBody*)YYGetPtr(arg, 0);
-	auto& impulse =  *(btVector3*)YYGetPtr(arg, 1);
+	auto& impulse = *(btVector3*)YYGetPtr(arg, 1);
 	rigidBody->applyCentralImpulse(impulse);
 }
 
@@ -692,7 +692,7 @@ YYEXPORT void btRigidBody_applyTorqueImpulse(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
 	auto rigidBody = (btRigidBody*)YYGetPtr(arg, 0);
-	auto& torque =  *(btVector3*)YYGetPtr(arg, 1);
+	auto& torque = *(btVector3*)YYGetPtr(arg, 1);
 	rigidBody->applyTorqueImpulse(torque);
 }
 
@@ -736,8 +736,8 @@ YYEXPORT void btRigidBody_applyImpulse(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
 	auto rigidBody = (btRigidBody*)YYGetPtr(arg, 0);
-	auto& impulse =  *(btVector3*)YYGetPtr(arg, 1);
-	auto& relPos =  *(btVector3*)YYGetPtr(arg, 2);
+	auto& impulse = *(btVector3*)YYGetPtr(arg, 1);
+	auto& relPos = *(btVector3*)YYGetPtr(arg, 2);
 	rigidBody->applyImpulse(impulse, relPos);
 }
 
@@ -793,8 +793,8 @@ YYEXPORT void btRigidBody_applyPushImpulse(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
 	auto rigidBody = (btRigidBody*)YYGetPtr(arg, 0);
-	auto& impulse =  *(btVector3*)YYGetPtr(arg, 1);
-	auto& relPos =  *(btVector3*)YYGetPtr(arg, 2);
+	auto& impulse = *(btVector3*)YYGetPtr(arg, 1);
+	auto& relPos = *(btVector3*)YYGetPtr(arg, 2);
 	rigidBody->applyPushImpulse(impulse, relPos);
 }
 
@@ -877,7 +877,7 @@ YYEXPORT void btRigidBody_setPushVelocity(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
 	auto rigidBody = (btRigidBody*)YYGetPtr(arg, 0);
-	auto& velocity =  *(btVector3*)YYGetPtr(arg, 1);
+	auto& velocity = *(btVector3*)YYGetPtr(arg, 1);
 	rigidBody->setPushVelocity(velocity);
 }
 
@@ -920,7 +920,7 @@ YYEXPORT void btRigidBody_setTurnVelocity(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
 	auto rigidBody = (btRigidBody*)YYGetPtr(arg, 0);
-	auto& velocity =  *(btVector3*)YYGetPtr(arg, 1);
+	auto& velocity = *(btVector3*)YYGetPtr(arg, 1);
 	rigidBody->setTurnVelocity(velocity);
 }
 
@@ -961,7 +961,7 @@ YYEXPORT void btRigidBody_applyCentralPushImpulse(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
 	auto rigidBody = (btRigidBody*)YYGetPtr(arg, 0);
-	auto& impulse =  *(btVector3*)YYGetPtr(arg, 1);
+	auto& impulse = *(btVector3*)YYGetPtr(arg, 1);
 	rigidBody->applyCentralPushImpulse(impulse);
 }
 
@@ -1002,7 +1002,7 @@ YYEXPORT void btRigidBody_applyTorqueTurnImpulse(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
 	auto rigidBody = (btRigidBody*)YYGetPtr(arg, 0);
-	auto& torque =  *(btVector3*)YYGetPtr(arg, 1);
+	auto& torque = *(btVector3*)YYGetPtr(arg, 1);
 	rigidBody->applyTorqueTurnImpulse(torque);
 }
 
@@ -1158,7 +1158,7 @@ YYEXPORT void btRigidBody_setLinearVelocity(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
 	auto rigidBody = (btRigidBody*)YYGetPtr(arg, 0);
-	auto& linearVelocity =  *(btVector3*)YYGetPtr(arg, 1);
+	auto& linearVelocity = *(btVector3*)YYGetPtr(arg, 1);
 	rigidBody->setLinearVelocity(linearVelocity);
 }
 
@@ -1198,7 +1198,7 @@ YYEXPORT void btRigidBody_setAngularVelocity(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
 	auto rigidBody = (btRigidBody*)YYGetPtr(arg, 0);
-	auto& angularVelocity =  *(btVector3*)YYGetPtr(arg, 1);
+	auto& angularVelocity = *(btVector3*)YYGetPtr(arg, 1);
 	rigidBody->setAngularVelocity(angularVelocity);
 }
 
@@ -1240,7 +1240,7 @@ YYEXPORT void btRigidBody_getVelocityInLocalPoint(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
 	auto rigidBody = (btRigidBody*)YYGetPtr(arg, 0);
-	auto& relPos =  *(btVector3*)YYGetPtr(arg, 1);
+	auto& relPos = *(btVector3*)YYGetPtr(arg, 1);
 	auto outVector3 = (btVector3*)YYGetPtr(arg, 2);
 	CopyVector3(rigidBody->getVelocityInLocalPoint(relPos), outVector3);
 }
@@ -1287,7 +1287,7 @@ YYEXPORT void btRigidBody_getPushVelocityInLocalPoint(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
 	auto rigidBody = (btRigidBody*)YYGetPtr(arg, 0);
-	auto& relPos =  *(btVector3*)YYGetPtr(arg, 1);
+	auto& relPos = *(btVector3*)YYGetPtr(arg, 1);
 	auto outVector3 = (btVector3*)YYGetPtr(arg, 2);
 	CopyVector3(rigidBody->getPushVelocityInLocalPoint(relPos), outVector3);
 }
@@ -1332,7 +1332,7 @@ YYEXPORT void btRigidBody_translate(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
 	auto rigidBody = (btRigidBody*)YYGetPtr(arg, 0);
-	auto& vector =  *(btVector3*)YYGetPtr(arg, 1);
+	auto& vector = *(btVector3*)YYGetPtr(arg, 1);
 	rigidBody->translate(vector);
 }
 
@@ -1375,8 +1375,8 @@ YYEXPORT void btRigidBody_getAabb(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
 	auto rigidBody = (btRigidBody*)YYGetPtr(arg, 0);
-	auto& aabbMin =  *(btVector3*)YYGetPtr(arg, 1);
-	auto& aabbMax =  *(btVector3*)YYGetPtr(arg, 2);
+	auto& aabbMin = *(btVector3*)YYGetPtr(arg, 1);
+	auto& aabbMax = *(btVector3*)YYGetPtr(arg, 2);
 	rigidBody->getAabb(aabbMin, aabbMax);
 }
 

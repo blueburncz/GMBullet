@@ -389,8 +389,8 @@ YYEXPORT void btRayResultCallback_hasHit(
 YYEXPORT void btClosestRayResultCallback_create(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
-	auto& rayFromWorld =  *(btVector3*)YYGetPtr(arg, 0);
-	auto& rayToWorld =  *(btVector3*)YYGetPtr(arg, 1);
+	auto& rayFromWorld = *(btVector3*)YYGetPtr(arg, 0);
+	auto& rayToWorld = *(btVector3*)YYGetPtr(arg, 1);
 	result.kind = VALUE_PTR;
 	result.ptr = new btClosestRayResultCallback(rayFromWorld, rayToWorld);
 }
@@ -482,7 +482,7 @@ YYEXPORT void btClosestRayResultCallback_getRayFromWorldArray(
 {
 	auto closestRayResultCallback = (btClosestRayResultCallback*)YYGetPtr(arg, 0);
 	RValue* outArray = &arg[1];
-	auto& rayFromWorld =  closestRayResultCallback->m_rayFromWorld;
+	auto& rayFromWorld = closestRayResultCallback->m_rayFromWorld;
 	RValue value;
 	value.kind = VALUE_REAL;
 	value.val = rayFromWorld.getZ(); SET_RValue(outArray, &value, NULL, 2);
@@ -527,7 +527,7 @@ YYEXPORT void btClosestRayResultCallback_getRayToWorldArray(
 {
 	auto closestRayResultCallback = (btClosestRayResultCallback*)YYGetPtr(arg, 0);
 	RValue* outArray = &arg[1];
-	auto& rayToWorld =  closestRayResultCallback->m_rayToWorld;
+	auto& rayToWorld = closestRayResultCallback->m_rayToWorld;
 	RValue value;
 	value.kind = VALUE_REAL;
 	value.val = rayToWorld.getZ(); SET_RValue(outArray, &value, NULL, 2);
@@ -572,7 +572,7 @@ YYEXPORT void btClosestRayResultCallback_getHitNormalWorldArray(
 {
 	auto closestRayResultCallback = (btClosestRayResultCallback*)YYGetPtr(arg, 0);
 	RValue* outArray = &arg[1];
-	auto& hitNormalWorld =  closestRayResultCallback->m_hitNormalWorld;
+	auto& hitNormalWorld = closestRayResultCallback->m_hitNormalWorld;
 	RValue value;
 	value.kind = VALUE_REAL;
 	value.val = hitNormalWorld.getZ(); SET_RValue(outArray, &value, NULL, 2);
@@ -617,7 +617,7 @@ YYEXPORT void btClosestRayResultCallback_getHitPointWorldArray(
 {
 	auto closestRayResultCallback = (btClosestRayResultCallback*)YYGetPtr(arg, 0);
 	RValue* outArray = &arg[1];
-	auto& hitPointWorld =  closestRayResultCallback->m_hitPointWorld;
+	auto& hitPointWorld = closestRayResultCallback->m_hitPointWorld;
 	RValue value;
 	value.kind = VALUE_REAL;
 	value.val = hitPointWorld.getZ(); SET_RValue(outArray, &value, NULL, 2);
@@ -649,8 +649,8 @@ YYEXPORT void btClosestRayResultCallback_getHitPointWorldArray(
 YYEXPORT void btAllHitsRayResultCallback_create(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
-	auto& rayFromWorld =  *(btVector3*)YYGetPtr(arg, 0);
-	auto& rayToWorld =  *(btVector3*)YYGetPtr(arg, 1);
+	auto& rayFromWorld = *(btVector3*)YYGetPtr(arg, 0);
+	auto& rayToWorld = *(btVector3*)YYGetPtr(arg, 1);
 	result.kind = VALUE_PTR;
 	result.ptr = new btAllHitsRayResultCallback(rayFromWorld, rayToWorld);
 }
@@ -777,7 +777,7 @@ YYEXPORT void btAllHitsRayResultCallback_getHitNormalWorldArray(
 	value.kind = VALUE_REAL;
 	for (int i = allHitsRayResultCallback->m_hitNormalWorld.size() - 1; i >= 0; --i)
 	{
-		auto& hitNormalWorld =  allHitsRayResultCallback->m_hitNormalWorld[i];
+		auto& hitNormalWorld = allHitsRayResultCallback->m_hitNormalWorld[i];
 		value.val = hitNormalWorld.getZ(); SET_RValue(outArray, &value, NULL, i * 3 + 2);
 		value.val = hitNormalWorld.getY(); SET_RValue(outArray, &value, NULL, i * 3 + 1);
 		value.val = hitNormalWorld.getX(); SET_RValue(outArray, &value, NULL, i * 3 + 0);
@@ -830,7 +830,7 @@ YYEXPORT void btAllHitsRayResultCallback_getHitPointWorldArray(
 	value.kind = VALUE_REAL;
 	for (int i = allHitsRayResultCallback->m_hitPointWorld.size() - 1; i >= 0; --i)
 	{
-		auto& hitPointWorld =  allHitsRayResultCallback->m_hitPointWorld[i];
+		auto& hitPointWorld = allHitsRayResultCallback->m_hitPointWorld[i];
 		value.val = hitPointWorld.getZ(); SET_RValue(outArray, &value, NULL, i * 3 + 2);
 		value.val = hitPointWorld.getY(); SET_RValue(outArray, &value, NULL, i * 3 + 1);
 		value.val = hitPointWorld.getX(); SET_RValue(outArray, &value, NULL, i * 3 + 0);
@@ -1024,8 +1024,8 @@ YYEXPORT void btConvexResultCallback_hasHit(
 YYEXPORT void btClosestConvexResultCallback_create(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
-	auto& convexFromWorld =  *(btVector3*)YYGetPtr(arg, 0);
-	auto& convexToWorld =  *(btVector3*)YYGetPtr(arg, 1);
+	auto& convexFromWorld = *(btVector3*)YYGetPtr(arg, 0);
+	auto& convexToWorld = *(btVector3*)YYGetPtr(arg, 1);
 	result.kind = VALUE_PTR;
 	result.ptr = new btClosestConvexResultCallback(convexFromWorld, convexToWorld);
 }
@@ -1114,7 +1114,7 @@ YYEXPORT void btClosestConvexResultCallback_getConvexFromWorldArray(
 {
 	auto closestConvexResultCallback = (btClosestConvexResultCallback*)YYGetPtr(arg, 0);
 	RValue* outArray = &arg[1];
-	auto& rayFromWorld =  closestConvexResultCallback->m_convexFromWorld;
+	auto& rayFromWorld = closestConvexResultCallback->m_convexFromWorld;
 	RValue value;
 	value.kind = VALUE_REAL;
 	value.val = rayFromWorld.getZ(); SET_RValue(outArray, &value, NULL, 2);
@@ -1158,7 +1158,7 @@ YYEXPORT void btClosestConvexResultCallback_getConvexToWorldArray(
 {
 	auto closestConvexResultCallback = (btClosestConvexResultCallback*)YYGetPtr(arg, 0);
 	RValue* outArray = &arg[1];
-	auto& rayToWorld =  closestConvexResultCallback->m_convexToWorld;
+	auto& rayToWorld = closestConvexResultCallback->m_convexToWorld;
 	RValue value;
 	value.kind = VALUE_REAL;
 	value.val = rayToWorld.getZ(); SET_RValue(outArray, &value, NULL, 2);
@@ -1201,7 +1201,7 @@ YYEXPORT void btClosestConvexResultCallback_getHitNormalWorldArray(
 {
 	auto closestConvexResultCallback = (btClosestConvexResultCallback*)YYGetPtr(arg, 0);
 	RValue* outArray = &arg[1];
-	auto& hitNormalWorld =  closestConvexResultCallback->m_hitNormalWorld;
+	auto& hitNormalWorld = closestConvexResultCallback->m_hitNormalWorld;
 	RValue value;
 	value.kind = VALUE_REAL;
 	value.val = hitNormalWorld.getZ(); SET_RValue(outArray, &value, NULL, 2);
@@ -1240,7 +1240,7 @@ YYEXPORT void btClosestConvexResultCallback_getHitPointWorldArray(
 {
 	auto closestConvexResultCallback = (btClosestConvexResultCallback*)YYGetPtr(arg, 0);
 	RValue* outArray = &arg[1];
-	auto& hitPointWorld =  closestConvexResultCallback->m_hitPointWorld;
+	auto& hitPointWorld = closestConvexResultCallback->m_hitPointWorld;
 	RValue value;
 	value.kind = VALUE_REAL;
 	value.val = hitPointWorld.getZ(); SET_RValue(outArray, &value, NULL, 2);
@@ -1433,9 +1433,9 @@ YYEXPORT void btCollisionWorld_rayTest(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
 	auto collisionWorld = (btCollisionWorld*)YYGetPtr(arg, 0);
-	auto& rayFromWorld =  *(btVector3*)YYGetPtr(arg, 1);
-	auto& rayToWorld =  *(btVector3*)YYGetPtr(arg, 2);
-	auto& resultCallback =  *(btRayResultCallback*)YYGetPtr(arg, 3);
+	auto& rayFromWorld = *(btVector3*)YYGetPtr(arg, 1);
+	auto& rayToWorld = *(btVector3*)YYGetPtr(arg, 2);
+	auto& resultCallback = *(btRayResultCallback*)YYGetPtr(arg, 3);
 	collisionWorld->rayTest(rayFromWorld, rayToWorld, resultCallback);
 }
 
@@ -1472,7 +1472,7 @@ YYEXPORT void btCollisionWorld_rayTestXYZ(
 	double rayToWorldX = YYGetReal(arg, 4);
 	double rayToWorldY = YYGetReal(arg, 5);
 	double rayToWorldZ = YYGetReal(arg, 6);
-	auto& resultCallback =  *(btRayResultCallback*)YYGetPtr(arg, 7);
+	auto& resultCallback = *(btRayResultCallback*)YYGetPtr(arg, 7);
 	collisionWorld->rayTest(
 		btVector3(rayFromWorldX, rayFromWorldY, rayToWorldZ),
 		btVector3(rayToWorldX, rayToWorldY, rayToWorldZ),
@@ -1505,9 +1505,9 @@ YYEXPORT void btCollisionWorld_convexSweepTest(
 {
 	auto collisionWorld = (btCollisionWorld*)YYGetPtr(arg, 0);
 	auto castShape = (btConvexShape*)YYGetPtr(arg, 1);
-	auto& from =  *(btTransform*)YYGetPtr(arg, 2);
+	auto& from = *(btTransform*)YYGetPtr(arg, 2);
 	btTransform to = *(btTransform*)YYGetPtr(arg, 3);
-	auto& resultCallback =  *(btConvexResultCallback*)YYGetPtr(arg, 4);
+	auto& resultCallback = *(btConvexResultCallback*)YYGetPtr(arg, 4);
 	double allowedCcdPenetration = (argc > 5) ? YYGetReal(arg, 5) : 0.0;
 	collisionWorld->convexSweepTest(castShape, from, to, resultCallback, allowedCcdPenetration);
 }
@@ -1530,7 +1530,7 @@ YYEXPORT void btCollisionWorld_contactTest(
 {
 	auto collisionWorld = (btCollisionWorld*)YYGetPtr(arg, 0);
 	auto colObj = (btCollisionObject*)YYGetPtr(arg, 1);
-	auto& resultCallback =  *(btContactResultCallback*)YYGetPtr(arg, 2);
+	auto& resultCallback = *(btContactResultCallback*)YYGetPtr(arg, 2);
 	collisionWorld->contactTest(colObj, resultCallback);
 }
 
@@ -1554,7 +1554,7 @@ YYEXPORT void btCollisionWorld_contactPairTest(
 	auto collisionWorld = (btCollisionWorld*)YYGetPtr(arg, 0);
 	auto colObjA = (btCollisionObject*)YYGetPtr(arg, 1);
 	auto colObjB = (btCollisionObject*)YYGetPtr(arg, 2);
-	auto& resultCallback =  *(btContactResultCallback*)YYGetPtr(arg, 3);
+	auto& resultCallback = *(btContactResultCallback*)YYGetPtr(arg, 3);
 	collisionWorld->contactPairTest(colObjA, colObjB, resultCallback);
 }
 
@@ -1619,7 +1619,7 @@ YYEXPORT void btCollisionWorld_getCollisionObjectArray(
 {
 	auto collisionWorld = (btCollisionWorld*)YYGetPtr(arg, 0);
 	RValue* outArray = &arg[1];
-	auto& collisionObjectArray =  collisionWorld->getCollisionObjectArray();
+	auto& collisionObjectArray = collisionWorld->getCollisionObjectArray();
 	RValue value;
 	value.kind = VALUE_PTR;
 	for (int i = collisionObjectArray.size() - 1; i >= 0; --i)

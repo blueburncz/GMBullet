@@ -66,7 +66,7 @@ YYEXPORT void btTransform_setOrigin(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
 	auto transform = (btTransform*)YYGetPtr(arg, 0);
-	auto& origin =  *(btVector3*)YYGetPtr(arg, 0);
+	auto& origin = *(btVector3*)YYGetPtr(arg, 1);
 	transform->setOrigin(origin);
 }
 
@@ -124,7 +124,7 @@ YYEXPORT void btTransform_setRotation(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
 	auto transform = (btTransform*)YYGetPtr(arg, 0);
-	auto& quaternion =  *(btQuaternion*)YYGetPtr(arg, 1);
+	auto& quaternion = *(btQuaternion*)YYGetPtr(arg, 1);
 	transform->setRotation(quaternion);
 }
 

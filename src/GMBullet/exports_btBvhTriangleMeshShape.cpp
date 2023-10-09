@@ -48,8 +48,8 @@ YYEXPORT void btBvhTriangleMeshShape_createAabb(
 {
 	btStridingMeshInterface* meshInterface = (btStridingMeshInterface*)YYGetPtr(arg, 0);
 	bool useQuantizedAabbCompression = YYGetBool(arg, 1);
-	auto& bvhAabbMin =  *(btVector3*)YYGetPtr(arg, 2);
-	auto& bvhAabbMax =  *(btVector3*)YYGetPtr(arg, 3);
+	auto& bvhAabbMin = *(btVector3*)YYGetPtr(arg, 2);
+	auto& bvhAabbMax = *(btVector3*)YYGetPtr(arg, 3);
 	bool buildBvh = (argc > 4) ? YYGetBool(arg, 4) : true;
 	result.kind = VALUE_PTR;
 	result.ptr = new btBvhTriangleMeshShape(
@@ -154,8 +154,8 @@ YYEXPORT void btBvhTriangleMeshShape_performRaycast(
 {
 	auto bvhTriangleMeshShape = (btBvhTriangleMeshShape*)YYGetPtr(arg, 0);
 	auto callback = (btTriangleCallback*)YYGetPtr(arg, 1);
-	auto& raySource =  *(btVector3*)YYGetPtr(arg, 2);
-	auto& rayTarget =  *(btVector3*)YYGetPtr(arg, 3);
+	auto& raySource = *(btVector3*)YYGetPtr(arg, 2);
+	auto& rayTarget = *(btVector3*)YYGetPtr(arg, 3);
 	bvhTriangleMeshShape->performRaycast(callback, raySource, rayTarget);
 }
 
@@ -182,10 +182,10 @@ YYEXPORT void btBvhTriangleMeshShape_performConvexcast(
 {
 	auto bvhTriangleMeshShape = (btBvhTriangleMeshShape*)YYGetPtr(arg, 0);
 	auto callback = (btTriangleCallback*)YYGetPtr(arg, 1);
-	auto& boxSource =  *(btVector3*)YYGetPtr(arg, 2);
-	auto& boxTarget =  *(btVector3*)YYGetPtr(arg, 3);
-	auto& boxMin =  *(btVector3*)YYGetPtr(arg, 4);
-	auto& boxMax =  *(btVector3*)YYGetPtr(arg, 5);
+	auto& boxSource = *(btVector3*)YYGetPtr(arg, 2);
+	auto& boxTarget = *(btVector3*)YYGetPtr(arg, 3);
+	auto& boxMin = *(btVector3*)YYGetPtr(arg, 4);
+	auto& boxMax = *(btVector3*)YYGetPtr(arg, 5);
 	bvhTriangleMeshShape->performConvexcast(callback, boxSource, boxTarget, boxMin, boxMax);
 }
 
@@ -209,8 +209,8 @@ YYEXPORT void btBvhTriangleMeshShape_processAllTriangles(
 {
 	auto bvhTriangleMeshShape = (btBvhTriangleMeshShape*)YYGetPtr(arg, 0);
 	auto callback = (btTriangleCallback*)YYGetPtr(arg, 1);
-	auto& boxMin =  *(btVector3*)YYGetPtr(arg, 2);
-	auto& boxMax =  *(btVector3*)YYGetPtr(arg, 3);
+	auto& boxMin = *(btVector3*)YYGetPtr(arg, 2);
+	auto& boxMax = *(btVector3*)YYGetPtr(arg, 3);
 	bvhTriangleMeshShape->processAllTriangles(callback, boxMin, boxMax);
 }
 
@@ -230,8 +230,8 @@ YYEXPORT void btBvhTriangleMeshShape_refitTree(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
 	auto bvhTriangleMeshShape = (btBvhTriangleMeshShape*)YYGetPtr(arg, 0);
-	auto& boxMin =  *(btVector3*)YYGetPtr(arg, 1);
-	auto& boxMax =  *(btVector3*)YYGetPtr(arg, 2);
+	auto& boxMin = *(btVector3*)YYGetPtr(arg, 1);
+	auto& boxMax = *(btVector3*)YYGetPtr(arg, 2);
 	bvhTriangleMeshShape->refitTree(boxMin, boxMax);
 }
 
@@ -251,8 +251,8 @@ YYEXPORT void btBvhTriangleMeshShape_partialRefitTree(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
 	auto bvhTriangleMeshShape = (btBvhTriangleMeshShape*)YYGetPtr(arg, 0);
-	auto& boxMin =  *(btVector3*)YYGetPtr(arg, 1);
-	auto& boxMax =  *(btVector3*)YYGetPtr(arg, 2);
+	auto& boxMin = *(btVector3*)YYGetPtr(arg, 1);
+	auto& boxMax = *(btVector3*)YYGetPtr(arg, 2);
 	bvhTriangleMeshShape->partialRefitTree(boxMin, boxMax);
 }
 
@@ -298,7 +298,7 @@ YYEXPORT void btBvhTriangleMeshShape_setOptimizedBvh(
 	auto bvh = (btOptimizedBvh*)YYGetPtr(arg, 1);
 	if (argc > 2)
 	{
-		auto& localScaling =  *(btVector3*)YYGetPtr(arg, 2);
+		auto& localScaling = *(btVector3*)YYGetPtr(arg, 2);
 		bvhTriangleMeshShape->setOptimizedBvh(bvh, localScaling);
 	}
 	else
