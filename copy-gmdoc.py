@@ -87,6 +87,7 @@ for fname in os.listdir(src_dir):
         docs.append(docs_current)
 
 ext_path = os.path.join("extensions", "GMBullet", "GMBullet.yy")
+print(f"Loading {ext_path}...")
 with open(ext_path) as f:
     ext_str = f.read()
     ext_json = json5.loads(ext_str)
