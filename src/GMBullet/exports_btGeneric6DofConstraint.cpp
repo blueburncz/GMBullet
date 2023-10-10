@@ -1705,17 +1705,16 @@ YYEXPORT void btGeneric6DofConstraint_getLinearUpperLimit(
 	generic6DofConstraint->getLinearUpperLimit(outVector3);
 }
 
-/// @func btGeneric6DofConstraint_getLinearUpperLimit(generic6DofConstraint, outVector3)
+/// @func btGeneric6DofConstraint_setAngularLowerLimit(generic6DofConstraint, angularLower)
 ///
 /// @desc
-/// Retrieves the upper limit for linear motion in the generic 6-degree-of-
-/// freedom constraint for all axes.
+/// Sets the lower limit for angular motion in the generic 6-degree-of-freedom 
+/// constraint for all rotational axes.
 ///
 /// @param {Pointer} generic6DofConstraint
 ///     Pointer to the btGeneric6DofConstraint instance.
-/// @param {Pointer} outVector3
-///     Pointer to the btVector3 where the retrieved upper linear limits will be
-/// stored.
+/// @param {Pointer} angularLower
+///     Pointer to the btVector3 representing the lower angular limits.
 YYEXPORT void btGeneric6DofConstraint_setAngularLowerLimit(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {

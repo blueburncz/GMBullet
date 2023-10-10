@@ -582,7 +582,7 @@ YYEXPORT void btRigidBody_applyTorque(
 	rigidBody->applyTorque(torque);
 }
 
-/// @func btRigidBody_applyForce(rigidBody, forceX, forceY, forceZ, relPosX, relPosY, relPosZ)
+/// @func btRigidBody_applyForce(rigidBody, force, relPos)
 ///
 /// @desc
 /// Applies a force to a rigid body at a given position.

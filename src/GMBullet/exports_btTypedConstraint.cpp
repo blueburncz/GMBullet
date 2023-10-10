@@ -40,7 +40,7 @@ YYEXPORT void btJointFeedback_destroy(
 ///     A pointer to the btJointFeedback instance.
 /// @param {Real} appliedForceBodyA
 ///     The applied force on body A as a btVector3.
-YYEXPORT void btJoinFeedback_setAppliedForceBodyA(
+YYEXPORT void btJointFeedback_setAppliedForceBodyA(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
 	auto jointFeedback = (btJointFeedback*)YYGetPtr(arg, 0);
@@ -74,7 +74,7 @@ YYEXPORT void btJointFeedback_getAppliedForceBodyA(
 ///     A pointer to the btJointFeedback instance.
 /// @param {Real} appliedTorqueBodyA
 ///     The applied torque on body A as a btVector3.
-YYEXPORT void btJoinFeedback_setAppliedTorqueBodyA(
+YYEXPORT void btJointFeedback_setAppliedTorqueBodyA(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
 	auto jointFeedback = (btJointFeedback*)YYGetPtr(arg, 0);
@@ -108,7 +108,7 @@ YYEXPORT void btJointFeedback_getAppliedTorqueBodyA(
 ///     A pointer to the btJointFeedback instance.
 /// @param {Real} appliedForceBodyB
 ///     The applied force on body B as a btVector3.
-YYEXPORT void btJoinFeedback_setAppliedForceBodyB(
+YYEXPORT void btJointFeedback_setAppliedForceBodyB(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
 	auto jointFeedback = (btJointFeedback*)YYGetPtr(arg, 0);
@@ -142,7 +142,7 @@ YYEXPORT void btJointFeedback_getAppliedForceBodyB(
 ///     A pointer to the btJointFeedback instance.
 /// @param {Real} appliedTorqueBodyB
 ///     The applied torque on body B as a btVector3.
-YYEXPORT void btJoinFeedback_setAppliedTorqueBodyB(
+YYEXPORT void btJointFeedback_setAppliedTorqueBodyB(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
 	auto jointFeedback = (btJointFeedback*)YYGetPtr(arg, 0);

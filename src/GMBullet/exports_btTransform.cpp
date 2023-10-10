@@ -29,8 +29,10 @@ YYEXPORT void btTransform_destroy(
 /// @func btTransform_setIdentity(transform)
 ///
 /// @desc
+/// Sets the given transformation to the identity transformation.
 ///
 /// @param {Pointer} transform
+///     A pointer to the btTransform to be set to the identity transformation.
 YYEXPORT void btTransform_setIdentity(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -41,10 +43,14 @@ YYEXPORT void btTransform_setIdentity(
 /// @func btTransform_getOrigin(transform, outVector3)
 ///
 /// @desc
-/// Sets the transform to the identity transformation.
+/// Gets the origin (translation component) of the given transformation and
+/// stores it in the specified vector.
 ///
 /// @param {Pointer} transform
-///     A pointer to the btTransform object to be set to identity.
+///     A pointer to the btTransform from which to extract the origin.
+/// @param {Pointer} outVector3
+///     A pointer to the btVector3 that will store the origin of the
+///     transformation.
 YYEXPORT void btTransform_getOrigin(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {

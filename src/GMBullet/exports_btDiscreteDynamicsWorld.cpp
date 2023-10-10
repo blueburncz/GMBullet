@@ -52,7 +52,7 @@ YYEXPORT void btDiscreteDynamicsWorld_destroy(
 /// Steps the dynamics simulation forward by the given time step, allowing for
 /// substeps if specified.
 ///
-/// @param {Pointer} dynamicsWorld
+/// @param {Pointer} discreteDynamicsWorld
 ///     A pointer to the btDiscreteDynamicsWorld instance.
 /// @param {Real} timeStep
 ///     The time step to advance the simulation.
@@ -235,7 +235,7 @@ YYEXPORT void btDiscreteDynamicsWorld_getGravity(
 /// @desc
 /// Adds a rigid body to the dynamics world.
 ///
-/// @param {Pointer} dynamicsWorld
+/// @param {Pointer} discreteDynamicsWorld
 ///     Pointer to the btDiscreteDynamicsWorld instance.
 /// @param {Pointer} rigidBody
 ///     Pointer to the btRigidBody instance to be added.
@@ -258,7 +258,7 @@ YYEXPORT void btDiscreteDynamicsWorld_addRigidBody(
 /// @desc
 /// Removes a rigid body from the dynamics world.
 ///
-/// @param {Pointer} dynamicsWorld
+/// @param {Pointer} discreteDynamicsWorld
 ///     Pointer to the btDiscreteDynamicsWorld instance.
 /// @param {Pointer} rigidBody
 ///     Pointer to the btRigidBody instance to be removed.
@@ -363,7 +363,7 @@ YYEXPORT void btDiscreteDynamicsWorld_getWorldType(
 	result.val = dynamicsWorld->getWorldType();
 }
 
-/// @func btDiscreteDynamicsWorld_clearForces()
+/// @func btDiscreteDynamicsWorld_clearForces(discreteDynamicsWorld)
 ///
 /// @desc
 /// Clears all applied forces and torques on objects within the
@@ -378,7 +378,7 @@ YYEXPORT void btDiscreteDynamicsWorld_clearForces(
 	dynamicsWorld->clearForces();
 }
 
-/// @func btDiscreteDynamicsWorld_applyGravity()
+/// @func btDiscreteDynamicsWorld_applyGravity(discreteDynamicsWorld)
 ///
 /// @desc
 /// Applies gravity to all objects within the btDiscreteDynamicsWorld.

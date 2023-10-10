@@ -1232,9 +1232,14 @@ YYEXPORT void btClosestConvexResultCallback_getHitPointWorld(
 /// @func btClosestConvexResultCallback_getHitPointWorldArray(closestConvexResultCallback, outArray)
 ///
 /// @desc
+/// Gets the hit point in world coordinates as an array of Real values from a
+/// btClosestConvexResultCallback.
 ///
 /// @param {Pointer} closestConvexResultCallback
+///     A pointer to the btClosestConvexResultCallback from which to get the hit
+///     point in world coordinates.
 /// @param {Array<Real>} outArray
+///     An array to store the hit point in world coordinates.
 YYEXPORT void btClosestConvexResultCallback_getHitPointWorldArray(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -1252,14 +1257,14 @@ YYEXPORT void btClosestConvexResultCallback_getHitPointWorldArray(
 /// @func btClosestConvexResultCallback_getHitCollisionObject(closestConvexResultCallback)
 ///
 /// @desc
-/// Retrieves the hit point in world coordinates from a
-/// btClosestConvexResultCallback instance and populates an array with the x, y,
-/// and z components of the hit point.
+/// Gets the hit collision object from a btClosestConvexResultCallback.
 ///
 /// @param {Pointer} closestConvexResultCallback
-///     A pointer to the btClosestConvexResultCallback instance.
-/// @param {Array<Real>} outArray
-///     An array where the hit point components (x, y, z) will be stored.
+///     A pointer to the btClosestConvexResultCallback from which to get the hit
+///     collision object.
+///
+/// @return {Pointer} A pointer to the hit collision object, or nullptr if no
+/// collision object was hit.
 YYEXPORT void btClosestConvexResultCallback_getHitCollisionObject(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -1537,17 +1542,19 @@ YYEXPORT void btCollisionWorld_contactTest(
 /// @func btCollisionWorld_contactPairTest(collisionWorld, colObjA, colObjB, resultCallback)
 ///
 /// @desc
-/// Performs a contact test in the collision world between the specified
-/// collision object and the objects in the world, collecting the results using
-/// the provided result callback.
+/// Performs a contact pair test between two collision objects in a
+/// btCollisionWorld and invokes a result callback.
 ///
 /// @param {Pointer} collisionWorld
-///     A pointer to the collision world instance.
-/// @param {Pointer} colObj
-///     A pointer to the collision object for which contacts are being tested.
+///     A pointer to the btCollisionWorld in which the collision pair test is
+///     performed.
+/// @param {Pointer} colObjA
+///     A pointer to the first collision object in the pair to test for contact.
+/// @param {Pointer} colObjB
+///     A pointer to the second collision object in the pair to test for contact.
 /// @param {Pointer} resultCallback
-///     A pointer to the contact result callback (btContactResultCallback) used
-///     to collect the results.
+///     A pointer to the result callback to be invoked for each contact found in
+///     the pair test.
 YYEXPORT void btCollisionWorld_contactPairTest(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {

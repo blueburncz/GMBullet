@@ -3,7 +3,6 @@ import re
 import json5
 
 docs = []
-prev_arg = None
 
 src_dir = os.path.join("src", "GMBullet")
 for fname in os.listdir(src_dir):
@@ -13,21 +12,60 @@ for fname in os.listdir(src_dir):
     print("Parsing file", fpath)
     docs_current = ""
     with open(fpath) as f:
+        prev_arg = None
+        func_name = None
+        arg_list = []
+        arg_index = 0
         line_number = 0
         for line in f.readlines():
             line_number += 1
 
+            # Get function name and args in GMDoc
+            m = re.match(r"/// @func (\w+)\((.*)\)", line)
+            if m:
+                func_name = m.group(1)
+                arg_list = m.group(2).split(",")
+                for i in range(len(arg_list)):
+                    arg_list[i] = arg_list[i].replace("[", "").replace("]", "").strip()
+                arg_list = [a for a in arg_list if a]
+
+            m = re.match(r"/// @param {[^}]+} \[?(\w+)\]?", line)
+            if m:
+                if arg_index >= len(arg_list):
+                    print(f"ERROR: {fpath}:{line_number} : Wrong argument number in docs {arg_index + 1}/{len(arg_list)}")
+                    exit()
+                if m.group(1) != arg_list[arg_index]:
+                    print(f"ERROR: {fpath}:{line_number} : Inconsistent argument name {arg_list[arg_index]}/{m.group(1)}")
+                    exit()
+                arg_index += 1
+
+            # Check if actual function name matches
+            if func_name is not None:
+                m = re.match(r"YYEXPORT void (\w+)", line)
+                if m:
+                    if m.group(1) != func_name:
+                        print(f"ERROR: {fpath}:{line_number} : Inconsistent function name {func_name}/{m.group(1)}")
+                        exit()
+                    func_name = None
+                    if arg_index != len(arg_list):
+                        print(f"ERROR: {fpath}:{line_number} : Wrong argument number in docs {arg_index}/{len(arg_list)}")
+                        exit()
+                    arg_list = []
+                    arg_index = 0
+
+            # Check if argument indices are correct
             m = re.findall(r"arg[,\[] ?(\d+)", line)
             if m:
                 current = int(m[0])
                 if prev_arg is not None:
                     if current != prev_arg + 1:
-                        print(f"ERROR: {fpath}:{line_number} : Invalid arg number {current}, expected {prev_arg + 1}")
+                        print(f"ERROR: {fpath}:{line_number} : Invalid argument number {current}, expected {prev_arg + 1}")
                         exit()
                 prev_arg = current
             else:
                 prev_arg = None
 
+            # Check if arguments use the correct YYGet* function for their type
             m = re.findall(r"\t(.*) \w+ = .*YYGet(\w+)", line)
             if m:
                 m = m[0]

@@ -813,10 +813,14 @@ YYEXPORT void btCollisionObject_getInterpolationAngularVelocity(
 /// @func btCollisionObject_getHitFraction(collisionObject)
 ///
 /// @desc
+/// Gets the hit fraction for a btCollisionObject, indicating the fraction of
+/// motion used for a hit.
 ///
 /// @param {Pointer} collisionObject
+///     A pointer to the btCollisionObject from which to get the hit fraction.
 ///
-/// @return {Real}
+/// @return {Real} The hit fraction, representing the proportion of motion used
+/// for a hit.
 YYEXPORT void btCollisionObject_getHitFraction(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -828,9 +832,14 @@ YYEXPORT void btCollisionObject_getHitFraction(
 /// @func btCollisionObject_setHitFraction(collisionObject, hitFraction)
 ///
 /// @desc
+/// Sets the hit fraction for a btCollisionObject, indicating the fraction of
+/// motion used for a hit.
 ///
 /// @param {Pointer} collisionObject
+///     A pointer to the btCollisionObject for which to set the hit fraction.
 /// @param {Real} hitFraction
+///     The hit fraction to set, representing the proportion of motion used for
+///     a hit.
 YYEXPORT void btCollisionObject_setHitFraction(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -842,12 +851,14 @@ YYEXPORT void btCollisionObject_setHitFraction(
 /// @func btCollisionObject_getCollisionFlags(collisionObject)
 ///
 /// @desc
-/// Retrieves the hit fraction of a Bullet Physics collision object.
+/// Gets the collision flags for a btCollisionObject, indicating its collision
+/// behavior.
 ///
 /// @param {Pointer} collisionObject
-///     A pointer to a btCollisionObject instance.
+///     A pointer to the btCollisionObject from which to get the collision flags.
 ///
-/// @return {Real} The hit fraction of the collision object.
+/// @return {Real} The collision flags, representing the collision behavior of
+/// the object.
 YYEXPORT void btCollisionObject_getCollisionFlags(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -859,12 +870,14 @@ YYEXPORT void btCollisionObject_getCollisionFlags(
 /// @func btCollisionObject_setCollisionFlags(collisionObject, flags)
 ///
 /// @desc
-/// Sets the hit fraction of a Bullet Physics collision object.
+/// Sets the collision flags for a btCollisionObject, indicating its collision
+/// behavior.
 ///
 /// @param {Pointer} collisionObject
-///     A pointer to a btCollisionObject instance.
-/// @param {Real} hitFraction
-///     The hit fraction to set for the collision object.
+///     A pointer to the btCollisionObject for which to set the collision flags.
+/// @param {Real} flags
+///     The collision flags to set, representing the desired collision behavior
+///     for the object.
 YYEXPORT void btCollisionObject_setCollisionFlags(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -876,21 +889,6 @@ YYEXPORT void btCollisionObject_setCollisionFlags(
 /// @func btCollisionObject_getCcdSweptSphereRadius(collisionObject)
 ///
 /// @desc
-///
-/// @param {Pointer} collisionObject
-///
-/// @return {Real}
-YYEXPORT void btCollisionObject_getCcdSweptSphereRadius(
-	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
-{
-	auto collisionObject = (btCollisionObject*)YYGetPtr(arg, 0);
-	result.kind = VALUE_INT32;
-	result.val = collisionObject->getCcdSweptSphereRadius();
-}
-
-/// @func btCollisionObject_setCcdSweptSphereRadius(collisionObject, radius)
-///
-/// @desc
 /// Retrieves the Continuous Collision Detection (CCD) swept sphere radius of a
 /// Bullet Physics collision object.
 ///
@@ -898,6 +896,25 @@ YYEXPORT void btCollisionObject_getCcdSweptSphereRadius(
 ///     A pointer to a btCollisionObject instance.
 ///
 /// @return {Real} The CCD swept sphere radius of the collision object.
+YYEXPORT void btCollisionObject_getCcdSweptSphereRadius(
+	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
+{
+	auto collisionObject = (btCollisionObject*)YYGetPtr(arg, 0);
+	result.kind = VALUE_REAL;
+	result.val = collisionObject->getCcdSweptSphereRadius();
+}
+
+/// @func btCollisionObject_setCcdSweptSphereRadius(collisionObject, radius)
+///
+/// @desc
+/// Sets the continuous collision detection (CCD) swept sphere radius for a
+/// btCollisionObject.
+///
+/// @param {Pointer} collisionObject
+///     A pointer to the btCollisionObject for which to set the swept sphere
+///     radius.
+/// @param {Real} radius
+///     The radius of the swept sphere used for continuous collision detection.
 YYEXPORT void btCollisionObject_setCcdSweptSphereRadius(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -909,18 +926,20 @@ YYEXPORT void btCollisionObject_setCcdSweptSphereRadius(
 /// @func btCollisionObject_getCcdMotionThreshold(collisionObject)
 ///
 /// @desc
-/// Sets the Continuous Collision Detection (CCD) swept sphere radius for a
-/// Bullet Physics collision object.
+/// Gets the continuous collision detection (CCD) motion threshold for a
+/// btCollisionObject.
 ///
 /// @param {Pointer} collisionObject
-///     A pointer to a btCollisionObject instance.
-/// @param {Real} radius
-///     The radius of the swept sphere for CCD.
+///     A pointer to the btCollisionObject from which to get the CCD motion
+///     threshold.
+///
+/// @return {Real} The motion threshold for CCD, indicating the minimum motion
+/// needed for CCD to be active.
 YYEXPORT void btCollisionObject_getCcdMotionThreshold(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
 	auto collisionObject = (btCollisionObject*)YYGetPtr(arg, 0);
-	result.kind = VALUE_INT32;
+	result.kind = VALUE_REAL;
 	result.val = collisionObject->getCcdMotionThreshold();
 }
 
@@ -939,7 +958,7 @@ YYEXPORT void btCollisionObject_getCcdSquareMotionThreshold(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
 	auto collisionObject = (btCollisionObject*)YYGetPtr(arg, 0);
-	result.kind = VALUE_INT32;
+	result.kind = VALUE_REAL;
 	result.val = collisionObject->getCcdSquareMotionThreshold();
 }
 

@@ -141,7 +141,7 @@ YYEXPORT void btGeneric6DofSpringConstraint_setDamping(
 	generic6DofSpringConstraint->setDamping(index, damping);
 }
 
-/// @func btGeneric6DofSpringConstraint_setEquilibriumPoint(generic6DofSpringConstraint[, index[, damping]])
+/// @func btGeneric6DofSpringConstraint_setEquilibriumPoint(generic6DofSpringConstraint[, index[, val]])
 ///
 /// @desc
 /// Sets the equilibrium point (desired position) for a specified degree of
@@ -178,7 +178,7 @@ YYEXPORT void btGeneric6DofSpringConstraint_setEquilibriumPoint(
 	}
 }
 
-/// @func btGeneric6DofSpringConstraint_isSpringEnabled(generic6DofSpringConstraint)
+/// @func btGeneric6DofSpringConstraint_isSpringEnabled(generic6DofSpringConstraint, index)
 ///
 /// @desc
 /// Checks if the spring is enabled for a specified degree of freedom (DOF) in

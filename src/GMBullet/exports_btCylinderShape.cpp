@@ -18,7 +18,7 @@ YYEXPORT void btCylinderShape_create(
 	result.ptr = new btCylinderShape(halfExtents);
 }
 
-/// @func btCylinderShape_createXYZ(halfExtentX, halfExtentY, halfExtentY)
+/// @func btCylinderShape_createXYZ(halfExtentX, halfExtentY, halfExtentZ)
 ///
 /// @desc
 /// Creates a new instance of a Bullet cylinder shape aligned with the y-axis.
@@ -159,7 +159,7 @@ YYEXPORT void btCylinderShapeX_create(
 	result.ptr = new btCylinderShapeX(halfExtents);
 }
 
-/// @func btCylinderShapeX_createXYZ(halfExtentX, halfExtentY, halfExtentY)
+/// @func btCylinderShapeX_createXYZ(halfExtentX, halfExtentY, halfExtentZ)
 ///
 /// @desc
 /// Creates a new instance of a Bullet cylinder shape aligned with the x-axis.
@@ -223,7 +223,7 @@ YYEXPORT void btCylinderShapeZ_create(
 	result.ptr = new btCylinderShapeZ(halfExtents);
 }
 
-/// @func btCylinderShapeZ_createXYZ(halfExtentX, halfExtentY, halfExtentY)
+/// @func btCylinderShapeZ_createXYZ(halfExtentX, halfExtentY, halfExtentZ)
 ///
 /// @desc
 /// Creates a new instance of a Bullet cylinder shape aligned with the z-axis.
