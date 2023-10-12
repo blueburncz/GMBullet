@@ -230,7 +230,7 @@ YYEXPORT void btDiscreteDynamicsWorld_getGravity(
 
 // Note: Skipped btDiscreteDynamicsWorld::addCollisionObject
 
-/// @func btDiscreteDynamicsWorld_addRigidBody(discreteDynamicsWorld, rigidBody, group, mask)
+/// @func btDiscreteDynamicsWorld_addRigidBody(discreteDynamicsWorld, rigidBody[, group, mask])
 ///
 /// @desc
 /// Adds a rigid body to the dynamics world.
@@ -239,18 +239,27 @@ YYEXPORT void btDiscreteDynamicsWorld_getGravity(
 ///     Pointer to the btDiscreteDynamicsWorld instance.
 /// @param {Pointer} rigidBody
 ///     Pointer to the btRigidBody instance to be added.
-/// @param {Real} group
+/// @param {Real} [group]
 ///     Collision group to which the rigid body belongs.
-/// @param {Real} mask
+/// @param {Real} [mask]
 ///     Collision mask for the rigid body.
+///
+/// @see btCollisionFilterGroups
 YYEXPORT void btDiscreteDynamicsWorld_addRigidBody(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
 	auto dynamicsWorld = (btDiscreteDynamicsWorld*)YYGetPtr(arg, 0);
 	auto rigidBody = (btRigidBody*)YYGetPtr(arg, 1);
-	int group = YYGetInt32(arg, 2);
-	int mask = YYGetInt32(arg, 3);
-	dynamicsWorld->addRigidBody(rigidBody, group, mask);
+	if (argc > 3)
+	{
+		int group = YYGetInt32(arg, 2);
+		int mask = YYGetInt32(arg, 3);
+		dynamicsWorld->addRigidBody(rigidBody, group, mask);
+	}
+	else
+	{
+		dynamicsWorld->addRigidBody(rigidBody);
+	}
 }
 
 /// @func btDiscreteDynamicsWorld_removeRigidBody(discreteDynamicsWorld, rigidBody)

@@ -1,5 +1,29 @@
 ////////////////////////////////////////////////////////////////////////////////
 //
+// btBroadphaseProxy
+//
+
+/// @enum Enum representing collision filter groups.
+enum btCollisionFilterGroups
+{
+	/// @member Default collision filter group.
+	DefaultFilter = 1,
+	/// @member Static collision filter group.
+	StaticFilter = 2,
+	/// @member Kinematic collision filter group.
+	KinematicFilter = 4,
+	/// @member Debris collision filter group.
+	DebrisFilter = 8,
+	/// @member Sensor trigger collision filter group.
+	SensorTrigger = 16,
+	/// @member Character collision filter group.
+	CharacterFilter = 32,
+	/// @member All collision filter group.
+	AllFilter = -1
+};
+
+////////////////////////////////////////////////////////////////////////////////
+//
 // btTypedConstraint
 //
 

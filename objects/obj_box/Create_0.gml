@@ -6,7 +6,7 @@ var _localInertia = btVector3_create();
 btCollisionShape_calculateLocalInertia(shape, _mass, _localInertia);
 body = btRigidBody_create(_mass, btDefaultMotionState_create(), shape, _localInertia);
 btVector3_destroy(_localInertia);
-btDiscreteDynamicsWorld_addRigidBody(obj_engine.dynamicsWorld, body, -1, 1);
+btDiscreteDynamicsWorld_addRigidBody(obj_engine.dynamicsWorld, body);
 
 var _transform = btTransform_create();
 btTransform_setOriginXYZ(_transform, x, y, z);

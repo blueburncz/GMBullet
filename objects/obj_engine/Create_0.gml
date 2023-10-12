@@ -23,7 +23,7 @@ d3d_model_ellipsoid(mdl_sphere, -8, -8, -8, 8, 8, 8, 1, 1, 24);
 /* Create Floor */
 //shape_floor = btBoxShape_createXYZ(768, 768, 1);
 //body_floor = btRigidBody_create(0.0, btDefaultMotionState_create(), shape_floor);
-//btDiscreteDynamicsWorld_addRigidBody(dynamicsWorld, body_floor, -1, 1);
+//btDiscreteDynamicsWorld_addRigidBody(dynamicsWorld, body_floor);
 
 /* Create Terrain */
 terrain = new CTerrain(spr_heightmap);
@@ -59,7 +59,7 @@ btHeightfieldTerrainShape_setFlipTriangleWinding(terrain_shape, true);
 btCollisionShape_setLocalScalingXYZ(terrain_shape, terrain.Scale[0], terrain.Scale[1], terrain.Scale[2]);
 btHeightfieldTerrainShape_buildAccelerator(terrain_shape);
 terrain_body = btRigidBody_create(0.0, btDefaultMotionState_create(), terrain_shape);
-btDiscreteDynamicsWorld_addRigidBody(dynamicsWorld, terrain_body, -1, 1);
+btDiscreteDynamicsWorld_addRigidBody(dynamicsWorld, terrain_body);
 
 /* Create static mesh */
 vertex_format_begin();
@@ -84,7 +84,7 @@ btCollisionShape_setLocalScalingXYZ(mesh_shape, 200, 200, 200);
 
 mesh_body = btRigidBody_create(0, btDefaultMotionState_create(), mesh_shape);
 btRigidBody_translateXYZ(mesh_body, 0, 0, -120);
-btDiscreteDynamicsWorld_addRigidBody(dynamicsWorld, mesh_body, -1, 1);
+btDiscreteDynamicsWorld_addRigidBody(dynamicsWorld, mesh_body);
 
 buffer_delete(_buffer);
 
