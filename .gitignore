@@ -2,3 +2,6 @@
 .vscode/
 build/
 env/
+in.cpp
+make-code.py
+out.cpp

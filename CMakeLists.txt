@@ -25,6 +25,7 @@ set(SOURCES
     src/GMBullet/exports_btFixedConstraint.cpp
     src/GMBullet/exports_btGearConstraint.cpp
     src/GMBullet/exports_btGeneric6DofConstraint.cpp
+    src/GMBullet/exports_btGeneric6DofSpring2Constraint.cpp
     src/GMBullet/exports_btGeneric6DofSpringConstraint.cpp
     src/GMBullet/exports_btHeightfieldTerrainShape.cpp
     src/GMBullet/exports_btHinge2Constraint.cpp

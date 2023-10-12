@@ -177,3 +177,46 @@ enum btSliderFlags
 	/// limit in the slider.
 	BT_SLIDER_FLAGS_ERP_LIMANG = 0b10000000000
 };
+
+////////////////////////////////////////////////////////////////////////////////
+//
+// btGeneric6DofSpring2Constraint
+//
+
+/// @enum Enum representing different rotation orders.
+enum btRotateOrder
+{
+	/// @member Rotation order: X, Y, Z.
+	RO_XYZ = 0,
+	/// @member Rotation order: X, Z, Y.
+	RO_XZY,
+	/// @member Rotation order: Y, X, Z.
+	RO_YXZ,
+	/// @member Rotation order: Y, Z, X.
+	RO_YZX,
+	/// @member Rotation order: Z, X, Y.
+	RO_ZXY,
+	/// @member Rotation order: Z, Y, X.
+	RO_ZYX
+};
+
+/// @enum Enum representing flags for the 6 degrees of freedom constraint
+/// (version 2).
+enum bt6DofFlags2
+{
+	/// @member Flag indicating Constraint Force Mixing (CFM) for stopping
+	/// constraint (version 2).
+	BT_6DOF_FLAGS_CFM_STOP2 = 1,
+	/// @member Flag indicating Error Reduction Parameter (ERP) for stopping
+	/// constraint (version 2).
+	BT_6DOF_FLAGS_ERP_STOP2 = 2,
+	/// @member Flag indicating Constraint Force Mixing (CFM) for motor
+	/// constraint (version 2).
+	BT_6DOF_FLAGS_CFM_MOTO2 = 4,
+	/// @member Flag indicating Error Reduction Parameter (ERP) for motor
+	/// constraint (version 2).
+	BT_6DOF_FLAGS_ERP_MOTO2 = 8,
+	/// @member Flag indicating the use of infinite error in the constraint
+	/// (version 2).
+	BT_6DOF_FLAGS_USE_INFINITE_ERROR = 0b10000000000000000
+};

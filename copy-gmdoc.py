@@ -97,7 +97,12 @@ order = []
 total = 0
 
 for d in docs:
-    m = re.findall(r"/// @func (\w+)([^\n]+)", d)[0]
+    try:
+        m = re.findall(r"/// @func (\w+)([^\n]+)", d)[0]
+    except:
+        print("ERROR: Could not find @func tag in docs:")
+        print(d)
+        exit()
     func_name = m[0]
     args = m[1]
     print("Injecting function", func_name)
