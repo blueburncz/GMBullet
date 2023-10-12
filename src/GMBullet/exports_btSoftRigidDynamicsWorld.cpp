@@ -90,7 +90,25 @@ YYEXPORT void btSoftRigidDynamicsWorld_removeSoftBody(
 // Note: Skipped btSoftRigidDynamicsWorld::removeCollisionObject
 // Note: Skipped btSoftRigidDynamicsWorld::getDrawFlags
 // Note: Skipped btSoftRigidDynamicsWorld::setDrawFlags
-// Note: Skipped btSoftRigidDynamicsWorld::getWorldInfo
+
+/// @func btSoftRigidDynamicsWorld_getWorldInfo(softRigidDynamicsWorld)
+///
+/// @desc
+/// Retrieves the world info associated with the soft-rigid dynamics world.
+///
+/// @param {Pointer} softRigidDynamicsWorld
+///     A pointer to the btSoftRigidDynamicsWorld instance.
+///
+/// @return {Pointer} A pointer to the btSoftBodyWorldInfo associated with the
+/// world.
+YYEXPORT void btSoftRigidDynamicsWorld_getWorldInfo(
+	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
+{
+	auto softRigidDynamicsWorld = (btSoftRigidDynamicsWorld*)YYGetPtr(arg, 0);
+	result.kind = VALUE_PTR;
+	result.ptr = (btSoftBodyWorldInfo*)&softRigidDynamicsWorld->getWorldInfo();
+}
+
 // Note: Skipped btSoftRigidDynamicsWorld::getWorldType
 
 /// @func btSoftRigidDynamicsWorld_getSoftBodyArray(softRigidDynamicsWorld, outArray)

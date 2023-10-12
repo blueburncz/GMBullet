@@ -21,6 +21,7 @@ set(SOURCES
     src/GMBullet/exports_btDbvtBroadphase.cpp
     src/GMBullet/exports_btDefaultCollisionConfiguration.cpp
     src/GMBullet/exports_btDefaultMotionState.cpp
+    src/GMBullet/exports_btDefaultSoftBodySolver.cpp
     src/GMBullet/exports_btDiscreteDynamicsWorld.cpp
     src/GMBullet/exports_btFixedConstraint.cpp
     src/GMBullet/exports_btGearConstraint.cpp
