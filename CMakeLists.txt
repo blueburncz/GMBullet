@@ -36,6 +36,7 @@ set(SOURCES
     src/GMBullet/exports_btRigidBody.cpp
     src/GMBullet/exports_btSequentialImpulseConstraintSolver.cpp
     src/GMBullet/exports_btSliderConstraint.cpp
+    src/GMBullet/exports_btSoftRigidDynamicsWorld.cpp
     src/GMBullet/exports_btSphereShape.cpp
     src/GMBullet/exports_btTransform.cpp
     src/GMBullet/exports_btTriangleMesh.cpp
@@ -67,6 +68,15 @@ find_library(LIBBULLETDYNAMICS
     NO_DEFAULT_PATH
     )
 
+find_library(LIBBULLETSOFTBODY
+    NAMES BulletSoftBody
+    PATHS ${PATH_BULLET_BUILD}
+    PATH_SUFFIXES "src/BulletSoftBody/" "lib/Release/"
+    NO_CACHE
+    REQUIRED
+    NO_DEFAULT_PATH
+    )
+
 find_library(LIBLINEARMATH
     NAMES LinearMath
     PATHS ${PATH_BULLET_BUILD}
@@ -92,6 +102,7 @@ target_include_directories(${PROJECT_NAME} PRIVATE include/
 target_link_libraries(${PROJECT_NAME}
     ${LIBBULLETCOLLISION}
     ${LIBBULLETDYNAMICS}
+    ${LIBBULLETSOFTBODY}
     ${LIBLINEARMATH}
     )
 
