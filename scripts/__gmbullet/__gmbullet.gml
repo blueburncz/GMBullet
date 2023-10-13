@@ -1,5 +1,20 @@
 ////////////////////////////////////////////////////////////////////////////////
 //
+// btDispatcher
+//
+
+/// @enum Enum representing dispatch functions for collision detection.
+enum btDispatchFunc
+{
+	/// @member Discrete collision detection.
+	DISPATCH_DISCRETE = 1,
+	/// @member Continuous collision detection.
+	DISPATCH_CONTINUOUS
+};
+
+
+////////////////////////////////////////////////////////////////////////////////
+//
 // btBroadphaseProxy
 //
 

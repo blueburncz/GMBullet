@@ -23,6 +23,7 @@ set(SOURCES
     src/GMBullet/exports_btDefaultCollisionConfiguration.cpp
     src/GMBullet/exports_btDefaultMotionState.cpp
     src/GMBullet/exports_btDiscreteDynamicsWorld.cpp
+    src/GMBullet/exports_btDispatcher.cpp
     src/GMBullet/exports_btFixedConstraint.cpp
     src/GMBullet/exports_btGearConstraint.cpp
     src/GMBullet/exports_btGeneric6DofConstraint.cpp
