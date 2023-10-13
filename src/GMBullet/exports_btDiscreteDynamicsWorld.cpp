@@ -18,9 +18,9 @@
 /// @param {Pointer} collisionConfiguration
 ///     A pointer to the btCollisionConfiguration instance that provides
 ///     collision-related configuration settings.
-/// @return {Pointer}
-///     A pointer to the created btDiscreteDynamicsWorld instance for simulating
-///     physics.
+///
+/// @return {Pointer} A pointer to the created btDiscreteDynamicsWorld instance
+/// for simulating physics.
 YYEXPORT void btDiscreteDynamicsWorld_create(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -160,8 +160,7 @@ YYEXPORT void btDiscreteDynamicsWorld_removeAction(
 /// @param {Pointer} discreteDynamicsWorld
 ///     A pointer to the btDiscreteDynamicsWorld instance.
 ///
-/// @return {Pointer}
-///     A pointer to the associated collision world.
+/// @return {Pointer} A pointer to the associated collision world.
 YYEXPORT void btDiscreteDynamicsWorld_getCollisionWorld(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {

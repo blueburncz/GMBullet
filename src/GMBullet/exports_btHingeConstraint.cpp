@@ -120,8 +120,7 @@ YYEXPORT void btHingeConstraint_create1Transform(
 ///     Indicates whether to use the reference frame of the first rigid body for
 ///     the constraint. Default is false.
 ///
-/// @return {Pointer}
-///     Returns a pointer to the created btHingeConstraint.
+/// @return {Pointer} Returns a pointer to the created btHingeConstraint.
 YYEXPORT void btHingeConstraint_create2Transform(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {

@@ -15,10 +15,10 @@
 /// @param {Pointer} collisionConfiguration
 ///     The collision configuration.
 /// @param {Pointer} [softBodySolver]
-///     The soft body solver. Default is nullptr.
+///     The soft body solver. Default is nullptr, in which case a new
+///     btDefaultSoftBodySolver is created.
 ///
-/// @return {Pointer}
-///     A pointer to the created btSoftRigidDynamicsWorld instance.
+/// @return {Pointer} A pointer to the created btSoftRigidDynamicsWorld instance.
 YYEXPORT void btSoftRigidDynamicsWorld_create(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {

@@ -1619,9 +1619,9 @@ YYEXPORT void btGeneric6DofConstraint_setFrames(
 ///     Pointer to the btGeneric6DofConstraint instance.
 /// @param {Real} axisIndex
 ///     Index of the axis for which the angular limit motor is to be tested.
-/// @return {Bool}
-///     Returns true if the angular limit motor is active for the specified axis,
-///     false otherwise.
+///
+/// @return {Bool} Returns true if the angular limit motor is active for the
+/// specified axis, false otherwise.
 YYEXPORT void btGeneric6DofConstraint_testAngularLimitMotor(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {

@@ -8,8 +8,7 @@
 /// @param {Pointer} collisionConfiguration
 ///     The collision configuration to use for the collision dispatcher.
 ///
-/// @return {Pointer}
-///     A pointer to the created collision dispatcher.
+/// @return {Pointer} A pointer to the created collision dispatcher.
 YYEXPORT void btCollisionDispatcher_create(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {

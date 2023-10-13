@@ -337,8 +337,8 @@ YYEXPORT void btHeightfieldTerrainShape_getUpAxis(
 ///
 /// @param {Pointer} heightfieldTerrainShape
 ///     A pointer to the btHeightfieldTerrainShape object.
-/// @return {Pointer}
-///     A pointer to the raw heightfield data.
+///
+/// @return {Pointer} A pointer to the raw heightfield data.
 YYEXPORT void btHeightfieldTerrainShape_getHeightfieldRawData(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
