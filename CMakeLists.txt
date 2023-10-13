@@ -6,6 +6,7 @@ set(CMAKE_CXX_STANDARD 17)
 
 set(SOURCES
     src/GMBullet/dllmain.cpp
+    src/GMBullet/exports_btAxisSweep3.cpp
     src/GMBullet/exports_btBoxShape.cpp
     src/GMBullet/exports_btBvhTriangleMeshShape.cpp
     src/GMBullet/exports_btCapsuleShape.cpp
