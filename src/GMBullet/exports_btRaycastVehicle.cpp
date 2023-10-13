@@ -794,7 +794,7 @@ YYEXPORT void btRaycastVehicle_setCoordinateSystem(
 YYEXPORT void btDefaultVehicleRaycaster_create(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
-	auto world = (btDynamicsWorld*)YYGetPtr(arg, 1);
+	auto world = (btDynamicsWorld*)YYGetPtr(arg, 0);
 	result.kind = VALUE_PTR;
 	result.ptr = new btDefaultVehicleRaycaster(world);
 }

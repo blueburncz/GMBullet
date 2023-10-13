@@ -17,6 +17,7 @@ for fname in os.listdir(src_dir):
         arg_list = []
         arg_index = 0
         line_number = 0
+        in_if = False
         for line in f.readlines():
             line_number += 1
 
@@ -52,18 +53,22 @@ for fname in os.listdir(src_dir):
                         exit()
                     arg_list = []
                     arg_index = 0
+                    prev_arg = None
+                    in_if = False
 
             # Check if argument indices are correct
             m = re.findall(r"arg[,\[] ?(\d+)", line)
             if m:
                 current = int(m[0])
-                if prev_arg is not None:
-                    if current != prev_arg + 1:
+                if prev_arg is None:
+                    if current != 0 and not in_if:
+                        print(f"ERROR: {fpath}:{line_number} : First argument not 0")
+                        exit()
+                else:
+                    if current != prev_arg + 1 and not in_if:
                         print(f"ERROR: {fpath}:{line_number} : Invalid argument number {current}, expected {prev_arg + 1}")
                         exit()
                 prev_arg = current
-            else:
-                prev_arg = None
 
             # Check if arguments use the correct YYGet* function for their type
             m = re.findall(r"\t(.*) \w+ = .*YYGet(\w+)", line)
@@ -77,6 +82,10 @@ for fname in os.listdir(src_dir):
                     (m[0] == "auto&" and m[1] != "Ptr"):
                     print(f"ERROR: {fpath}:{line_number} : Inconsistent argument type {m[0]}/{m[1]}")
                     exit()
+
+            # For args in ifs...
+            if line.startswith("\tif (") or line.startswith("\telse"):
+                in_if = True
 
             if line.startswith("///") and not line.startswith("////"):
                 docs_current += line
