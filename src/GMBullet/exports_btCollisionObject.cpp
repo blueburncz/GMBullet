@@ -701,8 +701,8 @@ YYEXPORT void btCollisionObject_setWorldTransform(
 /// @param {Pointer} collisionObject
 ///     A pointer to a btCollisionObject instance.
 ///
-/// @return {Pointer}
-///     A pointer to the interpolation world transform of the collision object.
+/// @return {Pointer} A pointer to the interpolation world transform of the
+/// collision object.
 YYEXPORT void btCollisionObject_getInterpolationWorldTransform(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -952,8 +952,7 @@ YYEXPORT void btCollisionObject_getCcdMotionThreshold(
 /// @param {Pointer} collisionObject
 ///     A pointer to a btCollisionObject instance.
 ///
-/// @return {Real}
-///     The squared motion threshold for CCD of the collision object.
+/// @return {Real} The squared motion threshold for CCD of the collision object.
 YYEXPORT void btCollisionObject_getCcdSquareMotionThreshold(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {

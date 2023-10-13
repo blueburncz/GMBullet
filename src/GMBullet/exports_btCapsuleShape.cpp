@@ -112,8 +112,7 @@ YYEXPORT void btCapsuleShape_getHalfHeight(
 /// @param {Real} height
 ///     The height of the capsule along the x-axis.
 ///
-/// @return {Pointer}
-///     A pointer to the created btCapsuleShapeX object.
+/// @return {Pointer} A pointer to the created btCapsuleShapeX object.
 YYEXPORT void btCapsuleShapeX_create(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -153,8 +152,7 @@ YYEXPORT void btCapsuleShapeX_destroy(
 /// @param {Real} height
 ///     The height of the capsule along the z-axis.
 ///
-/// @return {Pointer}
-///     A pointer to the created btCapsuleShapeZ object.
+/// @return {Pointer} A pointer to the created btCapsuleShapeZ object.
 YYEXPORT void btCapsuleShapeZ_create(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
