@@ -40,6 +40,7 @@ set(SOURCES
     src/GMBullet/exports_btSliderConstraint.cpp
     src/GMBullet/exports_btSoftBody.cpp
     src/GMBullet/exports_btSoftRigidDynamicsWorld.cpp
+    src/GMBullet/exports_btSparseSdf.cpp
     src/GMBullet/exports_btSphereShape.cpp
     src/GMBullet/exports_btTransform.cpp
     src/GMBullet/exports_btTriangleMesh.cpp
