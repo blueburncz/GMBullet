@@ -40,6 +40,7 @@ set(SOURCES
     src/GMBullet/exports_btSequentialImpulseConstraintSolver.cpp
     src/GMBullet/exports_btSliderConstraint.cpp
     src/GMBullet/exports_btSoftBody.cpp
+    src/GMBullet/exports_btSoftBodyRigidBodyCollisionConfiguration.cpp
     src/GMBullet/exports_btSoftRigidDynamicsWorld.cpp
     src/GMBullet/exports_btSparseSdf.cpp
     src/GMBullet/exports_btSphereShape.cpp
