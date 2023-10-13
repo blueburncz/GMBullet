@@ -1698,7 +1698,7 @@ YYEXPORT void btCollisionWorld_performDiscreteCollisionDetection(
 /// @param {Pointer} collisionWorld
 ///     A pointer to the collision world instance.
 ///
-/// @return {Pointer} A pointer to the dispatch info associated with the
+/// @return {Pointer} A pointer to the btDispatcherInfo associated with the
 /// collision world.
 YYEXPORT void btCollisionWorld_getDispatchInfo(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
