@@ -1,6 +1,10 @@
 #include <GMBullet.hpp>
 #include <BulletSoftBody/btSoftBody.h>
 
+using btSoftBody_eFeature = btSoftBody::eFeature::_;
+using btSoftBody_sRayCast = btSoftBody::sRayCast;
+using btSoftBody_ImplicitFn = btSoftBody::ImplicitFn;
+
 ////////////////////////////////////////////////////////////////////////////////
 //
 // btSoftBodyWorldInfo
@@ -380,7 +384,154 @@ YYEXPORT void btSoftBodyWorldInfo_getSparseSdf(
 
 ////////////////////////////////////////////////////////////////////////////////
 //
+// btSoftBody::sRayCast
+//
+
+YYEXPORT void btSoftBody_sRayCast_create(
+	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
+{
+	result.kind = VALUE_PTR;
+	result.ptr = new btSoftBody_sRayCast();
+}
+
+YYEXPORT void btSoftBody_sRayCast_destroy(
+	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
+{
+	delete (btSoftBody_sRayCast*)YYGetPtr(arg, 0);
+}
+
+YYEXPORT void btSoftBody_sRayCast_setBody(
+	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
+{
+	auto sRayCast = (btSoftBody_sRayCast*)YYGetPtr(arg, 0);
+	auto body = (btSoftBody*)YYGetPtr(arg, 1);
+	sRayCast->body = body;
+}
+
+YYEXPORT void btSoftBody_sRayCast_getBody(
+	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
+{
+	auto sRayCast = (btSoftBody_sRayCast*)YYGetPtr(arg, 0);
+	result.kind = VALUE_PTR;
+	result.ptr = sRayCast->body;
+}
+
+YYEXPORT void btSoftBody_sRayCast_setFeature(
+	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
+{
+	auto sRayCast = (btSoftBody_sRayCast*)YYGetPtr(arg, 0);
+	btSoftBody_eFeature feature = (btSoftBody_eFeature)YYGetInt32(arg, 1);
+	sRayCast->feature = feature;
+}
+
+YYEXPORT void btSoftBody_sRayCast_getFeature(
+	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
+{
+	auto sRayCast = (btSoftBody_sRayCast*)YYGetPtr(arg, 0);
+	result.kind = VALUE_INT32;
+	result.val = (int)sRayCast->feature;
+}
+
+YYEXPORT void btSoftBody_sRayCast_setIndex(
+	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
+{
+	auto sRayCast = (btSoftBody_sRayCast*)YYGetPtr(arg, 0);
+	int index = YYGetInt32(arg, 1);
+	sRayCast->index = index;
+}
+
+YYEXPORT void btSoftBody_sRayCast_getIndex(
+	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
+{
+	auto sRayCast = (btSoftBody_sRayCast*)YYGetPtr(arg, 0);
+	result.kind = VALUE_INT32;
+	result.val = sRayCast->index;
+}
+
+YYEXPORT void btSoftBody_sRayCast_setFraction(
+	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
+{
+	auto sRayCast = (btSoftBody_sRayCast*)YYGetPtr(arg, 0);
+	double fraction = YYGetReal(arg, 1);
+	sRayCast->fraction = fraction;
+}
+
+YYEXPORT void btSoftBody_sRayCast_getFraction(
+	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
+{
+	auto sRayCast = (btSoftBody_sRayCast*)YYGetPtr(arg, 0);
+	result.kind = VALUE_REAL;
+	result.val = sRayCast->fraction;
+}
+
+////////////////////////////////////////////////////////////////////////////////
+//
+// btSoftBody_ImplicitFn
+//
+
+YYEXPORT void btSoftBody_ImplicitFn_destroy(
+	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
+{
+	delete (btSoftBody_ImplicitFn*)YYGetPtr(arg, 0);
+}
+
+YYEXPORT void btSoftBody_ImplicitFn_Eval(
+	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
+{
+	auto implicitFn = (btSoftBody_ImplicitFn*)YYGetPtr(arg, 0);
+	auto& x = *(btVector3*)YYGetPtr(arg, 1);
+	implicitFn->Eval(x);
+}
+
+////////////////////////////////////////////////////////////////////////////////
+//
+// Note: Skipped all internal types
+//
+
+////////////////////////////////////////////////////////////////////////////////
+//
 // btSoftBody
 //
+
+// Note: Skipped all fields
+
+YYEXPORT void btSoftBody_create(
+	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
+{
+	auto worldInfo = (btSoftBodyWorldInfo*)YYGetPtr(arg, 0);
+	result.kind = VALUE_PTR;
+	result.ptr = new btSoftBody(worldInfo);
+}
+
+YYEXPORT void btSoftBody_destroy(
+	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
+{
+	delete (btSoftBody*)YYGetPtr(arg, 0);
+}
+
+YYEXPORT void btSoftBody_initDefaults(
+	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
+{
+	auto softBody = (btSoftBody*)YYGetPtr(arg, 0);
+	softBody->initDefaults();
+}
+
+YYEXPORT void btSoftBody_getWorldInfo(
+	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
+{
+	auto softBody = (btSoftBody*)YYGetPtr(arg, 0);
+	result.kind = VALUE_PTR;
+	result.ptr = softBody->m_worldInfo;
+}
+
+YYEXPORT void btSoftBody_setDampingCoefficient(
+	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
+{
+	auto softBody = (btSoftBody*)YYGetPtr(arg, 0);
+	double dampingCoeff = YYGetReal(arg, 1);
+	softBody->setDampingCoefficient(dampingCoeff);
+}
+
+// Note: Skipped btSoftBody::setCollisionShape
 
 

@@ -259,3 +259,87 @@ enum bt6DofFlags2
 	/// (version 2).
 	BT_6DOF_FLAGS_USE_INFINITE_ERROR = 0b10000000000000000
 };
+
+////////////////////////////////////////////////////////////////////////////////
+//
+// btSoftBody
+//
+
+//
+// Enums
+//
+
+enum btSoftBody_eAeroModel
+{
+	V_Point,
+	V_TwoSided,
+	V_TwoSidedLiftDrag,
+	V_OneSided,
+	F_TwoSided,
+	F_TwoSidedLiftDrag,
+	F_OneSided,
+	END
+};
+
+enum btSoftBody_eVSolver
+{
+	Linear,
+	END
+};
+
+enum btSoftBody_ePSolver
+{
+	Linear,
+	Anchors,
+	RContacts,
+	SContacts,
+	END
+}
+
+enum btSoftBody_eSolverPresets
+{
+	Positions = 0,
+	Velocities = 1,
+	Default = 0, // Positions
+	END
+};
+
+enum btSoftBody_eFeature
+{
+	None,
+	Node,
+	Link,
+	Face,
+	Tetra,
+	END
+};
+
+//
+// Flags
+//
+
+enum btSoftBody_fCollision
+{
+	RVSmask = 0x000f,
+	SDF_RS = 0x0001,
+	CL_RS = 0x0002,
+	SDF_RD = 0x0004,
+	SVSmask = 0x00f0,
+	VF_SS = 0x0010,
+	CL_SS = 0x0020,
+	CL_SELF = 0x0040,
+	VF_DD = 0x0080,
+	RVDFmask = 0x0f00,
+	SDF_RDF = 0x0100,
+	SDF_MDF = 0x0200,
+	SDF_RDN = 0x0400,
+	Default = 0x0001, // SDF_RS
+	END
+};
+
+enum btSoftBody_fMaterial
+{
+	DebugDraw = 0x0001,
+	Default = 0x0001, // DebugDraw
+	END
+};
