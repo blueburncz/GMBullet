@@ -18,3 +18,5 @@ btSequentialImpulseConstraintSolver_destroy(solver);
 btDbvtBroadphase_destroy(overlappingPairCache);
 btCollisionDispatcher_destroy(dispatcher);
 btDefaultCollisionConfiguration_destroy(collisionConfiguration);
+btDebugDrawInMemory_destroy(debugDraw);
+buffer_delete(debugDrawBuffer);

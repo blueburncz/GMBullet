@@ -57,6 +57,7 @@
     {"id":{"name":"vertex_default","path":"scripts/vertex_default/vertex_default.yy",},},
     {"id":{"name":"model_build_cube","path":"scripts/model_build_cube/model_build_cube.yy",},},
     {"id":{"name":"model_build_plane","path":"scripts/model_build_plane/model_build_plane.yy",},},
+    {"id":{"name":"btShDebugDraw","path":"shaders/btShDebugDraw/btShDebugDraw.yy",},},
     {"id":{"name":"instance_create_3d","path":"scripts/instance_create_3d/instance_create_3d.yy",},},
     {"id":{"name":"get_z","path":"scripts/get_z/get_z.yy",},},
     {"id":{"name":"background_get_texture","path":"scripts/background_get_texture/background_get_texture.yy",},},

@@ -20,6 +20,7 @@ set(SOURCES
     src/GMBullet/exports_btConeTwistConstraint.cpp
     src/GMBullet/exports_btCylinderShape.cpp
     src/GMBullet/exports_btDbvtBroadphase.cpp
+    src/GMBullet/exports_btDebugDrawInMemory.cpp
     src/GMBullet/exports_btDefaultCollisionConfiguration.cpp
     src/GMBullet/exports_btDefaultMotionState.cpp
     src/GMBullet/exports_btDiscreteDynamicsWorld.cpp
@@ -32,6 +33,7 @@ set(SOURCES
     src/GMBullet/exports_btHeightfieldTerrainShape.cpp
     src/GMBullet/exports_btHinge2Constraint.cpp
     src/GMBullet/exports_btHingeConstraint.cpp
+    src/GMBullet/exports_btIDebugDraw.cpp
     src/GMBullet/exports_btPoint2PointConstraint.cpp
     src/GMBullet/exports_btQuaternion.cpp
     src/GMBullet/exports_btRaycastVehicle.cpp

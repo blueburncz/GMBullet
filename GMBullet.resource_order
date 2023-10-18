@@ -30,6 +30,7 @@
     {"name":"sh_mesh","order":2,"path":"shaders/sh_mesh/sh_mesh.yy",},
     {"name":"vertex_default","order":1,"path":"scripts/vertex_default/vertex_default.yy",},
     {"name":"model_build_plane","order":1,"path":"scripts/model_build_plane/model_build_plane.yy",},
+    {"name":"btShDebugDraw","order":2,"path":"shaders/btShDebugDraw/btShDebugDraw.yy",},
     {"name":"get_z","order":1,"path":"scripts/get_z/get_z.yy",},
     {"name":"__init_background","order":1,"path":"scripts/__init_background/__init_background.yy",},
     {"name":"d3d_model_draw","order":1,"path":"scripts/d3d_model_draw/d3d_model_draw.yy",},

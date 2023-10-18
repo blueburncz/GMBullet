@@ -193,6 +193,87 @@ YYEXPORT void btCollisionWorld_computeOverlappingPairs(
 	collisionWorld->computeOverlappingPairs();
 }
 
+/// @func btCollisionWorld_setDebugDrawer(collisionWorld, debugDrawer)
+///
+/// @desc
+/// Sets the debug drawer for a btCollisionWorld instance. The debug drawer is
+/// used to visualize the collision shapes and contacts in the world for
+/// debugging and visualization purposes.
+///
+/// @param {Pointer} collisionWorld
+///     A pointer to a btCollisionWorld instance (btCollisionWorld).
+/// @param {Pointer} debugDrawer
+///     A pointer to a debug drawer instance (btIDebugDraw). The debug drawer
+///     provides the functionality to draw debug information for collisions.
+YYEXPORT void btCollisionWorld_setDebugDrawer(
+	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
+{
+	auto collisionWorld = (btCollisionWorld*)YYGetPtr(arg, 0);
+	auto debugDrawer = (btIDebugDraw*)YYGetPtr(arg, 1);
+	collisionWorld->setDebugDrawer(debugDrawer);
+}
+
+/// @func btCollisionWorld_getDebugDrawer(collisionWorld)
+///
+/// @desc
+/// Retrieves the debug drawer associated with a given btCollisionWorld instance.
+/// The debug drawer is used to visualize the collision shapes and contacts in
+/// the world for debugging and visualization purposes.
+///
+/// @param {Pointer} collisionWorld
+///     A pointer to a btCollisionWorld instance (btCollisionWorld).
+/// @return {Pointer}
+///     A pointer to the debug drawer instance (btIDebugDraw) associated with
+///     the specified collisionWorld.
+YYEXPORT void btCollisionWorld_getDebugDrawer(
+	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
+{
+	auto collisionWorld = (btCollisionWorld*)YYGetPtr(arg, 0);
+	result.kind = VALUE_PTR;
+	result.ptr = collisionWorld->getDebugDrawer();
+}
+
+/// @func btCollisionWorld_debugDrawWorld(collisionWorld)
+///
+/// @desc
+/// Initiates the debug drawing of the collision world. This function triggers
+/// the visualization of collision shapes and contacts in the world using the
+/// debug drawer associated with the btCollisionWorld instance.
+///
+/// @param {Pointer} collisionWorld
+///     A pointer to a btCollisionWorld instance (btCollisionWorld).
+YYEXPORT void btCollisionWorld_debugDrawWorld(
+	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
+{
+	auto collisionWorld = (btCollisionWorld*)YYGetPtr(arg, 0);
+	collisionWorld->debugDrawWorld();
+}
+
+/// @func btCollisionWorld_debugDrawObject(collisionWorld, worldTransform, shape, color)
+///
+/// @desc
+/// Initiates the debug drawing of a specific collision object in the collision
+/// world. This function triggers the visualization of the specified collision
+/// object using the debug drawer associated with the btCollisionWorld instance.
+///
+/// @param {Pointer} collisionWorld
+///     A pointer to a btCollisionWorld instance (btCollisionWorld).
+/// @param {Pointer} worldTransform
+///     A pointer to the transformation of the collision object (btTransform).
+/// @param {Pointer} shape
+///     A pointer to the collision shape of the object (btCollisionShape).
+/// @param {Pointer} color
+///     A pointer to the color used for visualization (btVector3).
+YYEXPORT void btCollisionWorld_debugDrawObject(
+	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
+{
+	auto collisionWorld = (btCollisionWorld*)YYGetPtr(arg, 0);
+	auto& worldTransform = *(btTransform*)YYGetPtr(arg, 1);
+	auto shape = (btCollisionShape*)YYGetPtr(arg, 2);
+	auto& color = *(btVector3*)YYGetPtr(arg, 3);
+	collisionWorld->debugDrawObject(worldTransform, shape, color);
+}
+
 ////////////////////////////////////////////////////////////////////////////////
 //
 // Note: Skipped btCollisionWorld::LocalShapeInfo

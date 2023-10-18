@@ -5,7 +5,17 @@ solver = btSequentialImpulseConstraintSolver_create();
 dynamicsWorld = btDiscreteDynamicsWorld_create(dispatcher, overlappingPairCache, solver, collisionConfiguration);
 btDiscreteDynamicsWorld_setGravityXYZ(dynamicsWorld, 0, 0, -160);
 
+debugDraw = btDebugDrawInMemory_create();
+var _debugDrawMode = btDebugDrawModes.DBG_DrawWireframe
+	| btDebugDrawModes.DBG_DrawContactPoints
+	| btDebugDrawModes.DBG_DrawNormals;
+btIDebugDraw_setDebugMode(debugDraw, _debugDrawMode);
+btCollisionWorld_setDebugDrawer(dynamicsWorld, debugDraw);
+
+debugDrawBuffer = buffer_create(1, buffer_grow, 1);
+
 pause = false;
+debug = false;
 
 vertex_formats_init();
 
