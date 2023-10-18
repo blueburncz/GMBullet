@@ -82,7 +82,8 @@ best way to learn Bullet remains to be using
 [examples](https://github.com/bulletphysics/bullet3/tree/master/examples)
 included in the official repo. In case you need help with GMBullet, you can join
 the [BlueBurn Discord server](https://discord.gg/ep2BGPm), where I will try to
-do my best to answer your questions.
+do my best to answer your questions. This repo also contains a sample GM project
+to help you get started.
 
 # Building from source
 Requires [CMake](https://cmake.org) version 3.23 or newer!
