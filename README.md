@@ -21,8 +21,9 @@ GameMaker. Its goal is not to be a simplification layer, but instead it tries to
 match Bullet's API as closely as possible.
 
 Bullet's C++ public API is converted into a C-like code and exposed to GML. For
-example, if there's a class `btDiscreteDynamicsWorld` with a method
-`addRigidBody(body)`, this becomes
+example, instances of classes/structs are created with `btClass_create` and
+freed from memory with `btClass_destroy`. If there's a class
+`btDiscreteDynamicsWorld` with a method `addRigidBody(body)`, this becomes
 `btDiscreteDynamicsWorld_addRigidBody(world, body)`. Classes and structs within
 a namespace become just the class/struct name prepended with `bt`, e.g.
 `btCollisionWorld::ClosestRayResultCallback` becomes `btClosestRayResultCallback`.
