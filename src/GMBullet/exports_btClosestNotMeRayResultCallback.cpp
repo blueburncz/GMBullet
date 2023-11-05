@@ -1,11 +1,10 @@
 #include <GMBullet.hpp>
 
-// Note: This is a copy of btKinematicClosestNotMeRayResultCallback from btKinematicCharacterController.cpp
 class btClosestNotMeRayResultCallback : public btCollisionWorld::ClosestRayResultCallback
 {
 public:
-	btClosestNotMeRayResultCallback(btCollisionObject* me)
-		: btCollisionWorld::ClosestRayResultCallback(btVector3(0.0, 0.0, 0.0), btVector3(0.0, 0.0, 0.0))
+	btClosestNotMeRayResultCallback(const btVector3& rayFromWorld, const btVector3& rayToWorld, btCollisionObject* me)
+		: btCollisionWorld::ClosestRayResultCallback(rayFromWorld, rayToWorld)
 	{
 		m_me = me;
 	}
@@ -22,13 +21,15 @@ protected:
 	btCollisionObject* m_me;
 };
 
-/// @func btClosestNotMeRayResultCallback_create(closestNotMeRayResultCallback, me)
+/// @func btClosestNotMeRayResultCallback_create(rayFromWorld, rayToWorld, me)
 ///
 /// @desc
 /// Creates a new instance of a Bullet closest not-me ray result callback.
 ///
-/// @param {Pointer} closestNotMeRayResultCallback
-///     A pointer to the btClosestNotMeRayResultCallback object to create.
+/// @param {Pointer} rayFromWorld
+///     A pointer to the starting point of the ray in world coordinates.
+/// @param {Pointer} rayToWorld
+///     A pointer to the end point of the ray in world coordinates.
 /// @param {Pointer} me
 ///     A pointer to the collision object representing "me" to be excluded from
 ///     results.
@@ -38,9 +39,11 @@ protected:
 YYEXPORT void btClosestNotMeRayResultCallback_create(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
-	auto me = (btCollisionObject*)YYGetPtr(arg, 0);
+	auto& rayFromWorld = *(btVector3*)YYGetPtr(arg, 0);
+	auto& rayToWorld = *(btVector3*)YYGetPtr(arg, 1);
+	auto me = (btCollisionObject*)YYGetPtr(arg, 2);
 	result.kind = VALUE_PTR;
-	result.ptr = new btClosestNotMeRayResultCallback(me);
+	result.ptr = new btClosestNotMeRayResultCallback(rayFromWorld, rayToWorld, me);
 }
 
 /// @func btClosestNotMeRayResultCallback_destroy(closestNotMeRayResultCallback)
