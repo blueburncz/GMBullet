@@ -76,7 +76,7 @@ functions.
 # Documentation and help
 Bullet itself is quite poorly documented and I myself am no Bullet guru, so the
 absolute most of the GMBullet documentation was generated from source code using
-[ChatGPT 3.5](https://chat.openai.com). For the most, part it seems quite good,
+[ChatGPT 3.5](https://chat.openai.com). For the most part, it seems quite good,
 but sometimes it looks like complete BS. But hey, it's better than nothing! The
 best way to learn Bullet remains to be using
 [examples](https://github.com/bulletphysics/bullet3/tree/master/examples)
