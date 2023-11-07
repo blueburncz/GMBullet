@@ -1432,13 +1432,13 @@ YYEXPORT void btRigidBody_setMotionState(
 ///
 /// @param {Pointer} rigidBody
 ///     A pointer to the btRigidBody object.
-/// @param {Real} angularFactor
-///     The angular factor to set.
+/// @param {Pointer} angularFactor
+///     A pointer to a btVector3 representing the angular factor.
 YYEXPORT void btRigidBody_setAngularFactor(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
 	auto rigidBody = (btRigidBody*)YYGetPtr(arg, 0);
-	double angularFactor = YYGetReal(arg, 1);
+	auto& angularFactor = *(btVector3*)YYGetPtr(arg, 1);
 	rigidBody->setAngularFactor(angularFactor);
 }
 
