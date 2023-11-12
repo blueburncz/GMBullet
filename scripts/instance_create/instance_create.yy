@@ -6,6 +6,6 @@
   "isDnD": false,
   "parent": {
     "name": "instance",
-    "path": "folders/Scripts/compatibility/instance.yy",
+    "path": "folders/Demo/Scripts/compatibility/instance.yy",
   },
 }

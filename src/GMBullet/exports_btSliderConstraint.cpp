@@ -1464,7 +1464,7 @@ YYEXPORT void btSliderConstraint_getFlags(
 {
 	auto sliderConstraint = (btSliderConstraint*)YYGetPtr(arg, 0);
 	result.kind = VALUE_INT32;
-	result.val = sliderConstraint->getFlags();
+	result.v32 = sliderConstraint->getFlags();
 }
 
 // Note: Skipped btSliderConstraint::calculateSerializeBufferSize

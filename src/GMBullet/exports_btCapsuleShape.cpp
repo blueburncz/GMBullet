@@ -54,7 +54,7 @@ YYEXPORT void btCapsuleShape_getUpAxis(
 {
 	auto capsuleShape = (btCapsuleShape*)YYGetPtr(arg, 0);
 	result.kind = VALUE_INT32;
-	result.val = capsuleShape->getUpAxis();
+	result.v32 = capsuleShape->getUpAxis();
 }
 
 /// @func btCapsuleShape_getRadius(capsuleShape)

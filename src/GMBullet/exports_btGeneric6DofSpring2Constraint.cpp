@@ -757,7 +757,7 @@ YYEXPORT void btRotationalLimitMotor2_getCurrentLimit(
 {
 	auto rotationalLimitMotor2 = (btRotationalLimitMotor2*)YYGetPtr(arg, 0);
 	result.kind = VALUE_INT32;
-	result.val = rotationalLimitMotor2->m_currentLimit;
+	result.v32 = rotationalLimitMotor2->m_currentLimit;
 }
 
 /// @func btRotationalLimitMotor2_isLimited(rotationalLimitMotor2)
@@ -1626,7 +1626,7 @@ YYEXPORT void btTranslationalLimitMotor2_getCurrentLimit(
 	auto translationalLimitMotor2 = (btTranslationalLimitMotor2*)YYGetPtr(arg, 0);
 	int index = YYGetInt32(arg, 1);
 	result.kind = VALUE_INT32;
-	result.val = translationalLimitMotor2->m_currentLimit[index];
+	result.v32 = translationalLimitMotor2->m_currentLimit[index];
 }
 
 /// @func btTranslationalLimitMotor2_isLimited(translationalLimitMotor2, limitIndex)
@@ -2315,7 +2315,7 @@ YYEXPORT void btGeneric6DofSpring2Constraint_getRotationOrder(
 {
 	auto generic6DofSpring2Constraint = (btGeneric6DofSpring2Constraint*)YYGetPtr(arg, 0);
 	result.kind = VALUE_INT32;
-	result.val = (int)generic6DofSpring2Constraint->getRotationOrder();
+	result.v32 = (int)generic6DofSpring2Constraint->getRotationOrder();
 }
 
 /// @func btGeneric6DofSpring2Constraint_setAxis(generic6DofSpring2Constraint, axis1, axis2)

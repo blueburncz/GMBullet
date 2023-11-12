@@ -6,6 +6,6 @@
   "isDnD": false,
   "parent": {
     "name": "texture",
-    "path": "folders/Scripts/compatibility/texture.yy",
+    "path": "folders/Demo/Scripts/compatibility/texture.yy",
   },
 }

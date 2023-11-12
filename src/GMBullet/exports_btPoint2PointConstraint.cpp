@@ -394,7 +394,7 @@ YYEXPORT void btPoint2PointConstraint_getFlags(
 {
 	auto point2PointConstraint = (btPoint2PointConstraint*)YYGetPtr(arg, 0);
 	result.kind = VALUE_INT32;
-	result.val = point2PointConstraint->getFlags();
+	result.v32 = point2PointConstraint->getFlags();
 }
 
 // Note: Skipped btPoint2PointConstraint::calculateSerializeBufferSize

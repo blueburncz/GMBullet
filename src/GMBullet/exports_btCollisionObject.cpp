@@ -332,7 +332,7 @@ YYEXPORT void btCollisionObject_getActivationState(
 {
 	auto collisionObject = (btCollisionObject*)YYGetPtr(arg, 0);
 	result.kind = VALUE_INT32;
-	result.val = collisionObject->getActivationState();
+	result.v32 = collisionObject->getActivationState();
 }
 
 /// @func btCollisionObject_setActivationState(collisionObject, newState)
@@ -864,7 +864,7 @@ YYEXPORT void btCollisionObject_getCollisionFlags(
 {
 	auto collisionObject = (btCollisionObject*)YYGetPtr(arg, 0);
 	result.kind = VALUE_INT32;
-	result.val = collisionObject->getCollisionFlags();
+	result.v32 = collisionObject->getCollisionFlags();
 }
 
 /// @func btCollisionObject_setCollisionFlags(collisionObject, flags)

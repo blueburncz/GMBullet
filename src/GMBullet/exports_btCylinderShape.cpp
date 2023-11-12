@@ -109,7 +109,7 @@ YYEXPORT void btCylinderShape_getUpAxis(
 {
 	auto cylinderShape = (btCylinderShape*)YYGetPtr(arg, 0);
 	result.kind = VALUE_INT32;
-	result.val = cylinderShape->getUpAxis();
+	result.v32 = cylinderShape->getUpAxis();
 }
 
 // Note: Skipped btCylinderShape::getAnisotropicRollingFrictionDirection

@@ -286,7 +286,7 @@ YYEXPORT void btConeTwistConstraint_getSolveTwistLimit(
 {
 	auto coneTwistConstraint = (btConeTwistConstraint*)YYGetPtr(arg, 0);
 	result.kind = VALUE_INT32;
-	result.val = coneTwistConstraint->getSolveTwistLimit();
+	result.v32 = coneTwistConstraint->getSolveTwistLimit();
 }
 
 /// @func btConeTwistConstraint_getSolveSwingLimit(coneTwistConstraint)
@@ -304,7 +304,7 @@ YYEXPORT void btConeTwistConstraint_getSolveSwingLimit(
 {
 	auto coneTwistConstraint = (btConeTwistConstraint*)YYGetPtr(arg, 0);
 	result.kind = VALUE_INT32;
-	result.val = coneTwistConstraint->getSolveSwingLimit();
+	result.v32 = coneTwistConstraint->getSolveSwingLimit();
 }
 
 /// @func btConeTwistConstraint_getTwistLimitSign(coneTwistConstraint)
@@ -796,7 +796,7 @@ YYEXPORT void btConeTwistConstraint_getFlags(
 {
 	auto coneTwistConstraint = (btConeTwistConstraint*)YYGetPtr(arg, 0);
 	result.kind = VALUE_INT32;
-	result.val = coneTwistConstraint->getFlags();
+	result.v32 = coneTwistConstraint->getFlags();
 }
 
 // Note: Skipped btConeTwistConstraint::calculateSerializeBufferSize

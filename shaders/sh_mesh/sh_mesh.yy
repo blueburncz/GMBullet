@@ -4,7 +4,7 @@
   "name": "sh_mesh",
   "parent": {
     "name": "Shaders",
-    "path": "folders/Shaders.yy",
+    "path": "folders/Demo/Shaders.yy",
   },
   "type": 1,
 }

@@ -60,7 +60,7 @@ YYEXPORT void btCompoundShapeChild_getChildShapeType(
 {
 	auto compoundShapeChild = (btCompoundShapeChild*)YYGetPtr(arg, 0);
 	result.kind = VALUE_INT32;
-	result.val = compoundShapeChild->m_childShapeType;
+	result.v32 = compoundShapeChild->m_childShapeType;
 }
 
 /// @func btCompoundShapeChild_getNode(compoundShapeChild)
@@ -194,7 +194,7 @@ YYEXPORT void btCompoundShape_getNumChildShapes(
 {
 	auto compoundShape = (btCompoundShape*)YYGetPtr(arg, 0);
 	result.kind = VALUE_INT32;
-	result.val = compoundShape->getNumChildShapes();
+	result.v32 = compoundShape->getNumChildShapes();
 }
 
 /// @func btCompoundShape_getChildShape(compoundShape, index)
@@ -382,7 +382,7 @@ YYEXPORT void btCompoundShape_getUpdateRevision(
 {
 	auto compoundShape = (btCompoundShape*)YYGetPtr(arg, 0);
 	result.kind = VALUE_INT32;
-	result.val = compoundShape->getUpdateRevision();
+	result.v32 = compoundShape->getUpdateRevision();
 }
 
 // Note: Skipped btCompoundShape::calculateSerializeBufferSize

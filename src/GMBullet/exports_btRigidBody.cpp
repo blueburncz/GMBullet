@@ -1513,7 +1513,7 @@ YYEXPORT void btRigidBody_getFlags(
 {
 	auto rigidBody = (btRigidBody*)YYGetPtr(arg, 0);
 	result.kind = VALUE_INT32;
-	result.val = rigidBody->getFlags();
+	result.v32 = rigidBody->getFlags();
 }
 
 // Note: Skipped btRigidBody::computeGyroscopicImpulseImplicit_World

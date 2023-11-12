@@ -682,7 +682,7 @@ YYEXPORT void btHingeConstraint_getSolveLimit(
 {
 	auto hingeConstraint = (btHingeConstraint*)YYGetPtr(arg, 0);
 	result.kind = VALUE_INT32;
-	result.val = hingeConstraint->getSolveLimit();
+	result.v32 = hingeConstraint->getSolveLimit();
 }
 
 /// @func btHingeConstraint_getLimitSign(hingeConstraint)
@@ -860,7 +860,7 @@ YYEXPORT void btHingeConstraint_getFlags(
 {
 	auto hingeConstraint = (btHingeConstraint*)YYGetPtr(arg, 0);
 	result.kind = VALUE_INT32;
-	result.val = hingeConstraint->getFlags();
+	result.v32 = hingeConstraint->getFlags();
 }
 
 // Note: Skipped btHingeConstraint::calculateSerializeBufferSize

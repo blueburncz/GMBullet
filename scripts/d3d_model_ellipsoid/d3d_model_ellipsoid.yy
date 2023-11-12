@@ -6,6 +6,6 @@
   "isDnD": false,
   "parent": {
     "name": "d3d",
-    "path": "folders/Scripts/compatibility/d3d.yy",
+    "path": "folders/Demo/Scripts/compatibility/d3d.yy",
   },
 }

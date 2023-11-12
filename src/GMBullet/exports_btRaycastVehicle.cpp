@@ -139,7 +139,7 @@ YYEXPORT void btVehicleTuning_setSuspensionDamping(
 	vehicleTuning->m_suspensionDamping = suspensionDamping;
 }
 
-/// @func btVehicleTuning_getSuspensionTravelCm(vehicleTuning)
+/// @func btVehicleTuning_getMaxSuspensionTravelCm(vehicleTuning)
 ///
 /// @desc
 /// Gets the maximum suspension travel in centimeters for a vehicle tuning
@@ -150,7 +150,7 @@ YYEXPORT void btVehicleTuning_setSuspensionDamping(
 ///
 /// @return {Real} The maximum suspension travel in centimeters for the vehicle
 /// tuning configuration.
-YYEXPORT void btVehicleTuning_getSuspensionTravelCm(
+YYEXPORT void btVehicleTuning_getMaxSuspensionTravelCm(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
 	auto vehicleTuning = (btVehicleTuning*)YYGetPtr(arg, 0);
@@ -158,7 +158,7 @@ YYEXPORT void btVehicleTuning_getSuspensionTravelCm(
 	result.val = vehicleTuning->m_maxSuspensionTravelCm;
 }
 
-/// @func btVehicleTuning_setSuspensionTravelCm(vehicleTuning, suspensionTravelCm)
+/// @func btVehicleTuning_setMaxSuspensionTravelCm(vehicleTuning, maxSuspensionTravelCm)
 ///
 /// @desc
 /// Sets the maximum suspension travel in centimeters for a vehicle tuning
@@ -166,15 +166,15 @@ YYEXPORT void btVehicleTuning_getSuspensionTravelCm(
 ///
 /// @param {Pointer} vehicleTuning
 ///     A pointer to the btVehicleTuning object.
-/// @param {Real} suspensionTravelCm
+/// @param {Real} maxSuspensionTravelCm
 ///     The maximum suspension travel in centimeters to set for the vehicle
 ///     tuning configuration.
-YYEXPORT void btVehicleTuning_setSuspensionTravelCm(
+YYEXPORT void btVehicleTuning_setMaxSuspensionTravelCm(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
 	auto vehicleTuning = (btVehicleTuning*)YYGetPtr(arg, 0);
-	double suspensionTravelCm = YYGetReal(arg, 1);
-	vehicleTuning->m_maxSuspensionTravelCm = suspensionTravelCm;
+	double maxSuspensionTravelCm = YYGetReal(arg, 1);
+	vehicleTuning->m_maxSuspensionTravelCm = maxSuspensionTravelCm;
 }
 
 /// @func btVehicleTuning_getFrictionSlip(vehicleTuning)
@@ -384,7 +384,7 @@ YYEXPORT void btRaycastVehicle_getSteeringValue(
 	auto raycastVehicle = (btRaycastVehicle*)YYGetPtr(arg, 0);
 	int wheel = YYGetInt32(arg, 1);
 	result.kind = VALUE_INT32;
-	result.val = raycastVehicle->getSteeringValue(wheel);
+	result.v32 = raycastVehicle->getSteeringValue(wheel);
 }
 
 /// @func btRaycastVehicle_setSteeringValue(raycastVehicle, steering, wheel)
@@ -527,7 +527,7 @@ YYEXPORT void btRaycastVehicle_getNumWheels(
 {
 	auto raycastVehicle = (btRaycastVehicle*)YYGetPtr(arg, 0);
 	result.kind = VALUE_INT32;
-	result.val = raycastVehicle->getNumWheels();
+	result.v32 = raycastVehicle->getNumWheels();
 }
 
 /// @func btRaycastVehicle_getWheelInfo(raycastVehicle, index)
@@ -673,7 +673,7 @@ YYEXPORT void btRaycastVehicle_getRightAxis(
 {
 	auto raycastVehicle = (btRaycastVehicle*)YYGetPtr(arg, 0);
 	result.kind = VALUE_INT32;
-	result.val = raycastVehicle->getRightAxis();
+	result.v32 = raycastVehicle->getRightAxis();
 }
 
 /// @func btRaycastVehicle_getUpAxis(raycastVehicle)
@@ -690,7 +690,7 @@ YYEXPORT void btRaycastVehicle_getUpAxis(
 {
 	auto raycastVehicle = (btRaycastVehicle*)YYGetPtr(arg, 0);
 	result.kind = VALUE_INT32;
-	result.val = raycastVehicle->getUpAxis();
+	result.v32 = raycastVehicle->getUpAxis();
 }
 
 /// @func btRaycastVehicle_getForwardAxis(raycastVehicle)
@@ -707,7 +707,7 @@ YYEXPORT void btRaycastVehicle_getForwardAxis(
 {
 	auto raycastVehicle = (btRaycastVehicle*)YYGetPtr(arg, 0);
 	result.kind = VALUE_INT32;
-	result.val = raycastVehicle->getForwardAxis();
+	result.v32 = raycastVehicle->getForwardAxis();
 }
 
 /// @func btRaycastVehicle_getForwardVector(raycastVehicle, outVector3)
@@ -794,7 +794,7 @@ YYEXPORT void btRaycastVehicle_setCoordinateSystem(
 YYEXPORT void btDefaultVehicleRaycaster_create(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
-	auto world = (btDynamicsWorld*)YYGetPtr(arg, 1);
+	auto world = (btDynamicsWorld*)YYGetPtr(arg, 0);
 	result.kind = VALUE_PTR;
 	result.ptr = new btDefaultVehicleRaycaster(world);
 }

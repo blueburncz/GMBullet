@@ -4,7 +4,7 @@
   "name": "btShDebugDraw",
   "parent": {
     "name": "GMBullet",
-    "path": "folders/Extensions/GMBullet.yy",
+    "path": "folders/GMBullet.yy",
   },
   "type": 1,
 }

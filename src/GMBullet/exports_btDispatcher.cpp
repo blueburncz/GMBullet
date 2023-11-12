@@ -70,7 +70,7 @@ YYEXPORT void btDispatcherInfo_getStepCount(
 {
 	auto dispatcherInfo = (btDispatcherInfo*)YYGetPtr(arg, 0);
 	result.kind = VALUE_INT32;
-	result.val = dispatcherInfo->m_stepCount;
+	result.v32 = dispatcherInfo->m_stepCount;
 }
 
 /// @func btDispatcherInfo_setDispatchFunc(dispatcherInfo, dispatchFunc)
@@ -104,7 +104,7 @@ YYEXPORT void btDispatcherInfo_getDispatchFunc(
 {
 	auto dispatcherInfo = (btDispatcherInfo*)YYGetPtr(arg, 0);
 	result.kind = VALUE_INT32;
-	result.val = dispatcherInfo->m_dispatchFunc;
+	result.v32 = dispatcherInfo->m_dispatchFunc;
 }
 
 /// @func btDispatcherInfo_setTimeOfImpact(dispatcherInfo, timeOfImpact)

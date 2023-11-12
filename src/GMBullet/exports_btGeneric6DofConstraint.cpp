@@ -516,7 +516,7 @@ YYEXPORT void btRotationalLimitMotor_getCurrentLimit(
 {
 	auto rotationalLimitMotor = (btRotationalLimitMotor*)YYGetPtr(arg, 0);
 	result.kind = VALUE_INT32;
-	result.val = rotationalLimitMotor->m_currentLimit;
+	result.v32 = rotationalLimitMotor->m_currentLimit;
 }
 
 /// @func btRotationalLimitMotor_setAccumulatedImpulse(rotationalLimitMotor, accumulatedImpulse)
@@ -604,7 +604,7 @@ YYEXPORT void btRotationalLimitMotor_testLimitValue(
 	auto rotationalLimitMotor = (btRotationalLimitMotor*)YYGetPtr(arg, 0);
 	double testValue = YYGetReal(arg, 1);
 	result.kind = VALUE_INT32;
-	result.val = rotationalLimitMotor->testLimitValue(testValue);
+	result.v32 = rotationalLimitMotor->testLimitValue(testValue);
 }
 
 /// @func btRotationalLimitMotor_solveAngularLimits(rotationalLimitMotor, timeStep, axis, jacDiagABInv, body0, body1)
@@ -1188,7 +1188,7 @@ YYEXPORT void btTranslationalLimitMotor_getCurrentLimit(
 	auto translationalLimitMotor = (btTranslationalLimitMotor*)YYGetPtr(arg, 0);
 	int index = YYGetInt32(arg, 1);
 	result.kind = VALUE_INT32;
-	result.val = translationalLimitMotor->m_currentLimit[index];
+	result.v32 = translationalLimitMotor->m_currentLimit[index];
 }
 
 /// @func btTranslationalLimitMotor_isLimited(translationalLimitMotor, limitIndex)
@@ -1255,7 +1255,7 @@ YYEXPORT void btTranslationalLimitMotor_testLimitValue(
 	int limitIndex = YYGetInt32(arg, 1);
 	double testValue = YYGetReal(arg, 2);
 	result.kind = VALUE_INT32;
-	result.val = translationalLimitMotor->testLimitValue(limitIndex, testValue);
+	result.v32 = translationalLimitMotor->testLimitValue(limitIndex, testValue);
 }
 
 /// @func btTranslationalLimitMotor_solveLinearAxis(translationalLimitMotor, timeStep, jacDiagABInv, body1, pointInA, body2, pointInB, limitIndex, axisNormalOnA, anchorPos)
@@ -1995,7 +1995,7 @@ YYEXPORT void btGeneric6DofConstraint_getFlags(
 {
 	auto generic6DofConstraint = (btGeneric6DofConstraint*)YYGetPtr(arg, 0);
 	result.kind = VALUE_INT32;
-	result.val = generic6DofConstraint->getFlags();
+	result.v32 = generic6DofConstraint->getFlags();
 }
 
 // Note: Skipped btGeneric6DofConstraint::calculateSerializeBufferSize

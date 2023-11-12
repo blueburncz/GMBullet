@@ -309,7 +309,7 @@ YYEXPORT void btCollisionShape_getShapeType(
 {
 	auto collisionShape = (btCollisionShape*)YYGetPtr(arg, 0);
 	result.kind = VALUE_INT32;
-	result.val = collisionShape->getShapeType();
+	result.v32 = collisionShape->getShapeType();
 }
 
 /// @func btCollisionShape_getAnisotropicRollingFrictionDirection(collisionShape, outVector3)

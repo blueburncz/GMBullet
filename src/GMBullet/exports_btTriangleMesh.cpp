@@ -226,7 +226,7 @@ YYEXPORT void btTriangleMesh_getNumTriangles(
 {
 	auto triangleMesh = (btTriangleMesh*)YYGetPtr(arg, 0);
 	result.kind = VALUE_INT32;
-	result.val = triangleMesh->getNumTriangles();
+	result.v32 = triangleMesh->getNumTriangles();
 }
 
 /// @func btTriangleMesh_preallocateVertices(triangleMesh, numVerts)

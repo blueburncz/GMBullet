@@ -213,7 +213,7 @@ YYEXPORT void btTypedConstraint_getOverrideNumSolverIterations(
 {
 	auto typedConstraint = (btTypedConstraint*)YYGetPtr(arg, 0);
 	result.kind = VALUE_INT32;
-	result.val = typedConstraint->getOverrideNumSolverIterations();
+	result.v32 = typedConstraint->getOverrideNumSolverIterations();
 }
 
 /// @func btTypedConstraint_setOverrideNumSolverIterations(typedConstraint, overrideNumIterations)
@@ -352,7 +352,7 @@ YYEXPORT void btTypedConstraint_getUserConstraintType(
 {
 	auto typedConstraint = (btTypedConstraint*)YYGetPtr(arg, 0);
 	result.kind = VALUE_INT32;
-	result.val = typedConstraint->getUserConstraintType();
+	result.v32 = typedConstraint->getUserConstraintType();
 }
 
 /// @func btTypedConstraint_setUserConstraintType(typedConstraint, userConstraintType)
@@ -404,7 +404,7 @@ YYEXPORT void btTypedConstraint_getUserConstraintId(
 {
 	auto typedConstraint = (btTypedConstraint*)YYGetPtr(arg, 0);
 	result.kind = VALUE_INT32;
-	result.val = typedConstraint->getUserConstraintId();
+	result.v32 = typedConstraint->getUserConstraintId();
 }
 
 /// @func btTypedConstraint_setUserConstraintPtr(typedConstraint, ptr)
@@ -491,7 +491,7 @@ YYEXPORT void btTypedConstraint_getUid(
 {
 	auto typedConstraint = (btTypedConstraint*)YYGetPtr(arg, 0);
 	result.kind = VALUE_INT32;
-	result.val = typedConstraint->getUid();
+	result.v32 = typedConstraint->getUid();
 }
 
 /// @func btTypedConstraint_needsFeedback(typedConstraint)
@@ -562,7 +562,7 @@ YYEXPORT void btTypedConstraint_getConstraintType(
 {
 	auto typedConstraint = (btTypedConstraint*)YYGetPtr(arg, 0);
 	result.kind = VALUE_INT32;
-	result.val = (int)typedConstraint->getConstraintType();
+	result.v32 = (int)typedConstraint->getConstraintType();
 }
 
 // Note: Skipped btTypedConstraint::setDbgDrawSize

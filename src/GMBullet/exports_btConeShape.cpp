@@ -107,7 +107,7 @@ YYEXPORT void btConeShape_getConeUpIndex(
 {
 	auto coneShape = (btConeShape*)YYGetPtr(arg, 0);
 	result.kind = VALUE_INT32;
-	result.val = coneShape->getConeUpIndex();
+	result.v32 = coneShape->getConeUpIndex();
 }
 
 // Note: Skipped btConeShape::getAnisotropicRollingFrictionDirection

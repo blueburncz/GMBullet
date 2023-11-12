@@ -320,7 +320,7 @@ YYEXPORT void btHeightfieldTerrainShape_getUpAxis(
 {
 	auto heightfieldTerrainShape = (btHeightfieldTerrainShape*)YYGetPtr(arg, 0);
 	result.kind = VALUE_INT32;
-	result.val = heightfieldTerrainShape->getUpAxis();
+	result.v32 = heightfieldTerrainShape->getUpAxis();
 }
 
 // Note: Skip btHeightfieldTerrainShape::getName

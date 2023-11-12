@@ -6,6 +6,6 @@
   "isDnD": false,
   "parent": {
     "name": "GMBullet",
-    "path": "folders/Extensions/GMBullet.yy",
+    "path": "folders/GMBullet.yy",
   },
 }

@@ -68,7 +68,7 @@ YYEXPORT void btIDebugDraw_getDebugMode(
 {
 	auto iDebugDraw = (btIDebugDraw*)YYGetPtr(arg, 0);
 	result.kind = VALUE_INT32;
-	result.val = iDebugDraw->getDebugMode();
+	result.v32 = iDebugDraw->getDebugMode();
 }
 
 // Note: Skipped btIDebugDraw::drawAabb

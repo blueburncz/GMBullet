@@ -365,7 +365,7 @@ YYEXPORT void btRayResultCallback_getCollisionFilterGroup(
 {
 	auto rayResultCallback = (btRayResultCallback*)YYGetPtr(arg, 0);
 	result.kind = VALUE_INT32;
-	result.val = rayResultCallback->m_collisionFilterGroup;
+	result.v32 = rayResultCallback->m_collisionFilterGroup;
 }
 
 /// @func btRayResultCallback_setCollisionFilterGroup(rayResultCallback, collisionFilterGroup)
@@ -406,7 +406,7 @@ YYEXPORT void btRayResultCallback_getCollisionFilterMask(
 {
 	auto rayResultCallback = (btRayResultCallback*)YYGetPtr(arg, 0);
 	result.kind = VALUE_INT32;
-	result.val = rayResultCallback->m_collisionFilterMask;
+	result.v32 = rayResultCallback->m_collisionFilterMask;
 }
 
 /// @func btRayResultCallback_setCollisionFilterMask(rayResultCallback, collisionFilterMask)
@@ -1005,7 +1005,7 @@ YYEXPORT void btConvexResultCallback_getCollisionFilterGroup(
 {
 	auto convexResultCallback = (btConvexResultCallback*)YYGetPtr(arg, 0);
 	result.kind = VALUE_INT32;
-	result.val = convexResultCallback->m_collisionFilterGroup;
+	result.v32 = convexResultCallback->m_collisionFilterGroup;
 }
 
 /// @func btConvexResultCallback_setCollisionFilterGroup(convexResultCallback, collisionFilterGroup)
@@ -1041,7 +1041,7 @@ YYEXPORT void btConvexResultCallback_getCollisionFilterMask(
 {
 	auto convexResultCallback = (btConvexResultCallback*)YYGetPtr(arg, 0);
 	result.kind = VALUE_INT32;
-	result.val = convexResultCallback->m_collisionFilterMask;
+	result.v32 = convexResultCallback->m_collisionFilterMask;
 }
 
 /// @func btConvexResultCallback_setCollisionFilterMask(convexResultCallback, collisionFilterMask)
@@ -1389,7 +1389,7 @@ YYEXPORT void btContactResultCallback_getCollisionFilterGroup(
 {
 	auto contactResultCallback = (btContactResultCallback*)YYGetPtr(arg, 0);
 	result.kind = VALUE_INT32;
-	result.val = contactResultCallback->m_collisionFilterGroup;
+	result.v32 = contactResultCallback->m_collisionFilterGroup;
 }
 
 /// @func btContactResultCallback_setCollisionFilterGroup(contactResultCallback, collisionFilterGroup)
@@ -1423,7 +1423,7 @@ YYEXPORT void btContactResultCallback_getCollisionFilterMask(
 {
 	auto contactResultCallback = (btContactResultCallback*)YYGetPtr(arg, 0);
 	result.kind = VALUE_INT32;
-	result.val = contactResultCallback->m_collisionFilterMask;
+	result.v32 = contactResultCallback->m_collisionFilterMask;
 }
 
 /// @func btContactResultCallback_setCollisionFilterMask(contactResultCallback, collisionFilterMask)

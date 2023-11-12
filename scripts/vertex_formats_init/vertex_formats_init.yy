@@ -6,6 +6,6 @@
   "isDnD": false,
   "parent": {
     "name": "Vertex Formats",
-    "path": "folders/Scripts/Graphics/Vertex Formats.yy",
+    "path": "folders/Demo/Scripts/Graphics/Vertex Formats.yy",
   },
 }

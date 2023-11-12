@@ -331,7 +331,7 @@ YYEXPORT void btDiscreteDynamicsWorld_getNumConstraints(
 {
 	auto dynamicsWorld = (btDiscreteDynamicsWorld*)YYGetPtr(arg, 0);
 	result.kind = VALUE_INT32;
-	result.val = dynamicsWorld->getNumConstraints();
+	result.v32 = dynamicsWorld->getNumConstraints();
 }
 
 /// @func btDiscreteDynamicsWorld_getConstraint(discreteDynamicsWorld, index)
@@ -368,7 +368,7 @@ YYEXPORT void btDiscreteDynamicsWorld_getWorldType(
 {
 	auto dynamicsWorld = (btDiscreteDynamicsWorld*)YYGetPtr(arg, 0);
 	result.kind = VALUE_INT32;
-	result.val = dynamicsWorld->getWorldType();
+	result.v32 = dynamicsWorld->getWorldType();
 }
 
 /// @func btDiscreteDynamicsWorld_clearForces(discreteDynamicsWorld)

@@ -6,6 +6,6 @@
   "isDnD": false,
   "parent": {
     "name": "Model Utilities",
-    "path": "folders/Scripts/Graphics/Model Utilities.yy",
+    "path": "folders/Demo/Scripts/Graphics/Model Utilities.yy",
   },
 }
