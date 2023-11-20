@@ -104,6 +104,40 @@ enum btCollisionFilterGroups
 
 ////////////////////////////////////////////////////////////////////////////////
 //
+// btCollisionObject
+//
+
+/// @macro {Real} Represents the active tag for a bullet physics object. Objects
+/// with this tag are actively participating in the simulation and are subject
+/// to dynamic changes.
+#macro BT_ACTIVE_TAG 1
+
+/// @macro {Real} Represents the sleeping tag for a bullet physics object.
+/// Objects with this tag are part of a sleeping island, indicating that they
+/// are not actively participating in the simulation due to being in a stable
+/// state.
+#macro BT_ISLAND_SLEEPING 2
+
+/// @macro {Real} Represents the wants deactivation tag for a bullet physics
+/// object. Objects with this tag indicate that they would like to be
+/// deactivated if possible.
+#macro BT_WANTS_DEACTIVATION 3
+
+/// @macro {Real} Represents the disable deactivation tag for a bullet physics
+/// object. Objects with this tag will not be deactivated automatically.
+#macro BT_DISABLE_DEACTIVATION 4
+
+/// @macro {Real} Represents the disable simulation tag for a bullet physics
+/// object. Objects with this tag will not be simulated.
+#macro BT_DISABLE_SIMULATION 5
+
+/// @macro {Real} Represents the fixed base multi-body tag for a bullet physics
+/// object. Objects with this tag are multi-body objects with a fixed base,
+/// meaning their base is not subject to dynamic changes.
+#macro BT_FIXED_BASE_MULTI_BODY 6
+
+////////////////////////////////////////////////////////////////////////////////
+//
 // btTypedConstraint
 //
 
