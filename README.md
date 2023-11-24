@@ -44,7 +44,10 @@ functions.
   * [x] Cone
   * [x] Cylinder
   * [x] Compound
-  * [x] Triangle mesh
+  * [ ] Plane (🛑 TODO)
+  * [ ] Triangle mesh
+    * [ ] For dynamic colliders (🛑 TODO)
+    * [x] For static colliders
   * [x] Heightfield terrain
 * [x] Collision objects
 * [x] Discrete dynamics world
