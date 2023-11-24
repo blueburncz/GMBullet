@@ -42,6 +42,7 @@ functions.
   * [x] Sphere
   * [x] Capsule
   * [x] Cone
+  * [ ] Convex hull (🛑 TODO)
   * [x] Cylinder
   * [x] Compound
   * [ ] Plane (🛑 TODO)
