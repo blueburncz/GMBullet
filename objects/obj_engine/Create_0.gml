@@ -87,10 +87,10 @@ mesh = btTriangleMesh_create(true, false);
 var _stride = buffer_sizeof(buffer_f32) * 3 // Position
 	+ buffer_sizeof(buffer_f32) * 3 // Normal
 	+ buffer_sizeof(buffer_u32); // Color
-btTriangleMesh_addTrianglesFromBuffer(mesh, _buffer, 0, _stride, vertex_get_number(vbuffer));
+btTriangleMesh_addTrianglesFromBuffer(mesh, _buffer, 0, _stride, vertex_get_number(vbuffer), matrix_build(0, 0, 0, 0, 0, 0, 200, 200, 200));
 
 mesh_shape = btBvhTriangleMeshShape_create(mesh, false, true);
-btCollisionShape_setLocalScalingXYZ(mesh_shape, 200, 200, 200);
+//btCollisionShape_setLocalScalingXYZ(mesh_shape, 200, 200, 200);
 
 mesh_body = btRigidBody_create(0, btDefaultMotionState_create(), mesh_shape);
 btRigidBody_translateXYZ(mesh_body, 0, 0, -120);

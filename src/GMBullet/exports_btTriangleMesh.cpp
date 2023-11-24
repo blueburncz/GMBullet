@@ -137,7 +137,17 @@ YYEXPORT void btTriangleMesh_addTriangleXYZ(
 		btVector3(vertex2x, vertex2y, vertex2z));
 }
 
-/// @func btTriangleMesh_addTrianglesFromBuffer(triangleMesh, buffer, offset, stride, numVerts)
+static inline void MatrixMulVec3(float* matrix, float& x, float& y, float& z)
+{
+	float _x = x;
+	float _y = y;
+	float _z = z;
+	x = matrix[0] * _x + matrix[4] * _y + matrix[ 8] * _z + matrix[12];
+	y = matrix[1] * _x + matrix[5] * _y + matrix[ 9] * _z + matrix[13];
+	z = matrix[2] * _x + matrix[6] * _y + matrix[10] * _z + matrix[14];
+}
+
+/// @func btTriangleMesh_addTrianglesFromBuffer(triangleMesh, buffer, offset, stride, numVerts[, matrix])
 ///
 /// @desc
 /// Adds triangles to the Bullet triangle mesh from a buffer containing vertex
@@ -153,6 +163,8 @@ YYEXPORT void btTriangleMesh_addTriangleXYZ(
 ///     The stride in bytes between consecutive vertices in the buffer.
 /// @param {Real} numVerts
 ///     The number of vertices to add from the buffer.
+/// @param {Array<Real>} matrix
+///     A matrix to transform the triangles with. Defaults to an identity matrix.
 YYEXPORT void btTriangleMesh_addTrianglesFromBuffer(
 	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
 {
@@ -161,6 +173,21 @@ YYEXPORT void btTriangleMesh_addTrianglesFromBuffer(
 	int offset = YYGetInt32(arg, 2);
 	int stride = YYGetInt32(arg, 3);
 	int numVerts = YYGetInt32(arg, 4);
+
+	RValue* matrix = (argc > 5) ? &arg[5] : nullptr;
+	static btScalar matrixRaw[16];
+
+	if (matrix != nullptr)
+	{
+		RValue value;
+		for (int i = 0; i < 16; ++i)
+		{
+			GET_RValue(&value, matrix, NULL, i);
+			matrixRaw[i] = value.val;
+		}
+		FREE_RValue(&value);
+	}
+
 	float* bufferCurrent = (float*)(buffer + offset);
 
 	for (int i = 0; i < numVerts / 3; ++i)
@@ -170,18 +197,30 @@ YYEXPORT void btTriangleMesh_addTrianglesFromBuffer(
 		x = *bufferCurrent;
 		y = *(bufferCurrent + 1);
 		z = *(bufferCurrent + 2);
+		if (matrix != nullptr)
+		{
+			MatrixMulVec3(matrixRaw, x, y, z);
+		}
 		btVector3 vertex0(x, y, z);
 		bufferCurrent = (float*)((unsigned char*)bufferCurrent + stride);
 
 		x = *bufferCurrent;
 		y = *(bufferCurrent + 1);
 		z = *(bufferCurrent + 2);
+		if (matrix != nullptr)
+		{
+			MatrixMulVec3(matrixRaw, x, y, z);
+		}
 		btVector3 vertex1(x, y, z);
 		bufferCurrent = (float*)((unsigned char*)bufferCurrent + stride);
 
 		x = *bufferCurrent;
 		y = *(bufferCurrent + 1);
 		z = *(bufferCurrent + 2);
+		if (matrix != nullptr)
+		{
+			MatrixMulVec3(matrixRaw, x, y, z);
+		}
 		btVector3 vertex2(x, y, z);
 		bufferCurrent = (float*)((unsigned char*)bufferCurrent + stride);
 
