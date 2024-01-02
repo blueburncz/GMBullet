@@ -1560,7 +1560,7 @@ YYEXPORT void btCollisionWorld_rayTestXYZ(
 	double rayToWorldZ = YYGetReal(arg, 6);
 	auto& resultCallback = *(btRayResultCallback*)YYGetPtr(arg, 7);
 	collisionWorld->rayTest(
-		btVector3(rayFromWorldX, rayFromWorldY, rayToWorldZ),
+		btVector3(rayFromWorldX, rayFromWorldY, rayFromWorldZ),
 		btVector3(rayToWorldX, rayToWorldY, rayToWorldZ),
 		resultCallback);
 }
