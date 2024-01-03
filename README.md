@@ -1,4 +1,5 @@
 # GMBullet
+
 > Bullet Physics extension for GameMaker
 
 [![License](https://img.shields.io/github/license/blueburncz/GMBullet)](LICENSE)
@@ -6,7 +7,8 @@
 
 Maintained by: [kraifpatrik](https://github.com/kraifpatrik)
 
-# Table of Contents
+## Table of Contents
+
 * [About](#about)
 * [Features](#features)
 * [Documentation and help](#documentation-and-help)
@@ -14,7 +16,8 @@ Maintained by: [kraifpatrik](https://github.com/kraifpatrik)
 * [License](#license)
 * [Links](#links)
 
-# About
+## About
+
 GMBullet is an extension that exposes
 [Bullet physics](https://github.com/bulletphysics/bullet3) functions to
 GameMaker. Its goal is not to be a simplification layer, but instead it tries to
@@ -35,7 +38,8 @@ In some cases, there are convenience functions like
 you don't have to create temporary vectors to retrieve data or pass data to
 functions.
 
-# Features
+## Features
+
 * [x] Collision world
 * [ ] Collision shapes
   * [x] Box
@@ -77,7 +81,8 @@ functions.
 * [ ] Soft body (🚧 WIP)
 * [ ] Multithreading (🛑 TODO)
 
-# Documentation and help
+## Documentation and help
+
 Bullet itself is quite poorly documented and I myself am no Bullet guru, so the
 absolute most of the GMBullet documentation was generated from source code using
 [ChatGPT 3.5](https://chat.openai.com). For the most part, it seems quite good,
@@ -89,7 +94,8 @@ the [BlueBurn Discord server](https://discord.gg/ep2BGPm), where I will try to
 do my best to answer your questions. This repo also contains a sample GM project
 to help you get started.
 
-# Building from source
+## Building from source
+
 Requires [CMake](https://cmake.org) version 3.23 or newer!
 
 ```sh
@@ -100,7 +106,7 @@ git clone https://github.com/blueburncz/GMBullet.git --recurse-submodules
 cd GMBullet/bullet3
 mkdir build
 cd build
-cmake ..
+cmake .. -DUSE_DOUBLE_PRECISION=ON
 cmake --build . --config=Release
 
 # Build GMBullet
@@ -111,14 +117,16 @@ cmake ..
 cmake --build . --config=Release
 ```
 
-# License
+## License
+
 Based on Bullet Physics extension for GameMaker: Studio 1.4 by Okapi, available
-from https://drive.google.com/file/d/1AAn1PfZ8EDkCkJXNkaKyOkp5eJdx2bcM/view
+from <https://drive.google.com/file/d/1AAn1PfZ8EDkCkJXNkaKyOkp5eJdx2bcM/view>
 under "Finish it, learn from it, do whatever the hell you want" license. Further
 modifications to the library are available under the MIT license.
 See [LICENSE](LICENSE) for the full license text.
 
-# Links
+## Links
+
 * [Bullet 3](https://github.com/bulletphysics/bullet3)
 * [BlueBurn Discord](https://discord.gg/ep2BGPm)
 * [ChatGPT](https://chat.openai.com)

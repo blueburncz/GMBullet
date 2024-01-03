@@ -175,7 +175,7 @@ YYEXPORT void btTriangleMesh_addTrianglesFromBuffer(
 	int numVerts = YYGetInt32(arg, 4);
 
 	RValue* matrix = (argc > 5) ? &arg[5] : nullptr;
-	static btScalar matrixRaw[16];
+	static float matrixRaw[16];
 
 	if (matrix != nullptr)
 	{

@@ -57,7 +57,7 @@ YYEXPORT void btCollisionShape_getBoundingSphere(
 {
 	auto collisionShape = (btCollisionShape*)YYGetPtr(arg, 0);
 	auto& center = *(btVector3*)YYGetPtr(arg, 1);
-	float radius;
+	btScalar radius;
 	collisionShape->getBoundingSphere(center, radius);
 	result.kind = VALUE_REAL;
 	result.val = radius;
