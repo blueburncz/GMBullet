@@ -358,11 +358,12 @@ YYEXPORT void btCompoundShape_calculatePrincipalAxisTransform(
 	auto& inertia = *(btVector3*)YYGetPtr(arg, 3);
 	int numChildShapes = compoundShape->getNumChildShapes();
 	std::vector<btScalar> masses;
-	RValue value;
 	for (int i = 0; i < numChildShapes; ++i)
 	{
+		RValue value;
 		GET_RValue(&value, massesArray, NULL, i);
 		masses.push_back(value.val);
+		FREE_RValue(&value);
 	}
 	compoundShape->calculatePrincipalAxisTransform(masses.data(), principal, inertia);
 }
