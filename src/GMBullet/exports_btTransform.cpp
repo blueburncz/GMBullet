@@ -200,12 +200,12 @@ YYEXPORT void btTransform_setFromMatrix(
 	auto transform = (btTransform*)YYGetPtr(arg, 0);
 	RValue* matrix = &arg[1];
 	static btScalar src[16];
-	RValue value;
 	for (int i = 0; i < 16; ++i)
 	{
+		RValue value;
 		GET_RValue(&value, matrix, NULL, i);
 		src[i] = value.val;
+		FREE_RValue(&value);
 	}
-	FREE_RValue(&value);
 	transform->setFromOpenGLMatrix(src);
 }

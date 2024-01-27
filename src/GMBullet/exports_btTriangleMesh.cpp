@@ -179,13 +179,13 @@ YYEXPORT void btTriangleMesh_addTrianglesFromBuffer(
 
 	if (matrix != nullptr)
 	{
-		RValue value;
 		for (int i = 0; i < 16; ++i)
 		{
+			RValue value;
 			GET_RValue(&value, matrix, NULL, i);
 			matrixRaw[i] = value.val;
+			FREE_RValue(&value);
 		}
-		FREE_RValue(&value);
 	}
 
 	float* bufferCurrent = (float*)(buffer + offset);
