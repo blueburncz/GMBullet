@@ -72,8 +72,9 @@ functions.
   * [x] Universal
 * [ ] Actions
   * [x] Raycast vehicle
-* [x] Raycasting
-* [x] Sweep tests 
+* [x] Ray test
+* [x] Sweep test
+* [x] Contact tests
 * [ ] Debug draw
   * [x] In-memory (copy to vertex buffer, submit from GM; slow)
   * [ ] OpenGL 2 (🛑 TODO)
