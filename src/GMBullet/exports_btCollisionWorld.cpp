@@ -1,4 +1,5 @@
 #include <GMBullet.hpp>
+#include <vector>
 
 using btRayResultCallback = btCollisionWorld::RayResultCallback;
 using btClosestRayResultCallback = btCollisionWorld::ClosestRayResultCallback;
@@ -1479,6 +1480,286 @@ YYEXPORT void btContactResultCallback_setClosestDistanceThreshold(
 
 // Note: Skipped btContactResultCallback::needsCollision
 // Note: Skipped btContactResultCallback::addSingleResult
+
+////////////////////////////////////////////////////////////////////////////////
+//
+// btContactResultCallbackImpl
+//
+
+class btAllContactsResultCallback : public btContactResultCallback
+{
+public:
+	virtual btScalar addSingleResult(
+		btManifoldPoint& cp,
+		const btCollisionObjectWrapper* colObj0Wrap,
+		int partId0,
+		int index0,
+		const btCollisionObjectWrapper* colObj1Wrap,
+		int partId1,
+		int index1)
+	{
+		Contact contact;
+		contact.m_objectA = colObj0Wrap->getCollisionObject();
+		contact.m_objectB = colObj1Wrap->getCollisionObject();
+		contact.m_pointLocalA = cp.m_localPointA;
+		contact.m_pointLocalB = cp.m_localPointB;
+		contact.m_pointWorldA = cp.m_positionWorldOnA;
+		contact.m_pointWorldB = cp.m_positionWorldOnB;
+		contact.m_normalWorldB = cp.m_normalWorldOnB;
+		m_contacts.push_back(contact);
+		return 1.0f;
+	}
+
+	size_t getNumContacts() const
+	{
+		return m_contacts.size();
+	}
+
+	const btCollisionObject* getCollisionObjectA(size_t index) const
+	{
+		return m_contacts.at(index).m_objectA;
+	}
+
+	const btCollisionObject* getCollisionObjectB(size_t index) const
+	{
+		return m_contacts.at(index).m_objectB;
+	}
+
+	const btVector3& getLocalPointA(size_t index) const
+	{
+		return m_contacts.at(index).m_pointLocalA;
+	}
+
+	const btVector3& getLocalPointB(size_t index) const
+	{
+		return m_contacts.at(index).m_pointLocalB;
+	}
+
+	const btVector3& getWorldPointA(size_t index) const
+	{
+		return m_contacts.at(index).m_pointWorldA;
+	}
+
+	const btVector3& getWorldPointB(size_t index) const
+	{
+		return m_contacts.at(index).m_pointWorldB;
+	}
+
+	const btVector3& getWorldNormalB(size_t index) const
+	{
+		return m_contacts.at(index).m_normalWorldB;
+	}
+
+private:
+	struct Contact
+	{
+		const btCollisionObject* m_objectA;
+		const btCollisionObject* m_objectB;
+		btVector3 m_pointLocalA;
+		btVector3 m_pointLocalB;
+		btVector3 m_pointWorldA;
+		btVector3 m_pointWorldB;
+		btVector3 m_normalWorldB;
+	};
+
+	std::vector<Contact> m_contacts;
+};
+
+/// @func btAllContactsResultCallback_create()
+///
+/// @desc
+/// Creates a new instance of btAllContactsResultCallback, which is used to
+/// handle contact results during collision detection.
+///
+/// @return {Pointer} A pointer to the newly created btAllContactsResultCallback
+/// instance.
+YYEXPORT void btAllContactsResultCallback_create(
+	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
+{
+	result.kind = VALUE_PTR;
+	result.ptr = new btAllContactsResultCallback();
+}
+
+/// @func btAllContactsResultCallback_destroy(allContactsResultCallback)
+///
+/// @desc
+/// Destroys an instance of btAllContactsResultCallback.
+///
+/// @param {Pointer} allContactsResultCallback
+///     A pointer to the btAllContactsResultCallback to destroy.
+YYEXPORT void btAllContactsResultCallback_destroy(
+	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
+{
+	delete (btAllContactsResultCallback*)YYGetPtr(arg, 0);
+}
+
+/// @func btAllContactsResultCallback_getNumContacts(allContactsResultCallback)
+///
+/// @desc
+/// Gets the number of contacts in the result set of a
+/// btAllContactsResultCallback.
+///
+/// @param {Pointer} allContactsResultCallback
+///     A pointer to a btAllContactsResultCallback instance.
+///
+/// @return {Real}
+///     The number of contacts in the result set.
+YYEXPORT void btAllContactsResultCallback_getNumContacts(
+	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
+{
+	auto allContactsResultCallback = (btAllContactsResultCallback*)YYGetPtr(arg, 0);
+	result.kind = VALUE_REAL;
+	result.val = allContactsResultCallback->getNumContacts();
+}
+
+/// @func btAllContactsResultCallback_getCollisionObjectA(allContactsResultCallback, index)
+///
+/// @desc
+/// Gets the first collision object involved in a contact in the result set of a
+/// btAllContactsResultCallback.
+///
+/// @param {Pointer} allContactsResultCallback
+///     A pointer to a btAllContactsResultCallback instance.
+/// @param {Real} index
+///     The index of the contact in the result set.
+///
+/// @return {Pointer} A pointer to the first collision object
+/// (btCollisionObject) involved in the specified contact.
+YYEXPORT void btAllContactsResultCallback_getCollisionObjectA(
+	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
+{
+	auto allContactsResultCallback = (btAllContactsResultCallback*)YYGetPtr(arg, 0);
+	int index = YYGetInt32(arg, 1);
+	result.kind = VALUE_PTR;
+	result.ptr = const_cast<btCollisionObject*>(allContactsResultCallback->getCollisionObjectA(index));
+}
+
+/// @func btAllContactsResultCallback_getCollisionObjectB(allContactsResultCallback, index)
+///
+/// @desc
+/// Gets the second collision object involved in a contact in the result set of
+/// a btAllContactsResultCallback.
+///
+/// @param {Pointer} allContactsResultCallback
+///     A pointer to a btAllContactsResultCallback instance.
+/// @param {Real} index
+///     The index of the contact in the result set.
+///
+/// @return {Pointer} A pointer to the second collision object
+/// (btCollisionObject) involved in the specified contact.
+YYEXPORT void btAllContactsResultCallback_getCollisionObjectB(
+	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
+{
+	auto allContactsResultCallback = (btAllContactsResultCallback*)YYGetPtr(arg, 0);
+	int index = YYGetInt32(arg, 1);
+	result.kind = VALUE_PTR;
+	result.ptr = const_cast<btCollisionObject*>(allContactsResultCallback->getCollisionObjectB(index));
+}
+
+/// @func btAllContactsResultCallback_getLocalPointA(allContactsResultCallback, index, outVector3)
+///
+/// @desc
+/// Gets the local point A of a contact in the result set of a
+/// btAllContactsResultCallback.
+///
+/// @param {Pointer} allContactsResultCallback
+///     A pointer to a btAllContactsResultCallback instance.
+/// @param {Real} index
+///     The index of the contact in the result set.
+/// @param {Pointer} outVector3
+///     A pointer to a btVector3 instance to store the local point A.
+YYEXPORT void btAllContactsResultCallback_getLocalPointA(
+	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
+{
+	auto allContactsResultCallback = (btAllContactsResultCallback*)YYGetPtr(arg, 0);
+	int index = YYGetInt32(arg, 1);
+	auto outVector3 = (btVector3*)YYGetPtr(arg, 2);
+	CopyVector3(allContactsResultCallback->getLocalPointA(index), outVector3);
+}
+
+/// @func btAllContactsResultCallback_getLocalPointB(allContactsResultCallback, index, outVector3)
+///
+/// @desc
+/// Gets the local point B of a contact in the result set of a
+/// btAllContactsResultCallback.
+///
+/// @param {Pointer} allContactsResultCallback
+///     A pointer to a btAllContactsResultCallback instance.
+/// @param {Real} index
+///     The index of the contact in the result set.
+/// @param {Pointer} outVector3
+///     A pointer to a btVector3 instance to store the local point B.
+YYEXPORT void btAllContactsResultCallback_getLocalPointB(
+	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
+{
+	auto allContactsResultCallback = (btAllContactsResultCallback*)YYGetPtr(arg, 0);
+	int index = YYGetInt32(arg, 1);
+	auto outVector3 = (btVector3*)YYGetPtr(arg, 2);
+	CopyVector3(allContactsResultCallback->getLocalPointB(index), outVector3);
+}
+
+/// @func btAllContactsResultCallback_getWorldPointA(allContactsResultCallback, index, outVector3)
+///
+/// @desc
+/// Gets the world point A of a contact in the result set of a
+/// btAllContactsResultCallback.
+///
+/// @param {Pointer} allContactsResultCallback
+///     A pointer to a btAllContactsResultCallback instance.
+/// @param {Real} index
+///     The index of the contact in the result set.
+/// @param {Pointer} outVector3
+///     A pointer to a btVector3 instance to store the world point A.
+YYEXPORT void btAllContactsResultCallback_getWorldPointA(
+	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
+{
+	auto allContactsResultCallback = (btAllContactsResultCallback*)YYGetPtr(arg, 0);
+	int index = YYGetInt32(arg, 1);
+	auto outVector3 = (btVector3*)YYGetPtr(arg, 2);
+	CopyVector3(allContactsResultCallback->getWorldPointA(index), outVector3);
+}
+
+/// @func btAllContactsResultCallback_getWorldPointB(allContactsResultCallback, index, outVector3)
+///
+/// @desc
+/// Gets the world point B of a contact in the result set of a
+/// btAllContactsResultCallback.
+///
+/// @param {Pointer} allContactsResultCallback
+///     A pointer to a btAllContactsResultCallback instance.
+/// @param {Real} index
+///     The index of the contact in the result set.
+/// @param {Pointer} outVector3
+///     A pointer to a btVector3 instance to store the world point B.
+YYEXPORT void btAllContactsResultCallback_getWorldPointB(
+	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
+{
+	auto allContactsResultCallback = (btAllContactsResultCallback*)YYGetPtr(arg, 0);
+	int index = YYGetInt32(arg, 1);
+	auto outVector3 = (btVector3*)YYGetPtr(arg, 2);
+	CopyVector3(allContactsResultCallback->getWorldPointB(index), outVector3);
+}
+
+/// @func btAllContactsResultCallback_getWorldNormalB(allContactsResultCallback, index, outVector3)
+///
+/// @desc
+/// Gets the world normal B of a contact in the result set of a
+/// btAllContactsResultCallback.
+///
+/// @param {Pointer} allContactsResultCallback
+///     A pointer to a btAllContactsResultCallback instance.
+/// @param {Real} index
+///     The index of the contact in the result set.
+/// @param {Pointer} outVector3
+///     A pointer to a btVector3 instance to store the world normal B.
+YYEXPORT void btAllContactsResultCallback_getWorldNormalB(
+	RValue& result, CInstance* self, CInstance* other, int argc, RValue* arg)
+{
+	auto allContactsResultCallback = (btAllContactsResultCallback*)YYGetPtr(arg, 0);
+	int index = YYGetInt32(arg, 1);
+	auto outVector3 = (btVector3*)YYGetPtr(arg, 2);
+	CopyVector3(allContactsResultCallback->getWorldNormalB(index), outVector3);
+}
 
 ////////////////////////////////////////////////////////////////////////////////
 
