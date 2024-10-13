@@ -148,7 +148,7 @@ enum btTypedConstraintType
 	POINT2POINT_CONSTRAINT_TYPE = 3,
 	/// @member Hinge constraint type.
 	HINGE_CONSTRAINT_TYPE,
-	/// @memeber Cone twist constraint type.
+	/// @member Cone twist constraint type.
 	CONETWIST_CONSTRAINT_TYPE,
 	/// @member D6 constraint type.
 	D6_CONSTRAINT_TYPE,
@@ -263,17 +263,17 @@ enum bt6DofFlags
 //
 
 /// @macro {Real} Default softness value for the slider constraint.
-#macro SLIDER_CONSTRAINT_DEF_SOFTNESS 1.0
+#macro BT_SLIDER_CONSTRAINT_DEF_SOFTNESS 1.0
 
 /// @macro {Real} Default damping value for the slider constraint.
-#macro SLIDER_CONSTRAINT_DEF_DAMPING 1.0
+#macro BT_SLIDER_CONSTRAINT_DEF_DAMPING 1.0
 
 /// @macro {Real} Default restitution value for the slider constraint.
-#macro SLIDER_CONSTRAINT_DEF_RESTITUTION 0.7
+#macro BT_SLIDER_CONSTRAINT_DEF_RESTITUTION 0.7
 
 /// @macro {Real} Default constraint force mixing value for the slider
 /// constraint.
-#macro SLIDER_CONSTRAINT_DEF_CFM 0.0
+#macro BT_SLIDER_CONSTRAINT_DEF_CFM 0.0
 
 /// @enum Enum representing flags for the slider constraint.
 enum btSliderFlags
