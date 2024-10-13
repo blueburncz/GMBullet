@@ -1,0 +1,16 @@
+{
+  "_version": 2,
+  "project": "GMBullet.yyp",
+  "project_name": "GMBullet",
+  "version": "0.1.0",
+  "title": "GMBullet Docs",
+  "author": "BlueBurn",
+  "prefix": ["__gmbullet", "GMBullet"],
+  "analytics": "",
+  "api": {
+    "rating": ""
+  },
+  "toc": {
+    "GMBullet Docs": "index.md"
+  }
+}

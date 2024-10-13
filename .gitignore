@@ -1,6 +1,8 @@
 .DS_Store
 .vscode/
 build/
+docs_build/
+docs_src/ScriptingAPI/
 env/
 in.cpp
 make-code.py
