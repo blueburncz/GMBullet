@@ -1,11 +1,13 @@
 {
-  "resourceType": "GMScript",
-  "resourceVersion": "1.0",
-  "name": "d3d_model_ellipsoid",
-  "isCompatibility": true,
-  "isDnD": false,
-  "parent": {
-    "name": "d3d",
-    "path": "folders/Demo/Scripts/compatibility/d3d.yy",
+  "$GMScript":"v1",
+  "%Name":"d3d_model_ellipsoid",
+  "isCompatibility":true,
+  "isDnD":false,
+  "name":"d3d_model_ellipsoid",
+  "parent":{
+    "name":"d3d",
+    "path":"folders/Demo/Scripts/compatibility/d3d.yy",
   },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
 }

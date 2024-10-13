@@ -1,11 +1,13 @@
 {
-  "resourceType": "GMScript",
-  "resourceVersion": "1.0",
-  "name": "instance_create",
-  "isCompatibility": true,
-  "isDnD": false,
-  "parent": {
-    "name": "instance",
-    "path": "folders/Demo/Scripts/compatibility/instance.yy",
+  "$GMScript":"v1",
+  "%Name":"instance_create",
+  "isCompatibility":true,
+  "isDnD":false,
+  "name":"instance_create",
+  "parent":{
+    "name":"instance",
+    "path":"folders/Demo/Scripts/compatibility/instance.yy",
   },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
 }

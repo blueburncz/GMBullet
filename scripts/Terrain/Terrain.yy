@@ -1,11 +1,13 @@
 {
-  "resourceType": "GMScript",
-  "resourceVersion": "1.0",
-  "name": "Terrain",
-  "isCompatibility": false,
-  "isDnD": false,
-  "parent": {
-    "name": "Scripts",
-    "path": "folders/Demo/Scripts.yy",
+  "$GMScript":"v1",
+  "%Name":"Terrain",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"Terrain",
+  "parent":{
+    "name":"Scripts",
+    "path":"folders/Demo/Scripts.yy",
   },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
 }

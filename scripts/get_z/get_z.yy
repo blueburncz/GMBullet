@@ -1,11 +1,13 @@
 {
-  "resourceType": "GMScript",
-  "resourceVersion": "1.0",
-  "name": "get_z",
-  "isCompatibility": false,
-  "isDnD": false,
-  "parent": {
-    "name": "Miscellaneous",
-    "path": "folders/Demo/Scripts/Miscellaneous.yy",
+  "$GMScript":"v1",
+  "%Name":"get_z",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"get_z",
+  "parent":{
+    "name":"Miscellaneous",
+    "path":"folders/Demo/Scripts/Miscellaneous.yy",
   },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
 }

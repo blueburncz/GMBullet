@@ -1,11 +1,13 @@
 {
-  "resourceType": "GMScript",
-  "resourceVersion": "1.0",
-  "name": "__gmbullet",
-  "isCompatibility": false,
-  "isDnD": false,
-  "parent": {
-    "name": "GMBullet",
-    "path": "folders/GMBullet.yy",
+  "$GMScript":"v1",
+  "%Name":"__gmbullet",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"__gmbullet",
+  "parent":{
+    "name":"GMBullet",
+    "path":"folders/GMBullet.yy",
   },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
 }
