@@ -10,6 +10,12 @@ Maintained by: [kraifpatrik](https://github.com/kraifpatrik)
 ## Table of Contents
 
 * [About](#about)
+* [Translating API](#translating-api)
+  * [Construtors and destructors](#constructors-and-destructors)
+  * [Methods](#methods)
+  * [Return values](#return-values)
+  * [Public properties](#public-properties)
+  * [Operators](#operators)
 * [Features](#features)
 * [Documentation and help](#documentation-and-help)
 * [Building from source](#building-from-source)
@@ -23,20 +29,103 @@ GMBullet is an extension that exposes
 GameMaker. Its goal is not to be a simplification layer, but instead it tries to
 match Bullet's API as closely as possible.
 
-Bullet's C++ public API is converted into a C-like code and exposed to GML. For
-example, instances of classes/structs are created with `btClass_create` and
-freed from memory with `btClass_destroy`. If there's a class
-`btDiscreteDynamicsWorld` with a method `addRigidBody(body)`, this becomes
-`btDiscreteDynamicsWorld_addRigidBody(world, body)`. Classes and structs within
-a namespace become just the class/struct name prepended with `bt`, e.g.
-`btCollisionWorld::ClosestRayResultCallback` becomes `btClosestRayResultCallback`.
-For public members of classes/structs there are getter and setter functions, e.g.
-for member `m_hitPointWorld` of `btClosestRayResultCallback`, there is a getter
-`btClosestRayResultCallback_getHitPointWorld` (the `m_` prefix is always omitted).
-In some cases, there are convenience functions like
-`btClass_getSomethingArray(class, outArray)` or `btClass_createXYZ(x, y, z)`, so
-you don't have to create temporary vectors to retrieve data or pass data to
-functions.
+## Translating API
+
+Bullet's C++ public API is converted into a C-like code and exposed to GML. This
+is how to find a GMBullet equivalent to a Bullet function:
+
+### Constructors and destructors
+
+In GMBullet, these are the class name appended with `_create` or `_destroy`. For
+example:
+
+```cpp
+// C++
+btDiscreteDynamicsWorld* dynamicsWorld = new btDiscreteDynamicsWorld(
+    dispatcher, pairCache, constraintSolver, collisionConfiguration);
+
+delete dynamicsWorld;
+```
+
+becomes
+
+```gml
+// GML
+var dynamicsWorld = btDiscreteDynamicsWorld_create(
+    dispatcher, pairCache, constraintSolver, collisionConfiguration);
+
+btDiscreteDynamicsWorld_destroy(dynamicsWorld);
+```
+
+If a Bullet class/struct has multiple constructors, in GMBullet these are available
+as separate functions. For example these are the constructors of `btQuaternion`
+available in GMBullet:
+
+```gml
+// GML
+btQuaternion_create(x, y, z, w);
+btQuaternion_createFromAxisAngle(axis, angle);
+btQuaternion_createFromEuler(yaw, pitch, roll);
+```
+
+If a Bullet class/struct is defined inside of a namespace or another class/struct,
+the GMBullet name is just the class/struct name (prepended with `bt`, if missing),
+without the namespace. For example, `btCollisionWorld::ClosestRayResultCallback`
+becomes just `btClosestRayResultCallback`.
+
+### Methods
+
+In GMBullet, these are the class name appended with underscore, followed by the
+method name. The first argument of a method is always a pointer to the class
+instance. For example:
+
+```cpp
+// C++
+btVector3 gravity(0.0, 0.0, -9.8);
+dynamicsWorld->setGravity(gravity);
+```
+
+becomes
+
+```gml
+// GML
+var gravity = btVector3_create(0, 0, -9.8);
+btDiscreteDynamicsWorld_setGravity(dynamicsWorld, gravity);
+btVector3_destroy(gravity);
+```
+
+### Return values
+
+Instead of allocating a new class/struct and returning those directly, GMBullet
+uses output parameters, appended to the end of the original function. For example:
+
+```cpp
+// C++
+btVector3 gravity = dynamicsWorld->getGravity();
+// Use gravity...
+```
+
+becomes
+
+```gml
+// GML
+var outGravity = btVector3_create();
+btDiscreteDynamicsWorld_getGravity(dynamicsWorld, outGravity);
+// Use outGravity...
+btVector3_destroy(outGravity);
+```
+
+### Public properties
+
+Public properties of classes/structs in Bullet are exposed via getters and setters
+in GMBullet. For example for `m_hitPointWorld` of `btClosestRayResultCallback`,
+there's a getter `btClosestRayResultCallback_getHitPointWorld`.
+
+### Operators
+
+**Operator overloads are currently not exposed in GMBullet!** (But when they're
+added, they are most likely going t be `_add`, `_sub`, `_mul` and `_div`,
+appended to the class/struct name.)
 
 ## Features
 
