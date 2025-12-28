@@ -5,10 +5,9 @@
 [![License](https://img.shields.io/github/license/blueburncz/GMBullet)](LICENSE)
 [![Discord](https://img.shields.io/discord/298884075585011713?label=Discord)](https://discord.gg/ep2BGPm)
 
-Maintained by: [kraifpatrik](https://github.com/kraifpatrik)
-
 ## Table of Contents
 
+* [Status](#status-community-project-)
 * [About](#about)
 * [Translating API](#translating-api)
   * [Construtors and destructors](#constructors-and-destructors)
@@ -21,6 +20,12 @@ Maintained by: [kraifpatrik](https://github.com/kraifpatrik)
 * [Building from source](#building-from-source)
 * [License](#license)
 * [Links](#links)
+
+## Status: Community Project 💙
+
+This is a community-developed project, released under **CC0 1.0 Universal (Public Domain)**.
+It is **no longer actively maintained** by the original author. Feel free to fork, modify,
+or experiment.
 
 ## About
 
@@ -173,17 +178,8 @@ appended to the class/struct name.)
 
 ## Documentation and help
 
-Bullet itself is quite poorly documented and I myself am no Bullet guru, so the
-absolute most of the GMBullet documentation was generated from source code using
-[ChatGPT 3.5](https://chat.openai.com). For the most part, it seems quite good,
-but sometimes it looks like complete BS. But hey, it's better than nothing! The
-documentation can be found online at <https://blueburn.cz/gmbullet/docs>. The
-best way to learn Bullet remains to be using
-[examples](https://github.com/bulletphysics/bullet3/tree/master/examples)
-included in the official repo. In case you need help with GMBullet, you can join
-the [BlueBurn Discord server](https://discord.gg/ep2BGPm), where I will try to
-do my best to answer your questions. This repo also contains a sample GM project
-to help you get started.
+All documentation was generated from source using [ChatGPT 3.5](https://chat.openai.com)!
+Please use Bullet's official resources for learning.
 
 ## Building from source
 
@@ -213,12 +209,10 @@ cmake --build . --config=Release
 Based on Bullet Physics extension for GameMaker: Studio 1.4 by Okapi, available
 from <https://drive.google.com/file/d/1AAn1PfZ8EDkCkJXNkaKyOkp5eJdx2bcM/view>
 under "Finish it, learn from it, do whatever the hell you want" license. Further
-modifications to the library are available under the MIT license.
+modifications to the library are available under the CC0 license.
 See [LICENSE](LICENSE) for the full license text.
 
 ## Links
 
 * [Bullet 3](https://github.com/bulletphysics/bullet3)
-* [BlueBurn Discord](https://discord.gg/ep2BGPm)
-* [ChatGPT](https://chat.openai.com)
 * [Original project](https://drive.google.com/file/d/1AAn1PfZ8EDkCkJXNkaKyOkp5eJdx2bcM/view) by Okapi
